@@ -1,0 +1,24 @@
+{
+  "name": "js-sandbox",
+  "version": "0.0.1",
+  "description": "JS sandbox with modern JS features for client side prototyping",
+  "author": "Nick Schaubeck",
+  "repository": "http://github.com/nschaubeck/js-sandbox",
+  "dependencies": {
+    "browserify": "6.2.0",
+    "es6ify": "1.5.1",
+    "express": "^4.10.1",
+    "grunt": "0.4.5",
+    "grunt-browserify": "3.2.0",
+    "grunt-contrib-watch": "0.6.1",
+    "grunt-express-server": "0.4.19",
+    "grunt-parallel": "0.3.1",
+    "grunt-watchify": "^0.1.0",
+    "load-grunt-tasks": "1.0.0",
+    "react": "0.12.0",
+    "react-bootstrap": "0.12.0",
+    "react-tools": "0.12.0",
+    "reactify": "0.15.2"
+  },
+  "engine": "node >= 0.10.0"
+}
