@@ -28,8 +28,9 @@ var gl = initWebGL(canvas);
 gl.clearColor(0.0, 1.0, 1.0, 1.0);
 
 function startProgram(event) {
-  var width = event.target.width;
-  var height = event.target.height;
+  var image = event.target;
+  var width = image.width;
+  var height = image.height;
   canvas.width = width;
   canvas.height = height;
   gl.viewport(0, 0, width, height);
@@ -37,31 +38,59 @@ function startProgram(event) {
 
   var img = event.currentTarget;
   var shader = glShader(gl,
-    glslify('../../../shaders/example.vert'),
-    glslify('../../../shaders/color.frag')
+    glslify('../../../src/shaders/texture_coords.vert'),
+    glslify('../../../src/shaders/brightness.frag')
   );
   shader.bind();
 
   //Create vertex buffer
-  buffer = gl.createBuffer();
+  var buffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
      1.0,  1.0,  0.0,
-    -1.0,  1.0,  0.0,
-     1.0, -1.0,  0.0,
-    -1.0, -1.0,  0.0
+     0.0,  1.0,  0.0,
+     1.0,  0.0,  0.0,
+     0.0,  0.0,  0.0
   ]), gl.STATIC_DRAW);
+
+  // Create texture coord buffer
+  // var texBuffer = gl.createBuffer();
+  // gl.bindBuffer(gl.ARRAY_BUFFER, texBuffer);
+  // gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(textureCoords), gl.STATIC_DRAW);
 
   //Set attributes
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
   shader.attributes.position.pointer();
 
-  //Set uniforms
-  var orthoMat = mat4.ortho([], -1, 1, -1, 1, -1, 100);
-  var mvMatrix = mat4.translate([], mat4.create(), [0, 0, 0]);
+  // Set uniforms
+  var orthoMat = mat4.ortho([], 0, width, 0, height, 0, 1);
+  var mvMatrix = mat4.scale([], mat4.create(), [width, height, 0]);
 
+  // Setup texture
+  var texture = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, texture);
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+  gl.bindTexture(gl.TEXTURE_2D, null);
+
+  // Bind texture
+  gl.activeTexture(gl.TEXTURE0);
+  gl.bindTexture(gl.TEXTURE_2D, texture);
+
+  shader.uniforms.texture = 0;
   shader.uniforms.p_matrix = orthoMat;
   shader.uniforms.mv_matrix = mvMatrix;
+  shader.uniforms.t = 1.0;
+
+  var $control = $("#control");
+  $control.on('mousemove', function(event) {
+    var num = event.target.valueAsNumber / 100;
+    shader.uniforms.t = num;
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  });
 
   //Draw
   gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
