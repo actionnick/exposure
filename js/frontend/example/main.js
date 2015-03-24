@@ -39,7 +39,7 @@ function startProgram(event) {
   var img = event.currentTarget;
   var shader = glShader(gl,
     glslify('../../../src/shaders/texture_coords.vert'),
-    glslify('../../../src/shaders/contrast.frag')
+    glslify('../../../src/shaders/levels.frag')
   );
   shader.bind();
 
@@ -83,21 +83,62 @@ function startProgram(event) {
   shader.uniforms.texture = 0;
   shader.uniforms.p_matrix = orthoMat;
   shader.uniforms.mv_matrix = mvMatrix;
-  shader.uniforms.t = 1.0;
-  shader.uniforms.mid = 0.5;
+  shader.uniforms.rgb_in_min = 0.0;
+  shader.uniforms.rgb_in_max = 1.0;
+  shader.uniforms.rgb_out_min = 0.0;
+  shader.uniforms.rgb_out_max = 1.0;
+  shader.uniforms.rgb_gamma = 1.0;
+
+  shader.uniforms.r_in_min = 0.0;
+  shader.uniforms.r_in_max = 1.0;
+  shader.uniforms.r_out_min = 0.0;
+  shader.uniforms.r_out_max = 1.0;
+  shader.uniforms.r_gamma = 1.0;
+
+  shader.uniforms.g_in_min = 0.0;
+  shader.uniforms.g_in_max = 1.0;
+  shader.uniforms.g_out_min = 0.0;
+  shader.uniforms.g_out_max = 1.0;
+  shader.uniforms.g_gamma = 1.0;
+
+  shader.uniforms.b_in_min = 0.0;
+  shader.uniforms.b_in_max = 1.0;
+  shader.uniforms.b_out_min = 0.0;
+  shader.uniforms.b_out_max = 1.0;
+  shader.uniforms.b_gamma = 1.0;
 
   var $control = $("#control");
   var $control2 = $("#control2");
+  var $control3 = $("#control3");
+  var $control4 = $("#control4");
+  var $control5 = $("#control5");
+
   $control.on('mousemove', function(event) {
     var num = event.target.valueAsNumber / 100;
-    shader.uniforms.t = num;
+    shader.uniforms.g_in_min = num;
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   });
   $control2.on('mousemove', function(event) {
     var num = event.target.valueAsNumber / 100;
-    shader.uniforms.mid = num;
+    shader.uniforms.g_in_max = num;
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   });
+  $control3.on('mousemove', function(event) {
+    var num = event.target.valueAsNumber / 100;
+    shader.uniforms.g_out_min = num;
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  });
+  $control4.on('mousemove', function(event) {
+    var num = event.target.valueAsNumber / 100;
+    shader.uniforms.g_out_max = num;
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  });
+  $control5.on('mousemove', function(event) {
+    var num = event.target.valueAsNumber / 100;
+    shader.uniforms.g_gamma = num;
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  });
+
 
   //Draw
   gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);

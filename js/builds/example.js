@@ -40,7 +40,7 @@ function startProgram(event) {
   var img = event.currentTarget;
   var shader = glShader(gl,
     "#define GLSLIFY 1\n\nattribute vec3 position;\n\nuniform mat4 p_matrix;\nuniform mat4 mv_matrix;\n\nvarying vec2 uv;\n\nvoid main() {\n  gl_Position = p_matrix * mv_matrix * vec4(position, 1.0);\n  uv = position.xy;\n}",
-    "#define GLSLIFY 1\n\nprecision highp float;\nvarying vec2 uv;\n\nuniform sampler2D texture;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float t;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(uv.s, uv.t));\n  gl_FragColor.r = ((color.r - mid) * t) + mid;\n  gl_FragColor.g = ((color.g - mid) * t) + mid;\n  gl_FragColor.b = ((color.b - mid) * t) + mid;\n  gl_FragColor.a = color.a;\n}"
+    "#define GLSLIFY 1\n\nprecision highp float;\nvarying vec2 uv;\n\nuniform sampler2D texture;\n\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(uv.s, uv.t));\n  float alpha = color.a;\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n\n  // Then adjust channels seperately\n  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);\n  color.r = pow(color.r, (1.0 / r_gamma));\n  color.r = mix(r_out_min, r_out_max, color.r);\n\n  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);\n  color.g = pow(color.g, (1.0 / g_gamma));\n  color.g = mix(g_out_min, g_out_max, color.g);\n\n  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);\n  color.b = pow(color.b, (1.0 / b_gamma));\n  color.b = mix(b_out_min, b_out_max, color.b);\n\n  gl_FragColor.rgb = color.rgb;\n  gl_FragColor.a = alpha;\n}"
   );
   shader.bind();
 
@@ -84,21 +84,62 @@ function startProgram(event) {
   shader.uniforms.texture = 0;
   shader.uniforms.p_matrix = orthoMat;
   shader.uniforms.mv_matrix = mvMatrix;
-  shader.uniforms.t = 1.0;
-  shader.uniforms.mid = 0.5;
+  shader.uniforms.rgb_in_min = 0.0;
+  shader.uniforms.rgb_in_max = 1.0;
+  shader.uniforms.rgb_out_min = 0.0;
+  shader.uniforms.rgb_out_max = 1.0;
+  shader.uniforms.rgb_gamma = 1.0;
+
+  shader.uniforms.r_in_min = 0.0;
+  shader.uniforms.r_in_max = 1.0;
+  shader.uniforms.r_out_min = 0.0;
+  shader.uniforms.r_out_max = 1.0;
+  shader.uniforms.r_gamma = 1.0;
+
+  shader.uniforms.g_in_min = 0.0;
+  shader.uniforms.g_in_max = 1.0;
+  shader.uniforms.g_out_min = 0.0;
+  shader.uniforms.g_out_max = 1.0;
+  shader.uniforms.g_gamma = 1.0;
+
+  shader.uniforms.b_in_min = 0.0;
+  shader.uniforms.b_in_max = 1.0;
+  shader.uniforms.b_out_min = 0.0;
+  shader.uniforms.b_out_max = 1.0;
+  shader.uniforms.b_gamma = 1.0;
 
   var $control = $("#control");
   var $control2 = $("#control2");
+  var $control3 = $("#control3");
+  var $control4 = $("#control4");
+  var $control5 = $("#control5");
+
   $control.on('mousemove', function(event) {
     var num = event.target.valueAsNumber / 100;
-    shader.uniforms.t = num;
+    shader.uniforms.g_in_min = num;
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   });
   $control2.on('mousemove', function(event) {
     var num = event.target.valueAsNumber / 100;
-    shader.uniforms.mid = num;
+    shader.uniforms.g_in_max = num;
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   });
+  $control3.on('mousemove', function(event) {
+    var num = event.target.valueAsNumber / 100;
+    shader.uniforms.g_out_min = num;
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  });
+  $control4.on('mousemove', function(event) {
+    var num = event.target.valueAsNumber / 100;
+    shader.uniforms.g_out_max = num;
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  });
+  $control5.on('mousemove', function(event) {
+    var num = event.target.valueAsNumber / 100;
+    shader.uniforms.g_gamma = num;
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  });
+
 
   //Draw
   gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
