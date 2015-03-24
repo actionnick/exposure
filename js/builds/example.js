@@ -40,7 +40,7 @@ function startProgram(event) {
   var img = event.currentTarget;
   var shader = glShader(gl,
     "#define GLSLIFY 1\n\nattribute vec3 position;\n\nuniform mat4 p_matrix;\nuniform mat4 mv_matrix;\n\nvarying vec2 uv;\n\nvoid main() {\n  gl_Position = p_matrix * mv_matrix * vec4(position, 1.0);\n  uv = position.xy;\n}",
-    "#define GLSLIFY 1\n\nprecision highp float;\nvarying vec2 uv;\n\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float t;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(uv.s, uv.t));\n  gl_FragColor = mix(color, vec4(1.0, 1.0, 1.0, 1.0), t - 1.0);\n}"
+    "#define GLSLIFY 1\n\nprecision highp float;\nvarying vec2 uv;\n\nuniform sampler2D texture;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float t;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(uv.s, uv.t));\n  gl_FragColor.r = ((color.r - mid) * t) + mid;\n  gl_FragColor.g = ((color.g - mid) * t) + mid;\n  gl_FragColor.b = ((color.b - mid) * t) + mid;\n  gl_FragColor.a = color.a;\n}"
   );
   shader.bind();
 
@@ -85,11 +85,18 @@ function startProgram(event) {
   shader.uniforms.p_matrix = orthoMat;
   shader.uniforms.mv_matrix = mvMatrix;
   shader.uniforms.t = 1.0;
+  shader.uniforms.mid = 0.5;
 
   var $control = $("#control");
+  var $control2 = $("#control2");
   $control.on('mousemove', function(event) {
     var num = event.target.valueAsNumber / 100;
     shader.uniforms.t = num;
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  });
+  $control2.on('mousemove', function(event) {
+    var num = event.target.valueAsNumber / 100;
+    shader.uniforms.mid = num;
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   });
 

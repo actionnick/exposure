@@ -39,7 +39,7 @@ function startProgram(event) {
   var img = event.currentTarget;
   var shader = glShader(gl,
     glslify('../../../src/shaders/texture_coords.vert'),
-    glslify('../../../src/shaders/brightness.frag')
+    glslify('../../../src/shaders/contrast.frag')
   );
   shader.bind();
 
@@ -84,11 +84,18 @@ function startProgram(event) {
   shader.uniforms.p_matrix = orthoMat;
   shader.uniforms.mv_matrix = mvMatrix;
   shader.uniforms.t = 1.0;
+  shader.uniforms.mid = 0.5;
 
   var $control = $("#control");
+  var $control2 = $("#control2");
   $control.on('mousemove', function(event) {
     var num = event.target.valueAsNumber / 100;
     shader.uniforms.t = num;
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  });
+  $control2.on('mousemove', function(event) {
+    var num = event.target.valueAsNumber / 100;
+    shader.uniforms.mid = num;
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   });
 
