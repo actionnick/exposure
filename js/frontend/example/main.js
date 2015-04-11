@@ -112,13 +112,26 @@ var catmullRomSpline = function(controlPoints, samples, knot) {
     throw "Must have at least 4 control points to generate catmull rom spline";
   }
   var points = [];
-  var p0, p1, p2, p3;
+  var p0, p1, p2, p3, offset;
 
   controlPoints.forEach(function(point, i) {
+    offset = 1;
     p0 = point;
-    p1 = controlPoints[i + 1];
-    p2 = controlPoints[i + 2];
-    p3 = controlPoints[i + 3];
+
+    do {
+      p1 = controlPoints[i + offset];
+      offset++;
+    } while (p0 && p1 && p0[0] === p1[0] && p0[1] === p1[1]);
+
+    do {
+      p2 = controlPoints[i + offset];
+      offset++;
+    } while (p1 && p2 && p1[0] === p2[0] && p1[1] === p2[1]);
+
+    do {
+      p3 = controlPoints[i + offset];
+      offset++;
+    } while (p2 && p3 && p2[0] === p3[0] && p2[1] === p3[1]);
 
     if (!(p1 && p2 && p3)) {
       return;
