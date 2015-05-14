@@ -1,0 +1,62 @@
+body, html {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.no-buffer {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+#main {
+  width: 100%;
+  height: 100%;
+}
+
+#top {
+  height: 10%;
+}
+
+#logo {
+  display: inline-block;
+  width: 20%;
+  height: 100%;
+  background: url(../assets/logo.svg) center center no-repeat;
+  background-size: 90%;
+}
+
+#effects {
+  display: inline-block;
+  width: 79%;
+  height: 100%;
+}
+
+#middle{
+  height: 80%;
+}
+
+#images {
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+}
+
+#current-image {
+  display: inline-block;
+  width: 70%;
+  height: 100%;
+}
+
+#controls {
+  display: inline-block;
+  width: 19%;
+  height: 100%;
+}
+
+#bottom {
+  height: 10%;
+}
