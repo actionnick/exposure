@@ -1,6 +1,7 @@
 var React = require("react");
 var ImageStage = require("./image_stage");
 var ImageList = require("./image_list");
+var Frame = require("../src/frame");
 
 var injectTapEventPlugin = require("react-tap-event-plugin");
 injectTapEventPlugin();
@@ -12,22 +13,26 @@ var controlPanel = document.getElementById("controls");
 
 var images = [];
 var currentImage;
+var canvas;
 
 var handleImageLoad = function(event) {
   var file = event.target.files[0];
   var reader = new FileReader();
   reader.onload = function(e) {
-    images.push(e.target.result);
-    currentImage = e.target.result;
-    React.render(<ImageStage imageSelected={true} canvasReadyCallback={canvasReady}/>, imageStage);
+    var img = new Image();
+    img.onload = function() {
+      images.push(img);
+      currentImage = img;
+      React.render(<ImageStage imageSelected={true} canvasReadyCallback={canvasReady}/>, imageStage);
+    };
+    img.src = e.target.result;
   };
   reader.readAsDataURL(file);
 };
 
 var canvasReady = function(canvasNode) {
-  debugger;
-  // create an img
-  // onload initialze exposure object with image and canvas
+  var frame = new Frame(currentImage, canvasNode);
+  frame.draw();
 };
 
 React.render(<ImageStage fileSelectCallback={handleImageLoad}/>, imageStage);
