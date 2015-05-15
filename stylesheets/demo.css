@@ -42,19 +42,16 @@ body, html {
 #images {
   width: 10%;
   height: 100%;
-  background-color: red;
 }
 
 #current-image {
   width: 70%;
   height: 100%;
-  background-color: green;
 }
 
 #controls {
   width: 19%;
   height: 100%;
-  background-color: blue;
 }
 
 #bottom {

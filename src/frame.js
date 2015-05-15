@@ -1,6 +1,7 @@
 var mat4 = require("gl-mat4");
 var glShader = require("gl-shader");
 var glslify = require("glslify");
+var BrightnessFilter = require("./brightness_filter");
 
 class Frame {
   constructor(img, canvas) {
@@ -13,7 +14,7 @@ class Frame {
     // shader for drawing image
     this.shader = glShader(gl,
       glslify('./shaders/texture_coords.vert'),
-      glslify('./shaders/sample.frag')
+      glslify('./shaders/texture_map.frag')
     );
 
     // create geometry buffer to draw image on
@@ -64,6 +65,11 @@ class Frame {
   draw() {
     var gl = this.gl;
 
+    this.b = new BrightnessFilter(gl);
+    this.b.bind();
+    this.b2 = new BrightnessFilter(gl);
+    this.b2.bind();
+
     this.shader.bind();
     this.setAttributes();
     this.bindTexture();
@@ -76,6 +82,13 @@ class Frame {
     gl.enable(gl.CULL_FACE);
 
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+    this.b.shader.bind();
+    this.b.brightness = 1.1;
+    this.b.draw();
+    this.b2.shader.bind();
+    this.b2.brightness = 0.5;
+    this.b2.draw();
   }
 }
 

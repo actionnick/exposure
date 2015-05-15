@@ -1,5 +1,5 @@
 precision highp float;
-varying vec2 uv;
+varying vec2 screenPosition;
 
 uniform sampler2D texture;
 
@@ -10,6 +10,6 @@ uniform sampler2D texture;
 uniform float t;
 
 void main() {
-  vec4 color = texture2D(texture, vec2(uv.s, uv.t));
+  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));
   gl_FragColor = mix(color, vec4(1.0, 1.0, 1.0, 1.0), t - 1.0);
 }

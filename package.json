@@ -5,10 +5,12 @@
   "author": "Nick Schaubeck",
   "repository": "http://github.com/nschaubeck/exposure",
   "dependencies": {
+    "a-big-triangle": "^1.0.0",
     "babelify": "6.1.0",
     "browserify": "6.2.0",
     "es6ify": "1.5.1",
     "express": "4.10.1",
+    "gl-fbo": "^2.0.3",
     "gl-mat4": "^1.1.3",
     "gl-matrix": "2.1.0",
     "gl-shader": "4.0.1",

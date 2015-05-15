@@ -1,14 +1,30 @@
-var BaseFilter = require("./base_filter");
+var glShader = require("gl-shader");
+var glslify = require("glslify");
+var Filter = require("./filter");
 
-class BrightnessFilter extends BaseFilter {
+class BrightnessFilter extends Filter {
   constructor(gl) {
     super(gl);
     this.brightness = 1;
-    this.shader = shader("./shaders/brightness.frag");
+  }
+
+  getShader() {
+    return glShader(this.gl,
+      glslify("./shaders/sample.vert"),
+      glslify("./shaders/brightness.frag")
+    );
+  }
+
+  setUniforms() {
+    this.shader.uniforms.t = this.brightness;
   }
 
   set brightness(value) {
-    return this.brightness = Math.min(Math.max(value, 0), 2);
+    return this._brightness = Math.min(Math.max(value, 0), 2);
+  }
+
+  get brightness() {
+    return this._brightness;
   }
 }
 

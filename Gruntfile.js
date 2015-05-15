@@ -23,7 +23,7 @@ module.exports = function (grunt) {
     watch: {
       shaders: {
         files: [
-          'shaders/**/*'
+          'src/shaders/**/*'
         ],
         tasks: [
           'browserify:demo'
