@@ -5,6 +5,7 @@
   "author": "Nick Schaubeck",
   "repository": "http://github.com/nschaubeck/exposure",
   "dependencies": {
+    "babelify": "6.1.0",
     "browserify": "6.2.0",
     "es6ify": "1.5.1",
     "express": "4.10.1",
@@ -18,9 +19,16 @@
     "grunt-parallel": "0.3.1",
     "grunt-watchify": "0.1.0",
     "load-grunt-tasks": "1.0.0",
+    "material-ui": "0.7.2",
     "react": "0.13.3",
+    "react-tap-event-plugin": "^0.1.6",
     "react-tools": "0.13.3",
     "reactify": "1.1.1"
   },
-  "engine": "node >= 0.10.0"
+  "engine": "node >= 0.10.0",
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  }
 }

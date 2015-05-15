@@ -7,7 +7,7 @@ module.exports = function (grunt) {
         src: ['demo/main.js'],
         dest: 'demo/build.js',
         options: {
-          transform: ['glslify'],
+          transform: ['babelify', 'glslify'],
           watch: true,
           keepAlive: true
         }
@@ -16,7 +16,7 @@ module.exports = function (grunt) {
         src: ['demo/main.js'],
         dest: 'demo/build.js',
         options: {
-          transform: ['glslify']
+          transform: ['babelify', 'glslify']
         }
       }
     },
@@ -48,7 +48,7 @@ module.exports = function (grunt) {
       },
     }
   });
-  grunt.registerTask('demo_watch', 'launch webserver and watch tasks', [
+  grunt.registerTask('demo_watch', 'watch js and shaders', [
     'parallel:demo',
   ]);
 };
