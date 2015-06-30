@@ -31,7 +31,7 @@ var handleImageLoad = function(event) {
 };
 
 var canvasReady = function(canvasNode) {
-  var frame = new Frame(currentImage, canvasNode);
+  window.frame = new Frame(currentImage, canvasNode);
   frame.draw();
 };
 

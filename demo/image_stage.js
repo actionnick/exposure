@@ -9,9 +9,20 @@ class ImageStage extends React.Component {
 
   render() {
     if (this.props.imageSelected) {
+      var divStyle = {
+        width: "100%",
+        height: "100%",
+        textAlign: "center"
+      };
+      var canvasStyle = {
+        maxHeight: "100%",
+        maxWidth: "100%",
+        marginLeft: "auto",
+        marginRight: "auto"
+      };
       return (
-        <div>
-          <canvas ref="canvas"/>
+        <div style={divStyle}>
+          <canvas style={canvasStyle} ref="canvas"/>
         </div>
       );
     } else {

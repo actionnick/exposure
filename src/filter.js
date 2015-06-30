@@ -2,11 +2,16 @@ var glShader = require("gl-shader");
 var glslify = require("glslify");
 var glFbo = require("gl-fbo");
 var draw = require("a-big-triangle");
+var ExposureSettings = require("./exposure_settings");
 
 class Filter {
-  constructor(gl) {
+  constructor(gl, json) {
+    this.exposureSettings = new ExposureSettings(json);
     this.gl = gl;
-    this.shader = this.getShader();
+    this.shader = glShader(this.gl,
+      glslify("./shaders/sample.vert"),
+      glslify("./shaders/exposure.frag")
+    );
     this.shader.attributes.position.location = 0;
     this.fbo = glFbo(gl, [gl.drawingBufferWidth, gl.drawingBufferHeight]);
     this.fbo.color[0].minFilter = gl.LINEAR;
@@ -22,15 +27,13 @@ class Filter {
     this.gl.bindFramebuffer(this.gl.FRAMEBUFFER, null);
   }
 
-  getShader() {
-    return glShader(this.gl,
-      glslify("./shaders/sample.vert"),
-      glslify("./shaders/sample.frag")
-    );
-  }
-
   setUniforms() {
-    // subclass should implement
+    var settings = this.exposureSettings;
+    var uniforms = this.shader.uniforms;
+    uniforms.brightness = settings.brightness;
+    uniforms.contrast = settings.contrast;
+    uniforms.mid = settings.mid;
+    // console.log(this.shader.uniforms);
   }
 
   draw() {

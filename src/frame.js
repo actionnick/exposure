@@ -1,15 +1,20 @@
 var mat4 = require("gl-mat4");
 var glShader = require("gl-shader");
 var glslify = require("glslify");
-var BrightnessFilter = require("./brightness_filter");
+var Filter = require("./filter");
 
 class Frame {
-  constructor(img, canvas) {
+  constructor(img, canvas, json) {
     var gl = this.gl = this.getGLContext(canvas);
     this.img = img;
     this.canvas = canvas;
     this.width = this.canvas.width = img.width;
     this.height = this.canvas.height = img.height;
+
+    // filter that will actually manipulate image in framebuffer
+    this.filter = new Filter(gl, json);
+    this.exposureSettings = this.filter.exposureSettings;
+    this.exposureSettings.on("updated", this.draw.bind(this));
 
     // shader for drawing image
     this.shader = glShader(gl,
@@ -65,10 +70,7 @@ class Frame {
   draw() {
     var gl = this.gl;
 
-    this.b = new BrightnessFilter(gl);
-    this.b.bind();
-    this.b2 = new BrightnessFilter(gl);
-    this.b2.bind();
+    this.filter.bind();
 
     this.shader.bind();
     this.setAttributes();
@@ -83,12 +85,8 @@ class Frame {
 
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
-    this.b.shader.bind();
-    this.b.brightness = 1.1;
-    this.b.draw();
-    this.b2.shader.bind();
-    this.b2.brightness = 0.5;
-    this.b2.draw();
+    this.filter.shader.bind();
+    this.filter.draw();
   }
 }
 
