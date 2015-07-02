@@ -33,7 +33,6 @@ class Filter {
     uniforms.brightness = settings.brightness;
     uniforms.contrast = settings.contrast;
     uniforms.mid = settings.mid;
-    // console.log(this.shader.uniforms);
   }
 
   draw() {

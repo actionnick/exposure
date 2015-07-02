@@ -1,4 +1,86 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/nick/projects/exposure/demo/image_list.js":[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/nick/projects/exposure/demo/controls.js":[function(require,module,exports){
+"use strict";
+
+var _createClass = (function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+  };
+})();
+
+var _get = function get(_x, _x2, _x3) {
+  var _again = true;_function: while (_again) {
+    var object = _x,
+        property = _x2,
+        receiver = _x3;desc = parent = getter = undefined;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+      var parent = Object.getPrototypeOf(object);if (parent === null) {
+        return undefined;
+      } else {
+        _x = parent;_x2 = property;_x3 = receiver;_again = true;continue _function;
+      }
+    } else if ("value" in desc) {
+      return desc.value;
+    } else {
+      var getter = desc.get;if (getter === undefined) {
+        return undefined;
+      }return getter.call(receiver);
+    }
+  }
+};
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) subClass.__proto__ = superClass;
+}
+
+var React = require("react");
+
+var Controls = (function (_React$Component) {
+  function Controls() {
+    _classCallCheck(this, Controls);
+
+    _get(Object.getPrototypeOf(Controls.prototype), "constructor", this).apply(this, arguments);
+  }
+
+  _inherits(Controls, _React$Component);
+
+  _createClass(Controls, [{
+    key: "handleChange",
+    value: function handleChange(event) {
+      var target = event.target;
+      var key = target.id;
+      var value = target.value / 100;
+      this.props.onControlChange(key, value);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var settings = this.props.exposureSettings;
+      return React.createElement("div", null, React.createElement("input", { id: "brightness", onChange: this.handleChange.bind(this), type: "range", min: "0", max: "200", defaultValue: settings.brightness * 100 }), React.createElement("input", { id: "contrast", onChange: this.handleChange.bind(this), type: "range", min: "0", max: "300", defaultValue: settings.contrast * 100 }), React.createElement("input", { id: "mid", onChange: this.handleChange.bind(this), type: "range", min: "0", max: "100", defaultValue: settings.mid * 100 }));
+    }
+  }]);
+
+  return Controls;
+})(React.Component);
+
+Controls.propTypes = {
+  onControlChange: React.PropTypes.func,
+  exposureSettings: React.PropTypes.object
+};
+
+module.exports = Controls;
+
+},{"react":"/Users/nick/projects/exposure/node_modules/react/react.js"}],"/Users/nick/projects/exposure/demo/image_list.js":[function(require,module,exports){
 "use strict";
 
 var _createClass = (function () {
@@ -172,6 +254,7 @@ module.exports = ImageStage;
 var React = require("react");
 var ImageStage = require("./image_stage");
 var ImageList = require("./image_list");
+var Controls = require("./controls");
 var Frame = require("../src/frame");
 
 var injectTapEventPlugin = require("react-tap-event-plugin");
@@ -203,12 +286,20 @@ var handleImageLoad = function handleImageLoad(event) {
 
 var canvasReady = function canvasReady(canvasNode) {
   window.frame = new Frame(currentImage, canvasNode);
+  var onControlChange = function onControlChange(key, value) {
+    console.log(key, value);
+    frame.exposureSettings[key] = value;
+  };
+  React.render(React.createElement(Controls, { onControlChange: onControlChange, exposureSettings: frame.exposureSettings }), controlPanel);
+  frame.exposureSettings.on("updated", function () {
+    React.render(React.createElement(Controls, { onControlChange: onControlChange, exposureSettings: frame.exposureSettings }), controlPanel);
+  });
   frame.draw();
 };
 
 React.render(React.createElement(ImageStage, { fileSelectCallback: handleImageLoad }), imageStage);
 
-},{"../src/frame":"/Users/nick/projects/exposure/src/frame.js","./image_list":"/Users/nick/projects/exposure/demo/image_list.js","./image_stage":"/Users/nick/projects/exposure/demo/image_stage.js","react":"/Users/nick/projects/exposure/node_modules/react/react.js","react-tap-event-plugin":"/Users/nick/projects/exposure/node_modules/react-tap-event-plugin/src/injectTapEventPlugin.js"}],"/Users/nick/projects/exposure/node_modules/a-big-triangle/node_modules/gl-buffer/buffer.js":[function(require,module,exports){
+},{"../src/frame":"/Users/nick/projects/exposure/src/frame.js","./controls":"/Users/nick/projects/exposure/demo/controls.js","./image_list":"/Users/nick/projects/exposure/demo/image_list.js","./image_stage":"/Users/nick/projects/exposure/demo/image_stage.js","react":"/Users/nick/projects/exposure/node_modules/react/react.js","react-tap-event-plugin":"/Users/nick/projects/exposure/node_modules/react-tap-event-plugin/src/injectTapEventPlugin.js"}],"/Users/nick/projects/exposure/node_modules/a-big-triangle/node_modules/gl-buffer/buffer.js":[function(require,module,exports){
 "use strict"
 
 var pool = require("typedarray-pool")
@@ -40599,7 +40690,7 @@ var ExposureSettings = (function (_EventEmitter) {
     key: "initFromJson",
     value: function initFromJson(json) {
       var self = this;
-      _(json).keys().forEach(function (key) {
+      _.keys(json).forEach(function (key) {
         self[key] = json[key];
       });
     }
@@ -40607,7 +40698,7 @@ var ExposureSettings = (function (_EventEmitter) {
     key: "json",
     get: function get() {
       var keys = ["brightness", "contrast", "mid"];
-
+      var self = this;
       var json = {};
       keys.forEach(function (key) {
         json[key] = self[key];
@@ -40725,7 +40816,6 @@ var Filter = (function () {
       uniforms.brightness = settings.brightness;
       uniforms.contrast = settings.contrast;
       uniforms.mid = settings.mid;
-      // console.log(this.shader.uniforms);
     }
   }, {
     key: "draw",

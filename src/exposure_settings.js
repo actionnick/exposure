@@ -12,7 +12,7 @@ class ExposureSettings extends EventEmitter {
 
   initFromJson(json) {
     var self = this;
-    _(json).keys().forEach(function(key) {
+    _.keys(json).forEach(function(key) {
       self[key] = json[key];
     });
   }
@@ -23,7 +23,7 @@ class ExposureSettings extends EventEmitter {
       "contrast",
       "mid"
     ];
-
+    var self = this;
     var json = {};
     keys.forEach(function(key) {
       json[key] = self[key];
