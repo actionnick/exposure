@@ -14,7 +14,7 @@ class Frame {
     // filter that will actually manipulate image in framebuffer
     this.filter = new Filter(gl, json);
     this.exposureSettings = this.filter.exposureSettings;
-    this.exposureSettings.on("updated", this.draw.bind(this));
+    this.exposureSettings.on("updated", this.filterDraw.bind(this));
 
     // shader for drawing image
     this.shader = glShader(gl,
@@ -80,11 +80,13 @@ class Frame {
     gl.viewport(0, 0, this.width, this.height);
     gl.clearColor(0, 0, 0, 1);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    gl.enable(gl.DEPTH_TEST);
-    gl.enable(gl.CULL_FACE);
 
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
+    this.filterDraw();
+  }
+
+  filterDraw() {
     this.filter.shader.bind();
     this.filter.draw();
   }

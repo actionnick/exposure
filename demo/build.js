@@ -40678,6 +40678,7 @@ var ExposureSettings = (function (_EventEmitter) {
     _classCallCheck(this, ExposureSettings);
 
     _get(Object.getPrototypeOf(ExposureSettings.prototype), "constructor", this).call(this);
+
     if (json) {
       this.initFromJson(json);
     }
@@ -40697,7 +40698,7 @@ var ExposureSettings = (function (_EventEmitter) {
   }, {
     key: "json",
     get: function get() {
-      var keys = ["brightness", "contrast", "mid"];
+      var keys = _.keys(ExposureSettings.PROPS);
       var self = this;
       var json = {};
       keys.forEach(function (key) {
@@ -40706,47 +40707,53 @@ var ExposureSettings = (function (_EventEmitter) {
 
       return json;
     }
-  }, {
-    key: "brightness",
-
-    // brightness
-    set: function set(val) {
-      if (validateNum(this._brightness, val, 0, 2)) {
-        this._brightness = val;
-        this.emit("updated");
-      }
-    },
-    get: function get() {
-      return this._brightness || 1;
-    }
-  }, {
-    key: "contrast",
-
-    // contrast
-    set: function set(val) {
-      if (validateNum(this._contrast, val, 0, 3)) {
-        this._contrast = val;
-        this.emit("updated");
-      }
-    },
-    get: function get() {
-      return this._contrast || 1;
-    }
-  }, {
-    key: "mid",
-    set: function set(val) {
-      if (validateNum(this._mid, val, 0, 1)) {
-        this._mid = val;
-        this.emit("updated");
-      }
-    },
-    get: function get() {
-      return this._mid || 0.5;
-    }
   }]);
 
   return ExposureSettings;
 })(EventEmitter);
+
+ExposureSettings.PROPS = {
+  brightness: {
+    min: 0.0,
+    max: 2.0,
+    "default": 1.0
+  },
+  contrast: {
+    min: 0.0,
+    max: 3.0,
+    "default": 1.0
+  },
+  mid: {
+    min: 0.0,
+    max: 1.0,
+    "default": 0.5
+  },
+  rgb_in_min: {
+    min: 0.0,
+    max: 1.0,
+    "default": 0.0
+  },
+  rgb_in_max: {
+    min: 0.0,
+    max: 1.0,
+    "default": 1.0
+  },
+  rgb_out_min: {
+    min: 0.0,
+    max: 1.0,
+    "default": 0.0
+  },
+  rgb_out_max: {
+    min: 0.0,
+    max: 1.0,
+    "default": 1.0
+  },
+  rgb_gamma: {
+    min: 0.0,
+    max: 10.0,
+    "default": 1.0
+  }
+};
 
 var isNum = function isNum(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
@@ -40756,6 +40763,21 @@ var isNum = function isNum(n) {
 var validateNum = function validateNum(currentVal, newVal, min, max) {
   return isNum(newVal) && currentVal !== newVal && newVal >= min && newVal <= max;
 };
+
+// intialize property setters and getters
+_.keys(ExposureSettings.PROPS).forEach(function (key) {
+  Object.defineProperty(ExposureSettings.prototype, key, {
+    get: function get() {
+      return this["_" + key] || ExposureSettings.PROPS[key]["default"];
+    },
+    set: function set(val) {
+      if (validateNum(this["_" + key], val, ExposureSettings.PROPS[key].min, ExposureSettings.PROPS[key].max)) {
+        this["_" + key] = val;
+        this.emit("updated");
+      }
+    }
+  });
+});
 
 module.exports = ExposureSettings;
 
@@ -40783,6 +40805,7 @@ var glShader = require("gl-shader");
 var glFbo = require("gl-fbo");
 var _draw = require("a-big-triangle");
 var ExposureSettings = require("./exposure_settings");
+var _ = require("lodash");
 
 var Filter = (function () {
   function Filter(gl, json) {
@@ -40790,7 +40813,7 @@ var Filter = (function () {
 
     this.exposureSettings = new ExposureSettings(json);
     this.gl = gl;
-    this.shader = glShader(this.gl, "#define GLSLIFY 1\nprecision mediump float;\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}", "#define GLSLIFY 1\nprecision highp float;\nvarying vec2 screenPosition;\n\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n  color.a = color.a;\n\n  gl_FragColor = color;\n}\n");
+    this.shader = glShader(this.gl, "#define GLSLIFY 1\nprecision mediump float;\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}", "#define GLSLIFY 1\nprecision highp float;\nvarying vec2 screenPosition;\n\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n");
     this.shader.attributes.position.location = 0;
     this.fbo = glFbo(gl, [gl.drawingBufferWidth, gl.drawingBufferHeight]);
     this.fbo.color[0].minFilter = gl.LINEAR;
@@ -40813,9 +40836,9 @@ var Filter = (function () {
     value: function setUniforms() {
       var settings = this.exposureSettings;
       var uniforms = this.shader.uniforms;
-      uniforms.brightness = settings.brightness;
-      uniforms.contrast = settings.contrast;
-      uniforms.mid = settings.mid;
+      _.keys(ExposureSettings.PROPS).forEach(function (key) {
+        uniforms[key] = settings[key];
+      });
     }
   }, {
     key: "draw",
@@ -40825,8 +40848,6 @@ var Filter = (function () {
       this.unbind();
 
       gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-      gl.disable(gl.DEPTH_TEST);
-      gl.disable(gl.CULL_FACE);
 
       this.shader.bind();
       this.shader.uniforms.texture = this.fbo.color[0].bind(0);
@@ -40841,7 +40862,7 @@ var Filter = (function () {
 
 module.exports = Filter;
 
-},{"./exposure_settings":"/Users/nick/projects/exposure/src/exposure_settings.js","a-big-triangle":"/Users/nick/projects/exposure/node_modules/a-big-triangle/triangle.js","gl-fbo":"/Users/nick/projects/exposure/node_modules/gl-fbo/fbo.js","gl-shader":"/Users/nick/projects/exposure/node_modules/gl-shader/index.js"}],"/Users/nick/projects/exposure/src/frame.js":[function(require,module,exports){
+},{"./exposure_settings":"/Users/nick/projects/exposure/src/exposure_settings.js","a-big-triangle":"/Users/nick/projects/exposure/node_modules/a-big-triangle/triangle.js","gl-fbo":"/Users/nick/projects/exposure/node_modules/gl-fbo/fbo.js","gl-shader":"/Users/nick/projects/exposure/node_modules/gl-shader/index.js","lodash":"/Users/nick/projects/exposure/node_modules/lodash/index.js"}],"/Users/nick/projects/exposure/src/frame.js":[function(require,module,exports){
 "use strict";
 
 var _createClass = (function () {
@@ -40878,7 +40899,7 @@ var Frame = (function () {
     // filter that will actually manipulate image in framebuffer
     this.filter = new Filter(gl, json);
     this.exposureSettings = this.filter.exposureSettings;
-    this.exposureSettings.on("updated", this.draw.bind(this));
+    this.exposureSettings.on("updated", this.filterDraw.bind(this));
 
     // shader for drawing image
     this.shader = glShader(gl, "#define GLSLIFY 1\nattribute vec3 position;\n\nuniform mat4 p_matrix;\nuniform mat4 mv_matrix;\n\nvarying vec2 uv;\n\nvoid main() {\n  gl_Position = p_matrix * mv_matrix * vec4(position, 1.0);\n  uv = position.xy;\n}\n", "#define GLSLIFY 1\nprecision highp float;\nvarying vec2 uv;\n\nuniform sampler2D texture;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(uv.s, uv.t));\n  gl_FragColor = color;\n}\n");
@@ -40942,11 +40963,14 @@ var Frame = (function () {
       gl.viewport(0, 0, this.width, this.height);
       gl.clearColor(0, 0, 0, 1);
       gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-      gl.enable(gl.DEPTH_TEST);
-      gl.enable(gl.CULL_FACE);
 
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
+      this.filterDraw();
+    }
+  }, {
+    key: "filterDraw",
+    value: function filterDraw() {
       this.filter.shader.bind();
       this.filter.draw();
     }

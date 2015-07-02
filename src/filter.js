@@ -3,6 +3,7 @@ var glslify = require("glslify");
 var glFbo = require("gl-fbo");
 var draw = require("a-big-triangle");
 var ExposureSettings = require("./exposure_settings");
+var _ = require("lodash");
 
 class Filter {
   constructor(gl, json) {
@@ -30,9 +31,9 @@ class Filter {
   setUniforms() {
     var settings = this.exposureSettings;
     var uniforms = this.shader.uniforms;
-    uniforms.brightness = settings.brightness;
-    uniforms.contrast = settings.contrast;
-    uniforms.mid = settings.mid;
+    _.keys(ExposureSettings.PROPS).forEach(function(key) {
+      uniforms[key] = settings[key];
+    });
   }
 
   draw() {
@@ -41,8 +42,6 @@ class Filter {
     this.unbind();
 
     gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-    gl.disable(gl.DEPTH_TEST);
-    gl.disable(gl.CULL_FACE);
 
     this.shader.bind();
     this.shader.uniforms.texture = this.fbo.color[0].bind(0);

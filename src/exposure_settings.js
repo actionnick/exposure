@@ -4,6 +4,7 @@ var _ = require("lodash");
 class ExposureSettings extends EventEmitter {
   constructor(json) {
     super();
+
     if (json) {
       this.initFromJson(json);
     }
@@ -18,11 +19,7 @@ class ExposureSettings extends EventEmitter {
   }
 
   get json() {
-    var keys = [
-      "brightness",
-      "contrast",
-      "mid"
-    ];
+    var keys = _.keys(ExposureSettings.PROPS);
     var self = this;
     var json = {};
     keys.forEach(function(key) {
@@ -31,40 +28,50 @@ class ExposureSettings extends EventEmitter {
 
     return json;
   }
-
-  // brightness
-  set brightness(val) {
-    if (validateNum(this._brightness, val, 0, 2)) {
-      this._brightness = val;
-      this.emit("updated");
-    }
-  }
-  get brightness() {
-    return this._brightness || 1;
-  }
-
-
-  // contrast
-  set contrast(val) {
-    if (validateNum(this._contrast, val, 0, 3)) {
-      this._contrast = val;
-      this.emit("updated");
-    }
-  }
-  get contrast() {
-    return this._contrast || 1;
-  }
-
-  set mid(val) {
-    if (validateNum(this._mid, val, 0, 1)) {
-      this._mid = val;
-      this.emit("updated");
-    }
-  }
-  get mid() {
-    return this._mid || 0.5;
-  }
 }
+
+ExposureSettings.PROPS = {
+  brightness: {
+    min: 0.0,
+    max: 2.0,
+    default: 1.0
+  },
+  contrast: {
+    min: 0.0,
+    max: 3.0,
+    default: 1.0
+  },
+  mid: {
+    min: 0.0,
+    max: 1.0,
+    default: 0.5
+  },
+  rgb_in_min: {
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  rgb_in_max: {
+    min: 0.0,
+    max: 1.0,
+    default: 1.0
+  },
+  rgb_out_min: {
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  rgb_out_max: {
+    min: 0.0,
+    max: 1.0,
+    default: 1.0
+  },
+  rgb_gamma: {
+    min: 0.0,
+    max: 10.0,
+    default: 1.0
+  }
+};
 
 var isNum = function(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
@@ -74,5 +81,20 @@ var isNum = function(n) {
 var validateNum = function(currentVal, newVal, min, max) {
   return isNum(newVal) && currentVal !== newVal && newVal >= min && newVal <= max;
 };
+
+// intialize property setters and getters
+_.keys(ExposureSettings.PROPS).forEach(function(key) {
+  Object.defineProperty(ExposureSettings.prototype, key, {
+    get: function() {
+      return this[`_${key}`] || ExposureSettings.PROPS[key].default;
+    },
+    set: function(val) {
+      if (validateNum(this[`_${key}`], val, ExposureSettings.PROPS[key].min, ExposureSettings.PROPS[key].max)) {
+        this[`_${key}`] = val;
+        this.emit("updated");
+      }
+    }
+  });
+});
 
 module.exports = ExposureSettings;
