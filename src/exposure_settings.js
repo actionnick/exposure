@@ -4,7 +4,7 @@ var _ = require("lodash");
 class ExposureSettings extends EventEmitter {
   constructor(json) {
     super();
-
+    this.PROPS = ExposureSettings.PROPS;
     if (json) {
       this.initFromJson(json);
     }
@@ -67,6 +67,81 @@ ExposureSettings.PROPS = {
     default: 1.0
   },
   rgb_gamma: {
+    min: 0.0,
+    max: 10.0,
+    default: 1.0
+  },
+  r_in_min: {
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  r_in_max: {
+    min: 0.0,
+    max: 1.0,
+    default: 1.0
+  },
+  r_out_min: {
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  r_out_max: {
+    min: 0.0,
+    max: 1.0,
+    default: 1.0
+  },
+  r_gamma: {
+    min: 0.0,
+    max: 10.0,
+    default: 1.0
+  },
+  g_in_min: {
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  g_in_max: {
+    min: 0.0,
+    max: 1.0,
+    default: 1.0
+  },
+  g_out_min: {
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  g_out_max: {
+    min: 0.0,
+    max: 1.0,
+    default: 1.0
+  },
+  g_gamma: {
+    min: 0.0,
+    max: 10.0,
+    default: 1.0
+  },
+  b_in_min: {
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  b_in_max: {
+    min: 0.0,
+    max: 1.0,
+    default: 1.0
+  },
+  b_out_min: {
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  b_out_max: {
+    min: 0.0,
+    max: 1.0,
+    default: 1.0
+  },
+  b_gamma: {
     min: 0.0,
     max: 10.0,
     default: 1.0

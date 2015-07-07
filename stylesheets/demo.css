@@ -18,7 +18,7 @@ body, html {
 }
 
 #top {
-  display: flex;
+  display: -webkit-flex;
   height: 50px;
 }
 
@@ -35,7 +35,7 @@ body, html {
 }
 
 #middle{
-  display: flex;
+  display: -webkit-flex;
   height: 80%;
 }
 

@@ -80,6 +80,19 @@ void main() {
   // returns min * (1 - color) + max * color
   color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);
 
+  // Then adjust channels seperately
+  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);
+  color.r = pow(color.r, (1.0 / r_gamma));
+  color.r = mix(r_out_min, r_out_max, color.r);
+
+  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);
+  color.g = pow(color.g, (1.0 / g_gamma));
+  color.g = mix(g_out_min, g_out_max, color.g);
+
+  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);
+  color.b = pow(color.b, (1.0 / b_gamma));
+  color.b = mix(b_out_min, b_out_max, color.b);
+
   // always preserve alpha
   color.a = alpha;
   gl_FragColor = color;

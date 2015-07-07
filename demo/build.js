@@ -55,18 +55,33 @@ var Controls = (function (_React$Component) {
   _inherits(Controls, _React$Component);
 
   _createClass(Controls, [{
-    key: "handleChange",
-    value: function handleChange(event) {
-      var target = event.target;
-      var key = target.id;
-      var value = target.value / 100;
-      this.props.onControlChange(key, value);
-    }
-  }, {
     key: "render",
     value: function render() {
-      var settings = this.props.exposureSettings;
-      return React.createElement("div", null, React.createElement("input", { id: "brightness", onChange: this.handleChange.bind(this), type: "range", min: "0", max: "200", defaultValue: settings.brightness * 100 }), React.createElement("input", { id: "contrast", onChange: this.handleChange.bind(this), type: "range", min: "0", max: "300", defaultValue: settings.contrast * 100 }), React.createElement("input", { id: "mid", onChange: this.handleChange.bind(this), type: "range", min: "0", max: "100", defaultValue: settings.mid * 100 }));
+      var s = this.props.exposureSettings;
+      var p = this.props.exposureSettings.PROPS;
+      return React.createElement("div", { style: this.divStyle }, React.createElement("p", null, "brightness"), React.createElement("input", { id: "brightness", onChange: this.handleChange, type: "range", min: "0", max: "200", defaultValue: s.brightness * 100 }), React.createElement("p", null, "contrast"), React.createElement("input", { id: "contrast", onChange: this.handleChange, type: "range", min: "0", max: "300", defaultValue: s.contrast * 100 }), React.createElement("input", { id: "mid", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.mid * 100 }), React.createElement("p", null, "levels"), React.createElement("p", null, "rgb levels"), React.createElement("input", { id: "rgb_in_min", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.rgb_in_min * 100 }), React.createElement("input", { id: "rgb_in_max", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.rgb_in_max * 100 }), React.createElement("input", { id: "rgb_out_min", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.rgb_out_min * 100 }), React.createElement("input", { id: "rgb_out_max", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.rgb_out_max * 100 }), React.createElement("input", { id: "rgb_gamma", onChange: this.handleChange, type: "range", min: "0", max: "1000", defaultValue: s.rgb_gamma * 100 }), React.createElement("p", null, "red levels"), React.createElement("input", { id: "r_in_min", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.r_in_min * 100 }), React.createElement("input", { id: "r_in_max", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.r_in_max * 100 }), React.createElement("input", { id: "r_out_min", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.r_out_min * 100 }), React.createElement("input", { id: "r_out_max", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.r_out_max * 100 }), React.createElement("input", { id: "r_gamma", onChange: this.handleChange, type: "range", min: "0", max: "1000", defaultValue: s.r_gamma * 100 }), React.createElement("p", null, "green levels"), React.createElement("input", { id: "g_in_min", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.g_in_min * 100 }), React.createElement("input", { id: "g_in_max", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.g_in_max * 100 }), React.createElement("input", { id: "g_out_min", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.g_out_min * 100 }), React.createElement("input", { id: "g_out_max", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.g_out_max * 100 }), React.createElement("input", { id: "g_gamma", onChange: this.handleChange, type: "range", min: "0", max: "1000", defaultValue: s.g_gamma * 100 }), React.createElement("p", null, "blue levels"), React.createElement("input", { id: "b_in_min", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.b_in_min * 100 }), React.createElement("input", { id: "b_in_max", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.b_in_max * 100 }), React.createElement("input", { id: "b_out_min", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.b_out_min * 100 }), React.createElement("input", { id: "b_out_max", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.b_out_max * 100 }), React.createElement("input", { id: "b_gamma", onChange: this.handleChange, type: "range", min: "0", max: "1000", defaultValue: s.b_gamma * 100 }));
+    }
+  }, {
+    key: "handleChange",
+    get: function get() {
+      if (!this._handleChange) {
+        this._handleChange = (function (event) {
+          var target = event.target;
+          var key = target.id;
+          var value = target.value / 100;
+          this.props.onControlChange(key, value);
+        }).bind(this);
+      }
+      return this._handleChange;
+    }
+  }, {
+    key: "divStyle",
+    get: function get() {
+      return {
+        width: "100%",
+        height: "100%",
+        overflowY: "scroll"
+      };
     }
   }]);
 
@@ -40678,7 +40693,7 @@ var ExposureSettings = (function (_EventEmitter) {
     _classCallCheck(this, ExposureSettings);
 
     _get(Object.getPrototypeOf(ExposureSettings.prototype), "constructor", this).call(this);
-
+    this.PROPS = ExposureSettings.PROPS;
     if (json) {
       this.initFromJson(json);
     }
@@ -40752,6 +40767,81 @@ ExposureSettings.PROPS = {
     min: 0.0,
     max: 10.0,
     "default": 1.0
+  },
+  r_in_min: {
+    min: 0.0,
+    max: 1.0,
+    "default": 0.0
+  },
+  r_in_max: {
+    min: 0.0,
+    max: 1.0,
+    "default": 1.0
+  },
+  r_out_min: {
+    min: 0.0,
+    max: 1.0,
+    "default": 0.0
+  },
+  r_out_max: {
+    min: 0.0,
+    max: 1.0,
+    "default": 1.0
+  },
+  r_gamma: {
+    min: 0.0,
+    max: 10.0,
+    "default": 1.0
+  },
+  g_in_min: {
+    min: 0.0,
+    max: 1.0,
+    "default": 0.0
+  },
+  g_in_max: {
+    min: 0.0,
+    max: 1.0,
+    "default": 1.0
+  },
+  g_out_min: {
+    min: 0.0,
+    max: 1.0,
+    "default": 0.0
+  },
+  g_out_max: {
+    min: 0.0,
+    max: 1.0,
+    "default": 1.0
+  },
+  g_gamma: {
+    min: 0.0,
+    max: 10.0,
+    "default": 1.0
+  },
+  b_in_min: {
+    min: 0.0,
+    max: 1.0,
+    "default": 0.0
+  },
+  b_in_max: {
+    min: 0.0,
+    max: 1.0,
+    "default": 1.0
+  },
+  b_out_min: {
+    min: 0.0,
+    max: 1.0,
+    "default": 0.0
+  },
+  b_out_max: {
+    min: 0.0,
+    max: 1.0,
+    "default": 1.0
+  },
+  b_gamma: {
+    min: 0.0,
+    max: 10.0,
+    "default": 1.0
   }
 };
 
@@ -40813,7 +40903,7 @@ var Filter = (function () {
 
     this.exposureSettings = new ExposureSettings(json);
     this.gl = gl;
-    this.shader = glShader(this.gl, "#define GLSLIFY 1\nprecision mediump float;\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}", "#define GLSLIFY 1\nprecision highp float;\nvarying vec2 screenPosition;\n\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n");
+    this.shader = glShader(this.gl, "#define GLSLIFY 1\nprecision mediump float;\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}", "#define GLSLIFY 1\nprecision highp float;\nvarying vec2 screenPosition;\n\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n\n  // Then adjust channels seperately\n  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);\n  color.r = pow(color.r, (1.0 / r_gamma));\n  color.r = mix(r_out_min, r_out_max, color.r);\n\n  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);\n  color.g = pow(color.g, (1.0 / g_gamma));\n  color.g = mix(g_out_min, g_out_max, color.g);\n\n  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);\n  color.b = pow(color.b, (1.0 / b_gamma));\n  color.b = mix(b_out_min, b_out_max, color.b);\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n");
     this.shader.attributes.position.location = 0;
     this.fbo = glFbo(gl, [gl.drawingBufferWidth, gl.drawingBufferHeight]);
     this.fbo.color[0].minFilter = gl.LINEAR;
