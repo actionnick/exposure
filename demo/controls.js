@@ -15,9 +15,9 @@ class Controls extends React.Component {
 
   get divStyle() {
     return {
-      width: "100%",
       height: "100%",
-      overflowY: "scroll"
+      overflowY: "scroll",
+      textAlign: "center"
     }
   }
 

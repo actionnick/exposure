@@ -7,14 +7,13 @@ var Frame = require("../src/frame");
 var injectTapEventPlugin = require("react-tap-event-plugin");
 injectTapEventPlugin();
 
-var effectsBar = document.getElementById("effects");
+var actionsBar = document.getElementById("actions");
 var imagesPanel = document.getElementById("images");
 var imageStage = document.getElementById("current-image");
 var controlPanel = document.getElementById("controls");
 
 var images = [];
 var currentImage;
-var canvas;
 
 var handleImageLoad = function(event) {
   var file = event.target.files[0];
@@ -32,16 +31,17 @@ var handleImageLoad = function(event) {
 };
 
 var canvasReady = function(canvasNode) {
-  window.frame = new Frame(currentImage, canvasNode);
-  var onControlChange = function(key, value) {
-    console.log(key, value);
-    frame.exposureSettings[key] = value;
-  };
-  React.render(<Controls onControlChange={onControlChange} exposureSettings={frame.exposureSettings}/>, controlPanel);
-  frame.exposureSettings.on("updated", function() {
+  window.frame = new Frame(currentImage, canvasNode, function(frame) {
+    var frame = frame;
+    var onControlChange = function(key, value) {
+      frame.exposureSettings[key] = value;
+    };
     React.render(<Controls onControlChange={onControlChange} exposureSettings={frame.exposureSettings}/>, controlPanel);
+    frame.exposureSettings.on("updated", function() {
+      React.render(<Controls onControlChange={onControlChange} exposureSettings={frame.exposureSettings}/>, controlPanel);
+    });
+    frame.draw();
   });
-  frame.draw();
 };
 
 React.render(<ImageStage fileSelectCallback={handleImageLoad}/>, imageStage);

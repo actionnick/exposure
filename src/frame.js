@@ -2,17 +2,38 @@ var mat4 = require("gl-mat4");
 var glShader = require("gl-shader");
 var glslify = require("glslify");
 var Filter = require("./filter");
+var resizeImage = require("./resize_image");
+var _ = require("lodash");
+
+var MAX_SIZE = 2500;
 
 class Frame {
-  constructor(img, canvas, json) {
+  constructor(img, canvas, json, callback) {
     var gl = this.gl = this.getGLContext(canvas);
-    this.img = img;
     this.canvas = canvas;
+    this.callback = callback;
+    this.json = json;
+
+    if (_.isFunction(json) && _.isUndefined(callback)) {
+      this.callback = json;
+      this.json = {};
+    }
+
+    if (img.width > MAX_SIZE || img.height > MAX_SIZE) {
+      resizeImage(img, MAX_SIZE, this.initWithImg.bind(this));
+    } else {
+      this.initWithImg(img);
+    }
+  }
+
+  initWithImg(img) {
+    this.img = img;
+    var gl = this.gl;
     this.width = this.canvas.width = img.width;
     this.height = this.canvas.height = img.height;
 
     // filter that will actually manipulate image in framebuffer
-    this.filter = new Filter(gl, json);
+    this.filter = new Filter(gl, this.json);
     this.exposureSettings = this.filter.exposureSettings;
     this.exposureSettings.on("updated", this.filterDraw.bind(this));
 
@@ -45,6 +66,8 @@ class Frame {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, this.img);
     gl.bindTexture(gl.TEXTURE_2D, null);
+
+    this.callback(this);
   }
 
   getGLContext(canvas) {
