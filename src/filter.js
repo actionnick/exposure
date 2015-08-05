@@ -7,7 +7,7 @@ var _ = require("lodash");
 
 class Filter {
   constructor(gl, json) {
-    this.exposureSettings = new ExposureSettings(json);
+    this.settings = new ExposureSettings(json);
     this.gl = gl;
     this.shader = glShader(this.gl,
       glslify("./shaders/sample.vert"),
@@ -29,7 +29,7 @@ class Filter {
   }
 
   setUniforms() {
-    var settings = this.exposureSettings;
+    var settings = this.settings;
     var uniforms = this.shader.uniforms;
     _.keys(ExposureSettings.PROPS).forEach(function(key) {
       uniforms[key] = settings[key];

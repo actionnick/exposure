@@ -34,11 +34,11 @@ var canvasReady = function(canvasNode) {
   window.frame = new Frame(currentImage, canvasNode, function(frame) {
     var frame = frame;
     var onControlChange = function(key, value) {
-      frame.exposureSettings[key] = value;
+      frame.settings[key] = value;
     };
-    React.render(<Controls onControlChange={onControlChange} exposureSettings={frame.exposureSettings}/>, controlPanel);
-    frame.exposureSettings.on("updated", function() {
-      React.render(<Controls onControlChange={onControlChange} exposureSettings={frame.exposureSettings}/>, controlPanel);
+    React.render(<Controls onControlChange={onControlChange} settings={frame.settings}/>, controlPanel);
+    frame.settings.on("updated", function() {
+      React.render(<Controls onControlChange={onControlChange} settings={frame.settings}/>, controlPanel);
     });
     frame.draw();
   });

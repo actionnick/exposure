@@ -57,8 +57,8 @@ var Controls = (function (_React$Component) {
   _createClass(Controls, [{
     key: "render",
     value: function render() {
-      var s = this.props.exposureSettings;
-      var p = this.props.exposureSettings.PROPS;
+      var s = this.props.settings;
+      var p = this.props.settings.PROPS;
       return React.createElement("div", { style: this.divStyle }, React.createElement("p", null, "brightness"), React.createElement("input", { id: "brightness", onChange: this.handleChange, type: "range", min: "0", max: "200", defaultValue: s.brightness * 100 }), React.createElement("p", null, "contrast"), React.createElement("input", { id: "contrast", onChange: this.handleChange, type: "range", min: "0", max: "300", defaultValue: s.contrast * 100 }), React.createElement("input", { id: "mid", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.mid * 100 }), React.createElement("p", null, "levels"), React.createElement("p", null, "rgb levels"), React.createElement("input", { id: "rgb_in_min", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.rgb_in_min * 100 }), React.createElement("input", { id: "rgb_in_max", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.rgb_in_max * 100 }), React.createElement("input", { id: "rgb_out_min", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.rgb_out_min * 100 }), React.createElement("input", { id: "rgb_out_max", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.rgb_out_max * 100 }), React.createElement("input", { id: "rgb_gamma", onChange: this.handleChange, type: "range", min: "0", max: "1000", defaultValue: s.rgb_gamma * 100 }), React.createElement("p", null, "red levels"), React.createElement("input", { id: "r_in_min", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.r_in_min * 100 }), React.createElement("input", { id: "r_in_max", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.r_in_max * 100 }), React.createElement("input", { id: "r_out_min", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.r_out_min * 100 }), React.createElement("input", { id: "r_out_max", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.r_out_max * 100 }), React.createElement("input", { id: "r_gamma", onChange: this.handleChange, type: "range", min: "0", max: "1000", defaultValue: s.r_gamma * 100 }), React.createElement("p", null, "green levels"), React.createElement("input", { id: "g_in_min", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.g_in_min * 100 }), React.createElement("input", { id: "g_in_max", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.g_in_max * 100 }), React.createElement("input", { id: "g_out_min", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.g_out_min * 100 }), React.createElement("input", { id: "g_out_max", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.g_out_max * 100 }), React.createElement("input", { id: "g_gamma", onChange: this.handleChange, type: "range", min: "0", max: "1000", defaultValue: s.g_gamma * 100 }), React.createElement("p", null, "blue levels"), React.createElement("input", { id: "b_in_min", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.b_in_min * 100 }), React.createElement("input", { id: "b_in_max", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.b_in_max * 100 }), React.createElement("input", { id: "b_out_min", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.b_out_min * 100 }), React.createElement("input", { id: "b_out_max", onChange: this.handleChange, type: "range", min: "0", max: "100", defaultValue: s.b_out_max * 100 }), React.createElement("input", { id: "b_gamma", onChange: this.handleChange, type: "range", min: "0", max: "1000", defaultValue: s.b_gamma * 100 }));
     }
   }, {
@@ -89,8 +89,8 @@ var Controls = (function (_React$Component) {
 })(React.Component);
 
 Controls.propTypes = {
-  onControlChange: React.PropTypes.func,
-  exposureSettings: React.PropTypes.object
+  onControlhange: React.PropTypes.func,
+  settings: React.PropTypes.object
 };
 
 module.exports = Controls;
@@ -230,20 +230,15 @@ var ImageStage = (function (_React$Component) {
     key: "render",
     value: function render() {
       if (this.props.imageSelected) {
-        var divStyle = {
-          width: "100%",
-          height: "100%",
-          textAlign: "center"
-        };
         var canvasStyle = {
           maxHeight: "100%",
           maxWidth: "100%",
           marginLeft: "auto",
           marginRight: "auto"
         };
-        return React.createElement("div", { style: divStyle }, React.createElement("canvas", { style: canvasStyle, ref: "canvas" }));
+        return React.createElement("div", { id: "image-container" }, React.createElement("canvas", { id: "image-container-element", style: canvasStyle, ref: "canvas" }));
       } else {
-        return React.createElement("input", { type: "file", onChange: this.props.fileSelectCallback });
+        return React.createElement("div", { id: "image-container" }, React.createElement("input", { id: "image-container-element", type: "file", onChange: this.props.fileSelectCallback }));
       }
     }
   }]);
@@ -302,11 +297,11 @@ var canvasReady = function canvasReady(canvasNode) {
   window.frame = new Frame(currentImage, canvasNode, function (frame) {
     var frame = frame;
     var onControlChange = function onControlChange(key, value) {
-      frame.exposureSettings[key] = value;
+      frame.settings[key] = value;
     };
-    React.render(React.createElement(Controls, { onControlChange: onControlChange, exposureSettings: frame.exposureSettings }), controlPanel);
-    frame.exposureSettings.on("updated", function () {
-      React.render(React.createElement(Controls, { onControlChange: onControlChange, exposureSettings: frame.exposureSettings }), controlPanel);
+    React.render(React.createElement(Controls, { onControlChange: onControlChange, settings: frame.settings }), controlPanel);
+    frame.settings.on("updated", function () {
+      React.render(React.createElement(Controls, { onControlChange: onControlChange, settings: frame.settings }), controlPanel);
     });
     frame.draw();
   });
@@ -41608,7 +41603,7 @@ var Filter = (function () {
   function Filter(gl, json) {
     _classCallCheck(this, Filter);
 
-    this.exposureSettings = new ExposureSettings(json);
+    this.settings = new ExposureSettings(json);
     this.gl = gl;
     this.shader = glShader(this.gl, "#define GLSLIFY 1\nprecision mediump float;\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}", "#define GLSLIFY 1\nprecision highp float;\nvarying vec2 screenPosition;\n\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n\n  // Then adjust channels seperately\n  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);\n  color.r = pow(color.r, (1.0 / r_gamma));\n  color.r = mix(r_out_min, r_out_max, color.r);\n\n  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);\n  color.g = pow(color.g, (1.0 / g_gamma));\n  color.g = mix(g_out_min, g_out_max, color.g);\n\n  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);\n  color.b = pow(color.b, (1.0 / b_gamma));\n  color.b = mix(b_out_min, b_out_max, color.b);\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n");
     this.shader.attributes.position.location = 0;
@@ -41631,7 +41626,7 @@ var Filter = (function () {
   }, {
     key: "setUniforms",
     value: function setUniforms() {
-      var settings = this.exposureSettings;
+      var settings = this.settings;
       var uniforms = this.shader.uniforms;
       _.keys(ExposureSettings.PROPS).forEach(function (key) {
         uniforms[key] = settings[key];
@@ -41718,8 +41713,8 @@ var Frame = (function () {
 
       // filter that will actually manipulate image in framebuffer
       this.filter = new Filter(gl, this.json);
-      this.exposureSettings = this.filter.exposureSettings;
-      this.exposureSettings.on("updated", this.filterDraw.bind(this));
+      this.settings = this.filter.settings;
+      this.settings.on("updated", this.filterDraw.bind(this));
 
       // shader for drawing image
       this.shader = glShader(gl, "#define GLSLIFY 1\nattribute vec3 position;\n\nuniform mat4 p_matrix;\nuniform mat4 mv_matrix;\n\nvarying vec2 uv;\n\nvoid main() {\n  gl_Position = p_matrix * mv_matrix * vec4(position, 1.0);\n  uv = position.xy;\n}\n", "#define GLSLIFY 1\nprecision highp float;\nvarying vec2 uv;\n\nuniform sampler2D texture;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(uv.s, uv.t));\n  gl_FragColor = color;\n}\n");
@@ -41743,7 +41738,7 @@ var Frame = (function () {
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, this.img);
       gl.bindTexture(gl.TEXTURE_2D, null);
 
-      this.callback(this);
+      this.callback && this.callback(this);
     }
   }, {
     key: "getGLContext",

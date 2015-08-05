@@ -9,11 +9,6 @@ class ImageStage extends React.Component {
 
   render() {
     if (this.props.imageSelected) {
-      var divStyle = {
-        width: "100%",
-        height: "100%",
-        textAlign: "center"
-      };
       var canvasStyle = {
         maxHeight: "100%",
         maxWidth: "100%",
@@ -21,13 +16,15 @@ class ImageStage extends React.Component {
         marginRight: "auto"
       };
       return (
-        <div style={divStyle}>
-          <canvas style={canvasStyle} ref="canvas"/>
+        <div id="image-container">
+          <canvas id="image-container-element" style={canvasStyle} ref="canvas"/>
         </div>
       );
     } else {
       return (
-        <input type="file" onChange={this.props.fileSelectCallback}></input>
+        <div id="image-container">
+          <input id="image-container-element" type="file" onChange={this.props.fileSelectCallback}></input>
+        </div>
       );
     }
   }

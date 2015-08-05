@@ -34,8 +34,8 @@ class Frame {
 
     // filter that will actually manipulate image in framebuffer
     this.filter = new Filter(gl, this.json);
-    this.exposureSettings = this.filter.exposureSettings;
-    this.exposureSettings.on("updated", this.filterDraw.bind(this));
+    this.settings = this.filter.settings;
+    this.settings.on("updated", this.filterDraw.bind(this));
 
     // shader for drawing image
     this.shader = glShader(gl,
@@ -67,7 +67,7 @@ class Frame {
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, this.img);
     gl.bindTexture(gl.TEXTURE_2D, null);
 
-    this.callback(this);
+    this.callback && this.callback(this);
   }
 
   getGLContext(canvas) {

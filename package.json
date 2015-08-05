@@ -4,6 +4,9 @@
   "description": "Simple photo manipulation library",
   "author": "Nick Schaubeck",
   "repository": "http://github.com/nschaubeck/exposure",
+  "scripts": {
+    "start": "python -m SimpleHTTPServer"
+  },
   "dependencies": {
     "a-big-triangle": "^1.0.0",
     "babelify": "6.1.0",

@@ -22,8 +22,8 @@ class Controls extends React.Component {
   }
 
   render() {
-    var s = this.props.exposureSettings;
-    var p = this.props.exposureSettings.PROPS;
+    var s = this.props.settings;
+    var p = this.props.settings.PROPS;
     return (
       <div style={this.divStyle}>
         <p>brightness</p>
@@ -62,8 +62,8 @@ class Controls extends React.Component {
 }
 
 Controls.propTypes = {
-  onControlChange: React.PropTypes.func,
-  exposureSettings: React.PropTypes.object
+  onControlhange: React.PropTypes.func,
+  settings: React.PropTypes.object
 };
 
 module.exports = Controls;
