@@ -31,7 +31,8 @@
     "react": "0.13.3",
     "react-tap-event-plugin": "^0.1.6",
     "react-tools": "0.13.3",
-    "reactify": "1.1.1"
+    "reactify": "1.1.1",
+    "uuid": "^2.0.1"
   },
   "engine": "node >= 0.10.0",
   "browserify": {

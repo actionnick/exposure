@@ -2,28 +2,24 @@ var React = require("react");
 
 class ImageStage extends React.Component {
   componentDidUpdate() {
-    if (this.props.imageSelected) {
-      this.props.canvasReadyCallback(this.refs.canvas.getDOMNode());
+    var frame = this.props.selectedFrame;
+    if (frame) {
+      var canvas = frame.canvas;
+      canvas.className = "current-canvas";
+      this.refs.container.getDOMNode().appendChild(frame.canvas);
     }
   }
 
   render() {
-    if (this.props.imageSelected) {
-      var canvasStyle = {
-        maxHeight: "100%",
-        maxWidth: "100%",
-        marginLeft: "auto",
-        marginRight: "auto"
-      };
+    if (this.props.selectedFrame) {
       return (
-        <div id="image-container">
-          <canvas id="image-container-element" style={canvasStyle} ref="canvas"/>
+        <div key={this.props.selectedFrame.key} id="image-container" ref="container">
         </div>
       );
     } else {
       return (
         <div id="image-container">
-          <input id="image-container-element" type="file" onChange={this.props.fileSelectCallback}></input>
+          <input id="file-upload" type="file" onChange={this.props.fileSelectCallback}></input>
         </div>
       );
     }
@@ -31,13 +27,8 @@ class ImageStage extends React.Component {
 }
 
 ImageStage.propTypes = {
-  imageSelected: React.PropTypes.bool,
-  fileSelectCallback: React.PropTypes.func,
-  canvasReadyCallback: React.PropTypes.func
-};
-
-ImageStage.defaultProps = {
-  imageSelected: false
+  selectedFrame: React.PropTypes.object,
+  fileSelectCallback: React.PropTypes.func
 };
 
 module.exports = ImageStage;

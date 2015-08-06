@@ -8,16 +8,11 @@ var _ = require("lodash");
 var MAX_SIZE = 2500;
 
 class Frame {
-  constructor(img, canvas, json, callback) {
-    var gl = this.gl = this.getGLContext(canvas);
-    this.canvas = canvas;
-    this.callback = callback;
-    this.json = json;
-
-    if (_.isFunction(json) && _.isUndefined(callback)) {
-      this.callback = json;
-      this.json = {};
-    }
+  constructor(img, opts) {
+    this.canvas = opts.canvas || document.createElement("canvas");
+    this.callback = opts.callback || function(){};
+    this.json = opts.json || {};
+    this.gl = this.getGLContext(this.canvas);
 
     if (img.width > MAX_SIZE || img.height > MAX_SIZE) {
       resizeImage(img, MAX_SIZE, this.initWithImg.bind(this));
@@ -67,6 +62,7 @@ class Frame {
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, this.img);
     gl.bindTexture(gl.TEXTURE_2D, null);
 
+    this.draw();
     this.callback && this.callback(this);
   }
 

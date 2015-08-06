@@ -6,4 +6,9 @@ class ImageList extends React.Component {
   }
 }
 
+ImageList.propTypes = {
+  currentGrouping: React.PropTypes.object,
+  fileSelectCallback: React.PropTypes.func
+};
+
 module.exports = ImageList;
