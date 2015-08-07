@@ -161,7 +161,7 @@ var ImageCollection = (function (_EventEmitter) {
     value: function addNewFrame(img) {
       var callback = (function (frame) {
         frame.key = uuid.v4();
-        this.frames.push(frame);
+        this.frames.unshift(frame);
         this.selectFrame(frame.key);
       }).bind(this);
 
@@ -268,6 +268,7 @@ function _inherits(subClass, superClass) {
 }
 
 var React = require("react");
+var _ = require("lodash");
 
 var ImageList = (function (_React$Component) {
   function ImageList() {
@@ -279,9 +280,30 @@ var ImageList = (function (_React$Component) {
   _inherits(ImageList, _React$Component);
 
   _createClass(ImageList, [{
+    key: "getImages",
+    value: function getImages() {
+      var imageStyle = {
+        width: "100%"
+      };
+      var selectedKey = this.props.selectedFrame.key;
+      var self = this;
+      return _.map(this.props.frames, function (frame) {
+        return React.createElement("img", {
+          style: imageStyle,
+          key: frame.key,
+          src: frame.img.src,
+          onClick: self.props.frameSelectCallback.bind(undefined, frame.key) });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return React.createElement("div", null);
+      var divStyle = {
+        width: "100%",
+        height: "100%"
+      };
+      var images = this.getImages();
+      return React.createElement("div", { style: divStyle }, images, React.createElement("input", { id: "file-upload", type: "file", onChange: this.props.fileSelectCallback }));
     }
   }]);
 
@@ -289,13 +311,15 @@ var ImageList = (function (_React$Component) {
 })(React.Component);
 
 ImageList.propTypes = {
-  currentGrouping: React.PropTypes.object,
-  fileSelectCallback: React.PropTypes.func
+  frames: React.PropTypes.array,
+  selectedFrame: React.PropTypes.object,
+  fileSelectCallback: React.PropTypes.func,
+  frameSelectCallback: React.PropTypes.func
 };
 
 module.exports = ImageList;
 
-},{"react":"/Users/nick/projects/exposure/node_modules/react/react.js"}],"/Users/nick/projects/exposure/demo/image_stage.js":[function(require,module,exports){
+},{"lodash":"/Users/nick/projects/exposure/node_modules/lodash/index.js","react":"/Users/nick/projects/exposure/node_modules/react/react.js"}],"/Users/nick/projects/exposure/demo/image_stage.js":[function(require,module,exports){
 "use strict";
 
 var _createClass = (function () {
@@ -341,6 +365,7 @@ function _inherits(subClass, superClass) {
 }
 
 var React = require("react");
+var FileInput = require("react-file-input");
 
 var ImageStage = (function (_React$Component) {
   function ImageStage() {
@@ -362,12 +387,46 @@ var ImageStage = (function (_React$Component) {
       }
     }
   }, {
+    key: "fileUpload",
+    value: function fileUpload(e) {
+      this.refs.fileInput.getDOMNode().click();
+      e.preventDefault();
+    }
+  }, {
+    key: "fileDrop",
+    value: function fileDrop(e) {
+      e.stopPropagation();
+      e.preventDefault();
+
+      var dt = e.dataTransfer;
+      var files = dt.files;
+
+      this.props.fileSelectCallback({ target: { files: files } });
+    }
+  }, {
+    key: "fileEnter",
+    value: function fileEnter(e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+  }, {
+    key: "fileOver",
+    value: function fileOver(e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+  }, {
     key: "render",
     value: function render() {
       if (this.props.selectedFrame) {
-        return React.createElement("div", { key: this.props.selectedFrame.key, id: "image-container", ref: "container" });
+        return React.createElement("div", { key: this.props.selectedFrame.key, id: "image-container", className: "padding", ref: "container" });
       } else {
-        return React.createElement("div", { id: "image-container" }, React.createElement("input", { id: "file-upload", type: "file", onChange: this.props.fileSelectCallback }));
+        return React.createElement("div", { id: "image-container" }, React.createElement("input", { ref: "fileInput", id: "file-upload", type: "file", onChange: this.props.fileSelectCallback }), React.createElement("div", { id: "file-upload-area", draggable: "true",
+          onClick: this.fileUpload.bind(this),
+          onDragEnter: this.fileEnter.bind(this),
+          onDragOver: this.fileOver.bind(this),
+          onDrop: this.fileDrop.bind(this)
+        }, React.createElement("img", { id: "file-upload-icon", src: "assets/photo_upload_big.svg" })));
       }
     }
   }]);
@@ -382,7 +441,7 @@ ImageStage.propTypes = {
 
 module.exports = ImageStage;
 
-},{"react":"/Users/nick/projects/exposure/node_modules/react/react.js"}],"/Users/nick/projects/exposure/demo/main.js":[function(require,module,exports){
+},{"react":"/Users/nick/projects/exposure/node_modules/react/react.js","react-file-input":"/Users/nick/projects/exposure/node_modules/react-file-input/lib/index.js"}],"/Users/nick/projects/exposure/demo/main.js":[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -400,7 +459,7 @@ var imagesPanel = document.getElementById("images");
 var imageStage = document.getElementById("current-image");
 var controlPanel = document.getElementById("controls");
 
-window.imageCollection = new ImageCollection();
+var imageCollection = new ImageCollection();
 var render = function render(frame) {
   // Render image to stage
   React.render(React.createElement(ImageStage, {
@@ -410,12 +469,12 @@ var render = function render(frame) {
 
   if (frame) {
     // Update images list
-    // React.render(<ImageList
-    //   frames={imageCollection.groupings}
-    //   selectedFrame={selectedFrame}
-    //   fileSelectCallback={imageCollection.handleImageLoad}
-    //   imageSelectCallback={imageCollection.setCurrentImage}
-    // />, imagesPanel);
+    React.render(React.createElement(ImageList, {
+      frames: imageCollection.frames,
+      selectedFrame: frame,
+      fileSelectCallback: imageCollection.handleImageLoad,
+      frameSelectCallback: imageCollection.selectFrame
+    }), imagesPanel);
 
     // Update control panel
     var onControlChange = function onControlChange(key, value) {
@@ -21212,7 +21271,74 @@ module.exports = function (fn) {
     ));
 };
 
-},{}],"/Users/nick/projects/exposure/node_modules/react-tap-event-plugin/src/ResponderEventPlugin.js":[function(require,module,exports){
+},{}],"/Users/nick/projects/exposure/node_modules/react-file-input/lib/index.js":[function(require,module,exports){
+var React = require('react');
+
+var FileInput = React.createClass({
+  getInitialState: function() {
+    return {
+      value: '',
+      styles: {
+        parent: {
+          position: 'relative'
+        },
+        file: {
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          opacity: 0,
+          width: '100%',
+          zIndex: 1
+        },
+        text: {
+          position: 'relative',
+          zIndex: -1
+        }
+      }
+    };
+  },
+
+  handleChange: function(e) {
+    this.setState({
+      value: e.target.value.split(/(\\|\/)/g).pop()
+    });
+    if (this.props.onChange) this.props.onChange(e);
+  },
+
+  render: function() {
+    return React.DOM.div({
+        style: this.state.styles.parent
+      },
+
+      // Actual file input
+      React.DOM.input({
+        type: 'file',
+        name: this.props.name,
+        className: this.props.className,
+        onChange: this.handleChange,
+        disabled: this.props.disabled,
+        accept: this.props.accept,
+        style: this.state.styles.file
+      }),
+
+      // Emulated file input
+      React.DOM.input({
+        type: 'text',
+        tabIndex: -1,
+        name: this.props.name + '_filename',
+        value: this.state.value,
+        className: this.props.className,
+        onChange: function() {},
+        placeholder: this.props.placeholder,
+        disabled: this.props.disabled,
+        style: this.state.styles.text
+      }));
+  }
+});
+
+module.exports = FileInput;
+
+},{"react":"/Users/nick/projects/exposure/node_modules/react/react.js"}],"/Users/nick/projects/exposure/node_modules/react-tap-event-plugin/src/ResponderEventPlugin.js":[function(require,module,exports){
 /**
  * Copyright 2013-2014, Facebook, Inc.
  * All rights reserved.

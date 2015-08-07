@@ -13,7 +13,7 @@ var imagesPanel = document.getElementById("images");
 var imageStage = document.getElementById("current-image");
 var controlPanel = document.getElementById("controls");
 
-window.imageCollection = new ImageCollection();
+var imageCollection = new ImageCollection();
 var render = function(frame)  {
   // Render image to stage
   React.render(<ImageStage 
@@ -23,12 +23,12 @@ var render = function(frame)  {
 
   if (frame) {
     // Update images list
-    // React.render(<ImageList 
-    //   frames={imageCollection.groupings}
-    //   selectedFrame={selectedFrame}
-    //   fileSelectCallback={imageCollection.handleImageLoad}
-    //   imageSelectCallback={imageCollection.setCurrentImage}
-    // />, imagesPanel);
+    React.render(<ImageList 
+      frames={imageCollection.frames}
+      selectedFrame={frame}
+      fileSelectCallback={imageCollection.handleImageLoad}
+      frameSelectCallback={imageCollection.selectFrame}
+    />, imagesPanel);
 
     // Update control panel
     var onControlChange = function(key, value) {

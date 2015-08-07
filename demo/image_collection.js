@@ -13,7 +13,7 @@ class ImageCollection extends EventEmitter {
   addNewFrame(img) {
     var callback = function(frame) {
       frame.key = uuid.v4();
-      this.frames.push(frame);
+      this.frames.unshift(frame);
       this.selectFrame(frame.key);
     }.bind(this);
     
