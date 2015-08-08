@@ -161,6 +161,7 @@ var ImageCollection = (function (_EventEmitter) {
     value: function addNewFrame(img) {
       var callback = (function (frame) {
         frame.key = uuid.v4();
+        frame.thumbnail = this.createThumbnail(img, 300);
         this.frames.unshift(frame);
         this.selectFrame(frame.key);
       }).bind(this);
@@ -172,9 +173,26 @@ var ImageCollection = (function (_EventEmitter) {
   }, {
     key: 'createThumbnail',
 
-    // TODO: implement this plz
-    value: function createThumbnail(img) {
-      return img;
+    // Returns a square thumbnail of specified size
+    value: function createThumbnail(img, size) {
+      var canvas = document.createElement('canvas');
+      canvas.width = canvas.height = size;
+      var context = canvas.getContext('2d');
+
+      var srcSize = img.height < img.width ? img.height : img.width;
+      var mid = {
+        x: img.width / 2,
+        y: img.height / 2
+      };
+      var srcPos = {
+        x: mid.x - srcSize / 2,
+        y: mid.y - srcSize / 2
+      };
+      context.drawImage(img, srcPos.x, srcPos.y, srcSize, srcSize, 0, 0, size, size);
+
+      var newImg = document.createElement('img');
+      newImg.src = canvas.toDataURL();
+      return newImg;
     }
   }, {
     key: 'findFrame',
@@ -280,30 +298,29 @@ var ImageList = (function (_React$Component) {
   _inherits(ImageList, _React$Component);
 
   _createClass(ImageList, [{
+    key: "fileUpload",
+    value: function fileUpload(e) {
+      this.refs.fileInput.getDOMNode().click();
+      e.preventDefault();
+    }
+  }, {
     key: "getImages",
     value: function getImages() {
-      var imageStyle = {
-        width: "100%"
-      };
       var selectedKey = this.props.selectedFrame.key;
       var self = this;
       return _.map(this.props.frames, function (frame) {
-        return React.createElement("img", {
-          style: imageStyle,
+        return React.createElement("div", { id: "list-item-container", key: frame.key }, React.createElement("img", { id: "image-list-item",
+          className: frame.key === selectedKey ? "selected" : "not-selected",
           key: frame.key,
-          src: frame.img.src,
-          onClick: self.props.frameSelectCallback.bind(undefined, frame.key) });
+          src: frame.thumbnail.src,
+          onClick: self.props.frameSelectCallback.bind(undefined, frame.key) }));
       });
     }
   }, {
     key: "render",
     value: function render() {
-      var divStyle = {
-        width: "100%",
-        height: "100%"
-      };
       var images = this.getImages();
-      return React.createElement("div", { style: divStyle }, images, React.createElement("input", { id: "file-upload", type: "file", onChange: this.props.fileSelectCallback }));
+      return React.createElement("div", { id: "image-list" }, React.createElement("input", { ref: "fileInput", id: "file-upload", type: "file", onChange: this.props.fileSelectCallback }), images, React.createElement("div", { id: "list-item-container", style: { height: "75px" } }, React.createElement("img", { onClick: this.fileUpload.bind(this), id: "side-file-upload-icon", src: "assets/photo_upload_small.svg" })));
     }
   }]);
 
@@ -368,10 +385,13 @@ var React = require("react");
 var FileInput = require("react-file-input");
 
 var ImageStage = (function (_React$Component) {
-  function ImageStage() {
+  function ImageStage(props) {
     _classCallCheck(this, ImageStage);
 
-    _get(Object.getPrototypeOf(ImageStage.prototype), "constructor", this).apply(this, arguments);
+    _get(Object.getPrototypeOf(ImageStage.prototype), "constructor", this).call(this, props);
+    this.state = {
+      loading: false
+    };
   }
 
   _inherits(ImageStage, _React$Component);

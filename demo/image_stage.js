@@ -2,6 +2,13 @@ var React = require("react");
 var FileInput = require("react-file-input");
 
 class ImageStage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false
+    }
+  }
+
   componentDidUpdate() {
     var frame = this.props.selectedFrame;
     if (frame) {

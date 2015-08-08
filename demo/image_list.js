@@ -2,31 +2,36 @@ var React = require("react");
 var _ = require("lodash");
 
 class ImageList extends React.Component {
+  fileUpload(e) {
+    this.refs.fileInput.getDOMNode().click();
+    e.preventDefault();
+  }
+
   getImages() {
-    var imageStyle = {
-      width: "100%"
-    };
     var selectedKey = this.props.selectedFrame.key;
     var self = this;
     return _.map(this.props.frames, function(frame) {
-      return <img 
-        style={imageStyle} 
-        key={frame.key} 
-        src={frame.img.src} 
-        onClick={self.props.frameSelectCallback.bind(undefined, frame.key)}/>
+      return (
+        <div id='list-item-container' key={frame.key}>
+          <img id="image-list-item"
+            className={frame.key === selectedKey ? 'selected' : 'not-selected'} 
+            key={frame.key} 
+            src={frame.thumbnail.src} 
+            onClick={self.props.frameSelectCallback.bind(undefined, frame.key)}/>
+        </div>
+      );
     }); 
   }
 
   render() {
-    var divStyle = {
-      width: "100%",
-      height: "100%"
-    };
     var images = this.getImages();
     return (
-      <div style={divStyle}>
+      <div id="image-list">
+        <input ref="fileInput" id="file-upload" type="file" onChange={this.props.fileSelectCallback}></input>
         {images}
-        <input id="file-upload" type="file" onChange={this.props.fileSelectCallback}></input>
+        <div id='list-item-container' style={{height: "75px"}}>
+          <img onClick={this.fileUpload.bind(this)} id="side-file-upload-icon" src={"assets/photo_upload_small.svg"} />
+        </div>
       </div>
     );
   }
