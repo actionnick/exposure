@@ -30,6 +30,8 @@
     "pica": "^1.0.7",
     "react": "0.13.3",
     "react-file-input": "^0.2.4",
+    "react-modal": "^0.3.0",
+    "react-slider": "^0.5.1",
     "react-tap-event-plugin": "^0.1.6",
     "react-tools": "0.13.3",
     "reactify": "1.1.1",

@@ -3,15 +3,19 @@ var ImageStage = require("./image_stage");
 var ImageList = require("./image_list");
 var Controls = require("./controls");
 var Frame = require("../src/frame");
+var About = require("./about");
 var ImageCollection = require("./image_collection");
+var _  = require('lodash');
 
 var injectTapEventPlugin = require("react-tap-event-plugin");
 injectTapEventPlugin();
 
+var firstRender = true;
 var actionsBar = document.getElementById("actions");
 var imagesPanel = document.getElementById("images");
 var imageStage = document.getElementById("current-image");
 var controlPanel = document.getElementById("controls");
+var main = document.getElementById("main");
 
 var imageCollection = new ImageCollection();
 var render = function(frame)  {
@@ -22,6 +26,12 @@ var render = function(frame)  {
   />, imageStage);
 
   if (frame) {
+    if (firstRender) {
+      firstRender = false;
+      imagesPanel.className += " editing";
+      imageStage.className += " editing";
+      controlPanel.className += " editing";
+    }
     // Update images list
     React.render(<ImageList 
       frames={imageCollection.frames}
@@ -34,9 +44,9 @@ var render = function(frame)  {
     var onControlChange = function(key, value) {
       frame.settings[key] = value;
     };
-    React.render(<Controls onControlChange={onControlChange} settings={frame.settings}/>, controlPanel);
+    React.render(<Controls onControlChange={onControlChange} frame={frame}/>, controlPanel);
     frame.settings.on("updated", function() {
-      React.render(<Controls onControlChange={onControlChange} settings={frame.settings}/>, controlPanel);
+      React.render(<Controls onControlChange={onControlChange} frame={frame}/>, controlPanel);
     });
   }
   

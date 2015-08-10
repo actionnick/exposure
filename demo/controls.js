@@ -1,16 +1,14 @@
 var React = require("react");
+var ReactSlider = require("react-slider");
 
 class Controls extends React.Component {
-  get handleChange() {
-    if (!this._handleChange) {
-      this._handleChange = function(event) {
-        var target = event.target;
-        var key = target.id;
-        var value = target.value / 100;
-        this.props.onControlChange(key, value);
-      }.bind(this);
+  handleChange(key, value) {
+    if (value.length) {
+      this.props.onControlChange(key + "min", value[0] / 100);
+      this.props.onControlChange(key + "max", value[1] / 100);
+    } else {
+      this.props.onControlChange(key, value / 100);
     }
-    return this._handleChange; 
   }
 
   get divStyle() {
@@ -22,40 +20,107 @@ class Controls extends React.Component {
   }
 
   render() {
-    var s = this.props.settings;
-    var p = this.props.settings.PROPS;
+    var s = this.props.frame.settings;
+    var p = s.PROPS;
     return (
-      <div style={this.divStyle}>
-        <p>brightness</p>
-        <input id="brightness" onChange={this.handleChange} type="range" min="0" max="200" defaultValue={s.brightness * 100}/>
-        <p>contrast</p>
-        <input id="contrast" onChange={this.handleChange} type="range" min="0" max="300" defaultValue={s.contrast * 100}/>
-        <input id="mid" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.mid * 100}/>
-        <p>levels</p>
-        <p>rgb levels</p>
-        <input id="rgb_in_min" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.rgb_in_min * 100}/>
-        <input id="rgb_in_max" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.rgb_in_max * 100}/>
-        <input id="rgb_out_min" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.rgb_out_min * 100}/>
-        <input id="rgb_out_max" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.rgb_out_max * 100}/>
-        <input id="rgb_gamma" onChange={this.handleChange} type="range" min="0" max="1000" defaultValue={s.rgb_gamma * 100}/>
-        <p>red levels</p>
-        <input id="r_in_min" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.r_in_min * 100}/>
-        <input id="r_in_max" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.r_in_max * 100}/>
-        <input id="r_out_min" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.r_out_min * 100}/>
-        <input id="r_out_max" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.r_out_max * 100}/>
-        <input id="r_gamma" onChange={this.handleChange} type="range" min="0" max="1000" defaultValue={s.r_gamma * 100}/>
-        <p>green levels</p>
-        <input id="g_in_min" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.g_in_min * 100}/>
-        <input id="g_in_max" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.g_in_max * 100}/>
-        <input id="g_out_min" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.g_out_min * 100}/>
-        <input id="g_out_max" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.g_out_max * 100}/>
-        <input id="g_gamma" onChange={this.handleChange} type="range" min="0" max="1000" defaultValue={s.g_gamma * 100}/>
-        <p>blue levels</p>
-        <input id="b_in_min" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.b_in_min * 100}/>
-        <input id="b_in_max" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.b_in_max * 100}/>
-        <input id="b_out_min" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.b_out_min * 100}/>
-        <input id="b_out_max" onChange={this.handleChange} type="range" min="0" max="100" defaultValue={s.b_out_max * 100}/>
-        <input id="b_gamma" onChange={this.handleChange} type="range" min="0" max="1000" defaultValue={s.b_gamma * 100}/>
+      <div key={this.props.frame.key} style={this.divStyle}>
+        <div className="controls-section">
+          <h1>general</h1>
+          <div className="slider-layout">
+            <p>brightness</p>
+            <div className="slider-container centering-parent">
+              <ReactSlider onChange={this.handleChange.bind(this, "brightness")}  min={0} max={200} defaultValue={s.brightness * 100} />
+            </div>
+          </div>
+          <div className="slider-layout">
+            <p>contrast</p>
+            <div className="slider-container centering-parent">
+              <ReactSlider onChange={this.handleChange.bind(this, "contrast")}  min={0} max={300} defaultValue={s.contrast * 100} />
+            </div>
+          </div>
+        </div>
+        <div className="controls-section">
+          <h1>levels</h1>
+          <h2>rgb</h2>
+          <div className="slider-layout">
+            <p>in</p>
+            <div className="slider-container centering-parent">
+              <ReactSlider onChange={this.handleChange.bind(this, "rgb_in_")}  min={0} max={100} defaultValue={[s.rgb_in_min * 100, s.rgb_in_max * 100]} />
+            </div>
+          </div>
+          <div className="slider-layout">
+            <p>out</p>
+            <div className="slider-container centering-parent">
+              <ReactSlider onChange={this.handleChange.bind(this, "rgb_out_")}  min={0} max={100} defaultValue={[s.rgb_out_min * 100, s.rgb_out_max * 100]} />
+            </div>
+          </div>
+          <div className="slider-layout">
+            <p>gamma</p>
+            <div className="slider-container centering-parent">
+              <ReactSlider onChange={this.handleChange.bind(this, "rgb_gamma")}  min={0} max={1000} defaultValue={s.rgb_gamma * 100} />
+            </div>
+          </div>
+
+          <h2>red</h2>
+          <div className="slider-layout">
+            <p>in</p>
+            <div className="slider-container centering-parent">
+              <ReactSlider className="slider red-slider" onChange={this.handleChange.bind(this, "r_in_")}  min={0} max={100} defaultValue={[s.r_in_min * 100, s.r_in_max * 100]} />
+            </div>
+          </div>
+          <div className="slider-layout">
+            <p>out</p>
+            <div className="slider-container centering-parent">
+              <ReactSlider className="slider red-slider" onChange={this.handleChange.bind(this, "r_out_")}  min={0} max={100} defaultValue={[s.r_out_min * 100, s.r_out_max * 100]} />
+            </div>
+          </div>
+          <div className="slider-layout">
+            <p>gamma</p>
+            <div className="slider-container centering-parent">
+              <ReactSlider className="slider red-slider" onChange={this.handleChange.bind(this, "r_gamma")}  min={0} max={1000} defaultValue={s.r_gamma * 100} />
+            </div>
+          </div>
+
+          <h2>green</h2>
+          <div className="green slider-layout">
+            <p>in</p>
+            <div className="slider-container centering-parent">
+              <ReactSlider className="slider green-slider" onChange={this.handleChange.bind(this, "g_in_")}  min={0} max={100} defaultValue={[s.g_in_min * 100, s.g_in_max * 100]} />
+            </div>
+          </div>
+          <div className="green slider-layout">
+            <p>out</p>
+            <div className="slider-container centering-parent">
+              <ReactSlider className="slider green-slider" onChange={this.handleChange.bind(this, "g_out_")}  min={0} max={100} defaultValue={[s.g_out_min * 100, s.g_out_max * 100]} />
+            </div>
+          </div>
+          <div className="green slider-layout">
+            <p>gamma</p>
+            <div className="slider-container centering-parent">
+              <ReactSlider className="slider green-slider" onChange={this.handleChange.bind(this, "g_gamma")}  min={0} max={1000} defaultValue={s.g_gamma * 100} />
+            </div>
+          </div>
+
+          <h2>blue</h2>
+          <div className="slider-layout">
+            <p>in</p>
+            <div className="slider-container centering-parent">
+              <ReactSlider className="slider blue-slider" onChange={this.handleChange.bind(this, "b_in_")}  min={0} max={100} defaultValue={[s.b_in_min * 100, s.b_in_max * 100]} />
+            </div>
+          </div>
+          <div className="slider-layout">
+            <p>out</p>
+            <div className="slider-container centering-parent">
+              <ReactSlider className="slider blue-slider" onChange={this.handleChange.bind(this, "b_out_")}  min={0} max={100} defaultValue={[s.b_out_min * 100, s.b_out_max * 100]} />
+            </div>
+          </div>
+          <div className="slider-layout">
+            <p>gamma</p>
+            <div className="slider-container centering-parent">
+              <ReactSlider className="slider blue-slider" onChange={this.handleChange.bind(this, "b_gamma")}  min={0} max={1000} defaultValue={s.b_gamma * 100} />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -63,7 +128,7 @@ class Controls extends React.Component {
 
 Controls.propTypes = {
   onControlhange: React.PropTypes.func,
-  settings: React.PropTypes.object
+  frame: React.PropTypes.object
 };
 
 module.exports = Controls;

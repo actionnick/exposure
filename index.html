@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>exposure</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="assets/favicon.ico" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/demo.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/material.css" media="screen">
@@ -13,7 +14,11 @@
     <div id="main" class="no-buffer">
       <div id="top" class="no-buffer">
         <div id="logo" class="no-buffer"></div>
-        <div id="actions" class="no-buffer"></div>
+        <div id="actions" class="no-buffer">
+          <a target="_blank" class="github-logo" href="https://github.com/actionnick/exposure"></a>
+          <a class="twitter-share-button popup"
+            href="https://twitter.com/intent/tweet?text=Photo%20editing%20in%20the%20browser&via=action_nick&dnt=true&count=none"></a>
+        </div>
       </div>
       <div id="middle" class="no-buffer">
         <div id="images" class="no-buffer"></div>
@@ -21,6 +26,25 @@
         <div id="controls" class="no-buffer"></div>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+      $('.popup').click(function(event) {
+        var width  = 575,
+            height = 400,
+            left   = ($(window).width()  - width)  / 2,
+            top    = ($(window).height() - height) / 2,
+            url    = this.href,
+            opts   = 'status=1' +
+                     ',width='  + width  +
+                     ',height=' + height +
+                     ',top='    + top    +
+                     ',left='   + left;
+        
+        window.open(url, 'twitter', opts);
+     
+        return false;
+      });
+    </script>
     <script src="demo/build.js"></script>
   </body>
 </html>

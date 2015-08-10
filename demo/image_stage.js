@@ -46,7 +46,7 @@ class ImageStage extends React.Component {
   render() {
     if (this.props.selectedFrame) {
       return (
-        <div key={this.props.selectedFrame.key} id="image-container" className="padding" ref="container"></div>
+        <div key={this.props.selectedFrame.key} id="image-container" className="padding editing" ref="container"></div>
       );
     } else {
       return (
