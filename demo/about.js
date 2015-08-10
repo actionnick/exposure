@@ -12,7 +12,7 @@ class About extends React.Component {
     };
   }
 
-  closeModal {
+  closeModal() {
     this.setState({
       open: false
     });
