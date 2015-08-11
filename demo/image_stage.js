@@ -94,7 +94,7 @@ class ImageStage extends React.Component {
     } else {
       return (
         <div id="image-container" >
-          <input ref="fileInput" id="file-upload" type="file" onChange={this.props.fileSelectCallback}></input>
+          <input ref="fileInput" id="file-upload" type="file" accept="image/*" onChange={this.props.fileSelectCallback}></input>
           <div id="file-upload-area" draggable='true' 
             onClick={this.fileUpload.bind(this)} 
             onDragEnter={this.fileEnter.bind(this)}
