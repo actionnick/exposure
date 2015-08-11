@@ -29,8 +29,8 @@ class About extends React.Component {
         isOpen={this.props.isOpen}
         className="about_modal"
       >
-        <img id="close" onClick={this.props.closeModal} src="../assets/x.svg"/>
-        <img id="title" src="../assets/color_logo.svg"/>
+        <img id="close" onClick={this.props.closeModal} src="assets/x.svg"/>
+        <img id="title" src="assets/color_logo.svg"/>
 
         <p>This is a demo for a javascript library called exposure. Exposure is an image processing library backed by webGL which means it's fast and powerful. You can use this demo to mess around with the different effects and filters you can create. Right now there are only brightness, contrast, and levels controls but there will be more coming soon.</p>
         <p>Upload your <strong>image</strong>, mess around and <strong>edit</strong> it, then <strong>save</strong> the image or the filter.</p>
@@ -47,8 +47,8 @@ class About extends React.Component {
         <h3>Feature Requests</h3>
         <p>If you have any specific features you would want out of a client side image processing library, <a target="_blank" href="https://github.com/actionnick/exposure/issues">file an issue</a> for it and I'll take a look.</p>
 
-        <img className="twitter-follow-button popup" src="../assets/twitter_follow_icon.svg" onClick={this.followMe.bind(this)}/>
-        <img className="close_button" src="../assets/close.svg" onClick={this.props.closeModal}/>
+        <img className="twitter-follow-button popup" src="assets/twitter_follow_icon.svg" onClick={this.followMe.bind(this)}/>
+        <img className="close_button" src="assets/close.svg" onClick={this.props.closeModal}/>
       </Modal>
     )
   }

@@ -84,7 +84,7 @@ class ImageStage extends React.Component {
             isOpen={this.state.showJSON}
             className="about_modal"
           >
-            <img id="close" onClick={this.hideJSON.bind(this)} src="../assets/x.svg"/>
+            <img id="close" onClick={this.hideJSON.bind(this)} src="assets/x.svg"/>
             <h3>JSON</h3>
             <p>You can save this filter in its JSON form and use it to initialize exposure in your app. More about that can be found <a href="https://github.com/actionnick/exposure#usage" target="_blank">here</a>.</p>
             <pre id="json-output">{vkbeautify.json(JSON.stringify(frame.settings.json), 2)}</pre>
