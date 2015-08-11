@@ -1,6 +1,6 @@
 {
   "name": "exposure",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "WebGL backed client side image processing library",
   "author": "Nick Schaubeck",
   "repository": "http://github.com/actionnick/exposure",
