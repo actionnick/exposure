@@ -68,3 +68,5 @@ To test it you can actually just do something like `frame.settings.new_prop = 3`
 ## License
 
 MIT © [Nick Schaubeck](http://www.actionnick.nyc)
+
+Thank you Shauna Leytus for the logo!
