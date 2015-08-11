@@ -1,9 +1,19 @@
-body, html {
+html {
   padding: 0px;
   margin: 0px;
   border: 0px;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
 }
 
 .no-buffer {
@@ -19,6 +29,7 @@ body, html {
 
 #top {
   display: -webkit-flex;
+  display: flex;
   height: 7%;
   border-bottom: 1px solid rgb(222, 219, 219);
   min-height: 35px;
@@ -30,6 +41,7 @@ body, html {
   height: 100%;
   background: url(../assets/color_logo.svg) center center no-repeat;
   background-size: 80%;
+  border-right: 1px solid rgb(222, 219, 219);
 }
 
 .twitter-share-button {
@@ -38,6 +50,14 @@ body, html {
   background: url(../assets/twitter_icon.svg) center center no-repeat;
   height: 100%;
   width: 40px;
+}
+
+#about-button {
+  margin-right: 5px;
+  float: right;
+  height: 100%;
+  width: 40px;
+  cursor: pointer;
 }
 
 .github-logo {
@@ -61,6 +81,7 @@ body, html {
 
 #middle{
   display: -webkit-flex;
+  display: flex;
   height: 92%;
 }
 
@@ -190,10 +211,10 @@ body, html {
 #loading-icon {
   display: inline-block;
   vertical-align: middle;
-  -webkit-animation-duration: 3s;
+  -webkit-animation-duration: 2s;
   -webkit-animation-name: rotate;
   -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000);
+  -webkit-animation-timing-function: linear;
   width: 100px;
 }
 
@@ -203,7 +224,7 @@ body, html {
   }
 
   to {
-    -webkit-transform: rotate(720deg);
+    -webkit-transform: rotate(360deg);
   }
 }
 
@@ -228,7 +249,9 @@ body, html {
 
 #image-list-item {
   width: 90%;
+  border-radius: 50%;
   -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
   cursor: pointer;
   display: inline-block;
   vertical-align: middle;
@@ -413,4 +436,61 @@ body, html {
   -webkit-border-radius: 3px 3px 3px 3px;
   border: 1px solid #909090;
   cursor: pointer;
+}
+
+.about_modal {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about_modal #title {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding-bottom: 10px;
+}
+
+.about_modal #close {
+  width: 25px;
+  cursor: pointer;
+  float: right;
+}
+
+.close_button {
+  height: 35px;
+  cursor: pointer;
+}
+
+.twitter-follow-button {
+  width: 70px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#json-output {
+  line-height: 19px;
+}
+
+.browser-download {
+  width: 100%;
+  height: 100%;
+}
+
+.toJSON {
+  height: 35px;
+  float: right;
+  margin: 7px;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-box-shadow: 10px 10px 20px -12px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 20px -12px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 20px -12px rgba(0,0,0,0.75);
+  -webkit-transition: height 800ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+  -moz-transition: height 800ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+  -o-transition: height 800ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+  transition: height 800ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
 }

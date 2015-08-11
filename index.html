@@ -12,12 +12,14 @@
   </head>
   <body>
     <div id="main" class="no-buffer">
+      <div id="modal"></div>
       <div id="top" class="no-buffer">
         <div id="logo" class="no-buffer"></div>
         <div id="actions" class="no-buffer">
           <a target="_blank" class="github-logo" href="https://github.com/actionnick/exposure"></a>
           <a class="twitter-share-button popup"
             href="https://twitter.com/intent/tweet?text=Photo%20editing%20in%20the%20browser&via=action_nick&dnt=true&count=none"></a>
+          <img id="about-button" src="assets/about_button.svg"/>
         </div>
       </div>
       <div id="middle" class="no-buffer">
@@ -27,6 +29,7 @@
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="demo/lib/vkbeautify.0.99.00.beta.js"></script>
     <script>
       $('.popup').click(function(event) {
         var width  = 575,
@@ -45,6 +48,7 @@
         return false;
       });
     </script>
+    <script src="demo/lib/modernizr-webgl.js"></script>
     <script src="demo/build.js"></script>
   </body>
 </html>

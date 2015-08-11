@@ -15,6 +15,8 @@ var actionsBar = document.getElementById("actions");
 var imagesPanel = document.getElementById("images");
 var imageStage = document.getElementById("current-image");
 var controlPanel = document.getElementById("controls");
+var aboutButton = document.getElementById("about-button");
+var modal = document.getElementById("modal");
 var main = document.getElementById("main");
 
 var imageCollection = new ImageCollection();
@@ -23,7 +25,18 @@ var render = function(frame)  {
   React.render(<ImageStage 
     fileSelectCallback={imageCollection.handleImageLoad}
     selectedFrame={imageCollection.selectedFrame}
+    webGLSupported={Modernizr.webgl}
+    loading={false}
   />, imageStage);
+
+  imageCollection.on("loading", function() {
+    React.render(<ImageStage 
+      fileSelectCallback={imageCollection.handleImageLoad}
+      selectedFrame={imageCollection.selectedFrame}
+      webGLSupported={Modernizr.webgl}
+      loading={true}
+    />, imageStage);
+  });
 
   if (frame) {
     if (firstRender) {
@@ -49,8 +62,18 @@ var render = function(frame)  {
       React.render(<Controls onControlChange={onControlChange} frame={frame}/>, controlPanel);
     });
   }
-  
+};
+
+var renderAbout = function(open) {
+  React.render(<About isOpen={open} closeModal={renderAbout.bind(undefined, false)}/>, modal);
 };
 
 imageCollection.on("selected", render);
 render();
+
+if (document.cookie.indexOf("visited") < 0) {
+  renderAbout(true);
+  document.cookie += "visited";
+};
+
+aboutButton.onclick = renderAbout.bind(undefined, true);

@@ -26,6 +26,7 @@ class ImageCollection extends EventEmitter {
   get handleImageLoad() {
     if (!this._handleImageLoad) {
       this._handleImageLoad = function(event) {
+        this.emit("loading");
         var file = event.target.files[0];
         var reader = new FileReader();
         var self = this;

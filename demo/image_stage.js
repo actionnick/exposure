@@ -1,12 +1,25 @@
 var React = require("react");
 var FileInput = require("react-file-input");
+var Modal = require("react-modal");
 
 class ImageStage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false
+      showJSON: false
     }
+  }
+
+  showJSON() {
+    this.setState({
+      showJSON: true
+    });
+  }
+
+  hideJSON() {
+    this.setState({
+      showJSON: false
+    });
   }
 
   componentDidUpdate() {
@@ -44,9 +57,39 @@ class ImageStage extends React.Component {
   }
 
   render() {
-    if (this.props.selectedFrame) {
+    if (!this.props.webGLSupported) {
       return (
-        <div key={this.props.selectedFrame.key} id="image-container" className="padding editing" ref="container"></div>
+        <Modal
+          isOpen={true}
+          className="about_modal"
+        >
+          <h3>Oops! It doesn't seem like your browser supports webGL!</h3>
+          <p>You should download one of these browsers. Your life will be better</p>
+          <iframe className="browser-download" src="http://outdatedbrowser.com/en"></iframe>
+        </Modal>
+      )
+    } else if (this.props.loading) {
+      return (
+        <div id="image-container" className="editing">
+          <img id="loading-icon" src={"assets/color_aperture.svg"} />
+        </div>
+      )
+    } else if (this.props.selectedFrame) {
+      var frame = this.props.selectedFrame;
+      return (
+        <div style={{width: "100%", height: "100%"}}>
+          <img className="toJSON" src="assets/tojson.svg" onClick={this.showJSON.bind(this)}/>
+          <div key={frame.key} id="image-container" className="padding editing" ref="container"></div>
+          <Modal
+            isOpen={this.state.showJSON}
+            className="about_modal"
+          >
+            <img id="close" onClick={this.hideJSON.bind(this)} src="../assets/x.svg"/>
+            <h3>JSON</h3>
+            <p>You can save this filter in its JSON form and use it to initialize exposure in your app. More about that can be found <a href="https://github.com/actionnick/exposure#usage" target="_blank">here</a>.</p>
+            <pre id="json-output">{vkbeautify.json(JSON.stringify(frame.settings.json), 2)}</pre>
+          </Modal>
+        </div>
       );
     } else {
       return (
@@ -68,7 +111,9 @@ class ImageStage extends React.Component {
 
 ImageStage.propTypes = {
   selectedFrame: React.PropTypes.object,
-  fileSelectCallback: React.PropTypes.func
+  fileSelectCallback: React.PropTypes.func,
+  webGLSupported: React.PropTypes.bool,
+  loading: React.PropTypes.bool
 };
 
 module.exports = ImageStage;

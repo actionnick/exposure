@@ -50,37 +50,46 @@ Modal.setAppElement(document.getElementById('main'));
 Modal.injectCSS();
 
 var About = (function (_React$Component) {
-  function About(props) {
+  function About() {
     _classCallCheck(this, About);
 
-    _get(Object.getPrototypeOf(About.prototype), 'constructor', this).call(this, props);
-    this.state = {
-      open: true
-    };
+    _get(Object.getPrototypeOf(About.prototype), 'constructor', this).apply(this, arguments);
   }
 
   _inherits(About, _React$Component);
 
   _createClass(About, [{
-    key: 'closeModal',
-    value: function closeModal() {
-      this.setState({
-        open: false
-      });
+    key: 'followMe',
+    value: function followMe(event) {
+      var width = 575,
+          height = 400,
+          left = ($(window).width() - width) / 2,
+          top = ($(window).height() - height) / 2,
+          url = 'https://twitter.com/intent/follow?screen_name=action_nick&tw_p=followbutton',
+          opts = 'status=1' + ',width=' + width + ',height=' + height + ',top=' + top + ',left=' + left;
+
+      window.open(url, 'twitter', opts);
+
+      event.preventDefault();
+      event.stopPropagation();
     }
   }, {
     key: 'render',
     value: function render() {
       return React.createElement(Modal, {
-        isOpen: this.state.open,
-        closeTimeoutMS: 1000,
+        isOpen: this.props.isOpen,
         className: 'about_modal'
-      }, React.createElement('h1', null, 'Modal Content'), React.createElement('p', null, 'SOME LONG RUNNING STUFF UP IN HERE'), React.createElement('button', { type: 'button', onClick: this.closeModal.bind(this) }, 'Close'));
+      }, React.createElement('img', { id: 'close', onClick: this.props.closeModal, src: '../assets/x.svg' }), React.createElement('img', { id: 'title', src: '../assets/color_logo.svg' }), React.createElement('p', null, 'This is a demo for the javascript library I\'ve been writing called exposure. Exposure is an image processing library backed by webGL which means it\'s fast and powerful. You can use this demo to mess around with the different effects and filters you can create. Right now there are only brightness, contrast, and levels controls but there will be more coming soon.'), React.createElement('p', null, 'Upload your image, mess around and edit it, then save the image or the filter.'), React.createElement('h3', null, 'Saving Your Filter'), React.createElement('p', null, 'If you\'ve designed a filter that you want to re-use in your app, click the toJSON button at the top to get a json representation of the current filter. You can then ', React.createElement('a', { target: '_blank', href: 'https://github.com/actionnick/exposure#usage' }, 'use that json to initialize an exposure object'), ' in your own application.'), React.createElement('h3', null, 'Saving Your Image'), React.createElement('p', null, 'Saving your image is simple, just right click on the image and click "Save image as." Note Safari doesn\'t actually support saving a canvas as an image.'), React.createElement('h3', null, 'Browser Support'), React.createElement('p', null, 'The exposure library will work in any browser that supports webGL and this demo has been tested to work in the latest versions of Firefox, Safari, and Chrome.'), React.createElement('h3', null, 'Feature Requests'), React.createElement('p', null, 'If you have any specific features you would want out of a client side image processing library, ', React.createElement('a', { target: '_blank', href: 'https://github.com/actionnick/exposure/issues' }, 'file an issue'), ' for it and I\'ll take a look.'), React.createElement('img', { className: 'twitter-follow-button popup', src: '../assets/twitter_follow_icon.svg', onClick: this.followMe.bind(this) }), React.createElement('img', { className: 'close_button', src: '../assets/close.svg', onClick: this.props.closeModal }));
     }
   }]);
 
   return About;
 })(React.Component);
+
+About.propTypes = {
+  closeModal: React.PropTypes.func,
+  isOpen: React.PropTypes.bool
+};
 
 module.exports = About;
 
@@ -288,6 +297,7 @@ var ImageCollection = (function (_EventEmitter) {
     get: function get() {
       if (!this._handleImageLoad) {
         this._handleImageLoad = (function (event) {
+          this.emit('loading');
           var file = event.target.files[0];
           var reader = new FileReader();
           var self = this;
@@ -467,6 +477,7 @@ function _inherits(subClass, superClass) {
 
 var React = require("react");
 var FileInput = require("react-file-input");
+var Modal = require("react-modal");
 
 var ImageStage = (function (_React$Component) {
   function ImageStage(props) {
@@ -474,13 +485,27 @@ var ImageStage = (function (_React$Component) {
 
     _get(Object.getPrototypeOf(ImageStage.prototype), "constructor", this).call(this, props);
     this.state = {
-      loading: false
+      showJSON: false
     };
   }
 
   _inherits(ImageStage, _React$Component);
 
   _createClass(ImageStage, [{
+    key: "showJSON",
+    value: function showJSON() {
+      this.setState({
+        showJSON: true
+      });
+    }
+  }, {
+    key: "hideJSON",
+    value: function hideJSON() {
+      this.setState({
+        showJSON: false
+      });
+    }
+  }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
       var frame = this.props.selectedFrame;
@@ -522,8 +547,19 @@ var ImageStage = (function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      if (this.props.selectedFrame) {
-        return React.createElement("div", { key: this.props.selectedFrame.key, id: "image-container", className: "padding editing", ref: "container" });
+      if (!this.props.webGLSupported) {
+        return React.createElement(Modal, {
+          isOpen: true,
+          className: "about_modal"
+        }, React.createElement("h3", null, "Oops! It doesn't seem like your browser supports webGL!"), React.createElement("p", null, "You should download one of these browsers. Your life will be better"), React.createElement("iframe", { className: "browser-download", src: "http://outdatedbrowser.com/en" }));
+      } else if (this.props.loading) {
+        return React.createElement("div", { id: "image-container", className: "editing" }, React.createElement("img", { id: "loading-icon", src: "assets/color_aperture.svg" }));
+      } else if (this.props.selectedFrame) {
+        var frame = this.props.selectedFrame;
+        return React.createElement("div", { style: { width: "100%", height: "100%" } }, React.createElement("img", { className: "toJSON", src: "assets/tojson.svg", onClick: this.showJSON.bind(this) }), React.createElement("div", { key: frame.key, id: "image-container", className: "padding editing", ref: "container" }), React.createElement(Modal, {
+          isOpen: this.state.showJSON,
+          className: "about_modal"
+        }, React.createElement("img", { id: "close", onClick: this.hideJSON.bind(this), src: "../assets/x.svg" }), React.createElement("h3", null, "JSON"), React.createElement("p", null, "You can save this filter in its JSON form and use it to initialize exposure in your app. More about that can be found ", React.createElement("a", { href: "https://github.com/actionnick/exposure#usage", target: "_blank" }, "here"), "."), React.createElement("pre", { id: "json-output" }, vkbeautify.json(JSON.stringify(frame.settings.json), 2))));
       } else {
         return React.createElement("div", { id: "image-container" }, React.createElement("input", { ref: "fileInput", id: "file-upload", type: "file", onChange: this.props.fileSelectCallback }), React.createElement("div", { id: "file-upload-area", draggable: "true",
           onClick: this.fileUpload.bind(this),
@@ -540,12 +576,14 @@ var ImageStage = (function (_React$Component) {
 
 ImageStage.propTypes = {
   selectedFrame: React.PropTypes.object,
-  fileSelectCallback: React.PropTypes.func
+  fileSelectCallback: React.PropTypes.func,
+  webGLSupported: React.PropTypes.bool,
+  loading: React.PropTypes.bool
 };
 
 module.exports = ImageStage;
 
-},{"react":"/Users/nick/projects/exposure/node_modules/react/react.js","react-file-input":"/Users/nick/projects/exposure/node_modules/react-file-input/lib/index.js"}],"/Users/nick/projects/exposure/demo/main.js":[function(require,module,exports){
+},{"react":"/Users/nick/projects/exposure/node_modules/react/react.js","react-file-input":"/Users/nick/projects/exposure/node_modules/react-file-input/lib/index.js","react-modal":"/Users/nick/projects/exposure/node_modules/react-modal/lib/index.js"}],"/Users/nick/projects/exposure/demo/main.js":[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -565,6 +603,8 @@ var actionsBar = document.getElementById("actions");
 var imagesPanel = document.getElementById("images");
 var imageStage = document.getElementById("current-image");
 var controlPanel = document.getElementById("controls");
+var aboutButton = document.getElementById("about-button");
+var modal = document.getElementById("modal");
 var main = document.getElementById("main");
 
 var imageCollection = new ImageCollection();
@@ -572,8 +612,19 @@ var render = function render(frame) {
   // Render image to stage
   React.render(React.createElement(ImageStage, {
     fileSelectCallback: imageCollection.handleImageLoad,
-    selectedFrame: imageCollection.selectedFrame
+    selectedFrame: imageCollection.selectedFrame,
+    webGLSupported: Modernizr.webgl,
+    loading: false
   }), imageStage);
+
+  imageCollection.on("loading", function () {
+    React.render(React.createElement(ImageStage, {
+      fileSelectCallback: imageCollection.handleImageLoad,
+      selectedFrame: imageCollection.selectedFrame,
+      webGLSupported: Modernizr.webgl,
+      loading: true
+    }), imageStage);
+  });
 
   if (frame) {
     if (firstRender) {
@@ -601,8 +652,19 @@ var render = function render(frame) {
   }
 };
 
+var renderAbout = function renderAbout(open) {
+  React.render(React.createElement(About, { isOpen: open, closeModal: renderAbout.bind(undefined, false) }), modal);
+};
+
 imageCollection.on("selected", render);
 render();
+
+if (document.cookie.indexOf("visited") < 0) {
+  renderAbout(true);
+  document.cookie += "visited";
+};
+
+aboutButton.onclick = renderAbout.bind(undefined, true);
 
 },{"../src/frame":"/Users/nick/projects/exposure/src/frame.js","./about":"/Users/nick/projects/exposure/demo/about.js","./controls":"/Users/nick/projects/exposure/demo/controls.js","./image_collection":"/Users/nick/projects/exposure/demo/image_collection.js","./image_list":"/Users/nick/projects/exposure/demo/image_list.js","./image_stage":"/Users/nick/projects/exposure/demo/image_stage.js","lodash":"/Users/nick/projects/exposure/node_modules/lodash/index.js","react":"/Users/nick/projects/exposure/node_modules/react/react.js","react-tap-event-plugin":"/Users/nick/projects/exposure/node_modules/react-tap-event-plugin/src/injectTapEventPlugin.js"}],"/Users/nick/projects/exposure/node_modules/a-big-triangle/node_modules/gl-buffer/buffer.js":[function(require,module,exports){
 "use strict"
