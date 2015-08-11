@@ -1,4 +1,4 @@
-[demo](http://actionnick.github.io/exposure/)
+[Demo](http://actionnick.github.io/exposure/)
 
 ## Overview
 
