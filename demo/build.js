@@ -594,6 +594,7 @@ var Frame = require("../src/frame");
 var About = require("./about");
 var ImageCollection = require("./image_collection");
 var _ = require("lodash");
+var EventEmitter = require("events").EventEmitter;
 
 var injectTapEventPlugin = require("react-tap-event-plugin");
 injectTapEventPlugin();
@@ -607,8 +608,20 @@ var aboutButton = document.getElementById("about-button");
 var modal = document.getElementById("modal");
 var main = document.getElementById("main");
 
+// Image collection manages the state of the page. It will handle uploading
+// new images, keeping track of what the selected image currently is, and
+// emitting events when state changes.
 var imageCollection = new ImageCollection();
-var render = function render(frame) {
+imageCollection.on("loading", function () {
+  React.render(React.createElement(ImageStage, {
+    fileSelectCallback: imageCollection.handleImageLoad,
+    selectedFrame: null,
+    webGLSupported: Modernizr.webgl,
+    loading: true
+  }), imageStage);
+});
+
+var render = function render(frame, onControlChange) {
   // Render image to stage
   React.render(React.createElement(ImageStage, {
     fileSelectCallback: imageCollection.handleImageLoad,
@@ -616,15 +629,6 @@ var render = function render(frame) {
     webGLSupported: Modernizr.webgl,
     loading: false
   }), imageStage);
-
-  imageCollection.on("loading", function () {
-    React.render(React.createElement(ImageStage, {
-      fileSelectCallback: imageCollection.handleImageLoad,
-      selectedFrame: imageCollection.selectedFrame,
-      webGLSupported: Modernizr.webgl,
-      loading: true
-    }), imageStage);
-  });
 
   if (frame) {
     if (firstRender) {
@@ -641,24 +645,33 @@ var render = function render(frame) {
       frameSelectCallback: imageCollection.selectFrame
     }), imagesPanel);
 
-    // Update control panel
-    var onControlChange = function onControlChange(key, value) {
-      frame.settings[key] = value;
-    };
     React.render(React.createElement(Controls, { onControlChange: onControlChange, frame: frame }), controlPanel);
+  }
+};
+
+// Everytime a new image is selected bind the appropriate even handlers that
+// keep the control panel up to date on settings changes.
+imageCollection.on("selected", function (frame) {
+  // Update control panel
+  var onControlChange = function onControlChange(key, value) {
+    frame.settings[key] = value;
+  };
+  if (EventEmitter.listenerCount(frame.settings, "updated") === 0) {
     frame.settings.on("updated", function () {
       React.render(React.createElement(Controls, { onControlChange: onControlChange, frame: frame }), controlPanel);
     });
   }
-};
+  render(frame, onControlChange);
+});
+
+// Start app
+render();
 
 var renderAbout = function renderAbout(open) {
   React.render(React.createElement(About, { isOpen: open, closeModal: renderAbout.bind(undefined, false) }), modal);
 };
 
-imageCollection.on("selected", render);
-render();
-
+// Display about page if user hasn't visited site yet
 if (document.cookie.indexOf("visited") < 0) {
   renderAbout(true);
   document.cookie += "visited";
@@ -666,7 +679,7 @@ if (document.cookie.indexOf("visited") < 0) {
 
 aboutButton.onclick = renderAbout.bind(undefined, true);
 
-},{"../src/frame":"/Users/nick/projects/exposure/src/frame.js","./about":"/Users/nick/projects/exposure/demo/about.js","./controls":"/Users/nick/projects/exposure/demo/controls.js","./image_collection":"/Users/nick/projects/exposure/demo/image_collection.js","./image_list":"/Users/nick/projects/exposure/demo/image_list.js","./image_stage":"/Users/nick/projects/exposure/demo/image_stage.js","lodash":"/Users/nick/projects/exposure/node_modules/lodash/index.js","react":"/Users/nick/projects/exposure/node_modules/react/react.js","react-tap-event-plugin":"/Users/nick/projects/exposure/node_modules/react-tap-event-plugin/src/injectTapEventPlugin.js"}],"/Users/nick/projects/exposure/node_modules/a-big-triangle/node_modules/gl-buffer/buffer.js":[function(require,module,exports){
+},{"../src/frame":"/Users/nick/projects/exposure/src/frame.js","./about":"/Users/nick/projects/exposure/demo/about.js","./controls":"/Users/nick/projects/exposure/demo/controls.js","./image_collection":"/Users/nick/projects/exposure/demo/image_collection.js","./image_list":"/Users/nick/projects/exposure/demo/image_list.js","./image_stage":"/Users/nick/projects/exposure/demo/image_stage.js","events":"/Users/nick/projects/exposure/node_modules/browserify/node_modules/events/events.js","lodash":"/Users/nick/projects/exposure/node_modules/lodash/index.js","react":"/Users/nick/projects/exposure/node_modules/react/react.js","react-tap-event-plugin":"/Users/nick/projects/exposure/node_modules/react-tap-event-plugin/src/injectTapEventPlugin.js"}],"/Users/nick/projects/exposure/node_modules/a-big-triangle/node_modules/gl-buffer/buffer.js":[function(require,module,exports){
 "use strict"
 
 var pool = require("typedarray-pool")
