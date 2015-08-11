@@ -32,8 +32,8 @@ class About extends React.Component {
         <img id="close" onClick={this.props.closeModal} src="../assets/x.svg"/>
         <img id="title" src="../assets/color_logo.svg"/>
 
-        <p>This is a demo for the javascript library I've been writing called exposure. Exposure is an image processing library backed by webGL which means it's fast and powerful. You can use this demo to mess around with the different effects and filters you can create. Right now there are only brightness, contrast, and levels controls but there will be more coming soon.</p>
-        <p>Upload your image, mess around and edit it, then save the image or the filter.</p>
+        <p>This is a demo for a javascript library called exposure. Exposure is an image processing library backed by webGL which means it's fast and powerful. You can use this demo to mess around with the different effects and filters you can create. Right now there are only brightness, contrast, and levels controls but there will be more coming soon.</p>
+        <p>Upload your <strong>image</strong>, mess around and <strong>edit</strong> it, then <strong>save</strong> the image or the filter.</p>
 
         <h3>Saving Your Filter</h3>
         <p>If you've designed a filter that you want to re-use in your app, click the toJSON button at the top to get a json representation of the current filter. You can then <a target="_blank" href="https://github.com/actionnick/exposure#usage">use that json to initialize an exposure object</a> in your own application.</p>

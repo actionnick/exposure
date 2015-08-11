@@ -1,3 +1,5 @@
+[demo](http://actionnick.github.io/exposure/)
+
 ## Overview
 
 Exposure allows fast image processing in the browser backed by webGL. Right now even with just brightness, contrast, and levels implemented a range of effects can be achieved. Everything from HDR to instagram like filters.
@@ -13,33 +15,22 @@ $ npm install --save exposure
 ## Usage
 
 ```js
-new Exposure(img, options);
-...
 var Exposure = require('exposure');
 
 var exposure = new Exposure(img, {
   json: json,     // settings json can be created on the demo page
   canvas: canvas, // if a canvas is on the page output can be drawn there
-  callback: callback // necessary if the image is going to be downsized
+  callback: function(exposure) {
+    exposure.settings; // can be manipulated to dynamically update image
+    exposure.canvas; // reference to the canvas that has the output on it
+  }
 });
 
-exposure.draw();
 ```
 
 ## Image size
 
-Right now if one side of the image is greater than 2500 pixels the image will be resized to fit this constraint. In this case a callback can be provided in order to know when the image resize has completed.
-
-```js
-var exposure = new Exposure(img, {
-  callback: function(exp) {
-    exp.draw();
-    // notify app exposure is ready to draw
-  } 
-});
-```
-
-Note that this callback gets called everytime regardless of whether or not the image is too large so for consistency you can just provide a callback all the time. 
+The max image size dimension currently supported by exposure is 2500. If a side is over this length the img passed in will be downscaled. 
 
 ## Settings JSON
 
@@ -50,10 +41,11 @@ var exposure = new Exposure(img);
 var settings = exposure.settings;
 
 settings.brightness = 1.3; // frame will automatically draw when settings has been updated. 
+JSON.stringify(settings.json);
 ```
 
 ## Development 
-Right now the best place to test changes would be to hack on the demo app in the `demo` folder.
+A good place to make or test changes would be the [demo app](http://actionnick.github.io/exposure/).
 
 ```
 git clone git@github.com:actionnick/exposure.git
@@ -61,9 +53,18 @@ cd exposure
 npm install
 grunt demo_watch
 ```
+in a different tab...
+```
+npm start
+```
+Then localhost:8000 should be running the demo page and the grunt command will be rebuilding whenever a shader or js file is changed.
 
-Then in a new tab you can start a simple HTTP server with `npm start`.
+Adding a new effect should be relatively simple. First add the properties that will control the effect to `ExposureSettings.PROPS` in `src/exposure_settings`. These names correspond to the uniforms that get passed into the main fragment shader that renders the filter, `src/shaders/exposure.frag`.
+
+After the props have been added to `ExposureSettings.PROPS` add the necessary code to `exposure.frag` to actually implement your shader.
+
+To test it you can actually just do something like `frame.settings.new_prop = 3` or you can add some controls for it in the demo. 
 
 ## License
 
-MIT © [Nick Schaubeck](http://www.northofbrooklyn.nyc)
+MIT © [Nick Schaubeck](http://www.actionnick.nyc)
