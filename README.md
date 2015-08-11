@@ -44,7 +44,7 @@ settings.brightness = 1.3; // frame will automatically draw when settings has be
 JSON.stringify(settings.json);
 ```
 
-## Development 
+## Contributing 
 A good place to make or test changes would be the [demo app](http://actionnick.github.io/exposure/).
 
 ```
