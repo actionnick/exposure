@@ -2,6 +2,13 @@ module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
+    uglify: {
+      demo: {
+        files: {
+          'demo/build.js': ['demo/build.js']
+        }
+      }
+    },
     browserify: {
       demo_watch: {
         src: ['demo/main.js'],
@@ -48,6 +55,8 @@ module.exports = function (grunt) {
       },
     }
   });
+
+  grunt.registerTask('demo_build', 'prod build for demo', ["browserify:demo", "uglify:demo"]);
   grunt.registerTask('demo_watch', 'watch js and shaders', [
     'parallel:demo',
   ]);
