@@ -1,4 +1,5 @@
 var React = require("react");
+const ReactDOM = require('react-dom');
 var ImageStage = require("./image_stage");
 var ImageList = require("./image_list");
 var Controls = require("./controls");
@@ -21,11 +22,11 @@ var modal = document.getElementById("modal");
 var main = document.getElementById("main");
 
 // Image collection manages the state of the page. It will handle uploading
-// new images, keeping track of what the selected image currently is, and 
-// emitting events when state changes. 
+// new images, keeping track of what the selected image currently is, and
+// emitting events when state changes.
 var imageCollection = new ImageCollection();
 imageCollection.on("loading", function() {
-  React.render(<ImageStage 
+  ReactDOM.render(<ImageStage
     fileSelectCallback={imageCollection.handleImageLoad}
     selectedFrame={null}
     webGLSupported={Modernizr.webgl}
@@ -35,7 +36,7 @@ imageCollection.on("loading", function() {
 
 var render = function(frame, onControlChange)  {
   // Render image to stage
-  React.render(<ImageStage 
+  ReactDOM.render(<ImageStage
     fileSelectCallback={imageCollection.handleImageLoad}
     selectedFrame={imageCollection.selectedFrame}
     webGLSupported={Modernizr.webgl}
@@ -50,18 +51,18 @@ var render = function(frame, onControlChange)  {
       controlPanel.className += " editing";
     }
     // Update images list
-    React.render(<ImageList 
+    ReactDOM.render(<ImageList
       frames={imageCollection.frames}
       selectedFrame={frame}
       fileSelectCallback={imageCollection.handleImageLoad}
       frameSelectCallback={imageCollection.selectFrame}
     />, imagesPanel);
 
-    React.render(<Controls onControlChange={onControlChange} frame={frame}/>, controlPanel);
+    ReactDOM.render(<Controls onControlChange={onControlChange} frame={frame}/>, controlPanel);
   }
 };
 
-// Everytime a new image is selected bind the appropriate even handlers that 
+// Everytime a new image is selected bind the appropriate event handlers that
 // keep the control panel up to date on settings changes.
 imageCollection.on("selected", function(frame) {
   // Update control panel
@@ -70,7 +71,7 @@ imageCollection.on("selected", function(frame) {
   };
   if (EventEmitter.listenerCount(frame.settings, "updated") === 0) {
     frame.settings.on("updated", function() {
-      React.render(<Controls onControlChange={onControlChange} frame={frame}/>, controlPanel);
+      ReactDOM.render(<Controls onControlChange={onControlChange} frame={frame}/>, controlPanel);
     });
   }
   render(frame, onControlChange);
@@ -80,7 +81,7 @@ imageCollection.on("selected", function(frame) {
 render();
 
 var renderAbout = function(open) {
-  React.render(<About isOpen={open} closeModal={renderAbout.bind(undefined, false)}/>, modal);
+  ReactDOM.render(<About isOpen={open} closeModal={renderAbout.bind(undefined, false)}/>, modal);
 };
 
 // Display about page if user hasn't visited site yet

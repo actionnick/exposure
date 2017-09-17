@@ -14,7 +14,7 @@ module.exports = function (grunt) {
         src: ['demo/main.js'],
         dest: 'demo/build.js',
         options: {
-          transform: ['babelify', 'glslify'],
+          transform: [['babelify', { presets: ['react', 'es2015', 'es2016', 'es2017'] }], 'glslify'],
           watch: true,
           keepAlive: true
         }
@@ -23,7 +23,7 @@ module.exports = function (grunt) {
         src: ['demo/main.js'],
         dest: 'demo/build.js',
         options: {
-          transform: ['babelify', 'glslify']
+          transform: [['babelify', { presets: ['react', 'es2015', 'es2016', 'es2017'] }], 'glslify']
         }
       }
     },
