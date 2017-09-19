@@ -1,25 +1,27 @@
-var React = require("react");
+// Views
+const React = require("react");
 const ReactDOM = require('react-dom');
-var ImageStage = require("./image_stage");
-var ImageList = require("./image_list");
-var Controls = require("./controls");
-var Frame = require("../src/frame");
-var About = require("./about");
-var ImageCollection = require("./image_collection");
-var _  = require('lodash');
-var EventEmitter = require('events').EventEmitter;
+const ImageStage = require("./image_stage");
+const ImageList = require("./image_list");
+const Controls = require("./controls");
+const ExposureApp = require('./ExposureApp.jsx');
 
 var injectTapEventPlugin = require("react-tap-event-plugin");
 injectTapEventPlugin();
 
+const _  = require('lodash');
+
+// Image processing
+const Frame = require("../src/frame");
+const ImageCollection = require("./image_collection");
+const EventEmitter = require('events').EventEmitter;
+
+const { createStore, applyMiddleware } = require('redux');
+const { Provider } = require('react-redux');
+const reducer = require('./reducer');
+
 var firstRender = true;
-var actionsBar = document.getElementById("actions");
-var imagesPanel = document.getElementById("images");
-var imageStage = document.getElementById("current-image");
-var controlPanel = document.getElementById("controls");
-var aboutButton = document.getElementById("about-button");
-var modal = document.getElementById("modal");
-var main = document.getElementById("main");
+var mainRedux = document.getElementById("main-redux");
 
 // Image collection manages the state of the page. It will handle uploading
 // new images, keeping track of what the selected image currently is, and
@@ -77,17 +79,8 @@ imageCollection.on("selected", function(frame) {
   render(frame, onControlChange);
 });
 
-// Start app
-render();
-
-var renderAbout = function(open) {
-  ReactDOM.render(<About isOpen={open} closeModal={renderAbout.bind(undefined, false)}/>, modal);
-};
-
-// Display about page if user hasn't visited site yet
-if (document.cookie.indexOf("visited") < 0) {
-  renderAbout(true);
-  document.cookie += "visited";
-};
-
-aboutButton.onclick = renderAbout.bind(undefined, true);
+ReactDOM.render((
+  <Provider store={createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
+    <ExposureApp />
+  </Provider>
+))

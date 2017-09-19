@@ -11,22 +11,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/material.css" media="screen">
   </head>
   <body>
-    <div id="main" class="no-buffer">
-      <div id="modal"></div>
-      <div id="top" class="no-buffer">
-        <div id="logo" class="no-buffer"></div>
-        <div id="actions" class="no-buffer">
-          <a target="_blank" class="github-logo" href="https://github.com/actionnick/exposure"></a>
-          <a class="twitter-share-button popup"
-            href="https://twitter.com/intent/tweet?text=dope%20javascript%20image%20editing%20library%20http%3A%2F%2Factionnick.github.io%2Fexposure%2F&via=action_nick&dnt=true&count=none"></a>
-          <img id="about-button" src="assets/about_button.svg"/>
-        </div>
-      </div>
-      <div id="middle" class="no-buffer">
-        <div id="images" class="no-buffer"></div>
-        <div id="current-image" class="no-buffer"></div>
-        <div id="controls" class="no-buffer"></div>
-      </div>
+    <div id="main-redux" class="no-buffer">
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="demo/lib/vkbeautify.0.99.00.beta.js"></script>
@@ -42,9 +27,9 @@
                      ',height=' + height +
                      ',top='    + top    +
                      ',left='   + left;
-        
+
         window.open(url, 'twitter', opts);
-     
+
         return false;
       });
     </script>

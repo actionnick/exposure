@@ -1,6 +1,20 @@
 module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
 
+  const presets = [
+    'react',
+    'es2015',
+    'es2016',
+    'es2017'
+  ];
+
+  const plugins = [
+    'babel-plugin-transform-react-jsx-source',
+    'babel-plugin-transform-object-rest-spread',
+    'babel-plugin-transform-class-properties'
+  ];
+  const transform = [['babelify', { presets, plugins }], 'glslify'];
+
   grunt.initConfig({
     uglify: {
       demo: {
@@ -14,7 +28,7 @@ module.exports = function (grunt) {
         src: ['demo/main.js'],
         dest: 'demo/build.js',
         options: {
-          transform: [['babelify', { presets: ['react', 'es2015', 'es2016', 'es2017'] }], 'glslify'],
+          transform,
           watch: true,
           keepAlive: true
         }
@@ -23,7 +37,7 @@ module.exports = function (grunt) {
         src: ['demo/main.js'],
         dest: 'demo/build.js',
         options: {
-          transform: [['babelify', { presets: ['react', 'es2015', 'es2016', 'es2017'] }], 'glslify']
+          transform
         }
       }
     },

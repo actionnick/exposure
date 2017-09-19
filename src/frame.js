@@ -67,7 +67,7 @@ class Frame {
   }
 
   getGLContext(canvas) {
-    return canvas.getContext("webgl", {preserveDrawingBuffer: true}) || canvas.getContext("experimental-webgl", {preserveDrawingBuffer: true});
+    return canvas.getContext("webgl", { preserveDrawingBuffer: true }) || canvas.getContext("experimental-webgl", { preserveDrawingBuffer: true });
   }
 
   setAttributes() {
