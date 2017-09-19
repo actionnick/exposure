@@ -12,12 +12,11 @@ class ImageCollection extends EventEmitter {
 
   addNewFrame(img) {
     var callback = function(frame) {
-      frame.key = uuid.v4();
       frame.thumbnail = this.createThumbnail(img, 300);
       this.frames.unshift(frame);
       this.selectFrame(frame.key);
     }.bind(this);
-    
+
     new Frame(img, {
       callback: callback
     });
@@ -61,7 +60,7 @@ class ImageCollection extends EventEmitter {
     var canvas = document.createElement("canvas");
     canvas.width = canvas.height = size
     var context = canvas.getContext("2d");
-    
+
     var srcSize = img.height < img.width ? img.height : img.width;
     var mid = {
       x: img.width / 2,

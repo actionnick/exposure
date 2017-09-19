@@ -20,6 +20,10 @@ class Controls extends React.Component {
   }
 
   render() {
+    if (!this.props.frame) {
+      return null;
+    }
+
     var s = this.props.frame.settings;
     var p = s.PROPS;
     return (

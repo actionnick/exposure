@@ -21,7 +21,7 @@ const { Provider } = require('react-redux');
 const reducer = require('./reducer');
 
 var firstRender = true;
-var mainRedux = document.getElementById("main-redux");
+var mainContainer = document.getElementById("main");
 
 // Image collection manages the state of the page. It will handle uploading
 // new images, keeping track of what the selected image currently is, and
@@ -83,4 +83,4 @@ ReactDOM.render((
   <Provider store={createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
     <ExposureApp />
   </Provider>
-))
+), mainContainer);

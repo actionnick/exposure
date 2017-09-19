@@ -8,19 +8,21 @@ class ImageList extends React.Component {
   }
 
   getImages() {
+    if (_.isEmpty(this.props.frames)) {
+      return null;
+    }
+
     var selectedKey = this.props.selectedFrame.key;
-    var self = this;
-    return _.map(this.props.frames, function(frame) {
-      return (
-        <div id='list-item-container' key={frame.key}>
-          <img id="image-list-item"
-            className={frame.key === selectedKey ? 'selected' : 'not-selected'} 
-            key={frame.key} 
-            src={frame.thumbnail.src} 
-            onClick={self.props.frameSelectCallback.bind(undefined, frame.key)}/>
-        </div>
-      );
-    }); 
+    return _.map(this.props.frames, frame => (
+      <div id='list-item-container' key={frame.key}>
+        <img id="image-list-item"
+          className={frame.key === selectedKey ? 'selected' : 'not-selected'}
+          key={frame.key}
+          src={frame.thumbnail.src}
+          onClick={() => this.props.actions.frameSelected(frame.key)}
+        />
+      </div>
+    ));
   }
 
   render() {
@@ -30,7 +32,7 @@ class ImageList extends React.Component {
         <input ref="fileInput" id="file-upload" type="file" onChange={this.props.fileSelectCallback}></input>
         {images}
         <div id='list-item-container' style={{height: "75px"}}>
-          <img onClick={this.fileUpload.bind(this)} id="side-file-upload-icon" src={"assets/photo_upload_small.svg"} />
+          <img onClick={event => this.fileUpload(event)} id="side-file-upload-icon" src={"assets/photo_upload_small.svg"} />
         </div>
       </div>
     );

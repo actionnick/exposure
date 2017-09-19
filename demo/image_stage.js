@@ -10,6 +10,13 @@ class ImageStage extends React.Component {
     }
   }
 
+  static propTypes = {
+    selectedFrame: React.PropTypes.object,
+    fileSelectCallback: React.PropTypes.func,
+    webGLSupported: React.PropTypes.bool,
+    loading: React.PropTypes.bool
+  }
+
   showJSON() {
     this.setState({
       showJSON: true
@@ -27,12 +34,12 @@ class ImageStage extends React.Component {
     if (frame) {
       var canvas = frame.canvas;
       canvas.className = "current-canvas";
-      this.refs.container.getDOMNode().appendChild(frame.canvas);
+      this.container.appendChild(frame.canvas);
     }
   }
 
   fileUpload(e) {
-    this.refs.fileInput.getDOMNode().click();
+    this.fileInput.click();
     e.preventDefault();
   }
 
@@ -40,10 +47,20 @@ class ImageStage extends React.Component {
     e.stopPropagation();
     e.preventDefault();
 
-    var dt = e.dataTransfer;
-    var files = dt.files;
+    const actions = this.props.actions;
+    const file = e.target.files[0];
 
-    this.props.fileSelectCallback({target: {files: files}});
+    actions.startImageLoad();
+
+    const reader = new FileReader();
+    reader.onload = event => {
+      var img = new Image();
+      img.onload = () => {
+        actions.imageLoaded(img);
+      };
+      img.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
   }
 
   fileEnter(e) {
@@ -79,7 +96,7 @@ class ImageStage extends React.Component {
       return (
         <div style={{width: "100%", height: "100%"}}>
           <img className="toJSON" src="assets/tojson.svg" onClick={this.showJSON.bind(this)}/>
-          <div key={frame.key} id="image-container" className="padding editing" ref="container"></div>
+          <div key={frame.key} id="image-container" className="padding editing" ref={container => this.container = container}></div>
           <Modal
             isOpen={this.state.showJSON}
             className="about_modal"
@@ -94,12 +111,19 @@ class ImageStage extends React.Component {
     } else {
       return (
         <div id="image-container" >
-          <input ref="fileInput" id="file-upload" type="file" accept="image/*" onChange={this.props.fileSelectCallback}></input>
-          <div id="file-upload-area" draggable='true' 
-            onClick={this.fileUpload.bind(this)} 
-            onDragEnter={this.fileEnter.bind(this)}
-            onDragOver={this.fileOver.bind(this)}
-            onDrop={this.fileDrop.bind(this)} 
+          <input
+            ref={fileInput => this.fileInput = fileInput}
+            id="file-upload"
+            type="file"
+            accept="image/*"
+            onChange={(e) => this.fileDrop(e)}
+          />
+          <div id="file-upload-area"
+            draggable='true'
+            onClick={(e) => this.fileUpload(e)}
+            onDragEnter={(e) => this.fileEnter(e)}
+            onDragOver={(e) => this.fileOver(e)}
+            onDrop={(e) => this.fileDrop(e)}
           >
             <img id="file-upload-icon" src={"assets/photo_upload_big.svg"} />
           </div>
@@ -108,12 +132,5 @@ class ImageStage extends React.Component {
     }
   }
 }
-
-ImageStage.propTypes = {
-  selectedFrame: React.PropTypes.object,
-  fileSelectCallback: React.PropTypes.func,
-  webGLSupported: React.PropTypes.bool,
-  loading: React.PropTypes.bool
-};
 
 module.exports = ImageStage;

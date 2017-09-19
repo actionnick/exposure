@@ -1,11 +1,14 @@
-var mat4 = require("gl-mat4");
-var glShader = require("gl-shader");
-var glslify = require("glslify");
-var Filter = require("./filter");
-var resizeImage = require("./resize_image");
-var _ = require("lodash");
+const mat4 = require("gl-mat4");
+const glShader = require("gl-shader");
+const glslify = require("glslify");
+const Filter = require("./filter");
+const resizeImage = require("./resize_image");
+const createThumbnail = require('./create_thumbnail');
+const _ = require("lodash");
+const uuid = require('uuid');
 
-var MAX_SIZE = 2500;
+const MAX_SIZE = 2500;
+const THUMBNAIL_SIZE = 300;
 
 class Frame {
   constructor(img, opts) {
@@ -13,6 +16,7 @@ class Frame {
     this.callback = opts.callback || function(){};
     this.json = opts.json || {};
     this.gl = this.getGLContext(this.canvas);
+    this.key = uuid.v4();
 
     if (img.width > MAX_SIZE || img.height > MAX_SIZE) {
       resizeImage(img, MAX_SIZE, this.initWithImg.bind(this));
@@ -22,8 +26,10 @@ class Frame {
   }
 
   initWithImg(img) {
+    const gl = this.gl;
+
     this.img = img;
-    var gl = this.gl;
+    this.thumbnail = createThumbnail(img, THUMBNAIL_SIZE);
     this.width = this.canvas.width = img.width;
     this.height = this.canvas.height = img.height;
 
