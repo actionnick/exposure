@@ -79,6 +79,7 @@ class ImageStage extends React.Component {
         <Modal
           isOpen={true}
           className="about_modal"
+          contentLabel='Oops!'
         >
           <h3>Oops! It doesn't seem like your browser supports webGL!</h3>
           <p>You should download one of these browsers. Your life will be better</p>
@@ -97,9 +98,11 @@ class ImageStage extends React.Component {
         <div style={{width: "100%", height: "100%"}}>
           <img className="toJSON" src="assets/tojson.svg" onClick={this.showJSON.bind(this)}/>
           <div key={frame.key} id="image-container" className="padding editing" ref={container => this.container = container}></div>
+
           <Modal
             isOpen={this.state.showJSON}
             className="about_modal"
+            contentLabel='JSON'
           >
             <img id="close" onClick={this.hideJSON.bind(this)} src="assets/x.svg"/>
             <h3>JSON</h3>

@@ -8,6 +8,7 @@
     "start": "python -m SimpleHTTPServer"
   },
   "devDependencies": {
+    "babel-core": "~6.26.0",
     "babel-plugin-transform-class-properties": "~6.24.1",
     "babel-plugin-transform-object-rest-spread": "~6.26.0",
     "babel-plugin-transform-react-jsx-source": "~6.22.0",
@@ -17,6 +18,7 @@
     "babel-preset-react": "~6.24.1",
     "babelify": "~8.0.0",
     "browserify": "~14.5.0",
+    "create-react-class": "~15.6.2",
     "glslify": "~6.1.0",
     "grunt": "~1.0.1",
     "grunt-browserify": "~5.2.0",
@@ -26,13 +28,12 @@
     "grunt-watchify": "~0.1.0",
     "load-grunt-tasks": "~3.5.2",
     "material-ui": "~0.19.4",
-    "react": "~16.0.0",
-    "react-dom": "~16.0.0",
+    "react": "~15.6.1",
+    "react-dom": "~15.6.1",
     "react-file-input": "~0.2.4",
     "react-modal": "~3.1.0",
     "react-redux": "~5.0.6",
     "react-slider": "~0.9.0",
-    "react-tap-event-plugin": "~3.0.2",
     "react-tools": "~0.13.3",
     "redux": "~3.7.2",
     "redux-thunk": "~2.2.0",
@@ -45,7 +46,8 @@
     "gl-matrix": "~2.4.0",
     "gl-shader": "~4.2.1",
     "lodash": "~4.17.4",
-    "pica": "~4.0.1"
+    "pica": "~4.0.1",
+    "save-dev": "~2.0.0"
   },
   "engine": "node >= 0.10.0",
   "browserify": {

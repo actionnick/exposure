@@ -3,17 +3,7 @@ const React = require("react");
 const ReactDOM = require('react-dom');
 const ExposureApp = require('./ExposureApp.jsx');
 
-var injectTapEventPlugin = require("react-tap-event-plugin");
-injectTapEventPlugin();
-
-const _  = require('lodash');
-
-// Image processing
-const Frame = require("../src/frame");
-const ImageCollection = require("./image_collection");
-const EventEmitter = require('events').EventEmitter;
-
-const { createStore, applyMiddleware } = require('redux');
+const { createStore } = require('redux');
 const { Provider } = require('react-redux');
 const reducer = require('./reducer');
 

@@ -1,5 +1,4 @@
 const React = require('react');
-const ReactDOM = require('react-dom/lib/ReactDOM');
 const { connect } = require('react-redux');
 const ImageStage = require('./image_stage');
 const ImageList = require("./image_list");
