@@ -19,14 +19,14 @@ module.exports = function (grunt) {
     uglify: {
       demo: {
         files: {
-          'demo/build.js': ['demo/build.js']
+          'demo/build/exposure.min.js': ['demo/build/exposure.js']
         }
       }
     },
     browserify: {
       demo_watch: {
         src: ['demo/main.js'],
-        dest: 'demo/build.js',
+        dest: 'demo/build/exposure.js',
         options: {
           transform,
           watch: true,
@@ -35,7 +35,7 @@ module.exports = function (grunt) {
       },
       demo: {
         src: ['demo/main.js'],
-        dest: 'demo/build.js',
+        dest: 'demo/build/exposure.js',
         options: {
           transform
         }
