@@ -18,11 +18,12 @@ class Frame {
     this.gl = this.getGLContext(this.canvas);
     this.key = uuid.v4();
 
-    if (img.width > MAX_SIZE || img.height > MAX_SIZE) {
-      resizeImage(img, MAX_SIZE, this.initWithImg.bind(this));
-    } else {
+    // TODO: Reimpliment resizing later
+    // if (img.width > MAX_SIZE || img.height > MAX_SIZE) {
+    //   resizeImage(img, MAX_SIZE, this.initWithImg.bind(this));
+    // } else {
       this.initWithImg(img);
-    }
+    // }
   }
 
   initWithImg(img) {

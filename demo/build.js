@@ -1024,15 +1024,12 @@ ImageStage.propTypes = {
 module.exports = ImageStage;
 
 },{"react":322,"react-file-input":265,"react-modal":275}],6:[function(require,module,exports){
-"use strict";
+'use strict';
 
-var _jsxFileName = "/Users/nick/projects/exposure/demo/main.js";
+var _jsxFileName = '/Users/nick/projects/exposure/demo/main.js';
 // Views
 var React = require("react");
 var ReactDOM = require('react-dom');
-var ImageStage = require("./image_stage");
-var ImageList = require("./image_list");
-var Controls = require("./controls");
 var ExposureApp = require('./ExposureApp.jsx');
 
 var injectTapEventPlugin = require("react-tap-event-plugin");
@@ -1054,97 +1051,78 @@ var _require2 = require('react-redux'),
 
 var reducer = require('./reducer');
 
-var firstRender = true;
 var mainContainer = document.getElementById("main");
 
-// Image collection manages the state of the page. It will handle uploading
-// new images, keeping track of what the selected image currently is, and
-// emitting events when state changes.
-var imageCollection = new ImageCollection();
-imageCollection.on("loading", function () {
-  ReactDOM.render(React.createElement(ImageStage, {
-    fileSelectCallback: imageCollection.handleImageLoad,
-    selectedFrame: null,
-    webGLSupported: Modernizr.webgl,
-    loading: true,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 31
-    }
-  }), imageStage);
-});
+var store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-var render = function render(frame, onControlChange) {
-  // Render image to stage
-  ReactDOM.render(React.createElement(ImageStage, {
-    fileSelectCallback: imageCollection.handleImageLoad,
-    selectedFrame: imageCollection.selectedFrame,
-    webGLSupported: Modernizr.webgl,
-    loading: false,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 41
-    }
-  }), imageStage);
-
-  if (frame) {
-    if (firstRender) {
-      firstRender = false;
-      imagesPanel.className += " editing";
-      imageStage.className += " editing";
-      controlPanel.className += " editing";
-    }
-    // Update images list
-    ReactDOM.render(React.createElement(ImageList, {
-      frames: imageCollection.frames,
-      selectedFrame: frame,
-      fileSelectCallback: imageCollection.handleImageLoad,
-      frameSelectCallback: imageCollection.selectFrame,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 56
-      }
-    }), imagesPanel);
-
-    ReactDOM.render(React.createElement(Controls, { onControlChange: onControlChange, frame: frame, __source: {
-        fileName: _jsxFileName,
-        lineNumber: 63
-      }
-    }), controlPanel);
-  }
-};
-
-// Everytime a new image is selected bind the appropriate event handlers that
-// keep the control panel up to date on settings changes.
-imageCollection.on("selected", function (frame) {
-  // Update control panel
-  var onControlChange = function onControlChange(key, value) {
-    frame.settings[key] = value;
-  };
-  if (EventEmitter.listenerCount(frame.settings, "updated") === 0) {
-    frame.settings.on("updated", function () {
-      ReactDOM.render(React.createElement(Controls, { onControlChange: onControlChange, frame: frame, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 76
-        }
-      }), controlPanel);
-    });
-  }
-  render(frame, onControlChange);
-});
-
-ReactDOM.render(React.createElement(Provider, { store: createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()), __source: {
+ReactDOM.render(React.createElement(Provider, { store: store, __source: {
     fileName: _jsxFileName,
-    lineNumber: 83
+    lineNumber: 25
   }
 }, React.createElement(ExposureApp, {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 84
+    lineNumber: 26
   }
 })), mainContainer);
 
-},{"../src/frame":350,"./ExposureApp.jsx":1,"./controls":2,"./image_collection":3,"./image_list":4,"./image_stage":5,"./reducer":7,"events":20,"lodash":111,"react":322,"react-dom":137,"react-redux":285,"react-tap-event-plugin":296,"redux":328}],7:[function(require,module,exports){
+// Image collection manages the state of the page. It will handle uploading
+// new images, keeping track of what the selected image currently is, and
+// emitting events when state changes.
+// var imageCollection = new ImageCollection();
+// imageCollection.on("loading", function() {
+//   ReactDOM.render(<ImageStage
+//     fileSelectCallback={imageCollection.handleImageLoad}
+//     selectedFrame={null}
+//     webGLSupported={Modernizr.webgl}
+//     loading={true}
+//   />, imageStage);
+// });
+
+// var render = function(frame, onControlChange)  {
+//   // Render image to stage
+//   ReactDOM.render(<ImageStage
+//     fileSelectCallback={imageCollection.handleImageLoad}
+//     selectedFrame={imageCollection.selectedFrame}
+//     webGLSupported={Modernizr.webgl}
+//     loading={false}
+//   />, imageStage);
+
+//   if (frame) {
+//     if (firstRender) {
+//       firstRender = false;
+//       imagesPanel.className += " editing";
+//       imageStage.className += " editing";
+//       controlPanel.className += " editing";
+//     }
+//     // Update images list
+//     ReactDOM.render(<ImageList
+//       frames={imageCollection.frames}
+//       selectedFrame={frame}
+//       fileSelectCallback={imageCollection.handleImageLoad}
+//       frameSelectCallback={imageCollection.selectFrame}
+//     />, imagesPanel);
+
+//     ReactDOM.render(<Controls onControlChange={onControlChange} frame={frame}/>, controlPanel);
+//   }
+// };
+
+// // Everytime a new image is selected bind the appropriate event handlers that
+// // keep the control panel up to date on settings changes.
+// imageCollection.on("selected", function(frame) {
+//   // Update control panel
+//   var onControlChange = function(key, value) {
+//     frame.settings[key] = value;
+//   };
+//   if (EventEmitter.listenerCount(frame.settings, "updated") === 0) {
+//     frame.settings.on("updated", function() {
+//       ReactDOM.render(<Controls onControlChange={onControlChange} frame={frame}/>, controlPanel);
+//     });
+//   }
+//   render(frame, onControlChange);
+// });
+
+},{"../src/frame":350,"./ExposureApp.jsx":1,"./image_collection":3,"./reducer":7,"events":20,"lodash":111,"react":322,"react-dom":137,"react-redux":285,"react-tap-event-plugin":296,"redux":328}],7:[function(require,module,exports){
 'use strict';
 
 var _extends = Object.assign || function (target) {
@@ -56311,11 +56289,12 @@ var Frame = function () {
     this.gl = this.getGLContext(this.canvas);
     this.key = uuid.v4();
 
-    if (img.width > MAX_SIZE || img.height > MAX_SIZE) {
-      resizeImage(img, MAX_SIZE, this.initWithImg.bind(this));
-    } else {
-      this.initWithImg(img);
-    }
+    // TODO: Reimpliment resizing later
+    // if (img.width > MAX_SIZE || img.height > MAX_SIZE) {
+    //   resizeImage(img, MAX_SIZE, this.initWithImg.bind(this));
+    // } else {
+    this.initWithImg(img);
+    // }
   }
 
   _createClass(Frame, [{
