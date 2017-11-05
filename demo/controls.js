@@ -1,7 +1,11 @@
-var React = require("react");
-var ReactSlider = require("react-slider");
+const ReactSlider = require("react-slider");
 
 class Controls extends React.Component {
+  static propTypes = {
+    onControlhange: React.PropTypes.func,
+    frame: React.PropTypes.object
+  }
+
   handleChange(key, value) {
     if (value.length) {
       this.props.onControlChange(key + "min", value[0] / 100);
@@ -27,15 +31,17 @@ class Controls extends React.Component {
     var s = this.props.frame.settings;
     var p = s.PROPS;
     return (
-      <div key={this.props.frame.key} style={this.divStyle}>
+      <div id='controls' className='no-buffer'>
         <div className="controls-section">
           <h1>general</h1>
+
           <div className="slider-layout">
             <p>brightness</p>
             <div className="slider-container centering-parent">
               <ReactSlider onChange={this.handleChange.bind(this, "brightness")}  min={0} max={200} defaultValue={s.brightness * 100} />
             </div>
           </div>
+
           <div className="slider-layout">
             <p>contrast</p>
             <div className="slider-container centering-parent">
@@ -43,6 +49,7 @@ class Controls extends React.Component {
             </div>
           </div>
         </div>
+
         <div className="controls-section">
           <h1>levels</h1>
           <h2>rgb</h2>
@@ -129,10 +136,5 @@ class Controls extends React.Component {
     );
   }
 }
-
-Controls.propTypes = {
-  onControlhange: React.PropTypes.func,
-  frame: React.PropTypes.object
-};
 
 module.exports = Controls;

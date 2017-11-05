@@ -1,5 +1,6 @@
 // Views
 const React = require("react");
+window.React = React;
 const ReactDOM = require('react-dom');
 const ExposureApp = require('./ExposureApp.jsx');
 

@@ -12,11 +12,20 @@ const mapStateToProps = state => state;
 const mapDispatchToProps = dispatch => {
   return {
     actions: {
-      startImageLoad: () => dispatch({ type: 'START_IMAGE_LOAD' }),
-      imageLoaded: img => {
-        new Frame(img, {
-          callback: frame => dispatch({ type: 'FRAME_INITIATED', frame })
-        });
+      initNewFrame: file => {
+        dispatch({ type: 'START_IMAGE_LOAD' })
+
+        const reader = new FileReader();
+        reader.onload = event => {
+          var img = new Image();
+          img.onload = () => {
+            new Frame(img, {
+              callback: frame => dispatch({ type: 'FRAME_INITIATED', frame })
+            });
+          };
+          img.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
       },
       frameSelected: key => dispatch({ type: 'FRAME_SELECTED', key })
     }
@@ -38,13 +47,11 @@ class ExposureApp extends React.Component {
           <div id="logo" className="no-buffer"></div>
         </div>
         <div id="middle" className="no-buffer">
-          <div id="images" className="no-buffer">
-            <ImageList
-              frames={frames}
-              selectedFrame={selectedFrame}
-              actions={actions}
-            />
-          </div>
+          <ImageList
+            frames={frames}
+            selectedFrame={selectedFrame}
+            actions={actions}
+          />
           <div id="current-image" className="no-buffer">
             <ImageStage
               actions={actions}
@@ -52,9 +59,8 @@ class ExposureApp extends React.Component {
               webGLSupported={Modernizr.webgl}
             />
           </div>
-          <div id="controls" className="no-buffer">
-            <Controls onControlChange={() => {}} frame={selectedFrame} actions={actions} />
-          </div>
+
+          <Controls onControlChange={() => {}} frame={selectedFrame} actions={actions} />
         </div>
       </div>
     );

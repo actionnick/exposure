@@ -47,20 +47,9 @@ class ImageStage extends React.Component {
     e.stopPropagation();
     e.preventDefault();
 
-    const actions = this.props.actions;
     const file = e.target.files[0];
 
-    actions.startImageLoad();
-
-    const reader = new FileReader();
-    reader.onload = event => {
-      var img = new Image();
-      img.onload = () => {
-        actions.imageLoaded(img);
-      };
-      img.src = event.target.result;
-    };
-    reader.readAsDataURL(file);
+    this.props.actions.initNewFrame(file);
   }
 
   fileEnter(e) {
