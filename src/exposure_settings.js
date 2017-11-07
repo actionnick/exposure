@@ -146,6 +146,10 @@ ExposureSettings.PROPS = {
     max: 10.0,
     default: 1.0,
   },
+  rgb_curves: {
+    type: Array,
+    default: [[0.0, 0.0], [1.0, 1.0]],
+  },
 };
 
 var isNum = function(n) {
@@ -164,14 +168,15 @@ _.keys(ExposureSettings.PROPS).forEach(function(key) {
       return this[`_${key}`] || ExposureSettings.PROPS[key].default;
     },
     set: function(val) {
-      if (
-        validateNum(
-          this[`_${key}`],
-          val,
-          ExposureSettings.PROPS[key].min,
-          ExposureSettings.PROPS[key].max
-        )
-      ) {
+      const PROP = ExposureSettings.PROPS[key];
+
+      // TODO: More expansive validation for array types
+      if (PROP.type === Array) {
+        this[`_${key}`] = val;
+        this.emit("updated");
+      }
+
+      if (validateNum(this[`_${key}`], val, PROP.min, PROP.max)) {
         this[`_${key}`] = val;
         this.emit("updated");
       }

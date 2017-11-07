@@ -9,7 +9,8 @@ class Filter {
   constructor(gl, json) {
     this.settings = new ExposureSettings(json);
     this.gl = gl;
-    this.shader = glShader(this.gl,
+    this.shader = glShader(
+      this.gl,
       glslify("./shaders/sample.vert"),
       glslify("./shaders/exposure.frag")
     );

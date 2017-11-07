@@ -50,6 +50,8 @@ uniform float b_out_min;
 uniform float b_out_max;
 uniform float b_gamma;
 
+uniform vec2 rgb_curves[100];
+
 void main() {
   vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));
   float alpha = color.a;
@@ -96,4 +98,8 @@ void main() {
   // always preserve alpha
   color.a = alpha;
   gl_FragColor = color;
+
+  if (rgb_curves[0].x == 0.0 && rgb_curves[0].y == 0.0) {
+    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+  }
 }
