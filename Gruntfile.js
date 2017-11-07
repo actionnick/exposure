@@ -17,25 +17,25 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     uglify: {
-      demo: {
+      editor: {
         files: {
-          'demo/build/exposure.min.js': ['demo/build/exposure.js']
+          'editor/build/exposure.min.js': ['editor/build/exposure.js']
         }
       }
     },
     browserify: {
-      demo_watch: {
-        src: ['demo/main.js'],
-        dest: 'demo/build/exposure.js',
+      editor_watch: {
+        src: ['editor/main.js'],
+        dest: 'editor/build/exposure.js',
         options: {
           transform,
           watch: true,
           keepAlive: true
         }
       },
-      demo: {
-        src: ['demo/main.js'],
-        dest: 'demo/build/exposure.js',
+      editor: {
+        src: ['editor/main.js'],
+        dest: 'editor/build/exposure.js',
         options: {
           transform
         }
@@ -47,12 +47,12 @@ module.exports = function (grunt) {
           'src/shaders/**/*'
         ],
         tasks: [
-          'browserify:demo'
+          'browserify:editor'
         ]
       }
     },
     parallel: {
-      demo: {
+      editor: {
         options: {
           stream: true
         },
@@ -63,15 +63,15 @@ module.exports = function (grunt) {
           },
           {
             grunt: true,
-            args: ['browserify:demo_watch']
+            args: ['browserify:editor_watch']
           }
         ]
       },
     }
   });
 
-  grunt.registerTask('demo_build', 'prod build for demo', ["browserify:demo", "uglify:demo"]);
-  grunt.registerTask('demo_watch', 'watch js and shaders', [
-    'parallel:demo',
+  grunt.registerTask('editor_build', 'prod build for editor', ["browserify:editor", "uglify:editor"]);
+  grunt.registerTask('editor_watch', 'watch js and shaders', [
+    'parallel:editor',
   ]);
 };

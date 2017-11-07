@@ -34,118 +34,118 @@ ExposureSettings.PROPS = {
   brightness: {
     min: 0.0,
     max: 2.0,
-    default: 1.0
+    default: 1.0,
   },
   contrast: {
     min: 0.0,
     max: 3.0,
-    default: 1.0
+    default: 1.0,
   },
   mid: {
     min: 0.0,
     max: 1.0,
-    default: 0.5
+    default: 0.5,
   },
   rgb_in_min: {
     min: 0.0,
     max: 1.0,
-    default: 0.0
+    default: 0.0,
   },
   rgb_in_max: {
     min: 0.0,
     max: 1.0,
-    default: 1.0
+    default: 1.0,
   },
   rgb_out_min: {
     min: 0.0,
     max: 1.0,
-    default: 0.0
+    default: 0.0,
   },
   rgb_out_max: {
     min: 0.0,
     max: 1.0,
-    default: 1.0
+    default: 1.0,
   },
   rgb_gamma: {
     min: 0.0,
     max: 10.0,
-    default: 1.0
+    default: 1.0,
   },
   r_in_min: {
     min: 0.0,
     max: 1.0,
-    default: 0.0
+    default: 0.0,
   },
   r_in_max: {
     min: 0.0,
     max: 1.0,
-    default: 1.0
+    default: 1.0,
   },
   r_out_min: {
     min: 0.0,
     max: 1.0,
-    default: 0.0
+    default: 0.0,
   },
   r_out_max: {
     min: 0.0,
     max: 1.0,
-    default: 1.0
+    default: 1.0,
   },
   r_gamma: {
     min: 0.0,
     max: 10.0,
-    default: 1.0
+    default: 1.0,
   },
   g_in_min: {
     min: 0.0,
     max: 1.0,
-    default: 0.0
+    default: 0.0,
   },
   g_in_max: {
     min: 0.0,
     max: 1.0,
-    default: 1.0
+    default: 1.0,
   },
   g_out_min: {
     min: 0.0,
     max: 1.0,
-    default: 0.0
+    default: 0.0,
   },
   g_out_max: {
     min: 0.0,
     max: 1.0,
-    default: 1.0
+    default: 1.0,
   },
   g_gamma: {
     min: 0.0,
     max: 10.0,
-    default: 1.0
+    default: 1.0,
   },
   b_in_min: {
     min: 0.0,
     max: 1.0,
-    default: 0.0
+    default: 0.0,
   },
   b_in_max: {
     min: 0.0,
     max: 1.0,
-    default: 1.0
+    default: 1.0,
   },
   b_out_min: {
     min: 0.0,
     max: 1.0,
-    default: 0.0
+    default: 0.0,
   },
   b_out_max: {
     min: 0.0,
     max: 1.0,
-    default: 1.0
+    default: 1.0,
   },
   b_gamma: {
     min: 0.0,
     max: 10.0,
-    default: 1.0
-  }
+    default: 1.0,
+  },
 };
 
 var isNum = function(n) {
@@ -164,11 +164,18 @@ _.keys(ExposureSettings.PROPS).forEach(function(key) {
       return this[`_${key}`] || ExposureSettings.PROPS[key].default;
     },
     set: function(val) {
-      if (validateNum(this[`_${key}`], val, ExposureSettings.PROPS[key].min, ExposureSettings.PROPS[key].max)) {
+      if (
+        validateNum(
+          this[`_${key}`],
+          val,
+          ExposureSettings.PROPS[key].min,
+          ExposureSettings.PROPS[key].max
+        )
+      ) {
         this[`_${key}`] = val;
         this.emit("updated");
       }
-    }
+    },
   });
 });
 

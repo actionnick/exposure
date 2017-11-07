@@ -1,154 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-'use strict';
-
-var _jsxFileName = '/Users/nick/projects/exposure/demo/ExposureApp.jsx';
-
-var _createClass = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-  };
-}();
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (!self) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-}
-
-var React = require('react');
-
-var _require = require('react-redux'),
-    connect = _require.connect;
-
-var ImageStage = require('./image_stage');
-var ImageList = require("./image_list");
-var Controls = require("./controls");
-var _ = require('lodash');
-var uuid = require('uuid');
-var Frame = require('../src/frame');
-
-var mapStateToProps = function mapStateToProps(state) {
-  return state;
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      initNewFrame: function initNewFrame(file) {
-        dispatch({ type: 'START_IMAGE_LOAD' });
-
-        var reader = new FileReader();
-        reader.onload = function (event) {
-          var img = new Image();
-          img.onload = function () {
-            new Frame(img, {
-              callback: function callback(frame) {
-                return dispatch({ type: 'FRAME_INITIATED', frame: frame });
-              }
-            });
-          };
-          img.src = event.target.result;
-        };
-        reader.readAsDataURL(file);
-      },
-      frameSelected: function frameSelected(key) {
-        return dispatch({ type: 'FRAME_SELECTED', key: key });
-      }
-    }
-  };
-};
-
-var ExposureApp = function (_React$Component) {
-  _inherits(ExposureApp, _React$Component);
-
-  function ExposureApp() {
-    _classCallCheck(this, ExposureApp);
-
-    return _possibleConstructorReturn(this, (ExposureApp.__proto__ || Object.getPrototypeOf(ExposureApp)).apply(this, arguments));
-  }
-
-  _createClass(ExposureApp, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          frames = _props.frames,
-          selectedFrame = _props.selectedFrame,
-          actions = _props.actions;
-
-      return React.createElement('div', { id: 'main', className: 'no-buffer', __source: {
-          fileName: _jsxFileName,
-          lineNumber: 45
-        }
-      }, React.createElement('div', { id: 'top', className: 'no-buffer', __source: {
-          fileName: _jsxFileName,
-          lineNumber: 46
-        }
-      }, React.createElement('div', { id: 'logo', className: 'no-buffer', __source: {
-          fileName: _jsxFileName,
-          lineNumber: 47
-        }
-      })), React.createElement('div', { id: 'middle', className: 'no-buffer', __source: {
-          fileName: _jsxFileName,
-          lineNumber: 49
-        }
-      }, React.createElement(ImageList, {
-        frames: frames,
-        selectedFrame: selectedFrame,
-        actions: actions,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 50
-        }
-      }), React.createElement('div', { id: 'current-image', className: 'no-buffer', __source: {
-          fileName: _jsxFileName,
-          lineNumber: 55
-        }
-      }, React.createElement(ImageStage, {
-        actions: actions,
-        selectedFrame: selectedFrame,
-        webGLSupported: Modernizr.webgl,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 56
-        }
-      })), React.createElement(Controls, { onControlChange: function onControlChange() {}, frame: selectedFrame, actions: actions, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 63
-        }
-      })));
-    }
-  }]);
-
-  return ExposureApp;
-}(React.Component);
-
-ExposureApp.propTypes = {
-  frames: React.PropTypes.array,
-  selectedFrame: React.PropTypes.object
-};
-
-module.exports = connect(mapStateToProps, mapDispatchToProps)(ExposureApp);
-
-},{"../src/frame":351,"./controls":2,"./image_list":3,"./image_stage":4,"lodash":111,"react":323,"react-redux":291,"uuid":338}],2:[function(require,module,exports){
 "use strict";
 
-var _jsxFileName = "/Users/nick/projects/exposure/demo/controls.js";
+var _jsxFileName = "/Users/nick/projects/exposure/editor/Controls.jsx";
 
 var _createClass = function () {
   function defineProperties(target, props) {
@@ -192,11 +45,13 @@ var Controls = function (_React$Component) {
   _createClass(Controls, [{
     key: "handleChange",
     value: function handleChange(key, value) {
+      var actions = this.props.actions;
+
       if (value.length) {
-        this.props.onControlChange(key + "min", value[0] / 100);
-        this.props.onControlChange(key + "max", value[1] / 100);
+        actions.onControlChange(key + "min", value[0] / 100);
+        actions.onControlChange(key + "max", value[1] / 100);
       } else {
-        this.props.onControlChange(key, value / 100);
+        actions.onControlChange(key, value / 100);
       }
     }
   }, {
@@ -210,137 +65,118 @@ var Controls = function (_React$Component) {
       var p = s.PROPS;
       return React.createElement("div", { id: "controls", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 28
         }
       }, React.createElement("div", { className: "controls-section", __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 29
         }
       }, React.createElement("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 30
         }
       }, "general"), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 32
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 33
         }
       }, "brightness"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 34
         }
-      }, React.createElement(ReactSlider, { onChange: this.handleChange.bind(this, "brightness"), min: 0, max: 200, defaultValue: s.brightness * 100, __source: {
+      }, React.createElement(ReactSlider, {
+        onChange: this.handleChange.bind(this, "brightness"),
+        min: 0,
+        max: 200,
+        defaultValue: s.brightness * 100,
+        __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 35
         }
       }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 44
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 45
         }
       }, "contrast"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 46
         }
-      }, React.createElement(ReactSlider, { onChange: this.handleChange.bind(this, "contrast"), min: 0, max: 300, defaultValue: s.contrast * 100, __source: {
+      }, React.createElement(ReactSlider, {
+        onChange: this.handleChange.bind(this, "contrast"),
+        min: 0,
+        max: 300,
+        defaultValue: s.contrast * 100,
+        __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 47
         }
       })))), React.createElement("div", { className: "controls-section", __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 57
         }
       }, React.createElement("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 58
         }
       }, "levels"), React.createElement("h2", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 59
         }
       }, "rgb"), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 60
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 61
         }
       }, "in"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
-        }
-      }, React.createElement(ReactSlider, { onChange: this.handleChange.bind(this, "rgb_in_"), min: 0, max: 100, defaultValue: [s.rgb_in_min * 100, s.rgb_in_max * 100], __source: {
-          fileName: _jsxFileName,
-          lineNumber: 59
-        }
-      }))), React.createElement("div", { className: "slider-layout", __source: {
-          fileName: _jsxFileName,
           lineNumber: 62
         }
-      }, React.createElement("p", {
+      }, React.createElement(ReactSlider, {
+        onChange: this.handleChange.bind(this, "rgb_in_"),
+        min: 0,
+        max: 100,
+        defaultValue: [s.rgb_in_min * 100, s.rgb_in_max * 100],
         __source: {
           fileName: _jsxFileName,
           lineNumber: 63
         }
-      }, "out"), React.createElement("div", { className: "slider-container centering-parent", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 64
-        }
-      }, React.createElement(ReactSlider, { onChange: this.handleChange.bind(this, "rgb_out_"), min: 0, max: 100, defaultValue: [s.rgb_out_min * 100, s.rgb_out_max * 100], __source: {
-          fileName: _jsxFileName,
-          lineNumber: 65
-        }
       }))), React.createElement("div", { className: "slider-layout", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 68
-        }
-      }, React.createElement("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 69
-        }
-      }, "gamma"), React.createElement("div", { className: "slider-container centering-parent", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 70
-        }
-      }, React.createElement(ReactSlider, { onChange: this.handleChange.bind(this, "rgb_gamma"), min: 0, max: 1000, defaultValue: s.rgb_gamma * 100, __source: {
           fileName: _jsxFileName,
           lineNumber: 71
         }
-      }))), React.createElement("h2", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 75
-        }
-      }, "red"), React.createElement("div", { className: "slider-layout", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 76
-        }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 72
         }
-      }, "in"), React.createElement("div", { className: "slider-container centering-parent", __source: {
+      }, "out"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 78
+          lineNumber: 73
         }
-      }, React.createElement(ReactSlider, { className: "slider red-slider", onChange: this.handleChange.bind(this, "r_in_"), min: 0, max: 100, defaultValue: [s.r_in_min * 100, s.r_in_max * 100], __source: {
+      }, React.createElement(ReactSlider, {
+        onChange: this.handleChange.bind(this, "rgb_out_"),
+        min: 0,
+        max: 100,
+        defaultValue: [s.rgb_out_min * 100, s.rgb_out_max * 100],
+        __source: {
           fileName: _jsxFileName,
-          lineNumber: 79
+          lineNumber: 74
         }
       }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
@@ -351,153 +187,242 @@ var Controls = function (_React$Component) {
           fileName: _jsxFileName,
           lineNumber: 83
         }
-      }, "out"), React.createElement("div", { className: "slider-container centering-parent", __source: {
+      }, "gamma"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
           lineNumber: 84
         }
-      }, React.createElement(ReactSlider, { className: "slider red-slider", onChange: this.handleChange.bind(this, "r_out_"), min: 0, max: 100, defaultValue: [s.r_out_min * 100, s.r_out_max * 100], __source: {
+      }, React.createElement(ReactSlider, {
+        onChange: this.handleChange.bind(this, "rgb_gamma"),
+        min: 0,
+        max: 1000,
+        defaultValue: s.rgb_gamma * 100,
+        __source: {
           fileName: _jsxFileName,
           lineNumber: 85
         }
-      }))), React.createElement("div", { className: "slider-layout", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 88
-        }
-      }, React.createElement("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 89
-        }
-      }, "gamma"), React.createElement("div", { className: "slider-container centering-parent", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 90
-        }
-      }, React.createElement(ReactSlider, { className: "slider red-slider", onChange: this.handleChange.bind(this, "r_gamma"), min: 0, max: 1000, defaultValue: s.r_gamma * 100, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 91
-        }
       }))), React.createElement("h2", {
         __source: {
+          fileName: _jsxFileName,
+          lineNumber: 94
+        }
+      }, "red"), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
           lineNumber: 95
         }
-      }, "green"), React.createElement("div", { className: "green slider-layout", __source: {
+      }, React.createElement("p", {
+        __source: {
           fileName: _jsxFileName,
           lineNumber: 96
         }
-      }, React.createElement("p", {
-        __source: {
+      }, "in"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
           lineNumber: 97
         }
-      }, "in"), React.createElement("div", { className: "slider-container centering-parent", __source: {
+      }, React.createElement(ReactSlider, {
+        className: "slider red-slider",
+        onChange: this.handleChange.bind(this, "r_in_"),
+        min: 0,
+        max: 100,
+        defaultValue: [s.r_in_min * 100, s.r_in_max * 100],
+        __source: {
           fileName: _jsxFileName,
           lineNumber: 98
         }
-      }, React.createElement(ReactSlider, { className: "slider green-slider", onChange: this.handleChange.bind(this, "g_in_"), min: 0, max: 100, defaultValue: [s.g_in_min * 100, s.g_in_max * 100], __source: {
+      }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 99
-        }
-      }))), React.createElement("div", { className: "green slider-layout", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 102
+          lineNumber: 107
         }
       }, React.createElement("p", {
         __source: {
-          fileName: _jsxFileName,
-          lineNumber: 103
-        }
-      }, "out"), React.createElement("div", { className: "slider-container centering-parent", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 104
-        }
-      }, React.createElement(ReactSlider, { className: "slider green-slider", onChange: this.handleChange.bind(this, "g_out_"), min: 0, max: 100, defaultValue: [s.g_out_min * 100, s.g_out_max * 100], __source: {
-          fileName: _jsxFileName,
-          lineNumber: 105
-        }
-      }))), React.createElement("div", { className: "green slider-layout", __source: {
           fileName: _jsxFileName,
           lineNumber: 108
         }
-      }, React.createElement("p", {
-        __source: {
+      }, "out"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
           lineNumber: 109
         }
-      }, "gamma"), React.createElement("div", { className: "slider-container centering-parent", __source: {
+      }, React.createElement(ReactSlider, {
+        className: "slider red-slider",
+        onChange: this.handleChange.bind(this, "r_out_"),
+        min: 0,
+        max: 100,
+        defaultValue: [s.r_out_min * 100, s.r_out_max * 100],
+        __source: {
           fileName: _jsxFileName,
           lineNumber: 110
         }
-      }, React.createElement(ReactSlider, { className: "slider green-slider", onChange: this.handleChange.bind(this, "g_gamma"), min: 0, max: 1000, defaultValue: s.g_gamma * 100, __source: {
+      }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 111
+          lineNumber: 119
+        }
+      }, React.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 120
+        }
+      }, "gamma"), React.createElement("div", { className: "slider-container centering-parent", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 121
+        }
+      }, React.createElement(ReactSlider, {
+        className: "slider red-slider",
+        onChange: this.handleChange.bind(this, "r_gamma"),
+        min: 0,
+        max: 1000,
+        defaultValue: s.r_gamma * 100,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 122
         }
       }))), React.createElement("h2", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 115
+          lineNumber: 132
         }
-      }, "blue"), React.createElement("div", { className: "slider-layout", __source: {
+      }, "green"), React.createElement("div", { className: "green slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 116
+          lineNumber: 133
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 117
+          lineNumber: 134
         }
       }, "in"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 118
+          lineNumber: 135
         }
-      }, React.createElement(ReactSlider, { className: "slider blue-slider", onChange: this.handleChange.bind(this, "b_in_"), min: 0, max: 100, defaultValue: [s.b_in_min * 100, s.b_in_max * 100], __source: {
+      }, React.createElement(ReactSlider, {
+        className: "slider green-slider",
+        onChange: this.handleChange.bind(this, "g_in_"),
+        min: 0,
+        max: 100,
+        defaultValue: [s.g_in_min * 100, s.g_in_max * 100],
+        __source: {
           fileName: _jsxFileName,
-          lineNumber: 119
+          lineNumber: 136
         }
-      }))), React.createElement("div", { className: "slider-layout", __source: {
+      }))), React.createElement("div", { className: "green slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 122
+          lineNumber: 145
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 123
+          lineNumber: 146
         }
       }, "out"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 124
+          lineNumber: 147
         }
-      }, React.createElement(ReactSlider, { className: "slider blue-slider", onChange: this.handleChange.bind(this, "b_out_"), min: 0, max: 100, defaultValue: [s.b_out_min * 100, s.b_out_max * 100], __source: {
+      }, React.createElement(ReactSlider, {
+        className: "slider green-slider",
+        onChange: this.handleChange.bind(this, "g_out_"),
+        min: 0,
+        max: 100,
+        defaultValue: [s.g_out_min * 100, s.g_out_max * 100],
+        __source: {
           fileName: _jsxFileName,
-          lineNumber: 125
+          lineNumber: 148
         }
-      }))), React.createElement("div", { className: "slider-layout", __source: {
+      }))), React.createElement("div", { className: "green slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 128
+          lineNumber: 157
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 129
+          lineNumber: 158
         }
       }, "gamma"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 130
+          lineNumber: 159
         }
-      }, React.createElement(ReactSlider, { className: "slider blue-slider", onChange: this.handleChange.bind(this, "b_gamma"), min: 0, max: 1000, defaultValue: s.b_gamma * 100, __source: {
+      }, React.createElement(ReactSlider, {
+        className: "slider green-slider",
+        onChange: this.handleChange.bind(this, "g_gamma"),
+        min: 0,
+        max: 1000,
+        defaultValue: s.g_gamma * 100,
+        __source: {
           fileName: _jsxFileName,
-          lineNumber: 131
+          lineNumber: 160
+        }
+      }))), React.createElement("h2", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 170
+        }
+      }, "blue"), React.createElement("div", { className: "slider-layout", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 171
+        }
+      }, React.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 172
+        }
+      }, "in"), React.createElement("div", { className: "slider-container centering-parent", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 173
+        }
+      }, React.createElement(ReactSlider, {
+        className: "slider blue-slider",
+        onChange: this.handleChange.bind(this, "b_in_"),
+        min: 0,
+        max: 100,
+        defaultValue: [s.b_in_min * 100, s.b_in_max * 100],
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 174
+        }
+      }))), React.createElement("div", { className: "slider-layout", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 183
+        }
+      }, React.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 184
+        }
+      }, "out"), React.createElement("div", { className: "slider-container centering-parent", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 185
+        }
+      }, React.createElement(ReactSlider, {
+        className: "slider blue-slider",
+        onChange: this.handleChange.bind(this, "b_out_"),
+        min: 0,
+        max: 100,
+        defaultValue: [s.b_out_min * 100, s.b_out_max * 100],
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 186
+        }
+      }))), React.createElement("div", { className: "slider-layout", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 195
+        }
+      }, React.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 196
+        }
+      }, "gamma"), React.createElement("div", { className: "slider-container centering-parent", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 197
+        }
+      }, React.createElement(ReactSlider, {
+        className: "slider blue-slider",
+        onChange: this.handleChange.bind(this, "b_gamma"),
+        min: 0,
+        max: 1000,
+        defaultValue: s.b_gamma * 100,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 198
         }
       })))));
-    }
-  }, {
-    key: "divStyle",
-    get: function get() {
-      return {
-        height: "100%",
-        overflowY: "scroll",
-        textAlign: "center"
-      };
     }
   }]);
 
@@ -505,16 +430,162 @@ var Controls = function (_React$Component) {
 }(React.Component);
 
 Controls.propTypes = {
-  onControlhange: React.PropTypes.func,
-  frame: React.PropTypes.object
+  frame: React.PropTypes.object,
+  actions: React.PropTypes.object.isRequired
 };
 
 module.exports = Controls;
 
-},{"react-slider":297}],3:[function(require,module,exports){
+},{"react-slider":297}],2:[function(require,module,exports){
 "use strict";
 
-var _jsxFileName = "/Users/nick/projects/exposure/demo/image_list.js";
+var _jsxFileName = "/Users/nick/projects/exposure/editor/ExposureApp.jsx";
+
+var _createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+  };
+}();
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var React = require("react");
+
+var _require = require("react-redux"),
+    connect = _require.connect;
+
+var ImageStage = require("./ImageStage.jsx");
+var ImageList = require("./ImageList.jsx");
+var Controls = require("./Controls.jsx");
+var _ = require("lodash");
+var uuid = require("uuid");
+var Frame = require("../src/frame");
+
+var mapStateToProps = function mapStateToProps(state) {
+  return state;
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    actions: {
+      initNewFrame: function initNewFrame(file) {
+        dispatch({ type: "START_IMAGE_LOAD" });
+
+        var reader = new FileReader();
+        reader.onload = function (event) {
+          var img = new Image();
+          img.onload = function () {
+            new Frame(img, {
+              callback: function callback(frame) {
+                return dispatch({ type: "FRAME_INITIATED", frame: frame });
+              }
+            });
+          };
+          img.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      },
+      frameSelected: function frameSelected(key) {
+        return dispatch({ type: "FRAME_SELECTED", key: key });
+      },
+      onControlChange: function onControlChange(key, value) {
+        return dispatch({ type: "INPUTS_CHANGED", key: key, value: value });
+      }
+    }
+  };
+};
+
+var ExposureApp = function (_React$Component) {
+  _inherits(ExposureApp, _React$Component);
+
+  function ExposureApp() {
+    _classCallCheck(this, ExposureApp);
+
+    return _possibleConstructorReturn(this, (ExposureApp.__proto__ || Object.getPrototypeOf(ExposureApp)).apply(this, arguments));
+  }
+
+  _createClass(ExposureApp, [{
+    key: "render",
+    value: function render() {
+      var _props = this.props,
+          frames = _props.frames,
+          selectedFrame = _props.selectedFrame,
+          actions = _props.actions;
+
+      return React.createElement("div", { id: "main", className: "no-buffer", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 46
+        }
+      }, React.createElement("div", { id: "top", className: "no-buffer", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 47
+        }
+      }, React.createElement("div", { id: "logo", className: "no-buffer", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 48
+        }
+      })), React.createElement("div", { id: "middle", className: "no-buffer", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 50
+        }
+      }, React.createElement(ImageList, { frames: frames, selectedFrame: selectedFrame, actions: actions, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 51
+        }
+      }), React.createElement("div", { id: "current-image", className: "no-buffer", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 52
+        }
+      }, React.createElement(ImageStage, {
+        actions: actions,
+        selectedFrame: selectedFrame,
+        webGLSupported: Modernizr.webgl,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 53
+        }
+      })), React.createElement(Controls, { onControlChange: function onControlChange() {}, frame: selectedFrame, actions: actions, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 60
+        }
+      })));
+    }
+  }]);
+
+  return ExposureApp;
+}(React.Component);
+
+ExposureApp.propTypes = {
+  frames: React.PropTypes.array,
+  selectedFrame: React.PropTypes.object
+};
+
+module.exports = connect(mapStateToProps, mapDispatchToProps)(ExposureApp);
+
+},{"../src/frame":351,"./Controls.jsx":1,"./ImageList.jsx":3,"./ImageStage.jsx":4,"lodash":111,"react":323,"react-redux":291,"uuid":338}],3:[function(require,module,exports){
+"use strict";
+
+var _jsxFileName = "/Users/nick/projects/exposure/editor/ImageList.jsx";
 
 var _createClass = function () {
   function defineProperties(target, props) {
@@ -648,7 +719,7 @@ module.exports = ImageList;
 },{"lodash":111,"react":323}],4:[function(require,module,exports){
 "use strict";
 
-var _jsxFileName = "/Users/nick/projects/exposure/demo/image_stage.js";
+var _jsxFileName = "/Users/nick/projects/exposure/editor/ImageStage.jsx";
 
 var _createClass = function () {
   function defineProperties(target, props) {
@@ -895,7 +966,7 @@ module.exports = ImageStage;
 },{"react":323,"react-file-input":271,"react-modal":281}],5:[function(require,module,exports){
 'use strict';
 
-var _jsxFileName = '/Users/nick/projects/exposure/demo/main.js';
+var _jsxFileName = '/Users/nick/projects/exposure/editor/main.js';
 // Views
 var React = require("react");
 window.React = React;
@@ -981,8 +1052,8 @@ ReactDOM.render(React.createElement(Provider, { store: store, __source: {
 //   render(frame, onControlChange);
 // });
 
-},{"./ExposureApp.jsx":1,"./reducer":6,"react":323,"react-dom":144,"react-redux":291,"redux":329}],6:[function(require,module,exports){
-'use strict';
+},{"./ExposureApp.jsx":2,"./reducer":6,"react":323,"react-dom":144,"react-redux":291,"redux":329}],6:[function(require,module,exports){
+"use strict";
 
 var _extends = Object.assign || function (target) {
   for (var i = 1; i < arguments.length; i++) {
@@ -994,7 +1065,7 @@ var _extends = Object.assign || function (target) {
   }return target;
 };
 
-var _ = require('lodash');
+var _ = require("lodash");
 
 var initialState = {
   loading: false,
@@ -1008,15 +1079,17 @@ var reducer = function reducer() {
 
   var newState = _extends({}, state);
 
-  if (action.type === 'START_IMAGE_LOAD') {
+  if (action.type === "START_IMAGE_LOAD") {
     newState.loading = true;
-  } else if (action.type === 'FRAME_INITIATED') {
+  } else if (action.type === "FRAME_INITIATED") {
     var frame = action.frame;
     newState.frames.unshift(frame);
     newState.selectedFrame = frame;
     newState.loading = false;
-  } else if (action.type === 'FRAME_SELECTED') {
-    newState.selectedFrame = _.find(newState.frames, ['key', action.key]);
+  } else if (action.type === "FRAME_SELECTED") {
+    newState.selectedFrame = _.find(newState.frames, ["key", action.key]);
+  } else if (action.type === "INPUTS_CHANGED") {
+    newState.selectedFrame.settings[action.key] = action.value;
   }
 
   return newState;
