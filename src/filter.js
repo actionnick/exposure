@@ -34,8 +34,6 @@ class Filter {
     const oldActive = gl.getParameter(gl.ACTIVE_TEXTURE);
     gl.activeTexture(gl.TEXTURE15); // working register 31, thanks.
 
-    console.log(floatArray);
-
     var texture = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, texture);
     gl.texImage2D(
@@ -67,21 +65,18 @@ class Filter {
         return;
       }
       if (key == "rgb_curve_points") {
-        const newArray = [];
-        this.settings.rgb_curve_points.forEach(val => {
-          newArray.push(val / 1000);
-        });
+        if (this.settings.rgb_curve_enabled) {
+          const gl = this.gl;
+          const array = this.settings.rgb_curve_points.map(val => val / 1024.0);
+          console.log("array", array);
+          const texture = this.textureFromArray(gl, array);
+          const textureUnit = 5;
+          gl.activeTexture(gl.TEXTURE0 + textureUnit);
+          gl.bindTexture(gl.TEXTURE_2D, texture);
 
-        console.log("newArray", newArray);
-
-        const gl = this.gl;
-        const texture = this.textureFromArray(gl, newArray);
-        const textureUnit = 5;
-        gl.activeTexture(gl.TEXTURE0 + textureUnit);
-        gl.bindTexture(gl.TEXTURE_2D, texture);
-
-        var z = gl.getUniformLocation(this.shader.program, "rgb_curve_points");
-        gl.uniform1i(z, textureUnit);
+          var z = gl.getUniformLocation(this.shader.program, "rgb_curve_points");
+          gl.uniform1i(z, textureUnit);
+        }
       } else {
         uniforms[key] = settings[key];
       }

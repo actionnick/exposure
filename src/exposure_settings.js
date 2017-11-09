@@ -214,7 +214,6 @@ class ExposureSettings extends EventEmitter {
       pointMapping = _.dropRight(pointMapping, Math.max(pointMapping.length - numberOfPoints, 0));
 
       this.rgb_curve_points = pointMapping;
-
       this.emit("updated");
     }
 

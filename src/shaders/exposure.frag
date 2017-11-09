@@ -104,35 +104,26 @@ void main() {
   color.b = mix(b_out_min, b_out_max, color.b);
   color.a = 1.0;
 
-  // always preserve alpha
-  color.a = alpha;
-  gl_FragColor = color;
-
   ////////////////////////////
   ///////   curves   /////////
   ////////////////////////////
 
   // rgb curves
   if (rgb_curve_enabled) {
-    float max = length(vec4(1.0, 1.0, 1.0, 1.0));
-    float current = length(color);
-    int in_val = int((current / max) * 1000.0);
-    // int out_val = rgb_curve_points[in_val];
+    float in_r = color.r;
+    float in_g = color.g;
+    float in_b = color.b;
 
-    vec4 out_val = texture2D(rgb_curve_points, vec2(screenPosition.s, 0.5));
+    float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;
+    float out_g = texture2D(rgb_curve_points, vec2(in_g, 0.5)).x;
+    float out_b = texture2D(rgb_curve_points, vec2(in_b, 0.5)).x;
 
-    if (out_val.r <= 0.25) {
-      gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
-    }
-
-    if (out_val.g >= 0.25) {
-      gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
-    }
-
-    if (out_val.b >= 0.75) {
-      gl_FragColor = vec4(0.0, 0.0, 1.0, 1.0);
-    }
-
-    // color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), 1.0 - (float(in_val) / float(out_val)));
+    color.r = mix(color.r, 1.0, out_r - in_r);
+    color.g = mix(color.g, 1.0, out_g - in_g);
+    color.b = mix(color.b, 1.0, out_b - in_b);
   }
+
+  // always preserve alpha
+  color.a = alpha;
+  gl_FragColor = color;
 }
