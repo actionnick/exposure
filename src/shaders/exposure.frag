@@ -121,8 +121,16 @@ void main() {
 
     vec4 out_val = texture2D(rgb_curve_points, vec2(screenPosition.s, 0.5));
 
-    if (out_val.x > 0.500) {
-      gl_FragColor = vec4(1.0, 1.0, 0.5, 1.0);
+    if (out_val.r <= 0.25) {
+      gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+    }
+
+    if (out_val.g >= 0.25) {
+      gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
+    }
+
+    if (out_val.b >= 0.75) {
+      gl_FragColor = vec4(0.0, 0.0, 1.0, 1.0);
     }
 
     // color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), 1.0 - (float(in_val) / float(out_val)));

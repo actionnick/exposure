@@ -187,7 +187,7 @@ class ExposureSettings extends EventEmitter {
       const placedPoints = val.length - 4;
       const segments = placedPoints + 1;
 
-      const numberOfPoints = 1000;
+      const numberOfPoints = 1024;
 
       const points = catRomSpline(val, {
         samples: Math.floor(numberOfPoints / segments),
@@ -214,8 +214,6 @@ class ExposureSettings extends EventEmitter {
       pointMapping = _.dropRight(pointMapping, Math.max(pointMapping.length - numberOfPoints, 0));
 
       this.rgb_curve_points = pointMapping;
-
-      console.log(pointMapping);
 
       this.emit("updated");
     }
