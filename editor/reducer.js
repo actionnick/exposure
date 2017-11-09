@@ -22,6 +22,8 @@ const reducer = (state = initialState, action) => {
     newState.selectedFrame.settings[action.key] = action.value;
   }
 
+  window.currentFrame = newState.selectedFrame;
+
   return newState;
 };
 

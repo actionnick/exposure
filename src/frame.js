@@ -3,9 +3,9 @@ const glShader = require("gl-shader");
 const glslify = require("glslify");
 const Filter = require("./filter");
 const resizeImage = require("./resize_image");
-const createThumbnail = require('./create_thumbnail');
+const createThumbnail = require("./create_thumbnail");
 const _ = require("lodash");
-const uuid = require('uuid');
+const uuid = require("uuid");
 
 const MAX_SIZE = 2500;
 const THUMBNAIL_SIZE = 300;
@@ -13,7 +13,7 @@ const THUMBNAIL_SIZE = 300;
 class Frame {
   constructor(img, opts) {
     this.canvas = opts.canvas || document.createElement("canvas");
-    this.callback = opts.callback || function(){};
+    this.callback = opts.callback || function() {};
     this.json = opts.json || {};
     this.gl = this.getGLContext(this.canvas);
     this.key = uuid.v4();
@@ -22,7 +22,7 @@ class Frame {
     // if (img.width > MAX_SIZE || img.height > MAX_SIZE) {
     //   resizeImage(img, MAX_SIZE, this.initWithImg.bind(this));
     // } else {
-      this.initWithImg(img);
+    this.initWithImg(img);
     // }
   }
 
@@ -37,23 +37,23 @@ class Frame {
     // filter that will actually manipulate image in framebuffer
     this.filter = new Filter(gl, this.json);
     this.settings = this.filter.settings;
-    this.settings.on("updated", this.filterDraw.bind(this));
+    this.settings.on("updated", () => this.filter.draw());
 
     // shader for drawing image
-    this.shader = glShader(gl,
-      glslify('./shaders/texture_coords.vert'),
-      glslify('./shaders/texture_map.frag')
+    this.shader = glShader(
+      gl,
+      glslify("./shaders/texture_coords.vert"),
+      glslify("./shaders/texture_map.frag")
     );
 
     // create geometry buffer to draw image on
     this.buffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, this.buffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
-       1.0,  1.0,  0.0,
-       0.0,  1.0,  0.0,
-       1.0,  0.0,  0.0,
-       0.0,  0.0,  0.0
-    ]), gl.STATIC_DRAW);
+    gl.bufferData(
+      gl.ARRAY_BUFFER,
+      new Float32Array([1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]),
+      gl.STATIC_DRAW
+    );
 
     // uniform matrices
     this.orthoMat = mat4.ortho([], 0, this.width, 0, this.height, 0, 1);
@@ -74,7 +74,10 @@ class Frame {
   }
 
   getGLContext(canvas) {
-    return canvas.getContext("webgl", { preserveDrawingBuffer: true }) || canvas.getContext("experimental-webgl", { preserveDrawingBuffer: true });
+    return (
+      canvas.getContext("webgl", { preserveDrawingBuffer: true }) ||
+      canvas.getContext("experimental-webgl", { preserveDrawingBuffer: true })
+    );
   }
 
   setAttributes() {
@@ -109,11 +112,6 @@ class Frame {
 
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
-    this.filterDraw();
-  }
-
-  filterDraw() {
-    this.filter.shader.bind();
     this.filter.draw();
   }
 }
