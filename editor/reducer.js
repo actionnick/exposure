@@ -4,6 +4,7 @@ const initialState = {
   loading: false,
   frames: [],
   selectedFrame: null,
+  settings: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,7 +23,11 @@ const reducer = (state = initialState, action) => {
     newState.selectedFrame.settings[action.key] = action.value;
   }
 
-  window.currentFrame = newState.selectedFrame;
+  window.selectedFrame = newState.selectedFrame;
+
+  if (newState.selectedFrame) {
+    newState.settings = newState.selectedFrame.settings.json;
+  }
 
   return newState;
 };

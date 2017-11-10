@@ -1,4 +1,5 @@
 const ReactSlider = require("react-slider");
+const Curves = require("./Curves.jsx");
 
 class Controls extends React.Component {
   static propTypes = {
@@ -204,6 +205,13 @@ class Controls extends React.Component {
               />
             </div>
           </div>
+        </div>
+
+        <div className="controls-section">
+          <h1>curves</h1>
+          <h2>rgb</h2>
+
+          <Curves frame={this.props.frame} actions={this.props.actions} />
         </div>
       </div>
     );

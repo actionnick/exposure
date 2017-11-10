@@ -29,6 +29,9 @@ const mapDispatchToProps = dispatch => {
       },
       frameSelected: key => dispatch({ type: "FRAME_SELECTED", key }),
       onControlChange: (key, value) => dispatch({ type: "INPUTS_CHANGED", key, value }),
+      curvePointAdded: value => {
+        dispatch({ type: "SOMETHING" });
+      },
     },
   };
 };
@@ -57,7 +60,7 @@ class ExposureApp extends React.Component {
             />
           </div>
 
-          <Controls onControlChange={() => {}} frame={selectedFrame} actions={actions} />
+          <Controls frame={selectedFrame} actions={actions} />
         </div>
       </div>
     );

@@ -2,6 +2,7 @@ const EventEmitter = require("events").EventEmitter;
 const _ = require("lodash");
 const assert = require("assert");
 const catRomSpline = require("cat-rom-spline");
+const textureFromArray = require("./texture_from_array");
 
 class ExposureSettings extends EventEmitter {
   constructor(json) {
@@ -13,10 +14,9 @@ class ExposureSettings extends EventEmitter {
     this.emit("initialized");
   }
 
-  // getters/setters will be dynamically generated for these props except for 2 cases.
+  // getters/setters will be dynamically generated for these props except for virtual mutators.
   // virtual = true, these are meant for API usage but will not be passed into the shader.
-  // internal = true, these are passed into the shader but not accessible for mutation
-  // through the api.
+  // internal = true, accessible for mutation but will not automatically emit an updated event.
   static PROPS = {
     brightness: {
       type: Number,
@@ -159,12 +159,25 @@ class ExposureSettings extends EventEmitter {
     rgb_curves: {
       virtual: true,
       type: Array,
-      default: [[-250, -250], [0.0, 0.0], [1000, 1000], [1250, 1250]],
+      default: [[0.0, 0.0], [1024.0, 1024.0]],
     },
     rgb_curve_points: {
       type: Array,
       internal: true,
       default: [],
+      setUniform: filter => {
+        if (filter.settings.rgb_curve_enabled) {
+          const gl = filter.gl;
+          const mappedArray = filter.settings.rgb_curve_points.map(val => val / 1024.0);
+          const texture = textureFromArray(gl, mappedArray);
+          const textureUnit = 5;
+          gl.activeTexture(gl.TEXTURE0 + textureUnit);
+          gl.bindTexture(gl.TEXTURE_2D, texture);
+
+          const z = gl.getUniformLocation(filter.shader.program, "rgb_curve_points");
+          gl.uniform1i(z, textureUnit);
+        }
+      },
     },
     rgb_curve_enabled: {
       type: Boolean,
@@ -173,25 +186,54 @@ class ExposureSettings extends EventEmitter {
     },
   };
 
+  initFromJson(json) {
+    var self = this;
+    _.keys(json).forEach(function(key) {
+      self[key] = json[key];
+    });
+  }
+
+  get json() {
+    var keys = _.keys(ExposureSettings.PROPS);
+    var self = this;
+    var json = {};
+    keys.forEach(function(key) {
+      json[key] = self[key];
+    });
+
+    return json;
+  }
+
   get rgb_curves() {
     return this._rgb_curves || ExposureSettings.PROPS.rgb_curves.default;
   }
 
-  // TODO: Resetting curves
+  // Points go from 0 -> 1024
   set rgb_curves(val) {
-    assert(val.length > 4, "At least 4 points must be passed in");
+    if (val.length < 2 || !val) {
+      this._rgb_curves = ExposureSettings.PROPS.rgb_curves.default;
+      this.rgb_curve_enabled = false;
+      this.rgb_curve_points = [];
+      this.emit("updated");
+      return;
+    }
 
-    if (!_.isEqual(ExposureSettings.PROPS.rgb_curves.default, val)) {
+    if (
+      !_.isEqual(ExposureSettings.PROPS.rgb_curves.default, val) &&
+      !_.isEqual(this.rgb_curves, val)
+    ) {
       this.rgb_curve_enabled = true;
+      // Add a point in the far lower left and far upper right
+      const paddedPoints = [[-250, -250], ...val, [1400, 1400]];
 
-      const placedPoints = val.length - 4;
+      const placedPoints = paddedPoints.length - 4;
       const segments = placedPoints + 1;
-
       const numberOfPoints = 1024;
 
-      const points = catRomSpline(val, {
+      const points = catRomSpline(paddedPoints, {
         samples: Math.floor(numberOfPoints / segments),
       });
+
       let pointMapping = [];
       points.forEach(point => {
         point[0] = Math.round(point[0]);
@@ -219,24 +261,6 @@ class ExposureSettings extends EventEmitter {
 
     this._rgb_curves = val;
   }
-
-  initFromJson(json) {
-    var self = this;
-    _.keys(json).forEach(function(key) {
-      self[key] = json[key];
-    });
-  }
-
-  get json() {
-    var keys = _.keys(ExposureSettings.PROPS);
-    var self = this;
-    var json = {};
-    keys.forEach(function(key) {
-      json[key] = self[key];
-    });
-
-    return json;
-  }
 }
 
 // returns true if this is a different number value within the min and max range.
@@ -247,13 +271,18 @@ var validateNum = function(currentVal, newVal, min, max) {
 // intialize property setters and getters
 _.keys(ExposureSettings.PROPS).forEach(function(key) {
   const prop = ExposureSettings.PROPS[key];
-  if (prop.virtual) return; // Custom setter defined in class
+  const descriptor = Object.getOwnPropertyDescriptor(ExposureSettings.prototype, key);
 
-  Object.defineProperty(ExposureSettings.prototype, key, {
-    get: function() {
+  const propertyDefinition = {};
+
+  if (!_.has(descriptor, "get")) {
+    propertyDefinition.get = function() {
       return this[`_${key}`] || prop.default;
-    },
-    set: function(val) {
+    };
+  }
+
+  if (!_.has(descriptor, "set")) {
+    propertyDefinition.set = function(val) {
       if (prop.type === Array) {
         assert(_.isArray(val), `Expected array for ${key}`);
       } else if (prop.type === Boolean) {
@@ -267,8 +296,12 @@ _.keys(ExposureSettings.PROPS).forEach(function(key) {
       if (!prop.internal) {
         this.emit("updated");
       }
-    },
-  });
+    };
+  }
+
+  if (!_.isEmpty(propertyDefinition)) {
+    Object.defineProperty(ExposureSettings.prototype, key, propertyDefinition);
+  }
 });
 
 module.exports = ExposureSettings;
