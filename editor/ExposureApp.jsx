@@ -29,9 +29,9 @@ const mapDispatchToProps = dispatch => {
       },
       frameSelected: key => dispatch({ type: "FRAME_SELECTED", key }),
       onControlChange: (key, value) => dispatch({ type: "INPUTS_CHANGED", key, value }),
-      curvePointAdded: value => {
-        dispatch({ type: "SOMETHING" });
-      },
+      addPoint: (x, y) => dispatch({ type: "ADD_POINT", x, y }),
+      moveControlPoint: (index, x, y) => dispatch({ type: "MOVE_CONTROL_POINT", index, x, y }),
+      removeControlPoint: index => dispatch({ type: "REMOVE_CONTROL_POINT", index }),
     },
   };
 };

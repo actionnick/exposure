@@ -210,7 +210,13 @@ class ExposureSettings extends EventEmitter {
 
   // Points go from 0 -> 1024
   set rgb_curves(val) {
-    if (val.length < 2 || !val) {
+    const sortedArray = [...val].sort(([x0], [x1]) => x0 - x1);
+
+    if (
+      val.length < 2 ||
+      !val ||
+      _.isEqual(ExposureSettings.PROPS.rgb_curves.default, sortedArray)
+    ) {
       this._rgb_curves = ExposureSettings.PROPS.rgb_curves.default;
       this.rgb_curve_enabled = false;
       this.rgb_curve_points = [];
@@ -218,46 +224,41 @@ class ExposureSettings extends EventEmitter {
       return;
     }
 
-    if (
-      !_.isEqual(ExposureSettings.PROPS.rgb_curves.default, val) &&
-      !_.isEqual(this.rgb_curves, val)
-    ) {
-      this.rgb_curve_enabled = true;
-      // Add a point in the far lower left and far upper right
-      const paddedPoints = [[-250, -250], ...val, [1400, 1400]];
+    this.rgb_curve_enabled = true;
+    // Add a point in the far lower left and far upper right
+    const paddedPoints = [[-250, -250], ...sortedArray, [1400, 1400]];
 
-      const placedPoints = paddedPoints.length - 4;
-      const segments = placedPoints + 1;
-      const numberOfPoints = 1024;
+    const placedPoints = paddedPoints.length - 4;
+    const segments = placedPoints + 1;
+    const numberOfPoints = 1024;
 
-      const points = catRomSpline(paddedPoints, {
-        samples: Math.floor(numberOfPoints / segments),
-      });
+    const points = catRomSpline(paddedPoints, {
+      samples: Math.floor(numberOfPoints / segments),
+    });
 
-      let pointMapping = [];
-      points.forEach(point => {
-        point[0] = Math.round(point[0]);
-        point[1] = Math.round(point[1]);
+    let pointMapping = [];
+    points.forEach(point => {
+      point[0] = Math.round(point[0]);
+      point[1] = Math.round(point[1]);
 
-        pointMapping[point[0]] = point[1];
-      });
+      pointMapping[point[0]] = point[1];
+    });
 
-      let currentOutput = 0;
-      let output;
-      _.times(numberOfPoints, input => {
-        output = pointMapping[input];
-        if (!_.isNumber(output)) {
-          pointMapping[input] = currentOutput;
-        } else {
-          currentOutput = output;
-        }
-      });
+    let currentOutput = 0;
+    let output;
+    _.times(numberOfPoints, input => {
+      output = pointMapping[input];
+      if (!_.isNumber(output)) {
+        pointMapping[input] = currentOutput;
+      } else {
+        currentOutput = output;
+      }
+    });
 
-      pointMapping = _.dropRight(pointMapping, Math.max(pointMapping.length - numberOfPoints, 0));
+    pointMapping = _.dropRight(pointMapping, Math.max(pointMapping.length - numberOfPoints, 0));
 
-      this.rgb_curve_points = pointMapping;
-      this.emit("updated");
-    }
+    this.rgb_curve_points = pointMapping;
+    this.emit("updated");
 
     this._rgb_curves = val;
   }

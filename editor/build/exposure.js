@@ -663,10 +663,15 @@ var _ = require("lodash");
 var Curves = function (_React$Component) {
   _inherits(Curves, _React$Component);
 
-  function Curves() {
+  function Curves(props) {
     _classCallCheck(this, Curves);
 
-    return _possibleConstructorReturn(this, (Curves.__proto__ || Object.getPrototypeOf(Curves)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Curves.__proto__ || Object.getPrototypeOf(Curves)).call(this, props));
+
+    _this.state = {
+      clickedPoint: null
+    };
+    return _this;
   }
 
   _createClass(Curves, [{
@@ -697,14 +702,28 @@ var Curves = function (_React$Component) {
           strokeLinecap: "square",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 24
+            lineNumber: 32
           }
         });
       });
     }
   }, {
+    key: "onControlPointDown",
+    value: function onControlPointDown(event, index) {
+      event.stopPropagation();
+      this.setState({ clickedPoint: index });
+    }
+  }, {
+    key: "onControlPointUp",
+    value: function onControlPointUp(event, index) {
+      event.stopPropagation();
+      this.setState({ clickedPoint: null });
+    }
+  }, {
     key: "getControlPoints",
     value: function getControlPoints() {
+      var _this2 = this;
+
       var settings = this.props.frame.settings;
 
       return settings.rgb_curves.map(function (_ref3, index) {
@@ -713,6 +732,15 @@ var Curves = function (_React$Component) {
             y = _ref4[1];
 
         return React.createElement("circle", {
+          onClick: function onClick(event) {
+            return event.stopPropagation();
+          },
+          onMouseDown: function onMouseDown(event) {
+            return _this2.onControlPointDown(event, index);
+          },
+          onMouseUp: function onMouseUp(event) {
+            return _this2.onControlPointUp(event, index);
+          },
           key: "" + x + y + index,
           cx: "" + x,
           cy: "" + (1024 - y),
@@ -722,7 +750,7 @@ var Curves = function (_React$Component) {
           strokeWidth: "5",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 41
+            lineNumber: 59
           }
         });
       });
@@ -735,44 +763,113 @@ var Curves = function (_React$Component) {
       if (_.isEmpty(settings.rgb_curve_points)) {
         return React.createElement("line", { x1: "0", x2: "1024", y1: "1024", y2: "0", stroke: "white", strokeWidth: "5", __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 78
           }
         });
       }
+
+      return settings.rgb_curve_points.map(function (y, x) {
+        return React.createElement("circle", { key: "" + x + y, cx: "" + x, cy: "" + (1024 - y), r: "2", fill: "black", __source: {
+            fileName: _jsxFileName,
+            lineNumber: 82
+          }
+        });
+      });
+    }
+  }, {
+    key: "moveControlPoint",
+    value: function moveControlPoint(event) {
+      if (_.isNumber(this.state.clickedPoint)) {
+        var _convertToLocalCoords = this.convertToLocalCoords(event.clientX, event.clientY),
+            x = _convertToLocalCoords.x,
+            y = _convertToLocalCoords.y;
+
+        this.props.actions.moveControlPoint(this.state.clickedPoint, x, y);
+      }
+    }
+  }, {
+    key: "removeControlPoint",
+    value: function removeControlPoint(event) {
+      if (_.isNumber(this.state.clickedPoint)) {
+        this.setState({ clickedPoint: null });
+        this.props.actions.removeControlPoint(this.state.clickedPoint);
+      }
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick(event) {
+      var _convertToLocalCoords2 = this.convertToLocalCoords(event.clientX, event.clientY),
+          x = _convertToLocalCoords2.x,
+          y = _convertToLocalCoords2.y;
+
+      this.props.actions.addPoint(x, y);
+    }
+
+    // Takes screen coordinates and converts them to local coords
+
+  }, {
+    key: "convertToLocalCoords",
+    value: function convertToLocalCoords(x, y) {
+      this.pt.x = x;
+      this.pt.y = y;
+
+      // The cursor point, translated into svg coordinates
+      var local = this.pt.matrixTransform(this.svg.getScreenCTM().inverse());
+      return {
+        x: local.x,
+        y: 1024 - local.y
+      };
     }
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       return React.createElement("svg", {
+        ref: function ref(svg) {
+          if (svg) {
+            _this3.svg = svg;
+            _this3.pt = svg.createSVGPoint();
+          }
+        },
         version: "1.1",
         baseProfile: "full",
         width: "100%",
         viewBox: "0 0 1024 1024",
         xmlns: "http://www.w3.org/2000/svg",
+        onClick: function onClick(event) {
+          return _this3.handleClick(event);
+        },
+        onMouseMove: function onMouseMove(event) {
+          return _this3.moveControlPoint(event);
+        },
+        onMouseLeave: function onMouseLeave(event) {
+          return _this3.removeControlPoint(event);
+        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 120
         }
       }, React.createElement("defs", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 136
         }
       }, React.createElement("linearGradient", { id: "rgbGradient", x1: "0", x2: "1", y1: "1", y2: "0", __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
+          lineNumber: 137
         }
       }, React.createElement("stop", { offset: "0%", stopColor: "#333333", __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 138
         }
       }), React.createElement("stop", { offset: "100%", stopColor: "#CCCCCC", __source: {
           fileName: _jsxFileName,
-          lineNumber: 73
+          lineNumber: 139
         }
       }))), React.createElement("rect", { width: "100%", height: "100%", fill: "url(#rgbGradient)", __source: {
           fileName: _jsxFileName,
-          lineNumber: 76
+          lineNumber: 142
         }
       }), this.getGrid(), this.getPlotPoints(), this.getControlPoints());
     }
@@ -863,8 +960,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
       onControlChange: function onControlChange(key, value) {
         return dispatch({ type: "INPUTS_CHANGED", key: key, value: value });
       },
-      curvePointAdded: function curvePointAdded(value) {
-        dispatch({ type: "SOMETHING" });
+      addPoint: function addPoint(x, y) {
+        return dispatch({ type: "ADD_POINT", x: x, y: y });
+      },
+      moveControlPoint: function moveControlPoint(index, x, y) {
+        return dispatch({ type: "MOVE_CONTROL_POINT", index: index, x: x, y: y });
+      },
+      removeControlPoint: function removeControlPoint(index) {
+        return dispatch({ type: "REMOVE_CONTROL_POINT", index: index });
       }
     }
   };
@@ -1420,6 +1523,16 @@ var _extends = Object.assign || function (target) {
   }return target;
 };
 
+function _toConsumableArray(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }return arr2;
+  } else {
+    return Array.from(arr);
+  }
+}
+
 var _ = require("lodash");
 
 var initialState = {
@@ -1446,6 +1559,18 @@ var reducer = function reducer() {
     newState.selectedFrame = _.find(newState.frames, ["key", action.key]);
   } else if (action.type === "INPUTS_CHANGED") {
     newState.selectedFrame.settings[action.key] = action.value;
+  } else if (action.type === "ADD_POINT") {
+    newState.selectedFrame.settings.rgb_curves = [].concat(_toConsumableArray(newState.selectedFrame.settings.rgb_curves), [[action.x, action.y]]);
+  } else if (action.type === "MOVE_CONTROL_POINT") {
+    var newPoints = newState.selectedFrame.settings.rgb_curves;
+    newPoints[action.index] = [action.x, action.y];
+
+    newState.selectedFrame.settings.rgb_curves = newPoints;
+  } else if (action.type === "REMOVE_CONTROL_POINT") {
+    var _newPoints = newState.selectedFrame.settings.rgb_curves;
+    _newPoints.splice(action.index, 1);
+    console.log("new points", _newPoints);
+    newState.selectedFrame.settings.rgb_curves = _newPoints;
   }
 
   window.selectedFrame = newState.selectedFrame;
@@ -57194,6 +57319,32 @@ module.exports = createThumbnail;
 },{}],358:[function(require,module,exports){
 "use strict";
 
+var _slicedToArray = function () {
+  function sliceIterator(arr, i) {
+    var _arr = [];var _n = true;var _d = false;var _e = undefined;try {
+      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;_e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"]) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }return _arr;
+  }return function (arr, i) {
+    if (Array.isArray(arr)) {
+      return arr;
+    } else if (Symbol.iterator in Object(arr)) {
+      return sliceIterator(arr, i);
+    } else {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    }
+  };
+}();
+
 var _createClass = function () {
   function defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -57288,7 +57439,17 @@ var ExposureSettings = function (_EventEmitter) {
     // Points go from 0 -> 1024
 
     , set: function set(val) {
-      if (val.length < 2 || !val) {
+      var sortedArray = [].concat(_toConsumableArray(val)).sort(function (_ref, _ref2) {
+        var _ref4 = _slicedToArray(_ref, 1),
+            x0 = _ref4[0];
+
+        var _ref3 = _slicedToArray(_ref2, 1),
+            x1 = _ref3[0];
+
+        return x0 - x1;
+      });
+
+      if (val.length < 2 || !val || _.isEqual(ExposureSettings.PROPS.rgb_curves.default, sortedArray)) {
         this._rgb_curves = ExposureSettings.PROPS.rgb_curves.default;
         this.rgb_curve_enabled = false;
         this.rgb_curve_points = [];
@@ -57296,43 +57457,41 @@ var ExposureSettings = function (_EventEmitter) {
         return;
       }
 
-      if (!_.isEqual(ExposureSettings.PROPS.rgb_curves.default, val) && !_.isEqual(this.rgb_curves, val)) {
-        this.rgb_curve_enabled = true;
-        // Add a point in the far lower left and far upper right
-        var paddedPoints = [[-250, -250]].concat(_toConsumableArray(val), [[1400, 1400]]);
+      this.rgb_curve_enabled = true;
+      // Add a point in the far lower left and far upper right
+      var paddedPoints = [[-250, -250]].concat(_toConsumableArray(sortedArray), [[1400, 1400]]);
 
-        var placedPoints = paddedPoints.length - 4;
-        var segments = placedPoints + 1;
-        var numberOfPoints = 1024;
+      var placedPoints = paddedPoints.length - 4;
+      var segments = placedPoints + 1;
+      var numberOfPoints = 1024;
 
-        var points = catRomSpline(paddedPoints, {
-          samples: Math.floor(numberOfPoints / segments)
-        });
+      var points = catRomSpline(paddedPoints, {
+        samples: Math.floor(numberOfPoints / segments)
+      });
 
-        var pointMapping = [];
-        points.forEach(function (point) {
-          point[0] = Math.round(point[0]);
-          point[1] = Math.round(point[1]);
+      var pointMapping = [];
+      points.forEach(function (point) {
+        point[0] = Math.round(point[0]);
+        point[1] = Math.round(point[1]);
 
-          pointMapping[point[0]] = point[1];
-        });
+        pointMapping[point[0]] = point[1];
+      });
 
-        var currentOutput = 0;
-        var output = void 0;
-        _.times(numberOfPoints, function (input) {
-          output = pointMapping[input];
-          if (!_.isNumber(output)) {
-            pointMapping[input] = currentOutput;
-          } else {
-            currentOutput = output;
-          }
-        });
+      var currentOutput = 0;
+      var output = void 0;
+      _.times(numberOfPoints, function (input) {
+        output = pointMapping[input];
+        if (!_.isNumber(output)) {
+          pointMapping[input] = currentOutput;
+        } else {
+          currentOutput = output;
+        }
+      });
 
-        pointMapping = _.dropRight(pointMapping, Math.max(pointMapping.length - numberOfPoints, 0));
+      pointMapping = _.dropRight(pointMapping, Math.max(pointMapping.length - numberOfPoints, 0));
 
-        this.rgb_curve_points = pointMapping;
-        this.emit("updated");
-      }
+      this.rgb_curve_points = pointMapping;
+      this.emit("updated");
 
       this._rgb_curves = val;
     }
