@@ -44,11 +44,17 @@ class Curves extends React.Component {
 
   onControlPointDown(event, index) {
     event.stopPropagation();
+    if (index === 0 || index === this.props.frame.settings.rgb_curves.length - 1) {
+      return;
+    }
     this.setState({ clickedPoint: index });
   }
 
   onControlPointUp(event, index) {
     event.stopPropagation();
+    if (index === 0 || index === this.props.frame.settings.rgb_curves.length - 1) {
+      return;
+    }
     this.setState({ clickedPoint: null });
   }
 

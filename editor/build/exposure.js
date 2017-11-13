@@ -711,12 +711,18 @@ var Curves = function (_React$Component) {
     key: "onControlPointDown",
     value: function onControlPointDown(event, index) {
       event.stopPropagation();
+      if (index === 0 || index === this.props.frame.settings.rgb_curves.length - 1) {
+        return;
+      }
       this.setState({ clickedPoint: index });
     }
   }, {
     key: "onControlPointUp",
     value: function onControlPointUp(event, index) {
       event.stopPropagation();
+      if (index === 0 || index === this.props.frame.settings.rgb_curves.length - 1) {
+        return;
+      }
       this.setState({ clickedPoint: null });
     }
   }, {
@@ -750,7 +756,7 @@ var Curves = function (_React$Component) {
           strokeWidth: "5",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 59
+            lineNumber: 65
           }
         });
       });
@@ -763,7 +769,7 @@ var Curves = function (_React$Component) {
       if (_.isEmpty(settings.rgb_curve_points)) {
         return React.createElement("line", { x1: "0", x2: "1024", y1: "1024", y2: "0", stroke: "white", strokeWidth: "5", __source: {
             fileName: _jsxFileName,
-            lineNumber: 78
+            lineNumber: 84
           }
         });
       }
@@ -771,7 +777,7 @@ var Curves = function (_React$Component) {
       return settings.rgb_curve_points.map(function (y, x) {
         return React.createElement("circle", { key: "" + x + y, cx: "" + x, cy: "" + (1024 - y), r: "2", fill: "black", __source: {
             fileName: _jsxFileName,
-            lineNumber: 82
+            lineNumber: 88
           }
         });
       });
@@ -848,28 +854,28 @@ var Curves = function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 120
+          lineNumber: 126
         }
       }, React.createElement("defs", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 136
+          lineNumber: 142
         }
       }, React.createElement("linearGradient", { id: "rgbGradient", x1: "0", x2: "1", y1: "1", y2: "0", __source: {
           fileName: _jsxFileName,
-          lineNumber: 137
+          lineNumber: 143
         }
       }, React.createElement("stop", { offset: "0%", stopColor: "#333333", __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 144
         }
       }), React.createElement("stop", { offset: "100%", stopColor: "#CCCCCC", __source: {
           fileName: _jsxFileName,
-          lineNumber: 139
+          lineNumber: 145
         }
       }))), React.createElement("rect", { width: "100%", height: "100%", fill: "url(#rgbGradient)", __source: {
           fileName: _jsxFileName,
-          lineNumber: 142
+          lineNumber: 148
         }
       }), this.getGrid(), this.getPlotPoints(), this.getControlPoints());
     }
