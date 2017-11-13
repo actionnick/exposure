@@ -2,7 +2,7 @@ const EventEmitter = require("events").EventEmitter;
 const _ = require("lodash");
 const assert = require("assert");
 const catRomSpline = require("cat-rom-spline");
-const textureFromArray = require("./texture_from_array");
+const { DEFAULT_CONTROL_POINTS, setUniformForCurves } = require("./curves");
 
 class ExposureSettings extends EventEmitter {
   constructor(json) {
@@ -159,29 +159,31 @@ class ExposureSettings extends EventEmitter {
     rgb_curves: {
       virtual: true,
       type: Array,
-      default: [[0.0, 0.0], [1023.0, 1023.0]],
+      default: DEFAULT_CONTROL_POINTS,
     },
     rgb_curve_points: {
       type: Array,
       internal: true,
       default: [],
-      setUniform: filter => {
-        if (filter.settings.rgb_curve_enabled) {
-          const gl = filter.gl;
-          // Points are mapped from 0 to 1023.0
-          const mappedArray = filter.settings.rgb_curve_points.map(val => val / 1023.0);
-          window.mappedArray = mappedArray;
-          const texture = textureFromArray(gl, mappedArray);
-          const textureUnit = 5;
-          gl.activeTexture(gl.TEXTURE0 + textureUnit);
-          gl.bindTexture(gl.TEXTURE_2D, texture);
-
-          const z = gl.getUniformLocation(filter.shader.program, "rgb_curve_points");
-          gl.uniform1i(z, textureUnit);
-        }
-      },
+      setUniform: filter => setUniformForCurves(filter, "rgb_curve_enabled", "rgb_curve_points", 3),
     },
     rgb_curve_enabled: {
+      type: Boolean,
+      internal: true,
+      default: false,
+    },
+    r_curves: {
+      virtual: true,
+      type: Array,
+      default: DEFAULT_CONTROL_POINTS,
+    },
+    r_curve_points: {
+      type: Array,
+      internal: true,
+      default: [],
+      setUniform: filter => setUniformForCurves(filter, "r_curve_enabled", "r_curve_points", 4),
+    },
+    r_curve_enabled: {
       type: Boolean,
       internal: true,
       default: false,
@@ -207,63 +209,70 @@ class ExposureSettings extends EventEmitter {
   }
 
   get rgb_curves() {
-    return this._rgb_curves || ExposureSettings.PROPS.rgb_curves.default;
+    return this._rgb_curves || DEFAULT_CONTROL_POINTS;
   }
 
-  // Points go from 0 -> 1023
   set rgb_curves(val) {
+    return this.setCurves(val, "_rgb_curves", "rgb_curve_enabled", "rgb_curve_points");
+  }
+
+  get r_curves() {
+    return this._r_curves || DEFAULT_CONTROL_POINTS;
+  }
+
+  set r_curves(val) {
+    return this.setCurves(val, "_r_curves", "r_curve_enabled", "r_curve_points");
+  }
+
+  setCurves(val, controlPointsIdentifier, enabledIdentifier, pointsIdentifier) {
     const sortedArray = [...val].sort(([x0], [x1]) => x0 - x1);
 
-    if (
-      val.length < 2 ||
-      !val ||
-      _.isEqual(ExposureSettings.PROPS.rgb_curves.default, sortedArray)
-    ) {
-      this._rgb_curves = ExposureSettings.PROPS.rgb_curves.default;
-      this.rgb_curve_enabled = false;
-      this.rgb_curve_points = [];
+    if (val.length < 2 || !val || _.isEqual(DEFAULT_CONTROL_POINTS, sortedArray)) {
+      this[controlPointsIdentifier] = DEFAULT_CONTROL_POINTS;
+      this[enabledIdentifier] = false;
+      this[pointsIdentifier] = [];
       this.emit("updated");
-      return;
+    } else {
+      this[enabledIdentifier] = true;
+      // Add a point in the far lower left and far upper right
+      const paddedPoints = [[-250, -250], ...sortedArray, [1400, 1400]];
+
+      const placedPoints = paddedPoints.length - 4;
+      const segments = placedPoints + 1;
+      const numberOfPoints = 1024;
+
+      const points = catRomSpline(paddedPoints, {
+        samples: Math.floor(numberOfPoints / segments),
+      });
+
+      let pointMapping = [];
+      points.forEach(point => {
+        point[0] = Math.round(point[0]);
+        point[1] = Math.round(point[1]);
+
+        pointMapping[point[0]] = point[1];
+      });
+
+      let currentOutput = 0;
+      let output;
+      _.times(numberOfPoints, input => {
+        output = pointMapping[input];
+        if (!_.isNumber(output)) {
+          pointMapping[input] = currentOutput;
+        } else {
+          currentOutput = output;
+        }
+      });
+
+      pointMapping = _.dropRight(pointMapping, Math.max(pointMapping.length - numberOfPoints, 0));
+
+      this[pointsIdentifier] = pointMapping;
+      this.emit("updated");
+
+      this[controlPointsIdentifier] = val;
     }
 
-    this.rgb_curve_enabled = true;
-    // Add a point in the far lower left and far upper right
-    const paddedPoints = [[-250, -250], ...sortedArray, [1400, 1400]];
-
-    const placedPoints = paddedPoints.length - 4;
-    const segments = placedPoints + 1;
-    const numberOfPoints = 1024;
-
-    const points = catRomSpline(paddedPoints, {
-      samples: Math.floor(numberOfPoints / segments),
-    });
-
-    let pointMapping = [];
-    points.forEach(point => {
-      point[0] = Math.round(point[0]);
-      point[1] = Math.round(point[1]);
-
-      pointMapping[point[0]] = point[1];
-    });
-
-    let currentOutput = 0;
-    let output;
-    _.times(numberOfPoints, input => {
-      output = pointMapping[input];
-      if (!_.isNumber(output)) {
-        pointMapping[input] = currentOutput;
-      } else {
-        currentOutput = output;
-      }
-    });
-
-    pointMapping = _.dropRight(pointMapping, Math.max(pointMapping.length - numberOfPoints, 0));
-
-    this.rgb_curve_points = pointMapping;
-    window.pointMapping = pointMapping;
-    this.emit("updated");
-
-    this._rgb_curves = val;
+    return this[controlPointsIdentifier];
   }
 }
 
