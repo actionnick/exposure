@@ -159,7 +159,7 @@ class ExposureSettings extends EventEmitter {
     rgb_curves: {
       virtual: true,
       type: Array,
-      default: [[0.0, 0.0], [1024.0, 1024.0]],
+      default: [[0.0, 0.0], [1023.0, 1023.0]],
     },
     rgb_curve_points: {
       type: Array,
@@ -168,7 +168,9 @@ class ExposureSettings extends EventEmitter {
       setUniform: filter => {
         if (filter.settings.rgb_curve_enabled) {
           const gl = filter.gl;
-          const mappedArray = filter.settings.rgb_curve_points.map(val => val / 1024.0);
+          // Points are mapped from 0 to 1023.0
+          const mappedArray = filter.settings.rgb_curve_points.map(val => val / 1023.0);
+          window.mappedArray = mappedArray;
           const texture = textureFromArray(gl, mappedArray);
           const textureUnit = 5;
           gl.activeTexture(gl.TEXTURE0 + textureUnit);
@@ -208,7 +210,7 @@ class ExposureSettings extends EventEmitter {
     return this._rgb_curves || ExposureSettings.PROPS.rgb_curves.default;
   }
 
-  // Points go from 0 -> 1024
+  // Points go from 0 -> 1023
   set rgb_curves(val) {
     const sortedArray = [...val].sort(([x0], [x1]) => x0 - x1);
 
@@ -258,6 +260,7 @@ class ExposureSettings extends EventEmitter {
     pointMapping = _.dropRight(pointMapping, Math.max(pointMapping.length - numberOfPoints, 0));
 
     this.rgb_curve_points = pointMapping;
+    window.pointMapping = pointMapping;
     this.emit("updated");
 
     this._rgb_curves = val;

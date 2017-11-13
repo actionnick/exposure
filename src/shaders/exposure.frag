@@ -110,17 +110,17 @@ void main() {
 
   // rgb curves
   if (rgb_curve_enabled) {
-    float in_r = color.r;
-    float in_g = color.g;
-    float in_b = color.b;
+    float in_r = clamp(color.r, 0.0001, 0.9999);
+    float in_g = clamp(color.g, 0.0001, 0.9999);
+    float in_b = clamp(color.b, 0.0001, 0.9999);
 
     float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;
     float out_g = texture2D(rgb_curve_points, vec2(in_g, 0.5)).x;
     float out_b = texture2D(rgb_curve_points, vec2(in_b, 0.5)).x;
 
-    color.r = mix(color.r, 1.0, out_r - in_r);
-    color.g = mix(color.g, 1.0, out_g - in_g);
-    color.b = mix(color.b, 1.0, out_b - in_b);
+    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);
+    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);
+    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);
   }
 
   // always preserve alpha

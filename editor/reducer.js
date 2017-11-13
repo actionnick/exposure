@@ -29,12 +29,10 @@ const reducer = (state = initialState, action) => {
   } else if (action.type === "MOVE_CONTROL_POINT") {
     const newPoints = newState.selectedFrame.settings.rgb_curves;
     newPoints[action.index] = [action.x, action.y];
-
     newState.selectedFrame.settings.rgb_curves = newPoints;
   } else if (action.type === "REMOVE_CONTROL_POINT") {
     const newPoints = newState.selectedFrame.settings.rgb_curves;
     newPoints.splice(action.index, 1);
-    console.log("new points", newPoints);
     newState.selectedFrame.settings.rgb_curves = newPoints;
   }
 
