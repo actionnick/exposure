@@ -210,8 +210,10 @@ class Controls extends React.Component {
         <div className="controls-section">
           <h1>curves</h1>
           <h2>rgb</h2>
+          <Curves frame={this.props.frame} actions={this.props.actions} color="rgb" />
 
-          <Curves frame={this.props.frame} actions={this.props.actions} />
+          <h2>red</h2>
+          <Curves frame={this.props.frame} actions={this.props.actions} color="r" />
         </div>
       </div>
     );

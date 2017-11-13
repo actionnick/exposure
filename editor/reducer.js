@@ -22,18 +22,18 @@ const reducer = (state = initialState, action) => {
   } else if (action.type === "INPUTS_CHANGED") {
     newState.selectedFrame.settings[action.key] = action.value;
   } else if (action.type === "ADD_POINT") {
-    newState.selectedFrame.settings.rgb_curves = [
-      ...newState.selectedFrame.settings.rgb_curves,
+    newState.selectedFrame.settings[action.controlPointsIdentifier] = [
+      ...newState.selectedFrame.settings[action.controlPointsIdentifier],
       [action.x, action.y],
     ];
   } else if (action.type === "MOVE_CONTROL_POINT") {
-    const newPoints = newState.selectedFrame.settings.rgb_curves;
+    const newPoints = newState.selectedFrame.settings[action.controlPointsIdentifier];
     newPoints[action.index] = [action.x, action.y];
-    newState.selectedFrame.settings.rgb_curves = newPoints;
+    newState.selectedFrame.settings[action.controlPointsIdentifier] = newPoints;
   } else if (action.type === "REMOVE_CONTROL_POINT") {
-    const newPoints = newState.selectedFrame.settings.rgb_curves;
+    const newPoints = newState.selectedFrame.settings[action.controlPointsIdentifier];
     newPoints.splice(action.index, 1);
-    newState.selectedFrame.settings.rgb_curves = newPoints;
+    newState.selectedFrame.settings[action.controlPointsIdentifier] = newPoints;
   }
 
   window.selectedFrame = newState.selectedFrame;

@@ -128,7 +128,7 @@ void main() {
   // rgb curves
   if (r_curve_enabled) {
     float in_r = clamp(color.r, 0.0001, 0.9999);
-    float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;
+    float out_r = texture2D(r_curve_points, vec2(in_r, 0.5)).x;
     color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);
   }
 

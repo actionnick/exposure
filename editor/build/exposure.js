@@ -580,9 +580,18 @@ var Controls = function (_React$Component) {
           fileName: _jsxFileName,
           lineNumber: 212
         }
-      }, "rgb"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, __source: {
+      }, "rgb"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, color: "rgb", __source: {
           fileName: _jsxFileName,
-          lineNumber: 214
+          lineNumber: 213
+        }
+      }), React.createElement("h2", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 215
+        }
+      }, "red"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, color: "r", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 216
         }
       })));
     }
@@ -660,6 +669,19 @@ function _inherits(subClass, superClass) {
 var React = require("react");
 var _ = require("lodash");
 
+var SETTINGS = {
+  rgb: {
+    stopColor: "#CCCCCC",
+    controlPointsIdentifier: "rgb_curves",
+    pointsIdentifier: "rgb_curve_points"
+  },
+  r: {
+    stopColor: "#c72a2a",
+    controlPointsIdentifier: "r_curves",
+    pointsIdentifier: "r_curve_points"
+  }
+};
+
 var Curves = function (_React$Component) {
   _inherits(Curves, _React$Component);
 
@@ -702,7 +724,7 @@ var Curves = function (_React$Component) {
           strokeLinecap: "square",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 32
+            lineNumber: 46
           }
         });
       });
@@ -725,8 +747,9 @@ var Curves = function (_React$Component) {
       var _this2 = this;
 
       var settings = this.props.frame.settings;
+      var controlPointsIdentifier = SETTINGS[this.props.color].controlPointsIdentifier;
 
-      return settings.rgb_curves.map(function (_ref3, index) {
+      return settings[controlPointsIdentifier].map(function (_ref3, index) {
         var _ref4 = _slicedToArray(_ref3, 2),
             x = _ref4[0],
             y = _ref4[1];
@@ -750,7 +773,7 @@ var Curves = function (_React$Component) {
           strokeWidth: "5",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 59
+            lineNumber: 74
           }
         });
       });
@@ -759,19 +782,20 @@ var Curves = function (_React$Component) {
     key: "getPlotPoints",
     value: function getPlotPoints() {
       var settings = this.props.frame.settings;
+      var pointsIdentifier = SETTINGS[this.props.color].pointsIdentifier;
 
-      if (_.isEmpty(settings.rgb_curve_points)) {
+      if (_.isEmpty(settings[pointsIdentifier])) {
         return React.createElement("line", { x1: "0", x2: "1024", y1: "1024", y2: "0", stroke: "white", strokeWidth: "5", __source: {
             fileName: _jsxFileName,
-            lineNumber: 78
+            lineNumber: 94
           }
         });
       }
 
-      return settings.rgb_curve_points.map(function (y, x) {
+      return settings[pointsIdentifier].map(function (y, x) {
         return React.createElement("circle", { key: "" + x + y, cx: "" + x, cy: "" + (1024 - y), r: "2", fill: "black", __source: {
             fileName: _jsxFileName,
-            lineNumber: 82
+            lineNumber: 98
           }
         });
       });
@@ -784,7 +808,7 @@ var Curves = function (_React$Component) {
             x = _convertToLocalCoords.x,
             y = _convertToLocalCoords.y;
 
-        this.props.actions.moveControlPoint(this.state.clickedPoint, x, y);
+        this.props.actions.moveControlPoint(this.state.clickedPoint, x, y, SETTINGS[this.props.color].controlPointsIdentifier);
       }
     }
   }, {
@@ -792,7 +816,7 @@ var Curves = function (_React$Component) {
     value: function removeControlPoint(event) {
       if (_.isNumber(this.state.clickedPoint)) {
         this.setState({ clickedPoint: null });
-        this.props.actions.removeControlPoint(this.state.clickedPoint);
+        this.props.actions.removeControlPoint(this.state.clickedPoint, SETTINGS[this.props.color].controlPointsIdentifier);
       }
     }
   }, {
@@ -802,7 +826,7 @@ var Curves = function (_React$Component) {
           x = _convertToLocalCoords2.x,
           y = _convertToLocalCoords2.y;
 
-      this.props.actions.addPoint(x, y);
+      this.props.actions.addPoint(x, y, SETTINGS[this.props.color].controlPointsIdentifier);
     }
 
     // Takes screen coordinates and converts them to local coords
@@ -825,6 +849,7 @@ var Curves = function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
+      var color = this.props.color;
       return React.createElement("svg", {
         ref: function ref(svg) {
           if (svg) {
@@ -848,28 +873,28 @@ var Curves = function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 120
+          lineNumber: 145
         }
       }, React.createElement("defs", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 136
+          lineNumber: 161
         }
-      }, React.createElement("linearGradient", { id: "rgbGradient", x1: "0", x2: "1", y1: "1", y2: "0", __source: {
+      }, React.createElement("linearGradient", { id: color + "-gradient", x1: "0", x2: "1", y1: "1", y2: "0", __source: {
           fileName: _jsxFileName,
-          lineNumber: 137
+          lineNumber: 162
         }
       }, React.createElement("stop", { offset: "0%", stopColor: "#333333", __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 163
         }
-      }), React.createElement("stop", { offset: "100%", stopColor: "#CCCCCC", __source: {
+      }), React.createElement("stop", { offset: "100%", stopColor: SETTINGS[this.props.color].stopColor, __source: {
           fileName: _jsxFileName,
-          lineNumber: 139
+          lineNumber: 164
         }
-      }))), React.createElement("rect", { width: "100%", height: "100%", fill: "url(#rgbGradient)", __source: {
+      }))), React.createElement("rect", { width: "100%", height: "100%", fill: "url(#" + color + "-gradient)", __source: {
           fileName: _jsxFileName,
-          lineNumber: 142
+          lineNumber: 167
         }
       }), this.getGrid(), this.getPlotPoints(), this.getControlPoints());
     }
@@ -880,7 +905,8 @@ var Curves = function (_React$Component) {
 
 Curves.propTypes = {
   frame: React.PropTypes.object,
-  actions: React.PropTypes.object.isRequired
+  actions: React.PropTypes.object.isRequired,
+  color: React.PropTypes.string.isRequired
 };
 
 module.exports = Curves;
@@ -960,14 +986,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
       onControlChange: function onControlChange(key, value) {
         return dispatch({ type: "INPUTS_CHANGED", key: key, value: value });
       },
-      addPoint: function addPoint(x, y) {
-        return dispatch({ type: "ADD_POINT", x: x, y: y });
+      addPoint: function addPoint(x, y, controlPointsIdentifier) {
+        return dispatch({ type: "ADD_POINT", x: x, y: y, controlPointsIdentifier: controlPointsIdentifier });
       },
-      moveControlPoint: function moveControlPoint(index, x, y) {
-        return dispatch({ type: "MOVE_CONTROL_POINT", index: index, x: x, y: y });
+      moveControlPoint: function moveControlPoint(index, x, y, controlPointsIdentifier) {
+        return dispatch({ type: "MOVE_CONTROL_POINT", index: index, x: x, y: y, controlPointsIdentifier: controlPointsIdentifier });
       },
-      removeControlPoint: function removeControlPoint(index) {
-        return dispatch({ type: "REMOVE_CONTROL_POINT", index: index });
+      removeControlPoint: function removeControlPoint(index, controlPointsIdentifier) {
+        return dispatch({ type: "REMOVE_CONTROL_POINT", index: index, controlPointsIdentifier: controlPointsIdentifier });
       }
     }
   };
@@ -992,27 +1018,27 @@ var ExposureApp = function (_React$Component) {
 
       return React.createElement("div", { id: "main", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 49
+          lineNumber: 52
         }
       }, React.createElement("div", { id: "top", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
+          lineNumber: 53
         }
       }, React.createElement("div", { id: "logo", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 54
         }
       })), React.createElement("div", { id: "middle", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 56
         }
       }, React.createElement(ImageList, { frames: frames, selectedFrame: selectedFrame, actions: actions, __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 57
         }
       }), React.createElement("div", { id: "current-image", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 58
         }
       }, React.createElement(ImageStage, {
         actions: actions,
@@ -1020,11 +1046,11 @@ var ExposureApp = function (_React$Component) {
         webGLSupported: Modernizr.webgl,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 59
         }
       })), React.createElement(Controls, { frame: selectedFrame, actions: actions, __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 66
         }
       })));
     }
@@ -1560,15 +1586,15 @@ var reducer = function reducer() {
   } else if (action.type === "INPUTS_CHANGED") {
     newState.selectedFrame.settings[action.key] = action.value;
   } else if (action.type === "ADD_POINT") {
-    newState.selectedFrame.settings.rgb_curves = [].concat(_toConsumableArray(newState.selectedFrame.settings.rgb_curves), [[action.x, action.y]]);
+    newState.selectedFrame.settings[action.controlPointsIdentifier] = [].concat(_toConsumableArray(newState.selectedFrame.settings[action.controlPointsIdentifier]), [[action.x, action.y]]);
   } else if (action.type === "MOVE_CONTROL_POINT") {
-    var newPoints = newState.selectedFrame.settings.rgb_curves;
+    var newPoints = newState.selectedFrame.settings[action.controlPointsIdentifier];
     newPoints[action.index] = [action.x, action.y];
-    newState.selectedFrame.settings.rgb_curves = newPoints;
+    newState.selectedFrame.settings[action.controlPointsIdentifier] = newPoints;
   } else if (action.type === "REMOVE_CONTROL_POINT") {
-    var _newPoints = newState.selectedFrame.settings.rgb_curves;
+    var _newPoints = newState.selectedFrame.settings[action.controlPointsIdentifier];
     _newPoints.splice(action.index, 1);
-    newState.selectedFrame.settings.rgb_curves = _newPoints;
+    newState.selectedFrame.settings[action.controlPointsIdentifier] = _newPoints;
   }
 
   window.selectedFrame = newState.selectedFrame;
@@ -57795,7 +57821,7 @@ var Filter = function () {
 
     this.settings = new ExposureSettings(json);
     this.gl = gl;
-    this.shader = glShader(this.gl, glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}"]), glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\nvarying vec2 screenPosition;\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\nuniform sampler2D rgb_curve_points;\nuniform bool rgb_curve_enabled;\n\nuniform sampler2D r_curve_points;\nuniform bool r_curve_enabled;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n  color.a = 1.0;\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n  color.a = 1.0;\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n  color.a = 1.0;\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n  color.a = 1.0;\n\n  // Then adjust channels seperately\n  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);\n  color.r = pow(color.r, (1.0 / r_gamma));\n  color.r = mix(r_out_min, r_out_max, color.r);\n  color.a = 1.0;\n\n  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);\n  color.g = pow(color.g, (1.0 / g_gamma));\n  color.g = mix(g_out_min, g_out_max, color.g);\n  color.a = 1.0;\n\n  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);\n  color.b = pow(color.b, (1.0 / b_gamma));\n  color.b = mix(b_out_min, b_out_max, color.b);\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////   curves   /////////\n  ////////////////////////////\n\n  // rgb curves\n  if (rgb_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n\n    float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;\n    float out_g = texture2D(rgb_curve_points, vec2(in_g, 0.5)).x;\n    float out_b = texture2D(rgb_curve_points, vec2(in_b, 0.5)).x;\n\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  // rgb curves\n  if (r_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n  }\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n"]));
+    this.shader = glShader(this.gl, glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}"]), glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\nvarying vec2 screenPosition;\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\nuniform sampler2D rgb_curve_points;\nuniform bool rgb_curve_enabled;\n\nuniform sampler2D r_curve_points;\nuniform bool r_curve_enabled;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n  color.a = 1.0;\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n  color.a = 1.0;\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n  color.a = 1.0;\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n  color.a = 1.0;\n\n  // Then adjust channels seperately\n  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);\n  color.r = pow(color.r, (1.0 / r_gamma));\n  color.r = mix(r_out_min, r_out_max, color.r);\n  color.a = 1.0;\n\n  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);\n  color.g = pow(color.g, (1.0 / g_gamma));\n  color.g = mix(g_out_min, g_out_max, color.g);\n  color.a = 1.0;\n\n  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);\n  color.b = pow(color.b, (1.0 / b_gamma));\n  color.b = mix(b_out_min, b_out_max, color.b);\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////   curves   /////////\n  ////////////////////////////\n\n  // rgb curves\n  if (rgb_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n\n    float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;\n    float out_g = texture2D(rgb_curve_points, vec2(in_g, 0.5)).x;\n    float out_b = texture2D(rgb_curve_points, vec2(in_b, 0.5)).x;\n\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  // rgb curves\n  if (r_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float out_r = texture2D(r_curve_points, vec2(in_r, 0.5)).x;\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n  }\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n"]));
     this.shader.attributes.position.location = 0;
     this.fbo = glFbo(gl, [gl.drawingBufferWidth, gl.drawingBufferHeight]);
     this.fbo.color[0].minFilter = gl.LINEAR;

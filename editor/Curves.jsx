@@ -1,6 +1,19 @@
 const React = require("react");
 const _ = require("lodash");
 
+const SETTINGS = {
+  rgb: {
+    stopColor: "#CCCCCC",
+    controlPointsIdentifier: "rgb_curves",
+    pointsIdentifier: "rgb_curve_points",
+  },
+  r: {
+    stopColor: "#c72a2a",
+    controlPointsIdentifier: "r_curves",
+    pointsIdentifier: "r_curve_points",
+  },
+};
+
 class Curves extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +26,7 @@ class Curves extends React.Component {
   static propTypes = {
     frame: React.PropTypes.object,
     actions: React.PropTypes.object.isRequired,
+    color: React.PropTypes.string.isRequired,
   };
 
   getGrid() {
@@ -54,8 +68,9 @@ class Curves extends React.Component {
 
   getControlPoints() {
     const settings = this.props.frame.settings;
+    const controlPointsIdentifier = SETTINGS[this.props.color].controlPointsIdentifier;
 
-    return settings.rgb_curves.map(([x, y], index) => (
+    return settings[controlPointsIdentifier].map(([x, y], index) => (
       <circle
         onClick={event => event.stopPropagation()}
         onMouseDown={event => this.onControlPointDown(event, index)}
@@ -73,12 +88,13 @@ class Curves extends React.Component {
 
   getPlotPoints() {
     const settings = this.props.frame.settings;
+    const pointsIdentifier = SETTINGS[this.props.color].pointsIdentifier;
 
-    if (_.isEmpty(settings.rgb_curve_points)) {
+    if (_.isEmpty(settings[pointsIdentifier])) {
       return <line x1="0" x2="1024" y1="1024" y2="0" stroke="white" strokeWidth="5" />;
     }
 
-    return settings.rgb_curve_points.map((y, x) => (
+    return settings[pointsIdentifier].map((y, x) => (
       <circle key={`${x}${y}`} cx={`${x}`} cy={`${1024 - y}`} r="2" fill="black" />
     ));
   }
@@ -86,20 +102,28 @@ class Curves extends React.Component {
   moveControlPoint(event) {
     if (_.isNumber(this.state.clickedPoint)) {
       const { x, y } = this.convertToLocalCoords(event.clientX, event.clientY);
-      this.props.actions.moveControlPoint(this.state.clickedPoint, x, y);
+      this.props.actions.moveControlPoint(
+        this.state.clickedPoint,
+        x,
+        y,
+        SETTINGS[this.props.color].controlPointsIdentifier
+      );
     }
   }
 
   removeControlPoint(event) {
     if (_.isNumber(this.state.clickedPoint)) {
       this.setState({ clickedPoint: null });
-      this.props.actions.removeControlPoint(this.state.clickedPoint);
+      this.props.actions.removeControlPoint(
+        this.state.clickedPoint,
+        SETTINGS[this.props.color].controlPointsIdentifier
+      );
     }
   }
 
   handleClick(event) {
     const { x, y } = this.convertToLocalCoords(event.clientX, event.clientY);
-    this.props.actions.addPoint(x, y);
+    this.props.actions.addPoint(x, y, SETTINGS[this.props.color].controlPointsIdentifier);
   }
 
   // Takes screen coordinates and converts them to local coords
@@ -116,6 +140,7 @@ class Curves extends React.Component {
   }
 
   render() {
+    const color = this.props.color;
     return (
       <svg
         ref={svg => {
@@ -134,12 +159,12 @@ class Curves extends React.Component {
         onMouseLeave={event => this.removeControlPoint(event)}
       >
         <defs>
-          <linearGradient id="rgbGradient" x1="0" x2="1" y1="1" y2="0">
+          <linearGradient id={`${color}-gradient`} x1="0" x2="1" y1="1" y2="0">
             <stop offset="0%" stopColor="#333333" />
-            <stop offset="100%" stopColor="#CCCCCC" />
+            <stop offset="100%" stopColor={SETTINGS[this.props.color].stopColor} />
           </linearGradient>
         </defs>
-        <rect width="100%" height="100%" fill="url(#rgbGradient)" />
+        <rect width="100%" height="100%" fill={`url(#${color}-gradient)`} />
 
         {this.getGrid()}
         {this.getPlotPoints()}
