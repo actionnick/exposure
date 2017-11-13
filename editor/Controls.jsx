@@ -214,6 +214,12 @@ class Controls extends React.Component {
 
           <h2>red</h2>
           <Curves frame={this.props.frame} actions={this.props.actions} color="r" />
+
+          <h2>green</h2>
+          <Curves frame={this.props.frame} actions={this.props.actions} color="g" />
+
+          <h2>blue</h2>
+          <Curves frame={this.props.frame} actions={this.props.actions} color="b" />
         </div>
       </div>
     );

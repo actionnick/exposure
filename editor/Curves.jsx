@@ -12,6 +12,16 @@ const SETTINGS = {
     controlPointsIdentifier: "r_curves",
     pointsIdentifier: "r_curve_points",
   },
+  g: {
+    stopColor: "#3e9e3e",
+    controlPointsIdentifier: "g_curves",
+    pointsIdentifier: "g_curve_points",
+  },
+  b: {
+    stopColor: "#3e569e",
+    controlPointsIdentifier: "b_curves",
+    pointsIdentifier: "b_curve_points",
+  },
 };
 
 class Curves extends React.Component {

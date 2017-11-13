@@ -593,6 +593,24 @@ var Controls = function (_React$Component) {
           fileName: _jsxFileName,
           lineNumber: 216
         }
+      }), React.createElement("h2", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 218
+        }
+      }, "green"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, color: "g", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 219
+        }
+      }), React.createElement("h2", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 221
+        }
+      }, "blue"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, color: "b", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 222
+        }
       })));
     }
   }]);
@@ -679,6 +697,16 @@ var SETTINGS = {
     stopColor: "#c72a2a",
     controlPointsIdentifier: "r_curves",
     pointsIdentifier: "r_curve_points"
+  },
+  g: {
+    stopColor: "#3e9e3e",
+    controlPointsIdentifier: "g_curves",
+    pointsIdentifier: "g_curve_points"
+  },
+  b: {
+    stopColor: "#3e569e",
+    controlPointsIdentifier: "b_curves",
+    pointsIdentifier: "b_curve_points"
   }
 };
 
@@ -724,7 +752,7 @@ var Curves = function (_React$Component) {
           strokeLinecap: "square",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 46
+            lineNumber: 56
           }
         });
       });
@@ -773,7 +801,7 @@ var Curves = function (_React$Component) {
           strokeWidth: "5",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 74
+            lineNumber: 84
           }
         });
       });
@@ -787,7 +815,7 @@ var Curves = function (_React$Component) {
       if (_.isEmpty(settings[pointsIdentifier])) {
         return React.createElement("line", { x1: "0", x2: "1024", y1: "1024", y2: "0", stroke: "white", strokeWidth: "5", __source: {
             fileName: _jsxFileName,
-            lineNumber: 94
+            lineNumber: 104
           }
         });
       }
@@ -795,7 +823,7 @@ var Curves = function (_React$Component) {
       return settings[pointsIdentifier].map(function (y, x) {
         return React.createElement("circle", { key: "" + x + y, cx: "" + x, cy: "" + (1024 - y), r: "2", fill: "black", __source: {
             fileName: _jsxFileName,
-            lineNumber: 98
+            lineNumber: 108
           }
         });
       });
@@ -873,28 +901,28 @@ var Curves = function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 145
+          lineNumber: 155
         }
       }, React.createElement("defs", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 161
+          lineNumber: 171
         }
       }, React.createElement("linearGradient", { id: color + "-gradient", x1: "0", x2: "1", y1: "1", y2: "0", __source: {
           fileName: _jsxFileName,
-          lineNumber: 162
+          lineNumber: 172
         }
       }, React.createElement("stop", { offset: "0%", stopColor: "#333333", __source: {
           fileName: _jsxFileName,
-          lineNumber: 163
+          lineNumber: 173
         }
       }), React.createElement("stop", { offset: "100%", stopColor: SETTINGS[this.props.color].stopColor, __source: {
           fileName: _jsxFileName,
-          lineNumber: 164
+          lineNumber: 174
         }
       }))), React.createElement("rect", { width: "100%", height: "100%", fill: "url(#" + color + "-gradient)", __source: {
           fileName: _jsxFileName,
-          lineNumber: 167
+          lineNumber: 177
         }
       }), this.getGrid(), this.getPlotPoints(), this.getControlPoints());
     }
@@ -57563,6 +57591,22 @@ var ExposureSettings = function (_EventEmitter) {
     set: function set(val) {
       return this.setCurves(val, "_r_curves", "r_curve_enabled", "r_curve_points");
     }
+  }, {
+    key: "g_curves",
+    get: function get() {
+      return this._g_curves || DEFAULT_CONTROL_POINTS;
+    },
+    set: function set(val) {
+      return this.setCurves(val, "_g_curves", "g_curve_enabled", "g_curve_points");
+    }
+  }, {
+    key: "b_curves",
+    get: function get() {
+      return this._b_curves || DEFAULT_CONTROL_POINTS;
+    },
+    set: function set(val) {
+      return this.setCurves(val, "_b_curves", "b_curve_enabled", "b_curve_points");
+    }
   }]);
 
   return ExposureSettings;
@@ -57745,6 +57789,42 @@ ExposureSettings.PROPS = {
     type: Boolean,
     internal: true,
     default: false
+  },
+  g_curves: {
+    virtual: true,
+    type: Array,
+    default: DEFAULT_CONTROL_POINTS
+  },
+  g_curve_points: {
+    type: Array,
+    internal: true,
+    default: [],
+    setUniform: function setUniform(filter) {
+      return setUniformForCurves(filter, "g_curve_enabled", "g_curve_points", 5);
+    }
+  },
+  g_curve_enabled: {
+    type: Boolean,
+    internal: true,
+    default: false
+  },
+  b_curves: {
+    virtual: true,
+    type: Array,
+    default: DEFAULT_CONTROL_POINTS
+  },
+  b_curve_points: {
+    type: Array,
+    internal: true,
+    default: [],
+    setUniform: function setUniform(filter) {
+      return setUniformForCurves(filter, "b_curve_enabled", "b_curve_points", 6);
+    }
+  },
+  b_curve_enabled: {
+    type: Boolean,
+    internal: true,
+    default: false
   }
 };
 var validateNum = function validateNum(currentVal, newVal, min, max) {
@@ -57821,7 +57901,7 @@ var Filter = function () {
 
     this.settings = new ExposureSettings(json);
     this.gl = gl;
-    this.shader = glShader(this.gl, glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}"]), glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\nvarying vec2 screenPosition;\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\nuniform sampler2D rgb_curve_points;\nuniform bool rgb_curve_enabled;\n\nuniform sampler2D r_curve_points;\nuniform bool r_curve_enabled;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n  color.a = 1.0;\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n  color.a = 1.0;\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n  color.a = 1.0;\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n  color.a = 1.0;\n\n  // Then adjust channels seperately\n  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);\n  color.r = pow(color.r, (1.0 / r_gamma));\n  color.r = mix(r_out_min, r_out_max, color.r);\n  color.a = 1.0;\n\n  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);\n  color.g = pow(color.g, (1.0 / g_gamma));\n  color.g = mix(g_out_min, g_out_max, color.g);\n  color.a = 1.0;\n\n  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);\n  color.b = pow(color.b, (1.0 / b_gamma));\n  color.b = mix(b_out_min, b_out_max, color.b);\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////   curves   /////////\n  ////////////////////////////\n\n  // rgb curves\n  if (rgb_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n\n    float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;\n    float out_g = texture2D(rgb_curve_points, vec2(in_g, 0.5)).x;\n    float out_b = texture2D(rgb_curve_points, vec2(in_b, 0.5)).x;\n\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  // rgb curves\n  if (r_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float out_r = texture2D(r_curve_points, vec2(in_r, 0.5)).x;\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n  }\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n"]));
+    this.shader = glShader(this.gl, glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}"]), glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\nvarying vec2 screenPosition;\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\nuniform sampler2D rgb_curve_points;\nuniform bool rgb_curve_enabled;\n\nuniform sampler2D r_curve_points;\nuniform bool r_curve_enabled;\n\nuniform sampler2D g_curve_points;\nuniform bool g_curve_enabled;\n\nuniform sampler2D b_curve_points;\nuniform bool b_curve_enabled;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n  color.a = 1.0;\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n  color.a = 1.0;\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n  color.a = 1.0;\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n  color.a = 1.0;\n\n  // Then adjust channels seperately\n  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);\n  color.r = pow(color.r, (1.0 / r_gamma));\n  color.r = mix(r_out_min, r_out_max, color.r);\n  color.a = 1.0;\n\n  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);\n  color.g = pow(color.g, (1.0 / g_gamma));\n  color.g = mix(g_out_min, g_out_max, color.g);\n  color.a = 1.0;\n\n  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);\n  color.b = pow(color.b, (1.0 / b_gamma));\n  color.b = mix(b_out_min, b_out_max, color.b);\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////   curves   /////////\n  ////////////////////////////\n\n  // rgb curves\n  if (rgb_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n\n    float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;\n    float out_g = texture2D(rgb_curve_points, vec2(in_g, 0.5)).x;\n    float out_b = texture2D(rgb_curve_points, vec2(in_b, 0.5)).x;\n\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  // r curves\n  if (r_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float out_r = texture2D(r_curve_points, vec2(in_r, 0.5)).x;\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n  }\n\n  // g curves\n  if (g_curve_enabled) {\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float out_g = texture2D(g_curve_points, vec2(in_g, 0.5)).x;\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n  }\n\n  // b curves\n  if (b_curve_enabled) {\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n    float out_b = texture2D(b_curve_points, vec2(in_b, 0.5)).x;\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n"]));
     this.shader.attributes.position.location = 0;
     this.fbo = glFbo(gl, [gl.drawingBufferWidth, gl.drawingBufferHeight]);
     this.fbo.color[0].minFilter = gl.LINEAR;

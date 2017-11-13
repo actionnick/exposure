@@ -188,6 +188,38 @@ class ExposureSettings extends EventEmitter {
       internal: true,
       default: false,
     },
+    g_curves: {
+      virtual: true,
+      type: Array,
+      default: DEFAULT_CONTROL_POINTS,
+    },
+    g_curve_points: {
+      type: Array,
+      internal: true,
+      default: [],
+      setUniform: filter => setUniformForCurves(filter, "g_curve_enabled", "g_curve_points", 5),
+    },
+    g_curve_enabled: {
+      type: Boolean,
+      internal: true,
+      default: false,
+    },
+    b_curves: {
+      virtual: true,
+      type: Array,
+      default: DEFAULT_CONTROL_POINTS,
+    },
+    b_curve_points: {
+      type: Array,
+      internal: true,
+      default: [],
+      setUniform: filter => setUniformForCurves(filter, "b_curve_enabled", "b_curve_points", 6),
+    },
+    b_curve_enabled: {
+      type: Boolean,
+      internal: true,
+      default: false,
+    },
   };
 
   initFromJson(json) {
@@ -222,6 +254,22 @@ class ExposureSettings extends EventEmitter {
 
   set r_curves(val) {
     return this.setCurves(val, "_r_curves", "r_curve_enabled", "r_curve_points");
+  }
+
+  get g_curves() {
+    return this._g_curves || DEFAULT_CONTROL_POINTS;
+  }
+
+  set g_curves(val) {
+    return this.setCurves(val, "_g_curves", "g_curve_enabled", "g_curve_points");
+  }
+
+  get b_curves() {
+    return this._b_curves || DEFAULT_CONTROL_POINTS;
+  }
+
+  set b_curves(val) {
+    return this.setCurves(val, "_b_curves", "b_curve_enabled", "b_curve_points");
   }
 
   setCurves(val, controlPointsIdentifier, enabledIdentifier, pointsIdentifier) {

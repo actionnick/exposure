@@ -55,6 +55,12 @@ uniform bool rgb_curve_enabled;
 uniform sampler2D r_curve_points;
 uniform bool r_curve_enabled;
 
+uniform sampler2D g_curve_points;
+uniform bool g_curve_enabled;
+
+uniform sampler2D b_curve_points;
+uniform bool b_curve_enabled;
+
 void main() {
   vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));
   float alpha = color.a;
@@ -125,11 +131,25 @@ void main() {
     color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);
   }
 
-  // rgb curves
+  // r curves
   if (r_curve_enabled) {
     float in_r = clamp(color.r, 0.0001, 0.9999);
     float out_r = texture2D(r_curve_points, vec2(in_r, 0.5)).x;
     color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);
+  }
+
+  // g curves
+  if (g_curve_enabled) {
+    float in_g = clamp(color.g, 0.0001, 0.9999);
+    float out_g = texture2D(g_curve_points, vec2(in_g, 0.5)).x;
+    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);
+  }
+
+  // b curves
+  if (b_curve_enabled) {
+    float in_b = clamp(color.b, 0.0001, 0.9999);
+    float out_b = texture2D(b_curve_points, vec2(in_b, 0.5)).x;
+    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);
   }
 
   // always preserve alpha
