@@ -580,36 +580,9 @@ var Controls = function (_React$Component) {
           fileName: _jsxFileName,
           lineNumber: 212
         }
-      }, "rgb"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, color: "rgb", __source: {
+      }, "rgb"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, __source: {
           fileName: _jsxFileName,
-          lineNumber: 213
-        }
-      }), React.createElement("h2", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 215
-        }
-      }, "red"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, color: "r", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 216
-        }
-      }), React.createElement("h2", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 218
-        }
-      }, "green"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, color: "g", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 219
-        }
-      }), React.createElement("h2", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 221
-        }
-      }, "blue"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, color: "b", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 222
+          lineNumber: 214
         }
       })));
     }
@@ -1014,14 +987,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
       onControlChange: function onControlChange(key, value) {
         return dispatch({ type: "INPUTS_CHANGED", key: key, value: value });
       },
-      addPoint: function addPoint(x, y, controlPointsIdentifier) {
-        return dispatch({ type: "ADD_POINT", x: x, y: y, controlPointsIdentifier: controlPointsIdentifier });
+      addPoint: function addPoint(x, y) {
+        return dispatch({ type: "ADD_POINT", x: x, y: y });
       },
-      moveControlPoint: function moveControlPoint(index, x, y, controlPointsIdentifier) {
-        return dispatch({ type: "MOVE_CONTROL_POINT", index: index, x: x, y: y, controlPointsIdentifier: controlPointsIdentifier });
+      moveControlPoint: function moveControlPoint(index, x, y) {
+        return dispatch({ type: "MOVE_CONTROL_POINT", index: index, x: x, y: y });
       },
-      removeControlPoint: function removeControlPoint(index, controlPointsIdentifier) {
-        return dispatch({ type: "REMOVE_CONTROL_POINT", index: index, controlPointsIdentifier: controlPointsIdentifier });
+      removeControlPoint: function removeControlPoint(index) {
+        return dispatch({ type: "REMOVE_CONTROL_POINT", index: index });
       }
     }
   };
@@ -1046,27 +1019,27 @@ var ExposureApp = function (_React$Component) {
 
       return React.createElement("div", { id: "main", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 49
         }
       }, React.createElement("div", { id: "top", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 50
         }
       }, React.createElement("div", { id: "logo", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 51
         }
       })), React.createElement("div", { id: "middle", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 53
         }
       }, React.createElement(ImageList, { frames: frames, selectedFrame: selectedFrame, actions: actions, __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 54
         }
       }), React.createElement("div", { id: "current-image", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 55
         }
       }, React.createElement(ImageStage, {
         actions: actions,
@@ -1074,11 +1047,11 @@ var ExposureApp = function (_React$Component) {
         webGLSupported: Modernizr.webgl,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 56
         }
       })), React.createElement(Controls, { frame: selectedFrame, actions: actions, __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 63
         }
       })));
     }
@@ -1614,15 +1587,17 @@ var reducer = function reducer() {
   } else if (action.type === "INPUTS_CHANGED") {
     newState.selectedFrame.settings[action.key] = action.value;
   } else if (action.type === "ADD_POINT") {
-    newState.selectedFrame.settings[action.controlPointsIdentifier] = [].concat(_toConsumableArray(newState.selectedFrame.settings[action.controlPointsIdentifier]), [[action.x, action.y]]);
+    newState.selectedFrame.settings.rgb_curves = [].concat(_toConsumableArray(newState.selectedFrame.settings.rgb_curves), [[action.x, action.y]]);
   } else if (action.type === "MOVE_CONTROL_POINT") {
-    var newPoints = newState.selectedFrame.settings[action.controlPointsIdentifier];
+    var newPoints = newState.selectedFrame.settings.rgb_curves;
     newPoints[action.index] = [action.x, action.y];
-    newState.selectedFrame.settings[action.controlPointsIdentifier] = newPoints;
+
+    newState.selectedFrame.settings.rgb_curves = newPoints;
   } else if (action.type === "REMOVE_CONTROL_POINT") {
-    var _newPoints = newState.selectedFrame.settings[action.controlPointsIdentifier];
+    var _newPoints = newState.selectedFrame.settings.rgb_curves;
     _newPoints.splice(action.index, 1);
-    newState.selectedFrame.settings[action.controlPointsIdentifier] = _newPoints;
+    console.log("new points", _newPoints);
+    newState.selectedFrame.settings.rgb_curves = _newPoints;
   }
 
   window.selectedFrame = newState.selectedFrame;
