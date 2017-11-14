@@ -220,6 +220,30 @@ class ExposureSettings extends EventEmitter {
       internal: true,
       default: false,
     },
+    yellows_cyan_shift: {
+      type: Number,
+      min: -1.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    yellows_magenta_shift: {
+      type: Number,
+      min: -1.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    yellows_yellow_shift: {
+      type: Number,
+      min: -1.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    yellows_black_shift: {
+      type: Number,
+      min: -1.0,
+      max: 1.0,
+      default: 0.0,
+    },
   };
 
   initFromJson(json) {
@@ -338,7 +362,11 @@ _.keys(ExposureSettings.PROPS).forEach(function(key) {
 
   if (!_.has(descriptor, "get")) {
     propertyDefinition.get = function() {
-      return this[`_${key}`] || prop.default;
+      if (_.isUndefined(this[`_${key}`]) || _.isNull(this[`_${key}`])) {
+        return prop.default;
+      } else {
+        return this[`_${key}`];
+      }
     };
   }
 

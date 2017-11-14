@@ -580,9 +580,36 @@ var Controls = function (_React$Component) {
           fileName: _jsxFileName,
           lineNumber: 212
         }
-      }, "rgb"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, __source: {
+      }, "rgb"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, color: "rgb", __source: {
           fileName: _jsxFileName,
-          lineNumber: 214
+          lineNumber: 213
+        }
+      }), React.createElement("h2", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 215
+        }
+      }, "red"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, color: "r", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 216
+        }
+      }), React.createElement("h2", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 218
+        }
+      }, "green"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, color: "g", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 219
+        }
+      }), React.createElement("h2", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 221
+        }
+      }, "blue"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, color: "b", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 222
         }
       })));
     }
@@ -987,14 +1014,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
       onControlChange: function onControlChange(key, value) {
         return dispatch({ type: "INPUTS_CHANGED", key: key, value: value });
       },
-      addPoint: function addPoint(x, y) {
-        return dispatch({ type: "ADD_POINT", x: x, y: y });
+      addPoint: function addPoint(x, y, controlPointsIdentifier) {
+        return dispatch({ type: "ADD_POINT", x: x, y: y, controlPointsIdentifier: controlPointsIdentifier });
       },
-      moveControlPoint: function moveControlPoint(index, x, y) {
-        return dispatch({ type: "MOVE_CONTROL_POINT", index: index, x: x, y: y });
+      moveControlPoint: function moveControlPoint(index, x, y, controlPointsIdentifier) {
+        return dispatch({ type: "MOVE_CONTROL_POINT", index: index, x: x, y: y, controlPointsIdentifier: controlPointsIdentifier });
       },
-      removeControlPoint: function removeControlPoint(index) {
-        return dispatch({ type: "REMOVE_CONTROL_POINT", index: index });
+      removeControlPoint: function removeControlPoint(index, controlPointsIdentifier) {
+        return dispatch({ type: "REMOVE_CONTROL_POINT", index: index, controlPointsIdentifier: controlPointsIdentifier });
       }
     }
   };
@@ -1019,27 +1046,27 @@ var ExposureApp = function (_React$Component) {
 
       return React.createElement("div", { id: "main", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 49
+          lineNumber: 52
         }
       }, React.createElement("div", { id: "top", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
+          lineNumber: 53
         }
       }, React.createElement("div", { id: "logo", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 54
         }
       })), React.createElement("div", { id: "middle", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 56
         }
       }, React.createElement(ImageList, { frames: frames, selectedFrame: selectedFrame, actions: actions, __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 57
         }
       }), React.createElement("div", { id: "current-image", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 58
         }
       }, React.createElement(ImageStage, {
         actions: actions,
@@ -1047,11 +1074,11 @@ var ExposureApp = function (_React$Component) {
         webGLSupported: Modernizr.webgl,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 59
         }
       })), React.createElement(Controls, { frame: selectedFrame, actions: actions, __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 66
         }
       })));
     }
@@ -1287,7 +1314,6 @@ var ImageStage = function (_React$Component) {
     value: function fileDrop(e) {
       e.stopPropagation();
       e.preventDefault();
-
       var file = e.target.files[0];
 
       this.props.actions.initNewFrame(file);
@@ -1310,90 +1336,87 @@ var ImageStage = function (_React$Component) {
       var _this2 = this;
 
       if (!this.props.webGLSupported) {
-        return React.createElement(Modal, {
-          isOpen: true,
-          className: "about_modal",
-          contentLabel: "Oops!",
-          __source: {
+        return React.createElement(Modal, { isOpen: true, className: "about_modal", contentLabel: "Oops!", __source: {
             fileName: _jsxFileName,
-            lineNumber: 68
+            lineNumber: 67
           }
         }, React.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 73
+            lineNumber: 68
           }
         }, "Oops! It doesn't seem like your browser supports webGL!"), React.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 74
+            lineNumber: 69
           }
         }, "You should download one of these browsers. Your life will be better"), React.createElement("iframe", { className: "browser-download", src: "http://outdatedbrowser.com/en", __source: {
             fileName: _jsxFileName,
-            lineNumber: 75
+            lineNumber: 70
           }
         }));
       } else if (this.props.loading) {
         return React.createElement("div", { id: "image-container", className: "editing", __source: {
             fileName: _jsxFileName,
-            lineNumber: 80
+            lineNumber: 75
           }
         }, React.createElement("img", { id: "loading-icon", src: "assets/color_aperture.svg", __source: {
             fileName: _jsxFileName,
-            lineNumber: 81
+            lineNumber: 76
           }
         }));
       } else if (this.props.selectedFrame) {
         var frame = this.props.selectedFrame;
         return React.createElement("div", { style: { width: "100%", height: "100%" }, __source: {
             fileName: _jsxFileName,
-            lineNumber: 87
+            lineNumber: 82
           }
         }, React.createElement("img", { className: "toJSON", src: "assets/tojson.svg", onClick: this.showJSON.bind(this), __source: {
             fileName: _jsxFileName,
-            lineNumber: 88
+            lineNumber: 83
           }
-        }), React.createElement("div", { key: frame.key, id: "image-container", className: "padding editing", ref: function ref(container) {
+        }), React.createElement("div", {
+          key: frame.key,
+          id: "image-container",
+          className: "padding editing",
+          ref: function ref(container) {
             return _this2.container = container;
-          }, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 89
-          }
-        }), React.createElement(Modal, {
-          isOpen: this.state.showJSON,
-          className: "about_modal",
-          contentLabel: "JSON",
+          },
           __source: {
+            fileName: _jsxFileName,
+            lineNumber: 84
+          }
+        }), React.createElement(Modal, { isOpen: this.state.showJSON, className: "about_modal", contentLabel: "JSON", __source: {
             fileName: _jsxFileName,
             lineNumber: 91
           }
         }, React.createElement("img", { id: "close", onClick: this.hideJSON.bind(this), src: "assets/x.svg", __source: {
             fileName: _jsxFileName,
-            lineNumber: 96
+            lineNumber: 92
           }
         }), React.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 97
+            lineNumber: 93
           }
         }, "JSON"), React.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 98
+            lineNumber: 94
           }
-        }, "You can save this filter in its JSON form and use it to initialize exposure in your app. More about that can be found ", React.createElement("a", { href: "https://github.com/actionnick/exposure#usage", target: "_blank", __source: {
+        }, "You can save this filter in its JSON form and use it to initialize exposure in your app. More about that can be found", " ", React.createElement("a", { href: "https://github.com/actionnick/exposure#usage", target: "_blank", __source: {
             fileName: _jsxFileName,
-            lineNumber: 98
+            lineNumber: 97
           }
         }, "here"), "."), React.createElement("pre", { id: "json-output", __source: {
             fileName: _jsxFileName,
-            lineNumber: 99
+            lineNumber: 101
           }
         }, vkbeautify.json(JSON.stringify(frame.settings.json), 2))));
       } else {
         return React.createElement("div", { id: "image-container", __source: {
             fileName: _jsxFileName,
-            lineNumber: 105
+            lineNumber: 107
           }
         }, React.createElement("input", {
           ref: function ref(fileInput) {
@@ -1407,9 +1430,10 @@ var ImageStage = function (_React$Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 106
+            lineNumber: 108
           }
-        }), React.createElement("div", { id: "file-upload-area",
+        }), React.createElement("div", {
+          id: "file-upload-area",
           draggable: "true",
           onClick: function onClick(e) {
             return _this2.fileUpload(e);
@@ -1425,11 +1449,11 @@ var ImageStage = function (_React$Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 113
+            lineNumber: 115
           }
         }, React.createElement("img", { id: "file-upload-icon", src: "assets/photo_upload_big.svg", __source: {
             fileName: _jsxFileName,
-            lineNumber: 120
+            lineNumber: 123
           }
         })));
       }
@@ -1587,17 +1611,15 @@ var reducer = function reducer() {
   } else if (action.type === "INPUTS_CHANGED") {
     newState.selectedFrame.settings[action.key] = action.value;
   } else if (action.type === "ADD_POINT") {
-    newState.selectedFrame.settings.rgb_curves = [].concat(_toConsumableArray(newState.selectedFrame.settings.rgb_curves), [[action.x, action.y]]);
+    newState.selectedFrame.settings[action.controlPointsIdentifier] = [].concat(_toConsumableArray(newState.selectedFrame.settings[action.controlPointsIdentifier]), [[action.x, action.y]]);
   } else if (action.type === "MOVE_CONTROL_POINT") {
-    var newPoints = newState.selectedFrame.settings.rgb_curves;
+    var newPoints = newState.selectedFrame.settings[action.controlPointsIdentifier];
     newPoints[action.index] = [action.x, action.y];
-
-    newState.selectedFrame.settings.rgb_curves = newPoints;
+    newState.selectedFrame.settings[action.controlPointsIdentifier] = newPoints;
   } else if (action.type === "REMOVE_CONTROL_POINT") {
-    var _newPoints = newState.selectedFrame.settings.rgb_curves;
+    var _newPoints = newState.selectedFrame.settings[action.controlPointsIdentifier];
     _newPoints.splice(action.index, 1);
-    console.log("new points", _newPoints);
-    newState.selectedFrame.settings.rgb_curves = _newPoints;
+    newState.selectedFrame.settings[action.controlPointsIdentifier] = _newPoints;
   }
 
   window.selectedFrame = newState.selectedFrame;
@@ -57800,6 +57822,30 @@ ExposureSettings.PROPS = {
     type: Boolean,
     internal: true,
     default: false
+  },
+  yellows_cyan_shift: {
+    type: Number,
+    min: -1.0,
+    max: 1.0,
+    default: 0.0
+  },
+  yellows_magenta_shift: {
+    type: Number,
+    min: -1.0,
+    max: 1.0,
+    default: 0.0
+  },
+  yellows_yellow_shift: {
+    type: Number,
+    min: -1.0,
+    max: 1.0,
+    default: 0.0
+  },
+  yellows_black_shift: {
+    type: Number,
+    min: -1.0,
+    max: 1.0,
+    default: 0.0
   }
 };
 var validateNum = function validateNum(currentVal, newVal, min, max) {
@@ -57815,7 +57861,11 @@ _.keys(ExposureSettings.PROPS).forEach(function (key) {
 
   if (!_.has(descriptor, "get")) {
     propertyDefinition.get = function () {
-      return this["_" + key] || prop.default;
+      if (_.isUndefined(this["_" + key]) || _.isNull(this["_" + key])) {
+        return prop.default;
+      } else {
+        return this["_" + key];
+      }
     };
   }
 
@@ -57876,7 +57926,7 @@ var Filter = function () {
 
     this.settings = new ExposureSettings(json);
     this.gl = gl;
-    this.shader = glShader(this.gl, glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}"]), glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\nvarying vec2 screenPosition;\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\nuniform sampler2D rgb_curve_points;\nuniform bool rgb_curve_enabled;\n\nuniform sampler2D r_curve_points;\nuniform bool r_curve_enabled;\n\nuniform sampler2D g_curve_points;\nuniform bool g_curve_enabled;\n\nuniform sampler2D b_curve_points;\nuniform bool b_curve_enabled;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n  color.a = 1.0;\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n  color.a = 1.0;\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n  color.a = 1.0;\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n  color.a = 1.0;\n\n  // Then adjust channels seperately\n  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);\n  color.r = pow(color.r, (1.0 / r_gamma));\n  color.r = mix(r_out_min, r_out_max, color.r);\n  color.a = 1.0;\n\n  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);\n  color.g = pow(color.g, (1.0 / g_gamma));\n  color.g = mix(g_out_min, g_out_max, color.g);\n  color.a = 1.0;\n\n  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);\n  color.b = pow(color.b, (1.0 / b_gamma));\n  color.b = mix(b_out_min, b_out_max, color.b);\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////   curves   /////////\n  ////////////////////////////\n\n  // rgb curves\n  if (rgb_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n\n    float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;\n    float out_g = texture2D(rgb_curve_points, vec2(in_g, 0.5)).x;\n    float out_b = texture2D(rgb_curve_points, vec2(in_b, 0.5)).x;\n\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  // r curves\n  if (r_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float out_r = texture2D(r_curve_points, vec2(in_r, 0.5)).x;\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n  }\n\n  // g curves\n  if (g_curve_enabled) {\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float out_g = texture2D(g_curve_points, vec2(in_g, 0.5)).x;\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n  }\n\n  // b curves\n  if (b_curve_enabled) {\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n    float out_b = texture2D(b_curve_points, vec2(in_b, 0.5)).x;\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n"]));
+    this.shader = glShader(this.gl, glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}"]), glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\nvarying vec2 screenPosition;\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\n// these control the curves settings\n// each texture represents the mapping of color values\nuniform sampler2D rgb_curve_points;\nuniform bool rgb_curve_enabled;\n\nuniform sampler2D r_curve_points;\nuniform bool r_curve_enabled;\n\nuniform sampler2D g_curve_points;\nuniform bool g_curve_enabled;\n\nuniform sampler2D b_curve_points;\nuniform bool b_curve_enabled;\n\n// select color controls\nuniform float yellows_cyan_shift;\nuniform float yellows_magenta_shift;\nuniform float yellows_yellow_shift;\nuniform float yellows_black_shift;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n  color.a = 1.0;\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n  color.a = 1.0;\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n  color.a = 1.0;\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n  color.a = 1.0;\n\n  // Then adjust channels seperately\n  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);\n  color.r = pow(color.r, (1.0 / r_gamma));\n  color.r = mix(r_out_min, r_out_max, color.r);\n  color.a = 1.0;\n\n  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);\n  color.g = pow(color.g, (1.0 / g_gamma));\n  color.g = mix(g_out_min, g_out_max, color.g);\n  color.a = 1.0;\n\n  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);\n  color.b = pow(color.b, (1.0 / b_gamma));\n  color.b = mix(b_out_min, b_out_max, color.b);\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////   curves   /////////\n  ////////////////////////////\n\n  // rgb curves\n  if (rgb_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n\n    float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;\n    float out_g = texture2D(rgb_curve_points, vec2(in_g, 0.5)).x;\n    float out_b = texture2D(rgb_curve_points, vec2(in_b, 0.5)).x;\n\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  // r curves\n  if (r_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float out_r = texture2D(r_curve_points, vec2(in_r, 0.5)).x;\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n  }\n\n  // g curves\n  if (g_curve_enabled) {\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float out_g = texture2D(g_curve_points, vec2(in_g, 0.5)).x;\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n  }\n\n  // b curves\n  if (b_curve_enabled) {\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n    float out_b = texture2D(b_curve_points, vec2(in_b, 0.5)).x;\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  ////////////////////////////\n  ////  selective color   ////\n  ////////////////////////////\n\n  vec3 CYAN = vec3(0.0, 1.0, 1.0);\n  vec3 MAGENTA = vec3(1.0, 0.0, 1.0);\n  vec3 YELLOW = vec3(1.0, 1.0, 0.0);\n  vec3 BLACK = vec3(0.0, 0.0, 0.0);\n\n  float max_distance = length(vec3(1.0, 1.0, 1.0));\n  float yellow_distance = length(YELLOW - color.rgb);\n\n  color.rgb = mix(color.rgb, BLACK, pow(1.0 - (yellow_distance / max_distance), 5.0) * yellows_black_shift);\n  color.rgb = mix(color.rgb, MAGENTA, pow(1.0 - (yellow_distance / max_distance), 5.0) * yellows_magenta_shift);\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n"]));
     this.shader.attributes.position.location = 0;
     this.fbo = glFbo(gl, [gl.drawingBufferWidth, gl.drawingBufferHeight]);
     this.fbo.color[0].minFilter = gl.LINEAR;

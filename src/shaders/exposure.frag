@@ -49,6 +49,8 @@ uniform float b_out_min;
 uniform float b_out_max;
 uniform float b_gamma;
 
+// these control the curves settings
+// each texture represents the mapping of color values
 uniform sampler2D rgb_curve_points;
 uniform bool rgb_curve_enabled;
 
@@ -60,6 +62,12 @@ uniform bool g_curve_enabled;
 
 uniform sampler2D b_curve_points;
 uniform bool b_curve_enabled;
+
+// select color controls
+uniform float yellows_cyan_shift;
+uniform float yellows_magenta_shift;
+uniform float yellows_yellow_shift;
+uniform float yellows_black_shift;
 
 void main() {
   vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));
@@ -151,6 +159,22 @@ void main() {
     float out_b = texture2D(b_curve_points, vec2(in_b, 0.5)).x;
     color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);
   }
+
+  ////////////////////////////
+  ////  selective color   ////
+  ////////////////////////////
+
+  vec3 CYAN = vec3(0.0, 1.0, 1.0);
+  vec3 MAGENTA = vec3(1.0, 0.0, 1.0);
+  vec3 YELLOW = vec3(1.0, 1.0, 0.0);
+  vec3 BLACK = vec3(0.0, 0.0, 0.0);
+
+  float max_distance = length(vec3(1.0, 1.0, 1.0));
+  float yellow_distance = length(YELLOW - color.rgb);
+
+  color.rgb = mix(color.rgb, BLACK, pow(1.0 - (yellow_distance / max_distance), 5.0) * yellows_black_shift);
+  color.rgb = mix(color.rgb, MAGENTA, pow(1.0 - (yellow_distance / max_distance), 5.0) * yellows_magenta_shift);
+
 
   // always preserve alpha
   color.a = alpha;
