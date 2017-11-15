@@ -99,7 +99,7 @@ class Controls extends React.Component {
             <p>in</p>
             <div className="slider-container centering-parent">
               <ReactSlider
-                className="slider red-slider"
+                className="slider red"
                 onChange={this.handleChange.bind(this, "r_in_")}
                 min={0}
                 max={100}
@@ -111,7 +111,7 @@ class Controls extends React.Component {
             <p>out</p>
             <div className="slider-container centering-parent">
               <ReactSlider
-                className="slider red-slider"
+                className="slider red"
                 onChange={this.handleChange.bind(this, "r_out_")}
                 min={0}
                 max={100}
@@ -123,7 +123,7 @@ class Controls extends React.Component {
             <p>gamma</p>
             <div className="slider-container centering-parent">
               <ReactSlider
-                className="slider red-slider"
+                className="slider red"
                 onChange={this.handleChange.bind(this, "r_gamma")}
                 min={0}
                 max={1000}
@@ -137,7 +137,7 @@ class Controls extends React.Component {
             <p>in</p>
             <div className="slider-container centering-parent">
               <ReactSlider
-                className="slider green-slider"
+                className="slider green"
                 onChange={this.handleChange.bind(this, "g_in_")}
                 min={0}
                 max={100}
@@ -149,7 +149,7 @@ class Controls extends React.Component {
             <p>out</p>
             <div className="slider-container centering-parent">
               <ReactSlider
-                className="slider green-slider"
+                className="slider green"
                 onChange={this.handleChange.bind(this, "g_out_")}
                 min={0}
                 max={100}
@@ -161,7 +161,7 @@ class Controls extends React.Component {
             <p>gamma</p>
             <div className="slider-container centering-parent">
               <ReactSlider
-                className="slider green-slider"
+                className="slider green"
                 onChange={this.handleChange.bind(this, "g_gamma")}
                 min={0}
                 max={1000}
@@ -175,7 +175,7 @@ class Controls extends React.Component {
             <p>in</p>
             <div className="slider-container centering-parent">
               <ReactSlider
-                className="slider blue-slider"
+                className="slider blue"
                 onChange={this.handleChange.bind(this, "b_in_")}
                 min={0}
                 max={100}
@@ -187,7 +187,7 @@ class Controls extends React.Component {
             <p>out</p>
             <div className="slider-container centering-parent">
               <ReactSlider
-                className="slider blue-slider"
+                className="slider blue"
                 onChange={this.handleChange.bind(this, "b_out_")}
                 min={0}
                 max={100}
@@ -199,7 +199,7 @@ class Controls extends React.Component {
             <p>gamma</p>
             <div className="slider-container centering-parent">
               <ReactSlider
-                className="slider blue-slider"
+                className="slider blue"
                 onChange={this.handleChange.bind(this, "b_gamma")}
                 min={0}
                 max={1000}

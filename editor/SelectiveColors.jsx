@@ -31,11 +31,12 @@ class SelectiveColors extends React.Component {
     const s = this.props.frame.settings;
 
     return (
-      <div>
+      <div className="selective-colors">
         <select
           name="colors"
           value={this.state.currentColor}
           onChange={event => this.handleColorChange(event)}
+          className={this.state.currentColor}
         >
           {COLORS.map(color => (
             <option key={color} value={color}>

@@ -365,7 +365,7 @@ var Controls = function (_React$Component) {
           lineNumber: 100
         }
       }, React.createElement(ReactSlider, {
-        className: "slider red-slider",
+        className: "slider red",
         onChange: this.handleChange.bind(this, "r_in_"),
         min: 0,
         max: 100,
@@ -388,7 +388,7 @@ var Controls = function (_React$Component) {
           lineNumber: 112
         }
       }, React.createElement(ReactSlider, {
-        className: "slider red-slider",
+        className: "slider red",
         onChange: this.handleChange.bind(this, "r_out_"),
         min: 0,
         max: 100,
@@ -411,7 +411,7 @@ var Controls = function (_React$Component) {
           lineNumber: 124
         }
       }, React.createElement(ReactSlider, {
-        className: "slider red-slider",
+        className: "slider red",
         onChange: this.handleChange.bind(this, "r_gamma"),
         min: 0,
         max: 1000,
@@ -439,7 +439,7 @@ var Controls = function (_React$Component) {
           lineNumber: 138
         }
       }, React.createElement(ReactSlider, {
-        className: "slider green-slider",
+        className: "slider green",
         onChange: this.handleChange.bind(this, "g_in_"),
         min: 0,
         max: 100,
@@ -462,7 +462,7 @@ var Controls = function (_React$Component) {
           lineNumber: 150
         }
       }, React.createElement(ReactSlider, {
-        className: "slider green-slider",
+        className: "slider green",
         onChange: this.handleChange.bind(this, "g_out_"),
         min: 0,
         max: 100,
@@ -485,7 +485,7 @@ var Controls = function (_React$Component) {
           lineNumber: 162
         }
       }, React.createElement(ReactSlider, {
-        className: "slider green-slider",
+        className: "slider green",
         onChange: this.handleChange.bind(this, "g_gamma"),
         min: 0,
         max: 1000,
@@ -513,7 +513,7 @@ var Controls = function (_React$Component) {
           lineNumber: 176
         }
       }, React.createElement(ReactSlider, {
-        className: "slider blue-slider",
+        className: "slider blue",
         onChange: this.handleChange.bind(this, "b_in_"),
         min: 0,
         max: 100,
@@ -536,7 +536,7 @@ var Controls = function (_React$Component) {
           lineNumber: 188
         }
       }, React.createElement(ReactSlider, {
-        className: "slider blue-slider",
+        className: "slider blue",
         onChange: this.handleChange.bind(this, "b_out_"),
         min: 0,
         max: 100,
@@ -559,7 +559,7 @@ var Controls = function (_React$Component) {
           lineNumber: 200
         }
       }, React.createElement(ReactSlider, {
-        className: "slider blue-slider",
+        className: "slider blue",
         onChange: this.handleChange.bind(this, "b_gamma"),
         min: 0,
         max: 1000,
@@ -1558,8 +1558,7 @@ var SelectiveColors = function (_React$Component) {
 
       var s = this.props.frame.settings;
 
-      return React.createElement("div", {
-        __source: {
+      return React.createElement("div", { className: "selective-colors", __source: {
           fileName: _jsxFileName,
           lineNumber: 34
         }
@@ -1569,6 +1568,7 @@ var SelectiveColors = function (_React$Component) {
         onChange: function onChange(event) {
           return _this2.handleColorChange(event);
         },
+        className: this.state.currentColor,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 35
@@ -1576,22 +1576,22 @@ var SelectiveColors = function (_React$Component) {
       }, COLORS.map(function (color) {
         return React.createElement("option", { key: color, value: color, __source: {
             fileName: _jsxFileName,
-            lineNumber: 41
+            lineNumber: 42
           }
         }, color);
       })), SHIFTABLE.map(function (color) {
         return React.createElement("div", { key: color + "-" + _this2.state.currentColor, className: "slider-layout", __source: {
             fileName: _jsxFileName,
-            lineNumber: 48
+            lineNumber: 49
           }
         }, React.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 49
+            lineNumber: 50
           }
         }, color), React.createElement("div", { className: "slider-container centering-parent", __source: {
             fileName: _jsxFileName,
-            lineNumber: 50
+            lineNumber: 51
           }
         }, React.createElement(ReactSlider, {
           onChange: _this2.handleChange.bind(_this2, _this2.state.currentColor + "_" + color + "_shift"),
@@ -1600,7 +1600,7 @@ var SelectiveColors = function (_React$Component) {
           defaultValue: s[_this2.state.currentColor + "_" + color + "_shift"] * 100,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 51
+            lineNumber: 52
           }
         })));
       }));
