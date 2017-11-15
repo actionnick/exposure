@@ -36,6 +36,8 @@ class ExposureSettings extends EventEmitter {
       max: 1.0,
       default: 0.5,
     },
+
+    // LEVELS
     rgb_in_min: {
       type: Number,
       min: 0.0,
@@ -156,6 +158,8 @@ class ExposureSettings extends EventEmitter {
       max: 10.0,
       default: 1.0,
     },
+
+    // CURVES
     rgb_curves: {
       virtual: true,
       type: Array,
@@ -220,27 +224,169 @@ class ExposureSettings extends EventEmitter {
       internal: true,
       default: false,
     },
+
+    // SELECTIVE COLORS
+    cyans_cyan_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    cyans_magenta_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    cyans_yellow_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    cyans_black_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    cyans_red_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    cyans_green_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    cyans_blue_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    cyans_white_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    cyans_gray_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+
+    magentas_cyan_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    magentas_magenta_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    magentas_yellow_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    magentas_black_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    magentas_red_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    magentas_green_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    magentas_blue_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    magentas_white_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    magentas_gray_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+
     yellows_cyan_shift: {
       type: Number,
-      min: -1.0,
+      min: 0.0,
       max: 1.0,
       default: 0.0,
     },
     yellows_magenta_shift: {
       type: Number,
-      min: -1.0,
+      min: 0.0,
       max: 1.0,
       default: 0.0,
     },
     yellows_yellow_shift: {
       type: Number,
-      min: -1.0,
+      min: 0.0,
       max: 1.0,
       default: 0.0,
     },
     yellows_black_shift: {
       type: Number,
-      min: -1.0,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    yellows_red_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    yellows_green_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    yellows_blue_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    yellows_white_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    yellows_gray_shift: {
+      type: Number,
+      min: 0.0,
       max: 1.0,
       default: 0.0,
     },
