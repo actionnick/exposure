@@ -390,6 +390,61 @@ class ExposureSettings extends EventEmitter {
       max: 1.0,
       default: 0.0,
     },
+
+    blacks_cyan_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    blacks_magenta_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    blacks_yellow_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    blacks_black_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    blacks_red_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    blacks_green_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    blacks_blue_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    blacks_white_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    blacks_gray_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
   };
 
   initFromJson(json) {

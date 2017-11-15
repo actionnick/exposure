@@ -94,6 +94,16 @@ uniform float yellows_blue_shift;
 uniform float yellows_gray_shift;
 uniform float yellows_white_shift;
 
+uniform float blacks_cyan_shift;
+uniform float blacks_magenta_shift;
+uniform float blacks_yellow_shift;
+uniform float blacks_black_shift;
+uniform float blacks_red_shift;
+uniform float blacks_green_shift;
+uniform float blacks_blue_shift;
+uniform float blacks_gray_shift;
+uniform float blacks_white_shift;
+
 void main() {
   vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));
   float alpha = color.a;
@@ -241,6 +251,20 @@ void main() {
   color.rgb = mix(color.rgb, BLUE, yellow_mix_factor * yellows_blue_shift);
   color.rgb = mix(color.rgb, WHITE, yellow_mix_factor * yellows_white_shift);
   color.rgb = mix(color.rgb, GRAY, yellow_mix_factor * yellows_gray_shift);
+
+  // blacks
+  float black_distance = length(BLACK - color.rgb);
+  float black_mix_factor = pow(1.0 - (black_distance / MAX_DISTANCE), 5.0);
+
+  color.rgb = mix(color.rgb, CYAN, black_mix_factor * blacks_cyan_shift);
+  color.rgb = mix(color.rgb, MAGENTA, black_mix_factor * blacks_magenta_shift);
+  color.rgb = mix(color.rgb, YELLOW, black_mix_factor * blacks_yellow_shift);
+  color.rgb = mix(color.rgb, BLACK, black_mix_factor * blacks_black_shift);
+  color.rgb = mix(color.rgb, RED, black_mix_factor * blacks_red_shift);
+  color.rgb = mix(color.rgb, GREEN, black_mix_factor * blacks_green_shift);
+  color.rgb = mix(color.rgb, BLUE, black_mix_factor * blacks_blue_shift);
+  color.rgb = mix(color.rgb, WHITE, black_mix_factor * blacks_white_shift);
+  color.rgb = mix(color.rgb, GRAY, black_mix_factor * blacks_gray_shift);
 
   // always preserve alpha
   color.a = alpha;
