@@ -1,5 +1,7 @@
+const React = require("react");
 const ReactSlider = require("react-slider");
 const Curves = require("./Curves.jsx");
+const SelectiveColors = require("./SelectiveColors.jsx");
 
 class Controls extends React.Component {
   static propTypes = {
@@ -220,6 +222,11 @@ class Controls extends React.Component {
 
           <h2>blue</h2>
           <Curves frame={this.props.frame} actions={this.props.actions} color="b" />
+        </div>
+
+        <div className="controls-section">
+          <h1>selective color</h1>
+          <SelectiveColors frame={this.props.frame} actions={this.props.actions} />
         </div>
       </div>
     );

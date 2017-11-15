@@ -447,6 +447,14 @@ class ExposureSettings extends EventEmitter {
     },
   };
 
+  get updated() {
+    if (!this._updated) {
+      this._updated = _.throttle(() => this.emit("updated"), 500);
+    }
+
+    return this._updated;
+  }
+
   initFromJson(json) {
     var self = this;
     _.keys(json).forEach(function(key) {
@@ -504,7 +512,7 @@ class ExposureSettings extends EventEmitter {
       this[controlPointsIdentifier] = DEFAULT_CONTROL_POINTS;
       this[enabledIdentifier] = false;
       this[pointsIdentifier] = [];
-      this.emit("updated");
+      this.updated();
     } else {
       this[enabledIdentifier] = true;
       // Add a point in the far lower left and far upper right
@@ -540,8 +548,7 @@ class ExposureSettings extends EventEmitter {
       pointMapping = _.dropRight(pointMapping, Math.max(pointMapping.length - numberOfPoints, 0));
 
       this[pointsIdentifier] = pointMapping;
-      this.emit("updated");
-
+      this.updated();
       this[controlPointsIdentifier] = val;
     }
 
@@ -584,7 +591,7 @@ _.keys(ExposureSettings.PROPS).forEach(function(key) {
 
       this[`_${key}`] = val;
       if (!prop.internal) {
-        this.emit("updated");
+        this.updated();
       }
     };
   }
