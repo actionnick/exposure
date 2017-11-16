@@ -2,7 +2,7 @@ const React = require("react");
 const _ = require("lodash");
 const ReactSlider = require("react-slider");
 
-const COLORS = ["cyans", "magentas", "yellows", "blacks"];
+const COLORS = ["cyans", "magentas", "yellows", "blacks", "reds"];
 const SHIFTABLE = ["cyan", "magenta", "yellow", "black", "red", "green", "blue", "white", "gray"];
 
 class SelectiveColors extends React.Component {

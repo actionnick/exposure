@@ -445,6 +445,61 @@ class ExposureSettings extends EventEmitter {
       max: 1.0,
       default: 0.0,
     },
+
+    reds_cyan_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    reds_magenta_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    reds_yellow_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    reds_black_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    reds_red_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    reds_green_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    reds_blue_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    reds_white_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    reds_gray_shift: {
+      type: Number,
+      min: 0.0,
+      max: 1.0,
+      default: 0.0,
+    },
   };
 
   get updated() {
