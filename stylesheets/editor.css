@@ -468,3 +468,17 @@ body {
   background-color: #272727;
   color: white;
 }
+.selective-colors select.reds {
+  background-color: #f16a6a;
+}
+.selective-colors select.greens {
+  background-color: #5bdf5b;
+}
+.selective-colors select.blues {
+  background-color: #4751a5;
+  color: white;
+}
+.selective-colors select.grays {
+  background-color: #555555;
+  color: white;
+}

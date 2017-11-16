@@ -1524,7 +1524,7 @@ var React = require("react");
 var _ = require("lodash");
 var ReactSlider = require("react-slider");
 
-var COLORS = ["cyans", "magentas", "yellows", "blacks", "reds"];
+var COLORS = ["cyans", "magentas", "yellows", "blacks", "reds", "greens", "blues", "grays", "whites"];
 var SHIFTABLE = ["cyan", "magenta", "yellow", "black", "red", "green", "blue", "white", "gray"];
 
 var SelectiveColors = function (_React$Component) {
@@ -1536,7 +1536,7 @@ var SelectiveColors = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (SelectiveColors.__proto__ || Object.getPrototypeOf(SelectiveColors)).call(this, props));
 
     _this.state = {
-      currentColor: "yellows"
+      currentColor: "cyans"
     };
     return _this;
   }
@@ -1560,7 +1560,7 @@ var SelectiveColors = function (_React$Component) {
 
       return React.createElement("div", { className: "selective-colors", __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 44
         }
       }, React.createElement("select", {
         name: "colors",
@@ -1571,27 +1571,27 @@ var SelectiveColors = function (_React$Component) {
         className: this.state.currentColor,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 45
         }
       }, COLORS.map(function (color) {
         return React.createElement("option", { key: color, value: color, __source: {
             fileName: _jsxFileName,
-            lineNumber: 42
+            lineNumber: 52
           }
         }, color);
       })), SHIFTABLE.map(function (color) {
         return React.createElement("div", { key: color + "-" + _this2.state.currentColor, className: "slider-layout", __source: {
             fileName: _jsxFileName,
-            lineNumber: 49
+            lineNumber: 59
           }
         }, React.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 50
+            lineNumber: 60
           }
         }, color), React.createElement("div", { className: "slider-container centering-parent", __source: {
             fileName: _jsxFileName,
-            lineNumber: 51
+            lineNumber: 61
           }
         }, React.createElement(ReactSlider, {
           onChange: _this2.handleChange.bind(_this2, _this2.state.currentColor + "_" + color + "_shift"),
@@ -1600,7 +1600,7 @@ var SelectiveColors = function (_React$Component) {
           defaultValue: s[_this2.state.currentColor + "_" + color + "_shift"] * 100,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 52
+            lineNumber: 62
           }
         })));
       }));
@@ -58259,6 +58259,226 @@ ExposureSettings.PROPS = {
     min: 0.0,
     max: 1.0,
     default: 0.0
+  },
+
+  greens_cyan_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  greens_magenta_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  greens_yellow_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  greens_black_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  greens_red_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  greens_green_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  greens_blue_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  greens_white_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  greens_gray_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+
+  blues_cyan_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  blues_magenta_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  blues_yellow_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  blues_black_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  blues_red_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  blues_green_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  blues_blue_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  blues_white_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  blues_gray_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+
+  grays_cyan_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  grays_magenta_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  grays_yellow_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  grays_black_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  grays_red_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  grays_green_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  grays_blue_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  grays_white_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  grays_gray_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+
+  whites_cyan_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  whites_magenta_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  whites_yellow_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  whites_black_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  whites_red_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  whites_green_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  whites_blue_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  whites_white_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
+  },
+  whites_gray_shift: {
+    type: Number,
+    min: 0.0,
+    max: 1.0,
+    default: 0.0
   }
 };
 var validateNum = function validateNum(currentVal, newVal, min, max) {
@@ -58339,7 +58559,7 @@ var Filter = function () {
 
     this.settings = new ExposureSettings(json);
     this.gl = gl;
-    this.shader = glShader(this.gl, glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}"]), glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\nvarying vec2 screenPosition;\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\n// these control the curves settings\n// each texture represents the mapping of color values\nuniform sampler2D rgb_curve_points;\nuniform bool rgb_curve_enabled;\n\nuniform sampler2D r_curve_points;\nuniform bool r_curve_enabled;\n\nuniform sampler2D g_curve_points;\nuniform bool g_curve_enabled;\n\nuniform sampler2D b_curve_points;\nuniform bool b_curve_enabled;\n\n// selective color controls\nuniform float cyans_cyan_shift;\nuniform float cyans_magenta_shift;\nuniform float cyans_yellow_shift;\nuniform float cyans_black_shift;\nuniform float cyans_red_shift;\nuniform float cyans_green_shift;\nuniform float cyans_blue_shift;\nuniform float cyans_gray_shift;\nuniform float cyans_white_shift;\n\nuniform float magentas_cyan_shift;\nuniform float magentas_magenta_shift;\nuniform float magentas_yellow_shift;\nuniform float magentas_black_shift;\nuniform float magentas_red_shift;\nuniform float magentas_green_shift;\nuniform float magentas_blue_shift;\nuniform float magentas_gray_shift;\nuniform float magentas_white_shift;\n\nuniform float yellows_cyan_shift;\nuniform float yellows_magenta_shift;\nuniform float yellows_yellow_shift;\nuniform float yellows_black_shift;\nuniform float yellows_red_shift;\nuniform float yellows_green_shift;\nuniform float yellows_blue_shift;\nuniform float yellows_gray_shift;\nuniform float yellows_white_shift;\n\nuniform float blacks_cyan_shift;\nuniform float blacks_magenta_shift;\nuniform float blacks_yellow_shift;\nuniform float blacks_black_shift;\nuniform float blacks_red_shift;\nuniform float blacks_green_shift;\nuniform float blacks_blue_shift;\nuniform float blacks_gray_shift;\nuniform float blacks_white_shift;\n\nuniform float reds_cyan_shift;\nuniform float reds_magenta_shift;\nuniform float reds_yellow_shift;\nuniform float reds_black_shift;\nuniform float reds_red_shift;\nuniform float reds_green_shift;\nuniform float reds_blue_shift;\nuniform float reds_gray_shift;\nuniform float reds_white_shift;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n  color.a = 1.0;\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n  color.a = 1.0;\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n  color.a = 1.0;\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n  color.a = 1.0;\n\n  // Then adjust channels seperately\n  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);\n  color.r = pow(color.r, (1.0 / r_gamma));\n  color.r = mix(r_out_min, r_out_max, color.r);\n  color.a = 1.0;\n\n  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);\n  color.g = pow(color.g, (1.0 / g_gamma));\n  color.g = mix(g_out_min, g_out_max, color.g);\n  color.a = 1.0;\n\n  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);\n  color.b = pow(color.b, (1.0 / b_gamma));\n  color.b = mix(b_out_min, b_out_max, color.b);\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////   curves   /////////\n  ////////////////////////////\n\n  // rgb curves\n  if (rgb_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n\n    float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;\n    float out_g = texture2D(rgb_curve_points, vec2(in_g, 0.5)).x;\n    float out_b = texture2D(rgb_curve_points, vec2(in_b, 0.5)).x;\n\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  // r curves\n  if (r_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float out_r = texture2D(r_curve_points, vec2(in_r, 0.5)).x;\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n  }\n\n  // g curves\n  if (g_curve_enabled) {\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float out_g = texture2D(g_curve_points, vec2(in_g, 0.5)).x;\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n  }\n\n  // b curves\n  if (b_curve_enabled) {\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n    float out_b = texture2D(b_curve_points, vec2(in_b, 0.5)).x;\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  ////////////////////////////\n  ////  selective color   ////\n  ////////////////////////////\n\n  vec3 CYAN = vec3(0.0, 1.0, 1.0);\n  vec3 MAGENTA = vec3(1.0, 0.0, 1.0);\n  vec3 YELLOW = vec3(1.0, 1.0, 0.0);\n  vec3 BLACK = vec3(0.0, 0.0, 0.0);\n  vec3 RED = vec3(1.0, 0.0, 0.0);\n  vec3 GREEN = vec3(0.0, 1.0, 0.0);\n  vec3 BLUE = vec3(0.0, 0.0, 1.0);\n  vec3 WHITE = vec3(1.0, 1.0, 1.0);\n  vec3 GRAY = vec3(0.5, 0.5, 0.5);\n  float MAX_DISTANCE = length(vec3(1.0, 1.0, 1.0));\n\n  // cyans\n  float cyan_distance = length(CYAN - color.rgb);\n  float cyan_mix_factor = pow(1.0 - (cyan_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, cyan_mix_factor * cyans_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, cyan_mix_factor * cyans_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, cyan_mix_factor * cyans_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, cyan_mix_factor * cyans_black_shift);\n  color.rgb = mix(color.rgb, RED, cyan_mix_factor * cyans_red_shift);\n  color.rgb = mix(color.rgb, GREEN, cyan_mix_factor * cyans_green_shift);\n  color.rgb = mix(color.rgb, BLUE, cyan_mix_factor * cyans_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, cyan_mix_factor * cyans_white_shift);\n  color.rgb = mix(color.rgb, GRAY, cyan_mix_factor * cyans_gray_shift);\n\n  // magentas\n  float magenta_distance = length(MAGENTA - color.rgb);\n  float magenta_mix_factor = pow(1.0 - (magenta_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, magenta_mix_factor * magentas_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, magenta_mix_factor * magentas_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, magenta_mix_factor * magentas_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, magenta_mix_factor * magentas_black_shift);\n  color.rgb = mix(color.rgb, RED, magenta_mix_factor * magentas_red_shift);\n  color.rgb = mix(color.rgb, GREEN, magenta_mix_factor * magentas_green_shift);\n  color.rgb = mix(color.rgb, BLUE, magenta_mix_factor * magentas_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, magenta_mix_factor * magentas_white_shift);\n  color.rgb = mix(color.rgb, GRAY, magenta_mix_factor * magentas_gray_shift);\n\n  // yellows\n  float yellow_distance = length(YELLOW - color.rgb);\n  float yellow_mix_factor = pow(1.0 - (yellow_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, yellow_mix_factor * yellows_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, yellow_mix_factor * yellows_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, yellow_mix_factor * yellows_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, yellow_mix_factor * yellows_black_shift);\n  color.rgb = mix(color.rgb, RED, yellow_mix_factor * yellows_red_shift);\n  color.rgb = mix(color.rgb, GREEN, yellow_mix_factor * yellows_green_shift);\n  color.rgb = mix(color.rgb, BLUE, yellow_mix_factor * yellows_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, yellow_mix_factor * yellows_white_shift);\n  color.rgb = mix(color.rgb, GRAY, yellow_mix_factor * yellows_gray_shift);\n\n  // blacks\n  float black_distance = length(BLACK - color.rgb);\n  float black_mix_factor = pow(1.0 - (black_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, black_mix_factor * blacks_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, black_mix_factor * blacks_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, black_mix_factor * blacks_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, black_mix_factor * blacks_black_shift);\n  color.rgb = mix(color.rgb, RED, black_mix_factor * blacks_red_shift);\n  color.rgb = mix(color.rgb, GREEN, black_mix_factor * blacks_green_shift);\n  color.rgb = mix(color.rgb, BLUE, black_mix_factor * blacks_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, black_mix_factor * blacks_white_shift);\n  color.rgb = mix(color.rgb, GRAY, black_mix_factor * blacks_gray_shift);\n\n  // reds\n  float red_distance = length(RED - color.rgb);\n  float red_mix_factor = pow(1.0 - (red_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, red_mix_factor * reds_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, red_mix_factor * reds_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, red_mix_factor * reds_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, red_mix_factor * reds_black_shift);\n  color.rgb = mix(color.rgb, RED, red_mix_factor * reds_red_shift);\n  color.rgb = mix(color.rgb, GREEN, red_mix_factor * reds_green_shift);\n  color.rgb = mix(color.rgb, BLUE, red_mix_factor * reds_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, red_mix_factor * reds_white_shift);\n  color.rgb = mix(color.rgb, GRAY, red_mix_factor * reds_gray_shift);\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n"]));
+    this.shader = glShader(this.gl, glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}"]), glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\nvarying vec2 screenPosition;\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\n// these control the curves settings\n// each texture represents the mapping of color values\nuniform sampler2D rgb_curve_points;\nuniform bool rgb_curve_enabled;\n\nuniform sampler2D r_curve_points;\nuniform bool r_curve_enabled;\n\nuniform sampler2D g_curve_points;\nuniform bool g_curve_enabled;\n\nuniform sampler2D b_curve_points;\nuniform bool b_curve_enabled;\n\n// selective color controls\nuniform float cyans_cyan_shift;\nuniform float cyans_magenta_shift;\nuniform float cyans_yellow_shift;\nuniform float cyans_black_shift;\nuniform float cyans_red_shift;\nuniform float cyans_green_shift;\nuniform float cyans_blue_shift;\nuniform float cyans_gray_shift;\nuniform float cyans_white_shift;\n\nuniform float magentas_cyan_shift;\nuniform float magentas_magenta_shift;\nuniform float magentas_yellow_shift;\nuniform float magentas_black_shift;\nuniform float magentas_red_shift;\nuniform float magentas_green_shift;\nuniform float magentas_blue_shift;\nuniform float magentas_gray_shift;\nuniform float magentas_white_shift;\n\nuniform float yellows_cyan_shift;\nuniform float yellows_magenta_shift;\nuniform float yellows_yellow_shift;\nuniform float yellows_black_shift;\nuniform float yellows_red_shift;\nuniform float yellows_green_shift;\nuniform float yellows_blue_shift;\nuniform float yellows_gray_shift;\nuniform float yellows_white_shift;\n\nuniform float blacks_cyan_shift;\nuniform float blacks_magenta_shift;\nuniform float blacks_yellow_shift;\nuniform float blacks_black_shift;\nuniform float blacks_red_shift;\nuniform float blacks_green_shift;\nuniform float blacks_blue_shift;\nuniform float blacks_gray_shift;\nuniform float blacks_white_shift;\n\nuniform float reds_cyan_shift;\nuniform float reds_magenta_shift;\nuniform float reds_yellow_shift;\nuniform float reds_black_shift;\nuniform float reds_red_shift;\nuniform float reds_green_shift;\nuniform float reds_blue_shift;\nuniform float reds_gray_shift;\nuniform float reds_white_shift;\n\nuniform float greens_cyan_shift;\nuniform float greens_magenta_shift;\nuniform float greens_yellow_shift;\nuniform float greens_black_shift;\nuniform float greens_red_shift;\nuniform float greens_green_shift;\nuniform float greens_blue_shift;\nuniform float greens_gray_shift;\nuniform float greens_white_shift;\n\nuniform float blues_cyan_shift;\nuniform float blues_magenta_shift;\nuniform float blues_yellow_shift;\nuniform float blues_black_shift;\nuniform float blues_red_shift;\nuniform float blues_green_shift;\nuniform float blues_blue_shift;\nuniform float blues_gray_shift;\nuniform float blues_white_shift;\n\nuniform float grays_cyan_shift;\nuniform float grays_magenta_shift;\nuniform float grays_yellow_shift;\nuniform float grays_black_shift;\nuniform float grays_red_shift;\nuniform float grays_green_shift;\nuniform float grays_blue_shift;\nuniform float grays_gray_shift;\nuniform float grays_white_shift;\n\nuniform float whites_cyan_shift;\nuniform float whites_magenta_shift;\nuniform float whites_yellow_shift;\nuniform float whites_black_shift;\nuniform float whites_red_shift;\nuniform float whites_green_shift;\nuniform float whites_blue_shift;\nuniform float whites_gray_shift;\nuniform float whites_white_shift;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n  color.a = 1.0;\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n  color.a = 1.0;\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n  color.a = 1.0;\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n  color.a = 1.0;\n\n  // Then adjust channels seperately\n  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);\n  color.r = pow(color.r, (1.0 / r_gamma));\n  color.r = mix(r_out_min, r_out_max, color.r);\n  color.a = 1.0;\n\n  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);\n  color.g = pow(color.g, (1.0 / g_gamma));\n  color.g = mix(g_out_min, g_out_max, color.g);\n  color.a = 1.0;\n\n  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);\n  color.b = pow(color.b, (1.0 / b_gamma));\n  color.b = mix(b_out_min, b_out_max, color.b);\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////   curves   /////////\n  ////////////////////////////\n\n  // rgb curves\n  if (rgb_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n\n    float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;\n    float out_g = texture2D(rgb_curve_points, vec2(in_g, 0.5)).x;\n    float out_b = texture2D(rgb_curve_points, vec2(in_b, 0.5)).x;\n\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  // r curves\n  if (r_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float out_r = texture2D(r_curve_points, vec2(in_r, 0.5)).x;\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n  }\n\n  // g curves\n  if (g_curve_enabled) {\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float out_g = texture2D(g_curve_points, vec2(in_g, 0.5)).x;\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n  }\n\n  // b curves\n  if (b_curve_enabled) {\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n    float out_b = texture2D(b_curve_points, vec2(in_b, 0.5)).x;\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  ////////////////////////////\n  ////  selective color   ////\n  ////////////////////////////\n\n  vec3 CYAN = vec3(0.0, 1.0, 1.0);\n  vec3 MAGENTA = vec3(1.0, 0.0, 1.0);\n  vec3 YELLOW = vec3(1.0, 1.0, 0.0);\n  vec3 BLACK = vec3(0.0, 0.0, 0.0);\n  vec3 RED = vec3(1.0, 0.0, 0.0);\n  vec3 GREEN = vec3(0.0, 1.0, 0.0);\n  vec3 BLUE = vec3(0.0, 0.0, 1.0);\n  vec3 WHITE = vec3(1.0, 1.0, 1.0);\n  vec3 GRAY = vec3(0.5, 0.5, 0.5);\n  float MAX_DISTANCE = length(vec3(1.0, 1.0, 1.0));\n\n  // cyans\n  float cyan_distance = length(CYAN - color.rgb);\n  float cyan_mix_factor = pow(1.0 - (cyan_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, cyan_mix_factor * cyans_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, cyan_mix_factor * cyans_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, cyan_mix_factor * cyans_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, cyan_mix_factor * cyans_black_shift);\n  color.rgb = mix(color.rgb, RED, cyan_mix_factor * cyans_red_shift);\n  color.rgb = mix(color.rgb, GREEN, cyan_mix_factor * cyans_green_shift);\n  color.rgb = mix(color.rgb, BLUE, cyan_mix_factor * cyans_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, cyan_mix_factor * cyans_white_shift);\n  color.rgb = mix(color.rgb, GRAY, cyan_mix_factor * cyans_gray_shift);\n\n  // magentas\n  float magenta_distance = length(MAGENTA - color.rgb);\n  float magenta_mix_factor = pow(1.0 - (magenta_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, magenta_mix_factor * magentas_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, magenta_mix_factor * magentas_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, magenta_mix_factor * magentas_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, magenta_mix_factor * magentas_black_shift);\n  color.rgb = mix(color.rgb, RED, magenta_mix_factor * magentas_red_shift);\n  color.rgb = mix(color.rgb, GREEN, magenta_mix_factor * magentas_green_shift);\n  color.rgb = mix(color.rgb, BLUE, magenta_mix_factor * magentas_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, magenta_mix_factor * magentas_white_shift);\n  color.rgb = mix(color.rgb, GRAY, magenta_mix_factor * magentas_gray_shift);\n\n  // yellows\n  float yellow_distance = length(YELLOW - color.rgb);\n  float yellow_mix_factor = pow(1.0 - (yellow_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, yellow_mix_factor * yellows_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, yellow_mix_factor * yellows_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, yellow_mix_factor * yellows_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, yellow_mix_factor * yellows_black_shift);\n  color.rgb = mix(color.rgb, RED, yellow_mix_factor * yellows_red_shift);\n  color.rgb = mix(color.rgb, GREEN, yellow_mix_factor * yellows_green_shift);\n  color.rgb = mix(color.rgb, BLUE, yellow_mix_factor * yellows_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, yellow_mix_factor * yellows_white_shift);\n  color.rgb = mix(color.rgb, GRAY, yellow_mix_factor * yellows_gray_shift);\n\n  // blacks\n  float black_distance = length(BLACK - color.rgb);\n  float black_mix_factor = pow(1.0 - (black_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, black_mix_factor * blacks_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, black_mix_factor * blacks_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, black_mix_factor * blacks_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, black_mix_factor * blacks_black_shift);\n  color.rgb = mix(color.rgb, RED, black_mix_factor * blacks_red_shift);\n  color.rgb = mix(color.rgb, GREEN, black_mix_factor * blacks_green_shift);\n  color.rgb = mix(color.rgb, BLUE, black_mix_factor * blacks_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, black_mix_factor * blacks_white_shift);\n  color.rgb = mix(color.rgb, GRAY, black_mix_factor * blacks_gray_shift);\n\n  // reds\n  float red_distance = length(RED - color.rgb);\n  float red_mix_factor = pow(1.0 - (red_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, red_mix_factor * reds_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, red_mix_factor * reds_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, red_mix_factor * reds_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, red_mix_factor * reds_black_shift);\n  color.rgb = mix(color.rgb, RED, red_mix_factor * reds_red_shift);\n  color.rgb = mix(color.rgb, GREEN, red_mix_factor * reds_green_shift);\n  color.rgb = mix(color.rgb, BLUE, red_mix_factor * reds_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, red_mix_factor * reds_white_shift);\n  color.rgb = mix(color.rgb, GRAY, red_mix_factor * reds_gray_shift);\n\n  // greens\n  float green_distance = length(GREEN - color.rgb);\n  float green_mix_factor = pow(1.0 - (green_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, green_mix_factor * greens_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, green_mix_factor * greens_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, green_mix_factor * greens_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, green_mix_factor * greens_black_shift);\n  color.rgb = mix(color.rgb, RED, green_mix_factor * greens_red_shift);\n  color.rgb = mix(color.rgb, GREEN, green_mix_factor * greens_green_shift);\n  color.rgb = mix(color.rgb, BLUE, green_mix_factor * greens_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, green_mix_factor * greens_white_shift);\n  color.rgb = mix(color.rgb, GRAY, green_mix_factor * greens_gray_shift);\n\n  // blues\n  float blue_distance = length(BLUE - color.rgb);\n  float blue_mix_factor = pow(1.0 - (blue_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, blue_mix_factor * blues_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, blue_mix_factor * blues_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, blue_mix_factor * blues_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, blue_mix_factor * blues_black_shift);\n  color.rgb = mix(color.rgb, RED, blue_mix_factor * blues_red_shift);\n  color.rgb = mix(color.rgb, GREEN, blue_mix_factor * blues_green_shift);\n  color.rgb = mix(color.rgb, BLUE, blue_mix_factor * blues_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, blue_mix_factor * blues_white_shift);\n  color.rgb = mix(color.rgb, GRAY, blue_mix_factor * blues_gray_shift);\n\n  // grays\n  float gray_distance = length(GRAY - color.rgb);\n  float gray_mix_factor = pow(1.0 - (gray_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, gray_mix_factor * grays_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, gray_mix_factor * grays_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, gray_mix_factor * grays_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, gray_mix_factor * grays_black_shift);\n  color.rgb = mix(color.rgb, RED, gray_mix_factor * grays_red_shift);\n  color.rgb = mix(color.rgb, GREEN, gray_mix_factor * grays_green_shift);\n  color.rgb = mix(color.rgb, BLUE, gray_mix_factor * grays_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, gray_mix_factor * grays_white_shift);\n  color.rgb = mix(color.rgb, GRAY, gray_mix_factor * grays_gray_shift);\n\n  // whites\n  float white_distance = length(WHITE - color.rgb);\n  float white_mix_factor = pow(1.0 - (white_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, white_mix_factor * whites_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, white_mix_factor * whites_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, white_mix_factor * whites_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, white_mix_factor * whites_black_shift);\n  color.rgb = mix(color.rgb, RED, white_mix_factor * whites_red_shift);\n  color.rgb = mix(color.rgb, GREEN, white_mix_factor * whites_green_shift);\n  color.rgb = mix(color.rgb, BLUE, white_mix_factor * whites_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, white_mix_factor * whites_white_shift);\n  color.rgb = mix(color.rgb, GRAY, white_mix_factor * whites_gray_shift);\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n"]));
     this.shader.attributes.position.location = 0;
     this.fbo = glFbo(gl, [gl.drawingBufferWidth, gl.drawingBufferHeight]);
     this.fbo.color[0].minFilter = gl.LINEAR;

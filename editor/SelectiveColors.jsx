@@ -2,7 +2,17 @@ const React = require("react");
 const _ = require("lodash");
 const ReactSlider = require("react-slider");
 
-const COLORS = ["cyans", "magentas", "yellows", "blacks", "reds"];
+const COLORS = [
+  "cyans",
+  "magentas",
+  "yellows",
+  "blacks",
+  "reds",
+  "greens",
+  "blues",
+  "grays",
+  "whites",
+];
 const SHIFTABLE = ["cyan", "magenta", "yellow", "black", "red", "green", "blue", "white", "gray"];
 
 class SelectiveColors extends React.Component {
@@ -10,7 +20,7 @@ class SelectiveColors extends React.Component {
     super(props);
 
     this.state = {
-      currentColor: "yellows",
+      currentColor: "cyans",
     };
   }
 

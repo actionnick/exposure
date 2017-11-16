@@ -114,6 +114,46 @@ uniform float reds_blue_shift;
 uniform float reds_gray_shift;
 uniform float reds_white_shift;
 
+uniform float greens_cyan_shift;
+uniform float greens_magenta_shift;
+uniform float greens_yellow_shift;
+uniform float greens_black_shift;
+uniform float greens_red_shift;
+uniform float greens_green_shift;
+uniform float greens_blue_shift;
+uniform float greens_gray_shift;
+uniform float greens_white_shift;
+
+uniform float blues_cyan_shift;
+uniform float blues_magenta_shift;
+uniform float blues_yellow_shift;
+uniform float blues_black_shift;
+uniform float blues_red_shift;
+uniform float blues_green_shift;
+uniform float blues_blue_shift;
+uniform float blues_gray_shift;
+uniform float blues_white_shift;
+
+uniform float grays_cyan_shift;
+uniform float grays_magenta_shift;
+uniform float grays_yellow_shift;
+uniform float grays_black_shift;
+uniform float grays_red_shift;
+uniform float grays_green_shift;
+uniform float grays_blue_shift;
+uniform float grays_gray_shift;
+uniform float grays_white_shift;
+
+uniform float whites_cyan_shift;
+uniform float whites_magenta_shift;
+uniform float whites_yellow_shift;
+uniform float whites_black_shift;
+uniform float whites_red_shift;
+uniform float whites_green_shift;
+uniform float whites_blue_shift;
+uniform float whites_gray_shift;
+uniform float whites_white_shift;
+
 void main() {
   vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));
   float alpha = color.a;
@@ -289,6 +329,62 @@ void main() {
   color.rgb = mix(color.rgb, BLUE, red_mix_factor * reds_blue_shift);
   color.rgb = mix(color.rgb, WHITE, red_mix_factor * reds_white_shift);
   color.rgb = mix(color.rgb, GRAY, red_mix_factor * reds_gray_shift);
+
+  // greens
+  float green_distance = length(GREEN - color.rgb);
+  float green_mix_factor = pow(1.0 - (green_distance / MAX_DISTANCE), 5.0);
+
+  color.rgb = mix(color.rgb, CYAN, green_mix_factor * greens_cyan_shift);
+  color.rgb = mix(color.rgb, MAGENTA, green_mix_factor * greens_magenta_shift);
+  color.rgb = mix(color.rgb, YELLOW, green_mix_factor * greens_yellow_shift);
+  color.rgb = mix(color.rgb, BLACK, green_mix_factor * greens_black_shift);
+  color.rgb = mix(color.rgb, RED, green_mix_factor * greens_red_shift);
+  color.rgb = mix(color.rgb, GREEN, green_mix_factor * greens_green_shift);
+  color.rgb = mix(color.rgb, BLUE, green_mix_factor * greens_blue_shift);
+  color.rgb = mix(color.rgb, WHITE, green_mix_factor * greens_white_shift);
+  color.rgb = mix(color.rgb, GRAY, green_mix_factor * greens_gray_shift);
+
+  // blues
+  float blue_distance = length(BLUE - color.rgb);
+  float blue_mix_factor = pow(1.0 - (blue_distance / MAX_DISTANCE), 5.0);
+
+  color.rgb = mix(color.rgb, CYAN, blue_mix_factor * blues_cyan_shift);
+  color.rgb = mix(color.rgb, MAGENTA, blue_mix_factor * blues_magenta_shift);
+  color.rgb = mix(color.rgb, YELLOW, blue_mix_factor * blues_yellow_shift);
+  color.rgb = mix(color.rgb, BLACK, blue_mix_factor * blues_black_shift);
+  color.rgb = mix(color.rgb, RED, blue_mix_factor * blues_red_shift);
+  color.rgb = mix(color.rgb, GREEN, blue_mix_factor * blues_green_shift);
+  color.rgb = mix(color.rgb, BLUE, blue_mix_factor * blues_blue_shift);
+  color.rgb = mix(color.rgb, WHITE, blue_mix_factor * blues_white_shift);
+  color.rgb = mix(color.rgb, GRAY, blue_mix_factor * blues_gray_shift);
+
+  // grays
+  float gray_distance = length(GRAY - color.rgb);
+  float gray_mix_factor = pow(1.0 - (gray_distance / MAX_DISTANCE), 5.0);
+
+  color.rgb = mix(color.rgb, CYAN, gray_mix_factor * grays_cyan_shift);
+  color.rgb = mix(color.rgb, MAGENTA, gray_mix_factor * grays_magenta_shift);
+  color.rgb = mix(color.rgb, YELLOW, gray_mix_factor * grays_yellow_shift);
+  color.rgb = mix(color.rgb, BLACK, gray_mix_factor * grays_black_shift);
+  color.rgb = mix(color.rgb, RED, gray_mix_factor * grays_red_shift);
+  color.rgb = mix(color.rgb, GREEN, gray_mix_factor * grays_green_shift);
+  color.rgb = mix(color.rgb, BLUE, gray_mix_factor * grays_blue_shift);
+  color.rgb = mix(color.rgb, WHITE, gray_mix_factor * grays_white_shift);
+  color.rgb = mix(color.rgb, GRAY, gray_mix_factor * grays_gray_shift);
+
+  // whites
+  float white_distance = length(WHITE - color.rgb);
+  float white_mix_factor = pow(1.0 - (white_distance / MAX_DISTANCE), 5.0);
+
+  color.rgb = mix(color.rgb, CYAN, white_mix_factor * whites_cyan_shift);
+  color.rgb = mix(color.rgb, MAGENTA, white_mix_factor * whites_magenta_shift);
+  color.rgb = mix(color.rgb, YELLOW, white_mix_factor * whites_yellow_shift);
+  color.rgb = mix(color.rgb, BLACK, white_mix_factor * whites_black_shift);
+  color.rgb = mix(color.rgb, RED, white_mix_factor * whites_red_shift);
+  color.rgb = mix(color.rgb, GREEN, white_mix_factor * whites_green_shift);
+  color.rgb = mix(color.rgb, BLUE, white_mix_factor * whites_blue_shift);
+  color.rgb = mix(color.rgb, WHITE, white_mix_factor * whites_white_shift);
+  color.rgb = mix(color.rgb, GRAY, white_mix_factor * whites_gray_shift);
 
   // always preserve alpha
   color.a = alpha;
