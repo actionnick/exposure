@@ -395,6 +395,12 @@ body {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
+  height: 80%;
+  margin-top: 10%;
+  overflow-y: scroll;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 10px 10px 20px -12px rgba(0, 0, 0, 0.75);
 }
 
 .about_modal #title {
