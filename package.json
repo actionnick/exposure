@@ -18,7 +18,7 @@
     "babel-preset-react": "~6.24.1",
     "babelify": "~8.0.0",
     "browserify": "~14.5.0",
-    "classnames": "^2.2.5",
+    "classnames": "~2.2.5",
     "create-react-class": "~15.6.2",
     "glslify": "~6.1.0",
     "grunt": "~1.0.1",
@@ -37,26 +37,22 @@
     "react-slider": "~0.9.0",
     "react-tools": "~0.13.3",
     "redux": "~3.7.2",
-    "redux-thunk": "~2.2.0",
-    "uuid": "~3.1.0"
+    "redux-thunk": "~2.2.0"
   },
   "dependencies": {
     "a-big-triangle": "~1.0.3",
-    "cat-rom-spline": "^1.0.0",
-    "downloadjs": "^1.4.7",
+    "cat-rom-spline": "~1.0.0",
+    "downloadjs": "~1.4.7",
     "gl-fbo": "~2.0.5",
     "gl-mat4": "~1.1.4",
     "gl-matrix": "~2.4.0",
     "gl-shader": "~4.2.1",
     "lodash": "~4.17.4",
     "pica": "~4.0.1",
-    "save-dev": "~2.0.0"
+    "uuid": "~3.1.0"
   },
   "engine": "node >= 0.10.0",
   "browserify": {
-    "transform": [
-      "babelify",
-      "glslify"
-    ]
+    "transform": ["babelify", "glslify"]
   }
 }

@@ -57933,6 +57933,19 @@ var ExposureSettings = function (_EventEmitter) {
     set: function set(val) {
       return this.setCurves(val, "_b_curves", "b_curve_enabled", "b_curve_points");
     }
+  }], [{
+    key: "defaultValues",
+    get: function get() {
+      var keys = _.keys(ExposureSettings.PROPS);
+      var json = {};
+      keys.forEach(function (key) {
+        if (!ExposureSettings.PROPS[key].internal) {
+          json[key] = ExposureSettings.PROPS[key].default;
+        }
+      });
+
+      return json;
+    }
   }]);
 
   return ExposureSettings;

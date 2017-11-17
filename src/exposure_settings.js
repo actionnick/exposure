@@ -722,6 +722,18 @@ class ExposureSettings extends EventEmitter {
     },
   };
 
+  static get defaultValues() {
+    var keys = _.keys(ExposureSettings.PROPS);
+    var json = {};
+    keys.forEach(key => {
+      if (!ExposureSettings.PROPS[key].internal) {
+        json[key] = ExposureSettings.PROPS[key].default;
+      }
+    });
+
+    return json;
+  }
+
   get updated() {
     if (!this._updated) {
       this._updated = _.throttle(() => this.emit("updated"), 500);
