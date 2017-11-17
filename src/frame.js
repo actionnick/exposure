@@ -6,6 +6,7 @@ const resizeImage = require("./resize_image");
 const createThumbnail = require("./create_thumbnail");
 const _ = require("lodash");
 const uuid = require("uuid");
+const download = require("downloadjs");
 
 const MAX_SIZE = 2500;
 const THUMBNAIL_SIZE = 300;
@@ -18,12 +19,11 @@ class Frame {
     this.gl = this.getGLContext(this.canvas);
     this.key = uuid.v4();
 
-    // TODO: Reimpliment resizing later
-    // if (img.width > MAX_SIZE || img.height > MAX_SIZE) {
-    //   resizeImage(img, MAX_SIZE, this.initWithImg.bind(this));
-    // } else {
     this.initWithImg(img);
-    // }
+  }
+
+  download(mime = "image/jpeg", fileName = "image.jpeg") {
+    download(this.canvas.toDataURL(mime), fileName, mime);
   }
 
   initWithImg(img) {

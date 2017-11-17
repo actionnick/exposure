@@ -739,10 +739,11 @@ class ExposureSettings extends EventEmitter {
 
   get json() {
     var keys = _.keys(ExposureSettings.PROPS);
-    var self = this;
     var json = {};
-    keys.forEach(function(key) {
-      json[key] = self[key];
+    keys.forEach(key => {
+      if (!ExposureSettings.PROPS[key].internal) {
+        json[key] = this[key];
+      }
     });
 
     return json;

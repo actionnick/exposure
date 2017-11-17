@@ -42,6 +42,8 @@
   },
   "dependencies": {
     "a-big-triangle": "~1.0.3",
+    "cat-rom-spline": "^1.0.0",
+    "downloadjs": "^1.4.7",
     "gl-fbo": "~2.0.5",
     "gl-mat4": "~1.1.4",
     "gl-matrix": "~2.4.0",

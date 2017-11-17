@@ -1,6 +1,6 @@
-var React = require("react");
-var FileInput = require("react-file-input");
-var Modal = require("react-modal");
+const React = require("react");
+const FileInput = require("react-file-input");
+const Modal = require("react-modal");
 
 class ImageStage extends React.Component {
   constructor(props) {
