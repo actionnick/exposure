@@ -1586,14 +1586,22 @@ function _toConsumableArray(arr) {
   }
 }
 
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+  } else {
+    obj[key] = value;
+  }return obj;
+}
+
 var _ = require("lodash");
 
-var initialState = {
+var initialState = _defineProperty({
   loading: false,
   frames: [],
   selectedFrame: null,
   settings: {}
-};
+}, "settings", []);
 
 var reducer = function reducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
@@ -58796,6 +58804,23 @@ var Filter = function () {
 
       _draw(gl);
     }
+  }, {
+    key: "settings",
+    get: function get() {
+      return this._settings;
+    },
+    set: function set(settings) {
+      var _this2 = this;
+
+      if (this._settings) {
+        this._settings.removeAllListeners("updated");
+      }
+
+      settings.addListener("updated", function () {
+        return _this2.draw();
+      });
+      this._settings = settings;
+    }
   }]);
 
   return Filter;
@@ -58859,8 +58884,6 @@ var Frame = function () {
   }, {
     key: "initWithImg",
     value: function initWithImg(img) {
-      var _this = this;
-
       var gl = this.gl;
 
       this.img = img;
@@ -58870,10 +58893,6 @@ var Frame = function () {
 
       // filter that will actually manipulate image in framebuffer
       this.filter = new Filter(gl, this.json);
-      this.settings = this.filter.settings;
-      this.settings.on("updated", function () {
-        return _this.filter.draw();
-      });
 
       // shader for drawing image
       this.shader = glShader(gl, glslify(["#define GLSLIFY 1\n#define GLSLIFY 1\nattribute vec3 position;\n\nuniform mat4 p_matrix;\nuniform mat4 mv_matrix;\n\nvarying vec2 uv;\n\nvoid main() {\n  gl_Position = p_matrix * mv_matrix * vec4(position, 1.0);\n  uv = position.xy;\n}\n"]), glslify(["precision highp float;\n#define GLSLIFY 1\n#define GLSLIFY 1\nvarying vec2 uv;\n\nuniform sampler2D texture;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(uv.s, uv.t));\n  gl_FragColor = color;\n}\n"]));
@@ -58943,6 +58962,14 @@ var Frame = function () {
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
       this.filter.draw();
+    }
+  }, {
+    key: "settings",
+    get: function get() {
+      return this.filter.settings;
+    },
+    set: function set(value) {
+      this.filter.settings = value;
     }
   }]);
 

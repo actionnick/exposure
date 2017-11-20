@@ -20,6 +20,19 @@ class Filter {
     this.fbo.color[0].magFilter = gl.LINEAR;
   }
 
+  get settings() {
+    return this._settings;
+  }
+
+  set settings(settings) {
+    if (this._settings) {
+      this._settings.removeAllListeners("updated");
+    }
+
+    settings.addListener("updated", () => this.draw());
+    this._settings = settings;
+  }
+
   bind() {
     this.fbo.bind();
     this.fbo.shape = [this.gl.drawingBufferWidth, this.gl.drawingBufferHeight];

@@ -22,6 +22,14 @@ class Frame {
     this.initWithImg(img);
   }
 
+  get settings() {
+    return this.filter.settings;
+  }
+
+  set settings(value) {
+    this.filter.settings = value;
+  }
+
   download(mime = "image/jpeg", fileName = "image.jpeg") {
     download(this.canvas.toDataURL(mime), fileName, mime);
   }
@@ -36,8 +44,6 @@ class Frame {
 
     // filter that will actually manipulate image in framebuffer
     this.filter = new Filter(gl, this.json);
-    this.settings = this.filter.settings;
-    this.settings.on("updated", () => this.filter.draw());
 
     // shader for drawing image
     this.shader = glShader(

@@ -5,6 +5,7 @@ const initialState = {
   frames: [],
   selectedFrame: null,
   settings: {},
+  settings: [],
 };
 
 const reducer = (state = initialState, action) => {
