@@ -60,37 +60,42 @@ var Controls = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      if (!this.props.frame) {
+      var _props = this.props,
+          frame = _props.frame,
+          actions = _props.actions,
+          settings = _props.settings;
+
+      if (!frame) {
         return null;
       }
 
-      var s = this.props.frame.settings;
+      var s = settings;
       var p = s.PROPS;
       return React.createElement("div", { id: "controls", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 34
         }
       }, React.createElement("div", { className: "controls-section", __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 35
         }
       }, React.createElement("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 36
         }
       }, "general"), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 38
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 39
         }
       }, "brightness"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 40
         }
       }, React.createElement(ReactSlider, {
         onChange: this.handleChange.bind(this, "brightness"),
@@ -99,20 +104,20 @@ var Controls = function (_React$Component) {
         defaultValue: s.brightness * 100,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 41
         }
       }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 50
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 51
         }
       }, "contrast"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 49
+          lineNumber: 52
         }
       }, React.createElement(ReactSlider, {
         onChange: this.handleChange.bind(this, "contrast"),
@@ -121,34 +126,34 @@ var Controls = function (_React$Component) {
         defaultValue: s.contrast * 100,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
+          lineNumber: 53
         }
       })))), React.createElement("div", { className: "controls-section", __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
+          lineNumber: 63
         }
       }, React.createElement("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 64
         }
       }, "levels"), React.createElement("h2", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62
+          lineNumber: 65
         }
       }, "rgb"), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 66
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 67
         }
       }, "in"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 68
         }
       }, React.createElement(ReactSlider, {
         onChange: this.handleChange.bind(this, "rgb_in_"),
@@ -157,20 +162,20 @@ var Controls = function (_React$Component) {
         defaultValue: [s.rgb_in_min * 100, s.rgb_in_max * 100],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 69
         }
       }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 74
+          lineNumber: 77
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 75
+          lineNumber: 78
         }
       }, "out"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 76
+          lineNumber: 79
         }
       }, React.createElement(ReactSlider, {
         onChange: this.handleChange.bind(this, "rgb_out_"),
@@ -179,20 +184,20 @@ var Controls = function (_React$Component) {
         defaultValue: [s.rgb_out_min * 100, s.rgb_out_max * 100],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 80
         }
       }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 85
+          lineNumber: 88
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 86
+          lineNumber: 89
         }
       }, "gamma"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 87
+          lineNumber: 90
         }
       }, React.createElement(ReactSlider, {
         onChange: this.handleChange.bind(this, "rgb_gamma"),
@@ -201,25 +206,25 @@ var Controls = function (_React$Component) {
         defaultValue: s.rgb_gamma * 100,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 88
+          lineNumber: 91
         }
       }))), React.createElement("h2", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 100
         }
       }, "red"), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 98
+          lineNumber: 101
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 99
+          lineNumber: 102
         }
       }, "in"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 100
+          lineNumber: 103
         }
       }, React.createElement(ReactSlider, {
         className: "slider red",
@@ -229,20 +234,20 @@ var Controls = function (_React$Component) {
         defaultValue: [s.r_in_min * 100, s.r_in_max * 100],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 101
+          lineNumber: 104
         }
       }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 110
+          lineNumber: 113
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 111
+          lineNumber: 114
         }
       }, "out"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 112
+          lineNumber: 115
         }
       }, React.createElement(ReactSlider, {
         className: "slider red",
@@ -252,20 +257,20 @@ var Controls = function (_React$Component) {
         defaultValue: [s.r_out_min * 100, s.r_out_max * 100],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 113
+          lineNumber: 116
         }
       }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 122
+          lineNumber: 125
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 123
+          lineNumber: 126
         }
       }, "gamma"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 124
+          lineNumber: 127
         }
       }, React.createElement(ReactSlider, {
         className: "slider red",
@@ -275,25 +280,25 @@ var Controls = function (_React$Component) {
         defaultValue: s.r_gamma * 100,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 125
+          lineNumber: 128
         }
       }))), React.createElement("h2", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 135
+          lineNumber: 138
         }
       }, "green"), React.createElement("div", { className: "green slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 136
+          lineNumber: 139
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 137
+          lineNumber: 140
         }
       }, "in"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 141
         }
       }, React.createElement(ReactSlider, {
         className: "slider green",
@@ -303,20 +308,20 @@ var Controls = function (_React$Component) {
         defaultValue: [s.g_in_min * 100, s.g_in_max * 100],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 139
+          lineNumber: 142
         }
       }))), React.createElement("div", { className: "green slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 148
+          lineNumber: 151
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 149
+          lineNumber: 152
         }
       }, "out"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 150
+          lineNumber: 153
         }
       }, React.createElement(ReactSlider, {
         className: "slider green",
@@ -326,20 +331,20 @@ var Controls = function (_React$Component) {
         defaultValue: [s.g_out_min * 100, s.g_out_max * 100],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 151
+          lineNumber: 154
         }
       }))), React.createElement("div", { className: "green slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 160
+          lineNumber: 163
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 161
+          lineNumber: 164
         }
       }, "gamma"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 162
+          lineNumber: 165
         }
       }, React.createElement(ReactSlider, {
         className: "slider green",
@@ -349,25 +354,25 @@ var Controls = function (_React$Component) {
         defaultValue: s.g_gamma * 100,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 163
+          lineNumber: 166
         }
       }))), React.createElement("h2", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 173
+          lineNumber: 176
         }
       }, "blue"), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 174
+          lineNumber: 177
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 175
+          lineNumber: 178
         }
       }, "in"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 176
+          lineNumber: 179
         }
       }, React.createElement(ReactSlider, {
         className: "slider blue",
@@ -377,20 +382,20 @@ var Controls = function (_React$Component) {
         defaultValue: [s.b_in_min * 100, s.b_in_max * 100],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 177
+          lineNumber: 180
         }
       }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 186
+          lineNumber: 189
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 187
+          lineNumber: 190
         }
       }, "out"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 188
+          lineNumber: 191
         }
       }, React.createElement(ReactSlider, {
         className: "slider blue",
@@ -400,20 +405,20 @@ var Controls = function (_React$Component) {
         defaultValue: [s.b_out_min * 100, s.b_out_max * 100],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 189
+          lineNumber: 192
         }
       }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 198
+          lineNumber: 201
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 199
+          lineNumber: 202
         }
       }, "gamma"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 200
+          lineNumber: 203
         }
       }, React.createElement(ReactSlider, {
         className: "slider blue",
@@ -423,32 +428,23 @@ var Controls = function (_React$Component) {
         defaultValue: s.b_gamma * 100,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 201
+          lineNumber: 204
         }
       })))), React.createElement("div", { className: "controls-section", __source: {
           fileName: _jsxFileName,
-          lineNumber: 212
+          lineNumber: 215
         }
       }, React.createElement("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 213
+          lineNumber: 216
         }
       }, "curves"), React.createElement("h2", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 214
-        }
-      }, "rgb"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, color: "rgb", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 215
-        }
-      }), React.createElement("h2", {
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 217
         }
-      }, "red"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, color: "r", __source: {
+      }, "rgb"), React.createElement(Curves, { actions: actions, settings: settings, color: "rgb", __source: {
           fileName: _jsxFileName,
           lineNumber: 218
         }
@@ -457,7 +453,7 @@ var Controls = function (_React$Component) {
           fileName: _jsxFileName,
           lineNumber: 220
         }
-      }, "green"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, color: "g", __source: {
+      }, "red"), React.createElement(Curves, { actions: actions, settings: settings, color: "r", __source: {
           fileName: _jsxFileName,
           lineNumber: 221
         }
@@ -466,22 +462,31 @@ var Controls = function (_React$Component) {
           fileName: _jsxFileName,
           lineNumber: 223
         }
-      }, "blue"), React.createElement(Curves, { frame: this.props.frame, actions: this.props.actions, color: "b", __source: {
+      }, "green"), React.createElement(Curves, { actions: actions, settings: settings, color: "g", __source: {
           fileName: _jsxFileName,
           lineNumber: 224
         }
-      })), React.createElement("div", { className: "controls-section", __source: {
+      }), React.createElement("h2", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 226
+        }
+      }, "blue"), React.createElement(Curves, { actions: actions, settings: settings, color: "b", __source: {
           fileName: _jsxFileName,
           lineNumber: 227
+        }
+      })), React.createElement("div", { className: "controls-section", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 230
         }
       }, React.createElement("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 228
+          lineNumber: 231
         }
-      }, "selective color"), React.createElement(SelectiveColors, { frame: this.props.frame, actions: this.props.actions, __source: {
+      }, "selective color"), React.createElement(SelectiveColors, { frame: frame, actions: actions, settings: settings, __source: {
           fileName: _jsxFileName,
-          lineNumber: 229
+          lineNumber: 232
         }
       })));
     }
@@ -492,7 +497,8 @@ var Controls = function (_React$Component) {
 
 Controls.propTypes = {
   frame: React.PropTypes.object,
-  actions: React.PropTypes.object.isRequired
+  actions: React.PropTypes.object.isRequired,
+  settings: React.PropTypes.object
 };
 
 module.exports = Controls;
@@ -646,7 +652,7 @@ var Curves = function (_React$Component) {
     value: function getControlPoints() {
       var _this2 = this;
 
-      var settings = this.props.frame.settings;
+      var settings = this.props.settings;
       var controlPointsIdentifier = SETTINGS[this.props.color].controlPointsIdentifier;
 
       return settings[controlPointsIdentifier].map(function (_ref3, index) {
@@ -681,7 +687,7 @@ var Curves = function (_React$Component) {
   }, {
     key: "getPlotPoints",
     value: function getPlotPoints() {
-      var settings = this.props.frame.settings;
+      var settings = this.props.settings;
       var pointsIdentifier = SETTINGS[this.props.color].pointsIdentifier;
 
       if (_.isEmpty(settings[pointsIdentifier])) {
@@ -804,7 +810,7 @@ var Curves = function (_React$Component) {
 }(React.Component);
 
 Curves.propTypes = {
-  frame: React.PropTypes.object,
+  settings: React.PropTypes.object,
   actions: React.PropTypes.object.isRequired,
   color: React.PropTypes.string.isRequired
 };
@@ -855,6 +861,7 @@ var Controls = require("./Controls.jsx");
 var _ = require("lodash");
 var uuid = require("uuid");
 var Frame = require("../src/frame");
+var ExposureSettings = require("../src/exposure_settings");
 
 var mapStateToProps = function mapStateToProps(state) {
   return state;
@@ -894,6 +901,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
       },
       removeControlPoint: function removeControlPoint(index, controlPointsIdentifier) {
         return dispatch({ type: "REMOVE_CONTROL_POINT", index: index, controlPointsIdentifier: controlPointsIdentifier });
+      },
+      addSettings: function addSettings() {
+        return dispatch({ type: "SETTINGS_ADDED", settings: new ExposureSettings() });
+      },
+      changeSettings: function changeSettings(index) {
+        return dispatch({ type: "SETTINGS_CHANGED", index: index });
       }
     }
   };
@@ -914,31 +927,32 @@ var ExposureApp = function (_React$Component) {
       var _props = this.props,
           frames = _props.frames,
           selectedFrame = _props.selectedFrame,
-          actions = _props.actions;
+          actions = _props.actions,
+          currentSettings = _props.currentSettings;
 
       return React.createElement("div", { id: "main", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 57
         }
       }, React.createElement("div", { id: "top", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 58
         }
       }, React.createElement("div", { id: "logo", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 59
         }
       })), React.createElement("div", { id: "middle", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 61
         }
       }, React.createElement(ImageList, { frames: frames, selectedFrame: selectedFrame, actions: actions, __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 62
         }
       }), React.createElement("div", { id: "current-image", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 63
         }
       }, React.createElement(ImageStage, {
         actions: actions,
@@ -946,11 +960,11 @@ var ExposureApp = function (_React$Component) {
         webGLSupported: Modernizr.webgl,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 64
         }
-      })), React.createElement(Controls, { frame: selectedFrame, actions: actions, __source: {
+      })), React.createElement(Controls, { frame: selectedFrame, settings: currentSettings, actions: actions, __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 71
         }
       })));
     }
@@ -961,12 +975,14 @@ var ExposureApp = function (_React$Component) {
 
 ExposureApp.propTypes = {
   frames: React.PropTypes.array,
-  selectedFrame: React.PropTypes.object
+  selectedFrame: React.PropTypes.object,
+  settings: React.PropTypes.array,
+  currentSettings: React.PropTypes.object
 };
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(ExposureApp);
 
-},{"../src/frame":363,"./Controls.jsx":1,"./ImageList.jsx":4,"./ImageStage.jsx":5,"lodash":119,"react":331,"react-redux":299,"uuid":349}],4:[function(require,module,exports){
+},{"../src/exposure_settings":361,"../src/frame":363,"./Controls.jsx":1,"./ImageList.jsx":4,"./ImageStage.jsx":5,"lodash":119,"react":331,"react-redux":299,"uuid":349}],4:[function(require,module,exports){
 "use strict";
 
 var _jsxFileName = "/Users/nick/projects/exposure/editor/ImageList.jsx";
@@ -1413,11 +1429,11 @@ var SelectiveColors = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var s = this.props.frame.settings;
+      var s = this.props.settings;
 
       return React.createElement("div", { className: "selective-colors", __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 45
         }
       }, React.createElement("select", {
         name: "colors",
@@ -1428,27 +1444,27 @@ var SelectiveColors = function (_React$Component) {
         className: this.state.currentColor,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 46
         }
       }, COLORS.map(function (color) {
         return React.createElement("option", { key: color, value: color, __source: {
             fileName: _jsxFileName,
-            lineNumber: 52
+            lineNumber: 53
           }
         }, color);
       })), SHIFTABLE.map(function (color) {
         return React.createElement("div", { key: color + "-" + _this2.state.currentColor, className: "slider-layout", __source: {
             fileName: _jsxFileName,
-            lineNumber: 59
+            lineNumber: 60
           }
         }, React.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 60
+            lineNumber: 61
           }
         }, color), React.createElement("div", { className: "slider-container centering-parent", __source: {
             fileName: _jsxFileName,
-            lineNumber: 61
+            lineNumber: 62
           }
         }, React.createElement(ReactSlider, {
           onChange: _this2.handleChange.bind(_this2, _this2.state.currentColor + "_" + color + "_shift"),
@@ -1457,7 +1473,7 @@ var SelectiveColors = function (_React$Component) {
           defaultValue: s[_this2.state.currentColor + "_" + color + "_shift"] * 100,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 62
+            lineNumber: 63
           }
         })));
       }));
@@ -1469,6 +1485,7 @@ var SelectiveColors = function (_React$Component) {
 
 SelectiveColors.propTypes = {
   frame: React.PropTypes.object,
+  settings: React.PropTypes.object,
   actions: React.PropTypes.object.isRequired
 };
 
@@ -1586,22 +1603,16 @@ function _toConsumableArray(arr) {
   }
 }
 
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
-  } else {
-    obj[key] = value;
-  }return obj;
-}
-
 var _ = require("lodash");
 
-var initialState = _defineProperty({
+var initialState = {
   loading: false,
   frames: [],
   selectedFrame: null,
-  settings: {}
-}, "settings", []);
+  settings: [],
+  currentSettings: null,
+  settingsJson: null
+};
 
 var reducer = function reducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
@@ -1616,8 +1627,22 @@ var reducer = function reducer() {
     newState.frames.unshift(frame);
     newState.selectedFrame = frame;
     newState.loading = false;
+
+    if (newState.currentSettings) {
+      newState.selectedFrame.settings = newState.currentSettings;
+    } else {
+      newState.currentSettings = newState.selectedFrame.settings;
+      newState.settings.push(newState.currentSettings);
+    }
   } else if (action.type === "FRAME_SELECTED") {
     newState.selectedFrame = _.find(newState.frames, ["key", action.key]);
+
+    if (newState.currentSettings) {
+      newState.selectedFrame.settings = newState.currentSettings;
+    } else {
+      newState.currentSettings = newState.selectedFrame.settings;
+      newState.settings.push(newState.currentSettings);
+    }
   } else if (action.type === "INPUTS_CHANGED") {
     newState.selectedFrame.settings[action.key] = action.value;
   } else if (action.type === "ADD_POINT") {
@@ -1630,12 +1655,17 @@ var reducer = function reducer() {
     var _newPoints = newState.selectedFrame.settings[action.controlPointsIdentifier];
     _newPoints.splice(action.index, 1);
     newState.selectedFrame.settings[action.controlPointsIdentifier] = _newPoints;
+  } else if (action.type === "SETTINGS_ADDED") {
+    newState.settings.push(action.settings);
+    newState.currentSettings = action.settings;
+    newState.selectedFrame.settings = newState.currentSettings;
+  } else if (action.type === "SETTINGS_CHANGED") {
+    newState.currentSettings = newState.settings[action.index];
+    newState.selectedFrame.settings = newState.currentSettings;
   }
 
-  window.selectedFrame = newState.selectedFrame;
-
-  if (newState.selectedFrame) {
-    newState.settings = newState.selectedFrame.settings.json;
+  if (newState.currentSettings) {
+    newState.settingsJson = newState.currentSettings.json;
   }
 
   return newState;
@@ -58750,13 +58780,14 @@ var Filter = function () {
   function Filter(gl, json) {
     _classCallCheck(this, Filter);
 
-    this.settings = new ExposureSettings(json);
     this.gl = gl;
     this.shader = glShader(this.gl, glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}"]), glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\nvarying vec2 screenPosition;\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\n// these control the curves settings\n// each texture represents the mapping of color values\nuniform sampler2D rgb_curve_points;\nuniform bool rgb_curve_enabled;\n\nuniform sampler2D r_curve_points;\nuniform bool r_curve_enabled;\n\nuniform sampler2D g_curve_points;\nuniform bool g_curve_enabled;\n\nuniform sampler2D b_curve_points;\nuniform bool b_curve_enabled;\n\n// selective color controls\nuniform float cyans_cyan_shift;\nuniform float cyans_magenta_shift;\nuniform float cyans_yellow_shift;\nuniform float cyans_black_shift;\nuniform float cyans_red_shift;\nuniform float cyans_green_shift;\nuniform float cyans_blue_shift;\nuniform float cyans_gray_shift;\nuniform float cyans_white_shift;\n\nuniform float magentas_cyan_shift;\nuniform float magentas_magenta_shift;\nuniform float magentas_yellow_shift;\nuniform float magentas_black_shift;\nuniform float magentas_red_shift;\nuniform float magentas_green_shift;\nuniform float magentas_blue_shift;\nuniform float magentas_gray_shift;\nuniform float magentas_white_shift;\n\nuniform float yellows_cyan_shift;\nuniform float yellows_magenta_shift;\nuniform float yellows_yellow_shift;\nuniform float yellows_black_shift;\nuniform float yellows_red_shift;\nuniform float yellows_green_shift;\nuniform float yellows_blue_shift;\nuniform float yellows_gray_shift;\nuniform float yellows_white_shift;\n\nuniform float blacks_cyan_shift;\nuniform float blacks_magenta_shift;\nuniform float blacks_yellow_shift;\nuniform float blacks_black_shift;\nuniform float blacks_red_shift;\nuniform float blacks_green_shift;\nuniform float blacks_blue_shift;\nuniform float blacks_gray_shift;\nuniform float blacks_white_shift;\n\nuniform float reds_cyan_shift;\nuniform float reds_magenta_shift;\nuniform float reds_yellow_shift;\nuniform float reds_black_shift;\nuniform float reds_red_shift;\nuniform float reds_green_shift;\nuniform float reds_blue_shift;\nuniform float reds_gray_shift;\nuniform float reds_white_shift;\n\nuniform float greens_cyan_shift;\nuniform float greens_magenta_shift;\nuniform float greens_yellow_shift;\nuniform float greens_black_shift;\nuniform float greens_red_shift;\nuniform float greens_green_shift;\nuniform float greens_blue_shift;\nuniform float greens_gray_shift;\nuniform float greens_white_shift;\n\nuniform float blues_cyan_shift;\nuniform float blues_magenta_shift;\nuniform float blues_yellow_shift;\nuniform float blues_black_shift;\nuniform float blues_red_shift;\nuniform float blues_green_shift;\nuniform float blues_blue_shift;\nuniform float blues_gray_shift;\nuniform float blues_white_shift;\n\nuniform float grays_cyan_shift;\nuniform float grays_magenta_shift;\nuniform float grays_yellow_shift;\nuniform float grays_black_shift;\nuniform float grays_red_shift;\nuniform float grays_green_shift;\nuniform float grays_blue_shift;\nuniform float grays_gray_shift;\nuniform float grays_white_shift;\n\nuniform float whites_cyan_shift;\nuniform float whites_magenta_shift;\nuniform float whites_yellow_shift;\nuniform float whites_black_shift;\nuniform float whites_red_shift;\nuniform float whites_green_shift;\nuniform float whites_blue_shift;\nuniform float whites_gray_shift;\nuniform float whites_white_shift;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n  color.a = 1.0;\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n  color.a = 1.0;\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n  color.a = 1.0;\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n  color.a = 1.0;\n\n  // Then adjust channels seperately\n  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);\n  color.r = pow(color.r, (1.0 / r_gamma));\n  color.r = mix(r_out_min, r_out_max, color.r);\n  color.a = 1.0;\n\n  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);\n  color.g = pow(color.g, (1.0 / g_gamma));\n  color.g = mix(g_out_min, g_out_max, color.g);\n  color.a = 1.0;\n\n  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);\n  color.b = pow(color.b, (1.0 / b_gamma));\n  color.b = mix(b_out_min, b_out_max, color.b);\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////   curves   /////////\n  ////////////////////////////\n\n  // rgb curves\n  if (rgb_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n\n    float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;\n    float out_g = texture2D(rgb_curve_points, vec2(in_g, 0.5)).x;\n    float out_b = texture2D(rgb_curve_points, vec2(in_b, 0.5)).x;\n\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  // r curves\n  if (r_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float out_r = texture2D(r_curve_points, vec2(in_r, 0.5)).x;\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n  }\n\n  // g curves\n  if (g_curve_enabled) {\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float out_g = texture2D(g_curve_points, vec2(in_g, 0.5)).x;\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n  }\n\n  // b curves\n  if (b_curve_enabled) {\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n    float out_b = texture2D(b_curve_points, vec2(in_b, 0.5)).x;\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  ////////////////////////////\n  ////  selective color   ////\n  ////////////////////////////\n\n  vec3 CYAN = vec3(0.0, 1.0, 1.0);\n  vec3 MAGENTA = vec3(1.0, 0.0, 1.0);\n  vec3 YELLOW = vec3(1.0, 1.0, 0.0);\n  vec3 BLACK = vec3(0.0, 0.0, 0.0);\n  vec3 RED = vec3(1.0, 0.0, 0.0);\n  vec3 GREEN = vec3(0.0, 1.0, 0.0);\n  vec3 BLUE = vec3(0.0, 0.0, 1.0);\n  vec3 WHITE = vec3(1.0, 1.0, 1.0);\n  vec3 GRAY = vec3(0.5, 0.5, 0.5);\n  float MAX_DISTANCE = length(vec3(1.0, 1.0, 1.0));\n\n  // cyans\n  float cyan_distance = length(CYAN - color.rgb);\n  float cyan_mix_factor = pow(1.0 - (cyan_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, cyan_mix_factor * cyans_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, cyan_mix_factor * cyans_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, cyan_mix_factor * cyans_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, cyan_mix_factor * cyans_black_shift);\n  color.rgb = mix(color.rgb, RED, cyan_mix_factor * cyans_red_shift);\n  color.rgb = mix(color.rgb, GREEN, cyan_mix_factor * cyans_green_shift);\n  color.rgb = mix(color.rgb, BLUE, cyan_mix_factor * cyans_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, cyan_mix_factor * cyans_white_shift);\n  color.rgb = mix(color.rgb, GRAY, cyan_mix_factor * cyans_gray_shift);\n\n  // magentas\n  float magenta_distance = length(MAGENTA - color.rgb);\n  float magenta_mix_factor = pow(1.0 - (magenta_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, magenta_mix_factor * magentas_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, magenta_mix_factor * magentas_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, magenta_mix_factor * magentas_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, magenta_mix_factor * magentas_black_shift);\n  color.rgb = mix(color.rgb, RED, magenta_mix_factor * magentas_red_shift);\n  color.rgb = mix(color.rgb, GREEN, magenta_mix_factor * magentas_green_shift);\n  color.rgb = mix(color.rgb, BLUE, magenta_mix_factor * magentas_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, magenta_mix_factor * magentas_white_shift);\n  color.rgb = mix(color.rgb, GRAY, magenta_mix_factor * magentas_gray_shift);\n\n  // yellows\n  float yellow_distance = length(YELLOW - color.rgb);\n  float yellow_mix_factor = pow(1.0 - (yellow_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, yellow_mix_factor * yellows_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, yellow_mix_factor * yellows_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, yellow_mix_factor * yellows_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, yellow_mix_factor * yellows_black_shift);\n  color.rgb = mix(color.rgb, RED, yellow_mix_factor * yellows_red_shift);\n  color.rgb = mix(color.rgb, GREEN, yellow_mix_factor * yellows_green_shift);\n  color.rgb = mix(color.rgb, BLUE, yellow_mix_factor * yellows_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, yellow_mix_factor * yellows_white_shift);\n  color.rgb = mix(color.rgb, GRAY, yellow_mix_factor * yellows_gray_shift);\n\n  // blacks\n  float black_distance = length(BLACK - color.rgb);\n  float black_mix_factor = pow(1.0 - (black_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, black_mix_factor * blacks_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, black_mix_factor * blacks_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, black_mix_factor * blacks_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, black_mix_factor * blacks_black_shift);\n  color.rgb = mix(color.rgb, RED, black_mix_factor * blacks_red_shift);\n  color.rgb = mix(color.rgb, GREEN, black_mix_factor * blacks_green_shift);\n  color.rgb = mix(color.rgb, BLUE, black_mix_factor * blacks_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, black_mix_factor * blacks_white_shift);\n  color.rgb = mix(color.rgb, GRAY, black_mix_factor * blacks_gray_shift);\n\n  // reds\n  float red_distance = length(RED - color.rgb);\n  float red_mix_factor = pow(1.0 - (red_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, red_mix_factor * reds_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, red_mix_factor * reds_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, red_mix_factor * reds_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, red_mix_factor * reds_black_shift);\n  color.rgb = mix(color.rgb, RED, red_mix_factor * reds_red_shift);\n  color.rgb = mix(color.rgb, GREEN, red_mix_factor * reds_green_shift);\n  color.rgb = mix(color.rgb, BLUE, red_mix_factor * reds_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, red_mix_factor * reds_white_shift);\n  color.rgb = mix(color.rgb, GRAY, red_mix_factor * reds_gray_shift);\n\n  // greens\n  float green_distance = length(GREEN - color.rgb);\n  float green_mix_factor = pow(1.0 - (green_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, green_mix_factor * greens_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, green_mix_factor * greens_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, green_mix_factor * greens_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, green_mix_factor * greens_black_shift);\n  color.rgb = mix(color.rgb, RED, green_mix_factor * greens_red_shift);\n  color.rgb = mix(color.rgb, GREEN, green_mix_factor * greens_green_shift);\n  color.rgb = mix(color.rgb, BLUE, green_mix_factor * greens_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, green_mix_factor * greens_white_shift);\n  color.rgb = mix(color.rgb, GRAY, green_mix_factor * greens_gray_shift);\n\n  // blues\n  float blue_distance = length(BLUE - color.rgb);\n  float blue_mix_factor = pow(1.0 - (blue_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, blue_mix_factor * blues_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, blue_mix_factor * blues_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, blue_mix_factor * blues_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, blue_mix_factor * blues_black_shift);\n  color.rgb = mix(color.rgb, RED, blue_mix_factor * blues_red_shift);\n  color.rgb = mix(color.rgb, GREEN, blue_mix_factor * blues_green_shift);\n  color.rgb = mix(color.rgb, BLUE, blue_mix_factor * blues_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, blue_mix_factor * blues_white_shift);\n  color.rgb = mix(color.rgb, GRAY, blue_mix_factor * blues_gray_shift);\n\n  // grays\n  float gray_distance = length(GRAY - color.rgb);\n  float gray_mix_factor = pow(1.0 - (gray_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, gray_mix_factor * grays_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, gray_mix_factor * grays_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, gray_mix_factor * grays_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, gray_mix_factor * grays_black_shift);\n  color.rgb = mix(color.rgb, RED, gray_mix_factor * grays_red_shift);\n  color.rgb = mix(color.rgb, GREEN, gray_mix_factor * grays_green_shift);\n  color.rgb = mix(color.rgb, BLUE, gray_mix_factor * grays_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, gray_mix_factor * grays_white_shift);\n  color.rgb = mix(color.rgb, GRAY, gray_mix_factor * grays_gray_shift);\n\n  // whites\n  float white_distance = length(WHITE - color.rgb);\n  float white_mix_factor = pow(1.0 - (white_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, white_mix_factor * whites_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, white_mix_factor * whites_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, white_mix_factor * whites_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, white_mix_factor * whites_black_shift);\n  color.rgb = mix(color.rgb, RED, white_mix_factor * whites_red_shift);\n  color.rgb = mix(color.rgb, GREEN, white_mix_factor * whites_green_shift);\n  color.rgb = mix(color.rgb, BLUE, white_mix_factor * whites_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, white_mix_factor * whites_white_shift);\n  color.rgb = mix(color.rgb, GRAY, white_mix_factor * whites_gray_shift);\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n"]));
     this.shader.attributes.position.location = 0;
     this.fbo = glFbo(gl, [gl.drawingBufferWidth, gl.drawingBufferHeight]);
     this.fbo.color[0].minFilter = gl.LINEAR;
     this.fbo.color[0].magFilter = gl.LINEAR;
+
+    this.settings = new ExposureSettings(json);
   }
 
   _createClass(Filter, [{
@@ -58820,6 +58851,7 @@ var Filter = function () {
         return _this2.draw();
       });
       this._settings = settings;
+      this.draw();
     }
   }]);
 

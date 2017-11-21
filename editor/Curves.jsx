@@ -34,7 +34,7 @@ class Curves extends React.Component {
   }
 
   static propTypes = {
-    frame: React.PropTypes.object,
+    settings: React.PropTypes.object,
     actions: React.PropTypes.object.isRequired,
     color: React.PropTypes.string.isRequired,
   };
@@ -77,7 +77,7 @@ class Curves extends React.Component {
   }
 
   getControlPoints() {
-    const settings = this.props.frame.settings;
+    const settings = this.props.settings;
     const controlPointsIdentifier = SETTINGS[this.props.color].controlPointsIdentifier;
 
     return settings[controlPointsIdentifier].map(([x, y], index) => (
@@ -97,7 +97,7 @@ class Curves extends React.Component {
   }
 
   getPlotPoints() {
-    const settings = this.props.frame.settings;
+    const settings = this.props.settings;
     const pointsIdentifier = SETTINGS[this.props.color].pointsIdentifier;
 
     if (_.isEmpty(settings[pointsIdentifier])) {

@@ -7,7 +7,6 @@ var _ = require("lodash");
 
 class Filter {
   constructor(gl, json) {
-    this.settings = new ExposureSettings(json);
     this.gl = gl;
     this.shader = glShader(
       this.gl,
@@ -18,6 +17,8 @@ class Filter {
     this.fbo = glFbo(gl, [gl.drawingBufferWidth, gl.drawingBufferHeight]);
     this.fbo.color[0].minFilter = gl.LINEAR;
     this.fbo.color[0].magFilter = gl.LINEAR;
+
+    this.settings = new ExposureSettings(json);
   }
 
   get settings() {
@@ -31,6 +32,7 @@ class Filter {
 
     settings.addListener("updated", () => this.draw());
     this._settings = settings;
+    this.draw();
   }
 
   bind() {

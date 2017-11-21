@@ -6,6 +6,7 @@ const Controls = require("./Controls.jsx");
 const _ = require("lodash");
 const uuid = require("uuid");
 const Frame = require("../src/frame");
+const ExposureSettings = require("../src/exposure_settings");
 
 const mapStateToProps = state => state;
 
@@ -35,6 +36,8 @@ const mapDispatchToProps = dispatch => {
         dispatch({ type: "MOVE_CONTROL_POINT", index, x, y, controlPointsIdentifier }),
       removeControlPoint: (index, controlPointsIdentifier) =>
         dispatch({ type: "REMOVE_CONTROL_POINT", index, controlPointsIdentifier }),
+      addSettings: () => dispatch({ type: "SETTINGS_ADDED", settings: new ExposureSettings() }),
+      changeSettings: index => dispatch({ type: "SETTINGS_CHANGED", index }),
     },
   };
 };
@@ -43,10 +46,12 @@ class ExposureApp extends React.Component {
   static propTypes = {
     frames: React.PropTypes.array,
     selectedFrame: React.PropTypes.object,
+    settings: React.PropTypes.array,
+    currentSettings: React.PropTypes.object,
   };
 
   render() {
-    const { frames, selectedFrame, actions } = this.props;
+    const { frames, selectedFrame, actions, currentSettings } = this.props;
 
     return (
       <div id="main" className="no-buffer">
@@ -63,7 +68,7 @@ class ExposureApp extends React.Component {
             />
           </div>
 
-          <Controls frame={selectedFrame} actions={actions} />
+          <Controls frame={selectedFrame} settings={currentSettings} actions={actions} />
         </div>
       </div>
     );

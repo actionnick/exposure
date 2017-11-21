@@ -7,6 +7,7 @@ class Controls extends React.Component {
   static propTypes = {
     frame: React.PropTypes.object,
     actions: React.PropTypes.object.isRequired,
+    settings: React.PropTypes.object,
   };
 
   handleChange(key, value) {
@@ -21,11 +22,13 @@ class Controls extends React.Component {
   }
 
   render() {
-    if (!this.props.frame) {
+    const { frame, actions, settings } = this.props;
+
+    if (!frame) {
       return null;
     }
 
-    var s = this.props.frame.settings;
+    var s = settings;
     var p = s.PROPS;
     return (
       <div id="controls" className="no-buffer">
@@ -212,21 +215,21 @@ class Controls extends React.Component {
         <div className="controls-section">
           <h1>curves</h1>
           <h2>rgb</h2>
-          <Curves frame={this.props.frame} actions={this.props.actions} color="rgb" />
+          <Curves actions={actions} settings={settings} color="rgb" />
 
           <h2>red</h2>
-          <Curves frame={this.props.frame} actions={this.props.actions} color="r" />
+          <Curves actions={actions} settings={settings} color="r" />
 
           <h2>green</h2>
-          <Curves frame={this.props.frame} actions={this.props.actions} color="g" />
+          <Curves actions={actions} settings={settings} color="g" />
 
           <h2>blue</h2>
-          <Curves frame={this.props.frame} actions={this.props.actions} color="b" />
+          <Curves actions={actions} settings={settings} color="b" />
         </div>
 
         <div className="controls-section">
           <h1>selective color</h1>
-          <SelectiveColors frame={this.props.frame} actions={this.props.actions} />
+          <SelectiveColors frame={frame} actions={actions} settings={settings} />
         </div>
       </div>
     );

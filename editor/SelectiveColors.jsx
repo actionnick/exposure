@@ -26,6 +26,7 @@ class SelectiveColors extends React.Component {
 
   static propTypes = {
     frame: React.PropTypes.object,
+    settings: React.PropTypes.object,
     actions: React.PropTypes.object.isRequired,
   };
 
@@ -38,7 +39,7 @@ class SelectiveColors extends React.Component {
   }
 
   render() {
-    const s = this.props.frame.settings;
+    const s = this.props.settings;
 
     return (
       <div className="selective-colors">
