@@ -488,7 +488,82 @@ var Controls = function (_React$Component) {
           fileName: _jsxFileName,
           lineNumber: 232
         }
-      })));
+      })), React.createElement("div", { className: "controls-section", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 235
+        }
+      }, React.createElement("h1", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 236
+        }
+      }, "HSL"), React.createElement("div", { className: "slider-layout", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 238
+        }
+      }, React.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 239
+        }
+      }, "contrast"), React.createElement("div", { className: "slider-container centering-parent", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 240
+        }
+      }, React.createElement(ReactSlider, {
+        onChange: this.handleChange.bind(this, "hue"),
+        min: -100,
+        max: 100,
+        defaultValue: s.hue * 100,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 241
+        }
+      }))), React.createElement("div", { className: "slider-layout", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 250
+        }
+      }, React.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 251
+        }
+      }, "saturation"), React.createElement("div", { className: "slider-container centering-parent", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 252
+        }
+      }, React.createElement(ReactSlider, {
+        onChange: this.handleChange.bind(this, "saturation"),
+        min: -100,
+        max: 100,
+        defaultValue: s.saturation * 100,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 253
+        }
+      }))), React.createElement("div", { className: "slider-layout", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 262
+        }
+      }, React.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 263
+        }
+      }, "lightness"), React.createElement("div", { className: "slider-container centering-parent", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 264
+        }
+      }, React.createElement(ReactSlider, {
+        onChange: this.handleChange.bind(this, "lightness"),
+        min: -100,
+        max: 100,
+        defaultValue: s.lightness * 100,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 265
+        }
+      })))));
     }
   }]);
 
@@ -57829,11 +57904,14 @@ var ExposureSettings = function (_EventEmitter) {
   _inherits(ExposureSettings, _EventEmitter);
 
   function ExposureSettings(json) {
+    var throttled = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
     _classCallCheck(this, ExposureSettings);
 
     var _this = _possibleConstructorReturn(this, (ExposureSettings.__proto__ || Object.getPrototypeOf(ExposureSettings)).call(this));
 
     _this.PROPS = ExposureSettings.PROPS;
+    _this.throttled = throttled;
     if (json) {
       _this.initFromJson(json);
     }
@@ -57918,10 +57996,16 @@ var ExposureSettings = function (_EventEmitter) {
     get: function get() {
       var _this2 = this;
 
+      if (!this.throttled) {
+        return function () {
+          return _this2.emit("updated");
+        };
+      }
+
       if (!this._updated) {
         this._updated = _.throttle(function () {
           return _this2.emit("updated");
-        }, 500);
+        }, 100);
       }
 
       return this._updated;

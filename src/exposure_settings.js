@@ -5,9 +5,10 @@ const catRomSpline = require("cat-rom-spline");
 const { DEFAULT_CONTROL_POINTS, setUniformForCurves } = require("./curves");
 
 class ExposureSettings extends EventEmitter {
-  constructor(json) {
+  constructor(json, throttled = true) {
     super();
     this.PROPS = ExposureSettings.PROPS;
+    this.throttled = throttled;
     if (json) {
       this.initFromJson(json);
     }
@@ -755,8 +756,12 @@ class ExposureSettings extends EventEmitter {
   }
 
   get updated() {
+    if (!this.throttled) {
+      return () => this.emit("updated");
+    }
+
     if (!this._updated) {
-      this._updated = _.throttle(() => this.emit("updated"), 500);
+      this._updated = _.throttle(() => this.emit("updated"), 100);
     }
 
     return this._updated;
