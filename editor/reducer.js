@@ -63,6 +63,8 @@ const reducer = (state = initialState, action) => {
     newState.settingsJson = newState.currentSettings.json;
   }
 
+  window.currentSettings = newState.currentSettings;
+
   return newState;
 };
 

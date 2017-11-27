@@ -154,8 +154,46 @@ uniform float whites_blue_shift;
 uniform float whites_gray_shift;
 uniform float whites_white_shift;
 
+// HSL
+uniform float hue;
+uniform float saturation;
+uniform float lightness;
+
+// These functions based on http://www.chilliant.com/rgb2hsv.html
+vec3 HUEtoRGB(float h) {
+  float r = abs(h * 6.0 - 3.0) - 1.0;
+  float g = 2.0 - abs(h * 6.0 - 2.0);
+  float b = 2.0 - abs(h * 6.0 - 4.0);
+  return clamp(vec3(r, g, b), 0.0, 1.0);
+}
+
+vec3 RGBtoHCV(vec3 RGB) {
+  float Epsilon = 0.00000000001;
+  // Based on work by Sam Hocevar and Emil Persson
+  vec4 P = (RGB.g < RGB.b) ? vec4(RGB.bg, -1.0, 2.0/3.0) : vec4(RGB.gb, 0.0, -1.0/3.0);
+  vec4 Q = (RGB.r < P.x) ? vec4(P.xyw, RGB.r) : vec4(RGB.r, P.yzx);
+  float C = Q.x - min(Q.w, Q.y);
+  float H = abs((Q.w - Q.y) / (6.0 * C + Epsilon) + Q.z);
+  return vec3(H, C, Q.x);
+}
+
+vec3 RGBtoHSL(vec3 RGB) {
+  float Epsilon = 0.00000000001;
+  vec3 HCV = RGBtoHCV(RGB);
+  float L = HCV.z - HCV.y * 0.5;
+  float S = HCV.y / (1.0 - abs(L * 2.0 - 1.0) + Epsilon);
+  return vec3(HCV.x, S, L);
+}
+
+vec3 HSLtoRGB(vec3 HSL) {
+  vec3 RGB = HUEtoRGB(HSL.x);
+  float C = (1.0 - abs(2.0 * HSL.z - 1.0)) * HSL.y;
+  return (RGB - 0.5) * C + HSL.z;
+}
+
 void main() {
   vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));
+  vec3 hsl;
   float alpha = color.a;
 
   ////////////////////////////
@@ -244,6 +282,22 @@ void main() {
     float out_b = texture2D(b_curve_points, vec2(in_b, 0.5)).x;
     color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);
   }
+
+  ////////////////////////////
+  ////         HSL        ////
+  ////////////////////////////
+
+  hsl = RGBtoHSL(color.rgb);
+  hsl.x = hsl.x + hue;
+  if (hsl.x > 1.0) {
+    hsl.x = mod(hsl.x, 1.0);
+  } else if (hsl.x < 0.0) {
+    hsl.x = 1.0 + hsl.x;
+  }
+  hsl.x = clamp(hsl.x, 0.0, 1.0);
+  hsl.y = clamp(hsl.y + saturation, 0.0, 1.0);
+  hsl.z = clamp(hsl.z + lightness, 0.0, 1.0);
+  color.rgb = HSLtoRGB(hsl);
 
   ////////////////////////////
   ////  selective color   ////

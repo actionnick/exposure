@@ -720,6 +720,26 @@ class ExposureSettings extends EventEmitter {
       max: 1.0,
       default: 0.0,
     },
+
+    // HSL
+    hue: {
+      type: Number,
+      min: -1.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    saturation: {
+      type: Number,
+      min: -1.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    lightness: {
+      type: Number,
+      min: -1.0,
+      max: 1.0,
+      default: 0.0,
+    },
   };
 
   static get defaultValues() {
