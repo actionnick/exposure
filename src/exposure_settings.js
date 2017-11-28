@@ -725,8 +725,8 @@ class ExposureSettings extends EventEmitter {
     // HSL
     hue: {
       type: Number,
-      min: -1.0,
-      max: 1.0,
+      min: -0.5,
+      max: 0.5,
       default: 0.0,
     },
     saturation: {
@@ -741,7 +741,37 @@ class ExposureSettings extends EventEmitter {
       max: 1.0,
       default: 0.0,
     },
-    yellow_lightness: {
+    yellows_hue: {
+      type: Number,
+      min: -0.5,
+      max: 0.5,
+      default: 0.0,
+    },
+    yellows_saturation: {
+      type: Number,
+      min: -1.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    yellows_lightness: {
+      type: Number,
+      min: -1.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    cyans_hue: {
+      type: Number,
+      min: -0.5,
+      max: 0.5,
+      default: 0.0,
+    },
+    cyans_saturation: {
+      type: Number,
+      min: -1.0,
+      max: 1.0,
+      default: 0.0,
+    },
+    cyans_lightness: {
       type: Number,
       min: -1.0,
       max: 1.0,

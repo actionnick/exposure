@@ -63,6 +63,19 @@ uniform bool g_curve_enabled;
 uniform sampler2D b_curve_points;
 uniform bool b_curve_enabled;
 
+// HSL
+uniform float hue;
+uniform float saturation;
+uniform float lightness;
+
+uniform float yellows_hue;
+uniform float yellows_saturation;
+uniform float yellows_lightness;
+
+uniform float cyans_hue;
+uniform float cyans_saturation;
+uniform float cyans_lightness;
+
 // selective color controls
 uniform float cyans_cyan_shift;
 uniform float cyans_magenta_shift;
@@ -154,12 +167,43 @@ uniform float whites_blue_shift;
 uniform float whites_gray_shift;
 uniform float whites_white_shift;
 
-// HSL
-uniform float hue;
-uniform float saturation;
-uniform float lightness;
+float mix_factor(vec4 range, vec3 hsl) {
+  float mix_factor = 0.0;
 
-uniform float yellow_lightness;
+  if (hsl.x >= range.x && hsl.x <= range.w) {
+    // lower range
+    if (hsl.x >= range.x && hsl.x < range.y) {
+      mix_factor = smoothstep(range.x, range.y, hsl.x);
+    }
+
+    // target range
+    if (hsl.x >= range.y && hsl.x <= range.z) {
+      mix_factor = 1.0;
+    }
+
+    // upper range
+    if (hsl.x > range.z && hsl.x <= range.w) {
+      mix_factor = 1.0 - smoothstep(range.z, range.w, hsl.x);
+    }
+  }
+
+  return mix_factor;
+}
+
+// Returns a number between 0 and 1 as if the number line is circular
+// 1.1 => 0.1
+// -0.1 => 0.9
+float clamp_continuous(float value) {
+  float unit = value;
+
+  if (unit > 1.0) {
+    unit = mod(unit, 1.0);
+  } else if (unit < 0.0) {
+    unit = 1.0 + unit;
+  }
+
+  return unit;
+}
 
 // These functions based on http://www.chilliant.com/rgb2hsv.html
 vec3 HUEtoRGB(float h) {
@@ -195,7 +239,6 @@ vec3 HSLtoRGB(vec3 HSL) {
 
 void main() {
   vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));
-  vec3 hsl;
   float alpha = color.a;
 
   ////////////////////////////
@@ -289,38 +332,36 @@ void main() {
   ////         HSL        ////
   ////////////////////////////
 
-  hsl = RGBtoHSL(color.rgb);
-  hsl.x = hsl.x + hue;
-  if (hsl.x > 1.0) {
-    hsl.x = mod(hsl.x, 1.0);
-  } else if (hsl.x < 0.0) {
-    hsl.x = 1.0 + hsl.x;
-  }
+  vec3 hsl = RGBtoHSL(color.rgb);
+
+  // Master
+  hsl.x = clamp_continuous(hsl.x + hue);
   hsl.x = clamp(hsl.x, 0.0, 1.0);
   hsl.y = clamp(hsl.y + saturation, 0.0, 1.0);
   hsl.z = clamp(hsl.z + lightness, 0.0, 1.0);
 
+  // Color ranges here
   // https://gist.github.com/actionnick/d184d17e39d1669759204bcb8eaad501
+
+  vec4 CYAN_RANGE = vec4(0.375, 0.4583, 0.54167, 0.625);
+  vec4 MAGENTA_RANGE = vec4(0.7083, 0.79167, 0.875, 0.9583);
+  vec4 YELLOW_RANGE = vec4(0.04167, 0.125, 0.2083, 0.29167);
+  vec4 RED_RANGE_1 = vec4(0.875, 0.9583, 1.0, 1.0); // Red is a special case because it goes from 315 -> 45 degrees
+  vec4 RED_RANGE_2 = vec4(0.0, 0.0, 0.04167, 0.125);
+  vec4 GREEN_RANGE = vec4(0.2083, 0.29167, 0.375, 0.4583);
+  vec4 BLUE_RANGE = vec4(0.54167, 0.625, 0.7083, 0.79167);
+
   // Yellows
-  float yellow_mix_factor = 0.0;
-  if (hsl.x >= 0.04167 && hsl.x <= 0.29167) {
-    // lower range
-    if (hsl.x >= 0.04167 && hsl.x < 0.125) {
-      yellow_mix_factor = smoothstep(0.04167, 0.125, hsl.x);
-    }
+  float yellows_mix_factor = mix_factor(YELLOW_RANGE, hsl);
+  hsl.x = clamp_continuous(hsl.x + (yellows_hue * yellows_mix_factor));
+  hsl.y = clamp(hsl.y + (yellows_saturation * yellows_mix_factor), 0.0, 1.0);
+  hsl.z = clamp(hsl.z + (yellows_lightness * yellows_mix_factor), 0.0, 1.0);
 
-    // target range
-    if (hsl.x >= 0.125 && hsl.x <= 0.2083) {
-      yellow_mix_factor = 1.0;
-    }
-
-    // upper range
-    if (hsl.x > 0.2083 && hsl.x <= 0.29167) {
-      yellow_mix_factor = 1.0 - smoothstep(0.2083, 0.29167, hsl.x);
-    }
-
-    hsl.z = clamp(hsl.z + (yellow_lightness * yellow_mix_factor), 0.0, 1.0);
-  }
+  // Cyan
+  float cyans_mix_factor = mix_factor(CYAN_RANGE, hsl);
+  hsl.x = clamp_continuous(hsl.x + (cyans_hue * cyans_mix_factor));
+  hsl.y = clamp(hsl.y + (cyans_saturation * cyans_mix_factor), 0.0, 1.0);
+  hsl.z = clamp(hsl.z + (cyans_lightness * cyans_mix_factor), 0.0, 1.0);
 
   color.rgb = HSLtoRGB(hsl);
 
@@ -340,18 +381,15 @@ void main() {
   float MAX_DISTANCE = length(vec3(1.0, 1.0, 1.0));
 
   // cyans
-  float cyan_distance = length(CYAN - color.rgb);
-  float cyan_mix_factor = pow(1.0 - (cyan_distance / MAX_DISTANCE), 5.0);
-
-  color.rgb = mix(color.rgb, CYAN, cyan_mix_factor * cyans_cyan_shift);
-  color.rgb = mix(color.rgb, MAGENTA, cyan_mix_factor * cyans_magenta_shift);
-  color.rgb = mix(color.rgb, YELLOW, cyan_mix_factor * cyans_yellow_shift);
-  color.rgb = mix(color.rgb, BLACK, cyan_mix_factor * cyans_black_shift);
-  color.rgb = mix(color.rgb, RED, cyan_mix_factor * cyans_red_shift);
-  color.rgb = mix(color.rgb, GREEN, cyan_mix_factor * cyans_green_shift);
-  color.rgb = mix(color.rgb, BLUE, cyan_mix_factor * cyans_blue_shift);
-  color.rgb = mix(color.rgb, WHITE, cyan_mix_factor * cyans_white_shift);
-  color.rgb = mix(color.rgb, GRAY, cyan_mix_factor * cyans_gray_shift);
+  color.rgb = mix(color.rgb, CYAN, cyans_mix_factor * cyans_cyan_shift);
+  color.rgb = mix(color.rgb, MAGENTA, cyans_mix_factor * cyans_magenta_shift);
+  color.rgb = mix(color.rgb, YELLOW, cyans_mix_factor * cyans_yellow_shift);
+  color.rgb = mix(color.rgb, BLACK, cyans_mix_factor * cyans_black_shift);
+  color.rgb = mix(color.rgb, RED, cyans_mix_factor * cyans_red_shift);
+  color.rgb = mix(color.rgb, GREEN, cyans_mix_factor * cyans_green_shift);
+  color.rgb = mix(color.rgb, BLUE, cyans_mix_factor * cyans_blue_shift);
+  color.rgb = mix(color.rgb, WHITE, cyans_mix_factor * cyans_white_shift);
+  color.rgb = mix(color.rgb, GRAY, cyans_mix_factor * cyans_gray_shift);
 
   // magentas
   float magenta_distance = length(MAGENTA - color.rgb);
@@ -368,16 +406,15 @@ void main() {
   color.rgb = mix(color.rgb, GRAY, magenta_mix_factor * magentas_gray_shift);
 
   // yellows
-
-  color.rgb = mix(color.rgb, CYAN, yellow_mix_factor * yellows_cyan_shift);
-  color.rgb = mix(color.rgb, MAGENTA, yellow_mix_factor * yellows_magenta_shift);
-  color.rgb = mix(color.rgb, YELLOW, yellow_mix_factor * yellows_yellow_shift);
-  color.rgb = mix(color.rgb, BLACK, yellow_mix_factor * yellows_black_shift);
-  color.rgb = mix(color.rgb, RED, yellow_mix_factor * yellows_red_shift);
-  color.rgb = mix(color.rgb, GREEN, yellow_mix_factor * yellows_green_shift);
-  color.rgb = mix(color.rgb, BLUE, yellow_mix_factor * yellows_blue_shift);
-  color.rgb = mix(color.rgb, WHITE, yellow_mix_factor * yellows_white_shift);
-  color.rgb = mix(color.rgb, GRAY, yellow_mix_factor * yellows_gray_shift);
+  color.rgb = mix(color.rgb, CYAN, yellows_mix_factor * yellows_cyan_shift);
+  color.rgb = mix(color.rgb, MAGENTA, yellows_mix_factor * yellows_magenta_shift);
+  color.rgb = mix(color.rgb, YELLOW, yellows_mix_factor * yellows_yellow_shift);
+  color.rgb = mix(color.rgb, BLACK, yellows_mix_factor * yellows_black_shift);
+  color.rgb = mix(color.rgb, RED, yellows_mix_factor * yellows_red_shift);
+  color.rgb = mix(color.rgb, GREEN, yellows_mix_factor * yellows_green_shift);
+  color.rgb = mix(color.rgb, BLUE, yellows_mix_factor * yellows_blue_shift);
+  color.rgb = mix(color.rgb, WHITE, yellows_mix_factor * yellows_white_shift);
+  color.rgb = mix(color.rgb, GRAY, yellows_mix_factor * yellows_gray_shift);
 
   // blacks
   float black_distance = length(BLACK - color.rgb);
