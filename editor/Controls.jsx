@@ -236,7 +236,7 @@ class Controls extends React.Component {
           <h1>HSL</h1>
 
           <div className="slider-layout">
-            <p>contrast</p>
+            <p>hue</p>
             <div className="slider-container centering-parent">
               <ReactSlider
                 onChange={this.handleChange.bind(this, "hue")}

@@ -159,6 +159,8 @@ uniform float hue;
 uniform float saturation;
 uniform float lightness;
 
+uniform float yellow_lightness;
+
 // These functions based on http://www.chilliant.com/rgb2hsv.html
 vec3 HUEtoRGB(float h) {
   float r = abs(h * 6.0 - 3.0) - 1.0;
@@ -297,6 +299,29 @@ void main() {
   hsl.x = clamp(hsl.x, 0.0, 1.0);
   hsl.y = clamp(hsl.y + saturation, 0.0, 1.0);
   hsl.z = clamp(hsl.z + lightness, 0.0, 1.0);
+
+  // https://gist.github.com/actionnick/d184d17e39d1669759204bcb8eaad501
+  // Yellows
+  float yellow_mix_factor = 0.0;
+  if (hsl.x >= 0.04167 && hsl.x <= 0.29167) {
+    // lower range
+    if (hsl.x >= 0.04167 && hsl.x < 0.125) {
+      yellow_mix_factor = smoothstep(0.04167, 0.125, hsl.x);
+    }
+
+    // target range
+    if (hsl.x >= 0.125 && hsl.x <= 0.2083) {
+      yellow_mix_factor = 1.0;
+    }
+
+    // upper range
+    if (hsl.x > 0.2083 && hsl.x <= 0.29167) {
+      yellow_mix_factor = 1.0 - smoothstep(0.2083, 0.29167, hsl.x);
+    }
+
+    hsl.z = clamp(hsl.z + (yellow_lightness * yellow_mix_factor), 0.0, 1.0);
+  }
+
   color.rgb = HSLtoRGB(hsl);
 
   ////////////////////////////
@@ -343,8 +368,6 @@ void main() {
   color.rgb = mix(color.rgb, GRAY, magenta_mix_factor * magentas_gray_shift);
 
   // yellows
-  float yellow_distance = length(YELLOW - color.rgb);
-  float yellow_mix_factor = pow(1.0 - (yellow_distance / MAX_DISTANCE), 5.0);
 
   color.rgb = mix(color.rgb, CYAN, yellow_mix_factor * yellows_cyan_shift);
   color.rgb = mix(color.rgb, MAGENTA, yellow_mix_factor * yellows_magenta_shift);

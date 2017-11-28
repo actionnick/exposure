@@ -62,7 +62,7 @@ class SelectiveColors extends React.Component {
             <div className="slider-container centering-parent">
               <ReactSlider
                 onChange={this.handleChange.bind(this, `${this.state.currentColor}_${color}_shift`)}
-                min={0}
+                min={-100}
                 max={100}
                 defaultValue={s[`${this.state.currentColor}_${color}_shift`] * 100}
               />
