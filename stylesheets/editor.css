@@ -454,37 +454,37 @@ body {
   transition: height 800ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.selective-colors select {
+select {
   font-family: "Roboto", sans-serif;
   border: none;
   width: 100%;
   font-size: 16px;
   outline: none;
 }
-.selective-colors select.cyans {
+select.cyans {
   background-color: #41c1f1;
 }
-.selective-colors select.magentas {
+select.magentas {
   background-color: #e1559f;
 }
-.selective-colors select.yellows {
+select.yellows {
   background-color: #fbf068;
 }
-.selective-colors select.blacks {
+select.blacks {
   background-color: #272727;
   color: white;
 }
-.selective-colors select.reds {
+select.reds {
   background-color: #f16a6a;
 }
-.selective-colors select.greens {
+select.greens {
   background-color: #5bdf5b;
 }
-.selective-colors select.blues {
+select.blues {
   background-color: #4751a5;
   color: white;
 }
-.selective-colors select.grays {
+select.grays {
   background-color: #555555;
   color: white;
 }

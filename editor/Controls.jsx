@@ -2,6 +2,7 @@ const React = require("react");
 const ReactSlider = require("react-slider");
 const Curves = require("./Curves.jsx");
 const SelectiveColors = require("./SelectiveColors.jsx");
+const HSL = require("./HSL.jsx");
 
 class Controls extends React.Component {
   static propTypes = {
@@ -227,50 +228,9 @@ class Controls extends React.Component {
           <Curves actions={actions} settings={settings} color="b" />
         </div>
 
-        <div className="controls-section">
-          <h1>selective color</h1>
-          <SelectiveColors frame={frame} actions={actions} settings={settings} />
-        </div>
+        <HSL frame={frame} actions={actions} settings={settings} />
 
-        <div className="controls-section">
-          <h1>HSL</h1>
-
-          <div className="slider-layout">
-            <p>hue</p>
-            <div className="slider-container centering-parent">
-              <ReactSlider
-                onChange={this.handleChange.bind(this, "hue")}
-                min={-100}
-                max={100}
-                defaultValue={s.hue * 100}
-              />
-            </div>
-          </div>
-
-          <div className="slider-layout">
-            <p>saturation</p>
-            <div className="slider-container centering-parent">
-              <ReactSlider
-                onChange={this.handleChange.bind(this, "saturation")}
-                min={-100}
-                max={100}
-                defaultValue={s.saturation * 100}
-              />
-            </div>
-          </div>
-
-          <div className="slider-layout">
-            <p>lightness</p>
-            <div className="slider-container centering-parent">
-              <ReactSlider
-                onChange={this.handleChange.bind(this, "lightness")}
-                min={-100}
-                max={100}
-                defaultValue={s.lightness * 100}
-              />
-            </div>
-          </div>
-        </div>
+        <SelectiveColors frame={frame} actions={actions} settings={settings} />
       </div>
     );
   }

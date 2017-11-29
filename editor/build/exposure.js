@@ -35,6 +35,7 @@ var React = require("react");
 var ReactSlider = require("react-slider");
 var Curves = require("./Curves.jsx");
 var SelectiveColors = require("./SelectiveColors.jsx");
+var HSL = require("./HSL.jsx");
 
 var Controls = function (_React$Component) {
   _inherits(Controls, _React$Component);
@@ -73,29 +74,29 @@ var Controls = function (_React$Component) {
       var p = s.PROPS;
       return React.createElement("div", { id: "controls", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 35
         }
       }, React.createElement("div", { className: "controls-section", __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 36
         }
       }, React.createElement("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 37
         }
       }, "general"), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 39
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 40
         }
       }, "brightness"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 41
         }
       }, React.createElement(ReactSlider, {
         onChange: this.handleChange.bind(this, "brightness"),
@@ -104,20 +105,20 @@ var Controls = function (_React$Component) {
         defaultValue: s.brightness * 100,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 42
         }
       }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
+          lineNumber: 51
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 52
         }
       }, "contrast"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 53
         }
       }, React.createElement(ReactSlider, {
         onChange: this.handleChange.bind(this, "contrast"),
@@ -126,34 +127,34 @@ var Controls = function (_React$Component) {
         defaultValue: s.contrast * 100,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 54
         }
       })))), React.createElement("div", { className: "controls-section", __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 64
         }
       }, React.createElement("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 65
         }
       }, "levels"), React.createElement("h2", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 66
         }
       }, "rgb"), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 67
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 68
         }
       }, "in"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 69
         }
       }, React.createElement(ReactSlider, {
         onChange: this.handleChange.bind(this, "rgb_in_"),
@@ -162,20 +163,20 @@ var Controls = function (_React$Component) {
         defaultValue: [s.rgb_in_min * 100, s.rgb_in_max * 100],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 70
         }
       }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 78
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 78
+          lineNumber: 79
         }
       }, "out"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 79
+          lineNumber: 80
         }
       }, React.createElement(ReactSlider, {
         onChange: this.handleChange.bind(this, "rgb_out_"),
@@ -184,20 +185,20 @@ var Controls = function (_React$Component) {
         defaultValue: [s.rgb_out_min * 100, s.rgb_out_max * 100],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 80
+          lineNumber: 81
         }
       }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 88
+          lineNumber: 89
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 89
+          lineNumber: 90
         }
       }, "gamma"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 90
+          lineNumber: 91
         }
       }, React.createElement(ReactSlider, {
         onChange: this.handleChange.bind(this, "rgb_gamma"),
@@ -206,25 +207,25 @@ var Controls = function (_React$Component) {
         defaultValue: s.rgb_gamma * 100,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 91
+          lineNumber: 92
         }
       }))), React.createElement("h2", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 100
+          lineNumber: 101
         }
       }, "red"), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 101
+          lineNumber: 102
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
+          lineNumber: 103
         }
       }, "in"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 103
+          lineNumber: 104
         }
       }, React.createElement(ReactSlider, {
         className: "slider red",
@@ -234,20 +235,20 @@ var Controls = function (_React$Component) {
         defaultValue: [s.r_in_min * 100, s.r_in_max * 100],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 104
+          lineNumber: 105
         }
       }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 113
+          lineNumber: 114
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114
+          lineNumber: 115
         }
       }, "out"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 115
+          lineNumber: 116
         }
       }, React.createElement(ReactSlider, {
         className: "slider red",
@@ -257,20 +258,20 @@ var Controls = function (_React$Component) {
         defaultValue: [s.r_out_min * 100, s.r_out_max * 100],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 116
+          lineNumber: 117
         }
       }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 125
+          lineNumber: 126
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 126
+          lineNumber: 127
         }
       }, "gamma"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 127
+          lineNumber: 128
         }
       }, React.createElement(ReactSlider, {
         className: "slider red",
@@ -280,25 +281,25 @@ var Controls = function (_React$Component) {
         defaultValue: s.r_gamma * 100,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 128
+          lineNumber: 129
         }
       }))), React.createElement("h2", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 139
         }
       }, "green"), React.createElement("div", { className: "green slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 139
+          lineNumber: 140
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 140
+          lineNumber: 141
         }
       }, "in"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 141
+          lineNumber: 142
         }
       }, React.createElement(ReactSlider, {
         className: "slider green",
@@ -308,20 +309,20 @@ var Controls = function (_React$Component) {
         defaultValue: [s.g_in_min * 100, s.g_in_max * 100],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 142
+          lineNumber: 143
         }
       }))), React.createElement("div", { className: "green slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 151
+          lineNumber: 152
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 152
+          lineNumber: 153
         }
       }, "out"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 153
+          lineNumber: 154
         }
       }, React.createElement(ReactSlider, {
         className: "slider green",
@@ -331,20 +332,20 @@ var Controls = function (_React$Component) {
         defaultValue: [s.g_out_min * 100, s.g_out_max * 100],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 154
+          lineNumber: 155
         }
       }))), React.createElement("div", { className: "green slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 163
+          lineNumber: 164
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 164
+          lineNumber: 165
         }
       }, "gamma"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 165
+          lineNumber: 166
         }
       }, React.createElement(ReactSlider, {
         className: "slider green",
@@ -354,25 +355,25 @@ var Controls = function (_React$Component) {
         defaultValue: s.g_gamma * 100,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 166
+          lineNumber: 167
         }
       }))), React.createElement("h2", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 176
+          lineNumber: 177
         }
       }, "blue"), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 177
+          lineNumber: 178
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 178
+          lineNumber: 179
         }
       }, "in"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 179
+          lineNumber: 180
         }
       }, React.createElement(ReactSlider, {
         className: "slider blue",
@@ -382,20 +383,20 @@ var Controls = function (_React$Component) {
         defaultValue: [s.b_in_min * 100, s.b_in_max * 100],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 180
+          lineNumber: 181
         }
       }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 189
+          lineNumber: 190
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 190
+          lineNumber: 191
         }
       }, "out"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 191
+          lineNumber: 192
         }
       }, React.createElement(ReactSlider, {
         className: "slider blue",
@@ -405,20 +406,20 @@ var Controls = function (_React$Component) {
         defaultValue: [s.b_out_min * 100, s.b_out_max * 100],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 192
+          lineNumber: 193
         }
       }))), React.createElement("div", { className: "slider-layout", __source: {
           fileName: _jsxFileName,
-          lineNumber: 201
+          lineNumber: 202
         }
       }, React.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 202
+          lineNumber: 203
         }
       }, "gamma"), React.createElement("div", { className: "slider-container centering-parent", __source: {
           fileName: _jsxFileName,
-          lineNumber: 203
+          lineNumber: 204
         }
       }, React.createElement(ReactSlider, {
         className: "slider blue",
@@ -428,142 +429,62 @@ var Controls = function (_React$Component) {
         defaultValue: s.b_gamma * 100,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 204
+          lineNumber: 205
         }
       })))), React.createElement("div", { className: "controls-section", __source: {
           fileName: _jsxFileName,
-          lineNumber: 215
-        }
-      }, React.createElement("h1", {
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 216
         }
-      }, "curves"), React.createElement("h2", {
+      }, React.createElement("h1", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 217
         }
-      }, "rgb"), React.createElement(Curves, { actions: actions, settings: settings, color: "rgb", __source: {
+      }, "curves"), React.createElement("h2", {
+        __source: {
           fileName: _jsxFileName,
           lineNumber: 218
         }
+      }, "rgb"), React.createElement(Curves, { actions: actions, settings: settings, color: "rgb", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 219
+        }
       }), React.createElement("h2", {
         __source: {
-          fileName: _jsxFileName,
-          lineNumber: 220
-        }
-      }, "red"), React.createElement(Curves, { actions: actions, settings: settings, color: "r", __source: {
           fileName: _jsxFileName,
           lineNumber: 221
         }
+      }, "red"), React.createElement(Curves, { actions: actions, settings: settings, color: "r", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 222
+        }
       }), React.createElement("h2", {
         __source: {
-          fileName: _jsxFileName,
-          lineNumber: 223
-        }
-      }, "green"), React.createElement(Curves, { actions: actions, settings: settings, color: "g", __source: {
           fileName: _jsxFileName,
           lineNumber: 224
         }
+      }, "green"), React.createElement(Curves, { actions: actions, settings: settings, color: "g", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 225
+        }
       }), React.createElement("h2", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 226
+          lineNumber: 227
         }
       }, "blue"), React.createElement(Curves, { actions: actions, settings: settings, color: "b", __source: {
           fileName: _jsxFileName,
-          lineNumber: 227
+          lineNumber: 228
         }
-      })), React.createElement("div", { className: "controls-section", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 230
-        }
-      }, React.createElement("h1", {
-        __source: {
+      })), React.createElement(HSL, { frame: frame, actions: actions, settings: settings, __source: {
           fileName: _jsxFileName,
           lineNumber: 231
         }
-      }, "selective color"), React.createElement(SelectiveColors, { frame: frame, actions: actions, settings: settings, __source: {
+      }), React.createElement(SelectiveColors, { frame: frame, actions: actions, settings: settings, __source: {
           fileName: _jsxFileName,
-          lineNumber: 232
+          lineNumber: 233
         }
-      })), React.createElement("div", { className: "controls-section", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 235
-        }
-      }, React.createElement("h1", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 236
-        }
-      }, "HSL"), React.createElement("div", { className: "slider-layout", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 238
-        }
-      }, React.createElement("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 239
-        }
-      }, "hue"), React.createElement("div", { className: "slider-container centering-parent", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 240
-        }
-      }, React.createElement(ReactSlider, {
-        onChange: this.handleChange.bind(this, "hue"),
-        min: -100,
-        max: 100,
-        defaultValue: s.hue * 100,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 241
-        }
-      }))), React.createElement("div", { className: "slider-layout", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 250
-        }
-      }, React.createElement("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 251
-        }
-      }, "saturation"), React.createElement("div", { className: "slider-container centering-parent", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 252
-        }
-      }, React.createElement(ReactSlider, {
-        onChange: this.handleChange.bind(this, "saturation"),
-        min: -100,
-        max: 100,
-        defaultValue: s.saturation * 100,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 253
-        }
-      }))), React.createElement("div", { className: "slider-layout", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 262
-        }
-      }, React.createElement("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 263
-        }
-      }, "lightness"), React.createElement("div", { className: "slider-container centering-parent", __source: {
-          fileName: _jsxFileName,
-          lineNumber: 264
-        }
-      }, React.createElement(ReactSlider, {
-        onChange: this.handleChange.bind(this, "lightness"),
-        min: -100,
-        max: 100,
-        defaultValue: s.lightness * 100,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 265
-        }
-      })))));
+      }));
     }
   }]);
 
@@ -578,7 +499,7 @@ Controls.propTypes = {
 
 module.exports = Controls;
 
-},{"./Curves.jsx":2,"./SelectiveColors.jsx":6,"react":331,"react-slider":305}],2:[function(require,module,exports){
+},{"./Curves.jsx":2,"./HSL.jsx":4,"./SelectiveColors.jsx":7,"react":332,"react-slider":306}],2:[function(require,module,exports){
 "use strict";
 
 var _jsxFileName = "/Users/nick/projects/exposure/editor/Curves.jsx";
@@ -892,7 +813,7 @@ Curves.propTypes = {
 
 module.exports = Curves;
 
-},{"lodash":119,"react":331}],3:[function(require,module,exports){
+},{"lodash":120,"react":332}],3:[function(require,module,exports){
 "use strict";
 
 var _jsxFileName = "/Users/nick/projects/exposure/editor/ExposureApp.jsx";
@@ -1057,7 +978,214 @@ ExposureApp.propTypes = {
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(ExposureApp);
 
-},{"../src/exposure_settings":361,"../src/frame":363,"./Controls.jsx":1,"./ImageList.jsx":4,"./ImageStage.jsx":5,"lodash":119,"react":331,"react-redux":299,"uuid":349}],4:[function(require,module,exports){
+},{"../src/exposure_settings":362,"../src/frame":364,"./Controls.jsx":1,"./ImageList.jsx":5,"./ImageStage.jsx":6,"lodash":120,"react":332,"react-redux":300,"uuid":350}],4:[function(require,module,exports){
+"use strict";
+
+var _jsxFileName = "/Users/nick/projects/exposure/editor/HSL.jsx";
+
+var _createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+  };
+}();
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var React = require("react");
+var ReactSlider = require("react-slider");
+var ExposureSettings = require("../src/exposure_settings");
+
+var COLORS = ["cyans", "magentas", "yellows", "reds", "greens", "blues"];
+var CONTROLS = ["hue", "saturation", "lightness"];
+
+var HSL = function (_React$Component) {
+  _inherits(HSL, _React$Component);
+
+  function HSL(props) {
+    _classCallCheck(this, HSL);
+
+    var _this = _possibleConstructorReturn(this, (HSL.__proto__ || Object.getPrototypeOf(HSL)).call(this, props));
+
+    _this.state = {
+      currentColor: "cyans"
+    };
+    return _this;
+  }
+
+  _createClass(HSL, [{
+    key: "handleColorChange",
+    value: function handleColorChange(event) {
+      this.setState({ currentColor: event.target.value });
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(key, value) {
+      this.props.actions.onControlChange(key, value / 100);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var s = this.props.settings;
+
+      return React.createElement("div", { className: "controls-section", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 35
+        }
+      }, React.createElement("h1", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 36
+        }
+      }, "HSL"), React.createElement("h2", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37
+        }
+      }, "Master"), React.createElement("div", { className: "slider-layout", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 38
+        }
+      }, React.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39
+        }
+      }, "hue"), React.createElement("div", { className: "slider-container centering-parent", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 40
+        }
+      }, React.createElement(ReactSlider, {
+        onChange: this.handleChange.bind(this, "hue"),
+        min: -50,
+        max: 50,
+        defaultValue: s.hue * 100,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 41
+        }
+      }))), React.createElement("div", { className: "slider-layout", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 50
+        }
+      }, React.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 51
+        }
+      }, "saturation"), React.createElement("div", { className: "slider-container centering-parent", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 52
+        }
+      }, React.createElement(ReactSlider, {
+        onChange: this.handleChange.bind(this, "saturation"),
+        min: -100,
+        max: 100,
+        defaultValue: s.saturation * 100,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 53
+        }
+      }))), React.createElement("div", { className: "slider-layout", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 62
+        }
+      }, React.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 63
+        }
+      }, "lightness"), React.createElement("div", { className: "slider-container centering-parent", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 64
+        }
+      }, React.createElement(ReactSlider, {
+        onChange: this.handleChange.bind(this, "lightness"),
+        min: -100,
+        max: 100,
+        defaultValue: s.lightness * 100,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 65
+        }
+      }))), React.createElement("select", {
+        name: "colors",
+        value: this.state.currentColor,
+        onChange: function onChange(event) {
+          return _this2.handleColorChange(event);
+        },
+        className: this.state.currentColor,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 74
+        }
+      }, COLORS.map(function (color) {
+        return React.createElement("option", { key: color, value: color, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 81
+          }
+        }, color);
+      })), CONTROLS.map(function (control) {
+        return React.createElement("div", { key: control + "-" + _this2.state.currentColor, className: "slider-layout", __source: {
+            fileName: _jsxFileName,
+            lineNumber: 88
+          }
+        }, React.createElement("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 89
+          }
+        }, control), React.createElement("div", { className: "slider-container centering-parent", __source: {
+            fileName: _jsxFileName,
+            lineNumber: 90
+          }
+        }, React.createElement(ReactSlider, {
+          onChange: _this2.handleChange.bind(_this2, _this2.state.currentColor + "_" + control),
+          min: ExposureSettings.PROPS[_this2.state.currentColor + "_" + control].min * 100,
+          max: ExposureSettings.PROPS[_this2.state.currentColor + "_" + control].max * 100,
+          defaultValue: s[_this2.state.currentColor + "_" + control] * 100,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 91
+          }
+        })));
+      }));
+    }
+  }]);
+
+  return HSL;
+}(React.Component);
+
+HSL.propTypes = {
+  frame: React.PropTypes.object,
+  settings: React.PropTypes.object,
+  actions: React.PropTypes.object.isRequired
+};
+
+module.exports = HSL;
+
+},{"../src/exposure_settings":362,"react":332,"react-slider":306}],5:[function(require,module,exports){
 "use strict";
 
 var _jsxFileName = "/Users/nick/projects/exposure/editor/ImageList.jsx";
@@ -1191,7 +1319,7 @@ ImageList.propTypes = {
 
 module.exports = ImageList;
 
-},{"lodash":119,"react":331}],5:[function(require,module,exports){
+},{"lodash":120,"react":332}],6:[function(require,module,exports){
 "use strict";
 
 var _jsxFileName = "/Users/nick/projects/exposure/editor/ImageStage.jsx";
@@ -1435,7 +1563,7 @@ ImageStage.propTypes = {
 
 module.exports = ImageStage;
 
-},{"react":331,"react-file-input":279,"react-modal":289}],6:[function(require,module,exports){
+},{"react":332,"react-file-input":280,"react-modal":290}],7:[function(require,module,exports){
 "use strict";
 
 var _jsxFileName = "/Users/nick/projects/exposure/editor/SelectiveColors.jsx";
@@ -1469,7 +1597,6 @@ function _inherits(subClass, superClass) {
 }
 
 var React = require("react");
-var _ = require("lodash");
 var ReactSlider = require("react-slider");
 
 var COLORS = ["cyans", "magentas", "yellows", "blacks", "reds", "greens", "blues", "grays", "whites"];
@@ -1506,9 +1633,18 @@ var SelectiveColors = function (_React$Component) {
 
       var s = this.props.settings;
 
-      return React.createElement("div", { className: "selective-colors", __source: {
+      return React.createElement("div", { className: "controls-section", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 44
+        }
+      }, React.createElement("h1", {
+        __source: {
           fileName: _jsxFileName,
           lineNumber: 45
+        }
+      }, "selective color"), React.createElement("div", { className: "selective-colors", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 46
         }
       }, React.createElement("select", {
         name: "colors",
@@ -1519,27 +1655,27 @@ var SelectiveColors = function (_React$Component) {
         className: this.state.currentColor,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 47
         }
       }, COLORS.map(function (color) {
         return React.createElement("option", { key: color, value: color, __source: {
             fileName: _jsxFileName,
-            lineNumber: 53
+            lineNumber: 54
           }
         }, color);
       })), SHIFTABLE.map(function (color) {
         return React.createElement("div", { key: color + "-" + _this2.state.currentColor, className: "slider-layout", __source: {
             fileName: _jsxFileName,
-            lineNumber: 60
+            lineNumber: 61
           }
         }, React.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 61
+            lineNumber: 62
           }
         }, color), React.createElement("div", { className: "slider-container centering-parent", __source: {
             fileName: _jsxFileName,
-            lineNumber: 62
+            lineNumber: 63
           }
         }, React.createElement(ReactSlider, {
           onChange: _this2.handleChange.bind(_this2, _this2.state.currentColor + "_" + color + "_shift"),
@@ -1548,10 +1684,10 @@ var SelectiveColors = function (_React$Component) {
           defaultValue: s[_this2.state.currentColor + "_" + color + "_shift"] * 100,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 63
+            lineNumber: 64
           }
         })));
-      }));
+      })));
     }
   }]);
 
@@ -1566,7 +1702,7 @@ SelectiveColors.propTypes = {
 
 module.exports = SelectiveColors;
 
-},{"lodash":119,"react":331,"react-slider":305}],7:[function(require,module,exports){
+},{"react":332,"react-slider":306}],8:[function(require,module,exports){
 'use strict';
 
 var _jsxFileName = '/Users/nick/projects/exposure/editor/main.js';
@@ -1655,7 +1791,7 @@ ReactDOM.render(React.createElement(Provider, { store: store, __source: {
 //   render(frame, onControlChange);
 // });
 
-},{"./ExposureApp.jsx":3,"./reducer":8,"react":331,"react-dom":152,"react-redux":299,"redux":337}],8:[function(require,module,exports){
+},{"./ExposureApp.jsx":3,"./reducer":9,"react":332,"react-dom":153,"react-redux":300,"redux":338}],9:[function(require,module,exports){
 "use strict";
 
 var _extends = Object.assign || function (target) {
@@ -1750,7 +1886,7 @@ var reducer = function reducer() {
 
 module.exports = reducer;
 
-},{"lodash":119}],9:[function(require,module,exports){
+},{"lodash":120}],10:[function(require,module,exports){
 'use strict'
 
 var weakMap      = typeof WeakMap === 'undefined' ? require('weak-map') : WeakMap
@@ -1781,7 +1917,7 @@ function createABigTriangle(gl) {
 
 module.exports = createABigTriangle
 
-},{"gl-buffer":49,"gl-vao":89,"weak-map":354}],10:[function(require,module,exports){
+},{"gl-buffer":50,"gl-vao":90,"weak-map":355}],11:[function(require,module,exports){
 var padLeft = require('pad-left')
 
 module.exports = addLineNumbers
@@ -1799,7 +1935,7 @@ function addLineNumbers (string, start, delim) {
   }).join('\n')
 }
 
-},{"pad-left":131}],11:[function(require,module,exports){
+},{"pad-left":132}],12:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -2293,12 +2429,12 @@ var objectKeys = Object.keys || function (obj) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"util/":348}],12:[function(require,module,exports){
+},{"util/":349}],13:[function(require,module,exports){
 module.exports = function _atob(str) {
   return atob(str)
 }
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -2414,7 +2550,7 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 /**
  * Bit twiddling hacks for JavaScript.
  *
@@ -2620,7 +2756,7 @@ exports.nextCombination = function(v) {
 }
 
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -4336,7 +4472,7 @@ function numberIsNaN (obj) {
   return obj !== obj // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":13,"ieee754":104}],16:[function(require,module,exports){
+},{"base64-js":14,"ieee754":105}],17:[function(require,module,exports){
 var add = require('gl-vec2/add');
 var scale = require('gl-vec2/scale');
 var distance = require('gl-vec2/distance');
@@ -4432,7 +4568,7 @@ var catmullRomSpline = function(controlPoints, options) {
 
 module.exports = catmullRomSpline;
 
-},{"gl-vec2/add":90,"gl-vec2/distance":91,"gl-vec2/scale":92}],17:[function(require,module,exports){
+},{"gl-vec2/add":91,"gl-vec2/distance":92,"gl-vec2/scale":93}],18:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -5306,7 +5442,7 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
 module.exports = factory;
 
 }).call(this,require('_process'))
-},{"_process":145,"fbjs/lib/emptyObject":34,"fbjs/lib/invariant":41,"fbjs/lib/warning":48,"object-assign":130}],18:[function(require,module,exports){
+},{"_process":146,"fbjs/lib/emptyObject":35,"fbjs/lib/invariant":42,"fbjs/lib/warning":49,"object-assign":131}],19:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -5336,7 +5472,7 @@ module.exports = factory(
   ReactNoopUpdateQueue
 );
 
-},{"./factory":17,"react":331}],19:[function(require,module,exports){
+},{"./factory":18,"react":332}],20:[function(require,module,exports){
 "use strict"
 
 var createThunk = require("./lib/thunk.js")
@@ -5447,7 +5583,7 @@ function compileCwise(user_args) {
 
 module.exports = compileCwise
 
-},{"./lib/thunk.js":21}],20:[function(require,module,exports){
+},{"./lib/thunk.js":22}],21:[function(require,module,exports){
 "use strict"
 
 var uniq = require("uniq")
@@ -5807,7 +5943,7 @@ function generateCWiseOp(proc, typesig) {
 }
 module.exports = generateCWiseOp
 
-},{"uniq":345}],21:[function(require,module,exports){
+},{"uniq":346}],22:[function(require,module,exports){
 "use strict"
 
 // The function below is called when constructing a cwise function object, and does the following:
@@ -5895,7 +6031,7 @@ function createThunk(proc) {
 
 module.exports = createThunk
 
-},{"./compile.js":20}],22:[function(require,module,exports){
+},{"./compile.js":21}],23:[function(require,module,exports){
 //download.js v4.2, by dandavis; 2008-2016. [MIT] see http://danml.com/download.html for tests/usage
 // v1 landed a FF+Chrome compat way of downloading strings to local un-named files, upgraded to use a hidden frame and optional mime
 // v2 added named files via a[download], msSaveBlob, IE (10+) support, and window.URL support for larger+faster saves than dataURLs
@@ -6064,7 +6200,7 @@ module.exports = createThunk
 	}; /* end download() */
 }));
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 "use strict"
 
 function dupe_array(count, value, i) {
@@ -6114,7 +6250,7 @@ function dupe(count, value) {
 }
 
 module.exports = dupe
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -6418,7 +6554,7 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 /*!
   Copyright (c) 2015 Jed Watson.
   Based on code that is Copyright 2013-2015, Facebook, Inc.
@@ -6460,7 +6596,7 @@ function isUndefined(arg) {
 
 }());
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -6539,7 +6675,7 @@ var EventListener = {
 
 module.exports = EventListener;
 }).call(this,require('_process'))
-},{"./emptyFunction":33,"_process":145}],27:[function(require,module,exports){
+},{"./emptyFunction":34,"_process":146}],28:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -6575,7 +6711,7 @@ var ExecutionEnvironment = {
 };
 
 module.exports = ExecutionEnvironment;
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 "use strict";
 
 /**
@@ -6607,7 +6743,7 @@ function camelize(string) {
 }
 
 module.exports = camelize;
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -6647,7 +6783,7 @@ function camelizeStyleName(string) {
 }
 
 module.exports = camelizeStyleName;
-},{"./camelize":28}],30:[function(require,module,exports){
+},{"./camelize":29}],31:[function(require,module,exports){
 'use strict';
 
 /**
@@ -6687,7 +6823,7 @@ function containsNode(outerNode, innerNode) {
 }
 
 module.exports = containsNode;
-},{"./isTextNode":43}],31:[function(require,module,exports){
+},{"./isTextNode":44}],32:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -6816,7 +6952,7 @@ function createArrayFromMixed(obj) {
 
 module.exports = createArrayFromMixed;
 }).call(this,require('_process'))
-},{"./invariant":41,"_process":145}],32:[function(require,module,exports){
+},{"./invariant":42,"_process":146}],33:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -6902,7 +7038,7 @@ function createNodesFromMarkup(markup, handleScript) {
 
 module.exports = createNodesFromMarkup;
 }).call(this,require('_process'))
-},{"./ExecutionEnvironment":27,"./createArrayFromMixed":31,"./getMarkupWrap":37,"./invariant":41,"_process":145}],33:[function(require,module,exports){
+},{"./ExecutionEnvironment":28,"./createArrayFromMixed":32,"./getMarkupWrap":38,"./invariant":42,"_process":146}],34:[function(require,module,exports){
 "use strict";
 
 /**
@@ -6941,7 +7077,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -6963,7 +7099,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = emptyObject;
 }).call(this,require('_process'))
-},{"_process":145}],35:[function(require,module,exports){
+},{"_process":146}],36:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -6990,7 +7126,7 @@ function focusNode(node) {
 }
 
 module.exports = focusNode;
-},{}],36:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 'use strict';
 
 /**
@@ -7029,7 +7165,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 }
 
 module.exports = getActiveElement;
-},{}],37:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -7126,7 +7262,7 @@ function getMarkupWrap(nodeName) {
 
 module.exports = getMarkupWrap;
 }).call(this,require('_process'))
-},{"./ExecutionEnvironment":27,"./invariant":41,"_process":145}],38:[function(require,module,exports){
+},{"./ExecutionEnvironment":28,"./invariant":42,"_process":146}],39:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -7165,7 +7301,7 @@ function getUnboundedScrollPosition(scrollable) {
 }
 
 module.exports = getUnboundedScrollPosition;
-},{}],39:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 'use strict';
 
 /**
@@ -7198,7 +7334,7 @@ function hyphenate(string) {
 }
 
 module.exports = hyphenate;
-},{}],40:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -7237,7 +7373,7 @@ function hyphenateStyleName(string) {
 }
 
 module.exports = hyphenateStyleName;
-},{"./hyphenate":39}],41:[function(require,module,exports){
+},{"./hyphenate":40}],42:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -7295,7 +7431,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 }).call(this,require('_process'))
-},{"_process":145}],42:[function(require,module,exports){
+},{"_process":146}],43:[function(require,module,exports){
 'use strict';
 
 /**
@@ -7320,7 +7456,7 @@ function isNode(object) {
 }
 
 module.exports = isNode;
-},{}],43:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 'use strict';
 
 /**
@@ -7345,7 +7481,7 @@ function isTextNode(object) {
 }
 
 module.exports = isTextNode;
-},{"./isNode":42}],44:[function(require,module,exports){
+},{"./isNode":43}],45:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -7375,7 +7511,7 @@ function memoizeStringOnly(callback) {
 }
 
 module.exports = memoizeStringOnly;
-},{}],45:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -7398,7 +7534,7 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = performance || {};
-},{"./ExecutionEnvironment":27}],46:[function(require,module,exports){
+},{"./ExecutionEnvironment":28}],47:[function(require,module,exports){
 'use strict';
 
 /**
@@ -7432,7 +7568,7 @@ if (performance.now) {
 }
 
 module.exports = performanceNow;
-},{"./performance":45}],47:[function(require,module,exports){
+},{"./performance":46}],48:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -7500,7 +7636,7 @@ function shallowEqual(objA, objB) {
 }
 
 module.exports = shallowEqual;
-},{}],48:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -7567,7 +7703,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 }).call(this,require('_process'))
-},{"./emptyFunction":33,"_process":145}],49:[function(require,module,exports){
+},{"./emptyFunction":34,"_process":146}],50:[function(require,module,exports){
 "use strict"
 
 var pool = require("typedarray-pool")
@@ -7721,7 +7857,7 @@ function createBuffer(gl, data, type, usage) {
 
 module.exports = createBuffer
 
-},{"ndarray":129,"ndarray-ops":128,"typedarray-pool":344}],50:[function(require,module,exports){
+},{"ndarray":130,"ndarray-ops":129,"typedarray-pool":345}],51:[function(require,module,exports){
 module.exports = {
   0: 'NONE',
   1: 'ONE',
@@ -8021,14 +8157,14 @@ module.exports = {
   37444: 'BROWSER_DEFAULT_WEBGL'
 }
 
-},{}],51:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 var gl10 = require('./1.0/numbers')
 
 module.exports = function lookupConstant (number) {
   return gl10[number]
 }
 
-},{"./1.0/numbers":50}],52:[function(require,module,exports){
+},{"./1.0/numbers":51}],53:[function(require,module,exports){
 'use strict'
 
 var createTexture = require('gl-texture2d')
@@ -8495,7 +8631,7 @@ function createFBO(gl, width, height, options) {
     WEBGL_draw_buffers)
 }
 
-},{"gl-texture2d":85}],53:[function(require,module,exports){
+},{"gl-texture2d":86}],54:[function(require,module,exports){
 
 var sprintf = require('sprintf-js').sprintf;
 var glConstants = require('gl-constants/lookup');
@@ -8550,7 +8686,7 @@ function formatCompilerError(errLog, src, type) {
 }
 
 
-},{"add-line-numbers":10,"gl-constants/lookup":51,"glsl-shader-name":93,"sprintf-js":340}],54:[function(require,module,exports){
+},{"add-line-numbers":11,"gl-constants/lookup":52,"glsl-shader-name":94,"sprintf-js":341}],55:[function(require,module,exports){
 module.exports = adjoint;
 
 /**
@@ -8584,7 +8720,7 @@ function adjoint(out, a) {
     out[15] =  (a00 * (a11 * a22 - a12 * a21) - a10 * (a01 * a22 - a02 * a21) + a20 * (a01 * a12 - a02 * a11));
     return out;
 };
-},{}],55:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 module.exports = clone;
 
 /**
@@ -8613,7 +8749,7 @@ function clone(a) {
     out[15] = a[15];
     return out;
 };
-},{}],56:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 module.exports = copy;
 
 /**
@@ -8642,7 +8778,7 @@ function copy(out, a) {
     out[15] = a[15];
     return out;
 };
-},{}],57:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 module.exports = create;
 
 /**
@@ -8670,7 +8806,7 @@ function create() {
     out[15] = 1;
     return out;
 };
-},{}],58:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 module.exports = determinant;
 
 /**
@@ -8701,7 +8837,7 @@ function determinant(a) {
     // Calculate the determinant
     return b00 * b11 - b01 * b10 + b02 * b09 + b03 * b08 - b04 * b07 + b05 * b06;
 };
-},{}],59:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 module.exports = fromQuat;
 
 /**
@@ -8749,7 +8885,7 @@ function fromQuat(out, q) {
 
     return out;
 };
-},{}],60:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 module.exports = fromRotationTranslation;
 
 /**
@@ -8803,7 +8939,7 @@ function fromRotationTranslation(out, q, v) {
     
     return out;
 };
-},{}],61:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 module.exports = frustum;
 
 /**
@@ -8840,7 +8976,7 @@ function frustum(out, left, right, bottom, top, near, far) {
     out[15] = 0;
     return out;
 };
-},{}],62:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 module.exports = identity;
 
 /**
@@ -8868,7 +9004,7 @@ function identity(out) {
     out[15] = 1;
     return out;
 };
-},{}],63:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 module.exports = {
   create: require('./create')
   , clone: require('./clone')
@@ -8894,7 +9030,7 @@ module.exports = {
   , lookAt: require('./lookAt')
   , str: require('./str')
 }
-},{"./adjoint":54,"./clone":55,"./copy":56,"./create":57,"./determinant":58,"./fromQuat":59,"./fromRotationTranslation":60,"./frustum":61,"./identity":62,"./invert":64,"./lookAt":65,"./multiply":66,"./ortho":67,"./perspective":68,"./perspectiveFromFieldOfView":69,"./rotate":70,"./rotateX":71,"./rotateY":72,"./rotateZ":73,"./scale":74,"./str":75,"./translate":76,"./transpose":77}],64:[function(require,module,exports){
+},{"./adjoint":55,"./clone":56,"./copy":57,"./create":58,"./determinant":59,"./fromQuat":60,"./fromRotationTranslation":61,"./frustum":62,"./identity":63,"./invert":65,"./lookAt":66,"./multiply":67,"./ortho":68,"./perspective":69,"./perspectiveFromFieldOfView":70,"./rotate":71,"./rotateX":72,"./rotateY":73,"./rotateZ":74,"./scale":75,"./str":76,"./translate":77,"./transpose":78}],65:[function(require,module,exports){
 module.exports = invert;
 
 /**
@@ -8950,7 +9086,7 @@ function invert(out, a) {
 
     return out;
 };
-},{}],65:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 var identity = require('./identity');
 
 module.exports = lookAt;
@@ -9041,7 +9177,7 @@ function lookAt(out, eye, center, up) {
 
     return out;
 };
-},{"./identity":62}],66:[function(require,module,exports){
+},{"./identity":63}],67:[function(require,module,exports){
 module.exports = multiply;
 
 /**
@@ -9084,7 +9220,7 @@ function multiply(out, a, b) {
     out[15] = b0*a03 + b1*a13 + b2*a23 + b3*a33;
     return out;
 };
-},{}],67:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 module.exports = ortho;
 
 /**
@@ -9121,7 +9257,7 @@ function ortho(out, left, right, bottom, top, near, far) {
     out[15] = 1;
     return out;
 };
-},{}],68:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 module.exports = perspective;
 
 /**
@@ -9155,7 +9291,7 @@ function perspective(out, fovy, aspect, near, far) {
     out[15] = 0;
     return out;
 };
-},{}],69:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 module.exports = perspectiveFromFieldOfView;
 
 /**
@@ -9197,7 +9333,7 @@ function perspectiveFromFieldOfView(out, fov, near, far) {
 }
 
 
-},{}],70:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 module.exports = rotate;
 
 /**
@@ -9262,7 +9398,7 @@ function rotate(out, a, rad, axis) {
     }
     return out;
 };
-},{}],71:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 module.exports = rotateX;
 
 /**
@@ -9307,7 +9443,7 @@ function rotateX(out, a, rad) {
     out[11] = a23 * c - a13 * s;
     return out;
 };
-},{}],72:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 module.exports = rotateY;
 
 /**
@@ -9352,7 +9488,7 @@ function rotateY(out, a, rad) {
     out[11] = a03 * s + a23 * c;
     return out;
 };
-},{}],73:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 module.exports = rotateZ;
 
 /**
@@ -9397,7 +9533,7 @@ function rotateZ(out, a, rad) {
     out[7] = a13 * c - a03 * s;
     return out;
 };
-},{}],74:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 module.exports = scale;
 
 /**
@@ -9429,7 +9565,7 @@ function scale(out, a, v) {
     out[15] = a[15];
     return out;
 };
-},{}],75:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 module.exports = str;
 
 /**
@@ -9444,7 +9580,7 @@ function str(a) {
                     a[8] + ', ' + a[9] + ', ' + a[10] + ', ' + a[11] + ', ' + 
                     a[12] + ', ' + a[13] + ', ' + a[14] + ', ' + a[15] + ')';
 };
-},{}],76:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 module.exports = translate;
 
 /**
@@ -9483,7 +9619,7 @@ function translate(out, a, v) {
 
     return out;
 };
-},{}],77:[function(require,module,exports){
+},{}],78:[function(require,module,exports){
 module.exports = transpose;
 
 /**
@@ -9533,7 +9669,7 @@ function transpose(out, a) {
     
     return out;
 };
-},{}],78:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 'use strict'
 
 var createUniformWrapper   = require('./lib/create-uniforms')
@@ -9799,7 +9935,7 @@ function createShader(
 
 module.exports = createShader
 
-},{"./lib/GLError":79,"./lib/create-attributes":80,"./lib/create-uniforms":81,"./lib/reflect":82,"./lib/runtime-reflect":83,"./lib/shader-cache":84}],79:[function(require,module,exports){
+},{"./lib/GLError":80,"./lib/create-attributes":81,"./lib/create-uniforms":82,"./lib/reflect":83,"./lib/runtime-reflect":84,"./lib/shader-cache":85}],80:[function(require,module,exports){
 function GLError (rawError, shortMessage, longMessage) {
     this.shortMessage = shortMessage || ''
     this.longMessage = longMessage || ''
@@ -9814,7 +9950,7 @@ GLError.prototype.name = 'GLError'
 GLError.prototype.constructor = GLError
 module.exports = GLError
 
-},{}],80:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 'use strict'
 
 module.exports = createAttributeWrapper
@@ -10079,7 +10215,7 @@ function createAttributeWrapper(
   return obj
 }
 
-},{"./GLError":79}],81:[function(require,module,exports){
+},{"./GLError":80}],82:[function(require,module,exports){
 'use strict'
 
 var coallesceUniforms = require('./reflect')
@@ -10272,7 +10408,7 @@ function createUniformWrapper(gl, wrapper, uniforms, locations) {
   }
 }
 
-},{"./GLError":79,"./reflect":82}],82:[function(require,module,exports){
+},{"./GLError":80,"./reflect":83}],83:[function(require,module,exports){
 'use strict'
 
 module.exports = makeReflectTypes
@@ -10330,7 +10466,7 @@ function makeReflectTypes(uniforms, useIndex) {
   }
   return obj
 }
-},{}],83:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 'use strict'
 
 exports.uniforms    = runtimeUniforms
@@ -10410,7 +10546,7 @@ function runtimeAttributes(gl, program) {
   return result
 }
 
-},{}],84:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 'use strict'
 
 exports.shader   = getShaderReference
@@ -10548,7 +10684,7 @@ function createProgram(gl, vref, fref, attribs, locations) {
   return getCache(gl).getProgram(vref, fref, attribs, locations)
 }
 
-},{"./GLError":79,"gl-format-compiler-error":53,"weakmap-shim":357}],85:[function(require,module,exports){
+},{"./GLError":80,"gl-format-compiler-error":54,"weakmap-shim":358}],86:[function(require,module,exports){
 'use strict'
 
 var ndarray = require('ndarray')
@@ -11111,7 +11247,7 @@ function createTexture2D(gl) {
   throw new Error('gl-texture2d: Invalid arguments for texture2d constructor')
 }
 
-},{"ndarray":129,"ndarray-ops":128,"typedarray-pool":344}],86:[function(require,module,exports){
+},{"ndarray":130,"ndarray-ops":129,"typedarray-pool":345}],87:[function(require,module,exports){
 "use strict"
 
 function doBind(gl, elements, attributes) {
@@ -11166,7 +11302,7 @@ function doBind(gl, elements, attributes) {
 }
 
 module.exports = doBind
-},{}],87:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 "use strict"
 
 var bindAttribs = require("./do-bind.js")
@@ -11206,7 +11342,7 @@ function createVAOEmulated(gl) {
 }
 
 module.exports = createVAOEmulated
-},{"./do-bind.js":86}],88:[function(require,module,exports){
+},{"./do-bind.js":87}],89:[function(require,module,exports){
 "use strict"
 
 var bindAttribs = require("./do-bind.js")
@@ -11294,7 +11430,7 @@ function createVAONative(gl, ext) {
 }
 
 module.exports = createVAONative
-},{"./do-bind.js":86}],89:[function(require,module,exports){
+},{"./do-bind.js":87}],90:[function(require,module,exports){
 "use strict"
 
 var createVAONative = require("./lib/vao-native.js")
@@ -11323,7 +11459,7 @@ function createVAO(gl, attributes, elements, elementsType) {
 
 module.exports = createVAO
 
-},{"./lib/vao-emulated.js":87,"./lib/vao-native.js":88}],90:[function(require,module,exports){
+},{"./lib/vao-emulated.js":88,"./lib/vao-native.js":89}],91:[function(require,module,exports){
 module.exports = add
 
 /**
@@ -11339,7 +11475,7 @@ function add(out, a, b) {
     out[1] = a[1] + b[1]
     return out
 }
-},{}],91:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 module.exports = distance
 
 /**
@@ -11354,7 +11490,7 @@ function distance(a, b) {
         y = b[1] - a[1]
     return Math.sqrt(x*x + y*y)
 }
-},{}],92:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 module.exports = scale
 
 /**
@@ -11370,7 +11506,7 @@ function scale(out, a, b) {
     out[1] = a[1] * b
     return out
 }
-},{}],93:[function(require,module,exports){
+},{}],94:[function(require,module,exports){
 var tokenize = require('glsl-tokenizer')
 var atob     = require('atob-lite')
 
@@ -11395,7 +11531,7 @@ function getName(src) {
   }
 }
 
-},{"atob-lite":12,"glsl-tokenizer":100}],94:[function(require,module,exports){
+},{"atob-lite":13,"glsl-tokenizer":101}],95:[function(require,module,exports){
 module.exports = tokenize
 
 var literals100 = require('./lib/literals')
@@ -11759,7 +11895,7 @@ function tokenize(opt) {
   }
 }
 
-},{"./lib/builtins":96,"./lib/builtins-300es":95,"./lib/literals":98,"./lib/literals-300es":97,"./lib/operators":99}],95:[function(require,module,exports){
+},{"./lib/builtins":97,"./lib/builtins-300es":96,"./lib/literals":99,"./lib/literals-300es":98,"./lib/operators":100}],96:[function(require,module,exports){
 // 300es builtins/reserved words that were previously valid in v100
 var v100 = require('./builtins')
 
@@ -11830,7 +11966,7 @@ module.exports = v100.concat([
   , 'textureProjGradOffset'
 ])
 
-},{"./builtins":96}],96:[function(require,module,exports){
+},{"./builtins":97}],97:[function(require,module,exports){
 module.exports = [
   // Keep this list sorted
   'abs'
@@ -11982,7 +12118,7 @@ module.exports = [
   , 'textureCubeGradEXT'
 ]
 
-},{}],97:[function(require,module,exports){
+},{}],98:[function(require,module,exports){
 var v100 = require('./literals')
 
 module.exports = v100.slice().concat([
@@ -12072,7 +12208,7 @@ module.exports = v100.slice().concat([
   , 'usampler2DMSArray'
 ])
 
-},{"./literals":98}],98:[function(require,module,exports){
+},{"./literals":99}],99:[function(require,module,exports){
 module.exports = [
   // current
     'precision'
@@ -12167,7 +12303,7 @@ module.exports = [
   , 'using'
 ]
 
-},{}],99:[function(require,module,exports){
+},{}],100:[function(require,module,exports){
 module.exports = [
     '<<='
   , '>>='
@@ -12216,7 +12352,7 @@ module.exports = [
   , '}'
 ]
 
-},{}],100:[function(require,module,exports){
+},{}],101:[function(require,module,exports){
 var tokenize = require('./index')
 
 module.exports = tokenizeString
@@ -12231,7 +12367,7 @@ function tokenizeString(str, opt) {
   return tokens
 }
 
-},{"./index":94}],101:[function(require,module,exports){
+},{"./index":95}],102:[function(require,module,exports){
 module.exports = function(strings) {
   if (typeof strings === 'string') strings = [strings]
   var exprs = [].slice.call(arguments,1)
@@ -12243,7 +12379,7 @@ module.exports = function(strings) {
   return parts.join('')
 }
 
-},{}],102:[function(require,module,exports){
+},{}],103:[function(require,module,exports){
 // Calculate Gaussian blur of an image using IIR filter
 // The method is taken from Intel's white paper and code example attached to it:
 // https://software.intel.com/en-us/articles/iir-gaussian-blur-filter
@@ -12364,7 +12500,7 @@ function blurMono16(src, width, height, radius) {
 
 module.exports = blurMono16;
 
-},{}],103:[function(require,module,exports){
+},{}],104:[function(require,module,exports){
 /**
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
@@ -12431,7 +12567,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
     return targetComponent;
 };
 
-},{}],104:[function(require,module,exports){
+},{}],105:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -12517,7 +12653,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],105:[function(require,module,exports){
+},{}],106:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -12542,7 +12678,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],106:[function(require,module,exports){
+},{}],107:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -12597,7 +12733,7 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 module.exports = invariant;
 
 }).call(this,require('_process'))
-},{"_process":145}],107:[function(require,module,exports){
+},{"_process":146}],108:[function(require,module,exports){
 "use strict"
 
 function iota(n) {
@@ -12609,7 +12745,7 @@ function iota(n) {
 }
 
 module.exports = iota
-},{}],108:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -12632,7 +12768,7 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],109:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 var root = require('./_root');
 
 /** Built-in value references. */
@@ -12640,7 +12776,7 @@ var Symbol = root.Symbol;
 
 module.exports = Symbol;
 
-},{"./_root":116}],110:[function(require,module,exports){
+},{"./_root":117}],111:[function(require,module,exports){
 var Symbol = require('./_Symbol'),
     getRawTag = require('./_getRawTag'),
     objectToString = require('./_objectToString');
@@ -12670,7 +12806,7 @@ function baseGetTag(value) {
 
 module.exports = baseGetTag;
 
-},{"./_Symbol":109,"./_getRawTag":113,"./_objectToString":114}],111:[function(require,module,exports){
+},{"./_Symbol":110,"./_getRawTag":114,"./_objectToString":115}],112:[function(require,module,exports){
 (function (global){
 /** Detect free variable `global` from Node.js. */
 var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
@@ -12678,7 +12814,7 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 module.exports = freeGlobal;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],112:[function(require,module,exports){
+},{}],113:[function(require,module,exports){
 var overArg = require('./_overArg');
 
 /** Built-in value references. */
@@ -12686,7 +12822,7 @@ var getPrototype = overArg(Object.getPrototypeOf, Object);
 
 module.exports = getPrototype;
 
-},{"./_overArg":115}],113:[function(require,module,exports){
+},{"./_overArg":116}],114:[function(require,module,exports){
 var Symbol = require('./_Symbol');
 
 /** Used for built-in method references. */
@@ -12734,7 +12870,7 @@ function getRawTag(value) {
 
 module.exports = getRawTag;
 
-},{"./_Symbol":109}],114:[function(require,module,exports){
+},{"./_Symbol":110}],115:[function(require,module,exports){
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
 
@@ -12758,7 +12894,7 @@ function objectToString(value) {
 
 module.exports = objectToString;
 
-},{}],115:[function(require,module,exports){
+},{}],116:[function(require,module,exports){
 /**
  * Creates a unary function that invokes `func` with its argument transformed.
  *
@@ -12775,7 +12911,7 @@ function overArg(func, transform) {
 
 module.exports = overArg;
 
-},{}],116:[function(require,module,exports){
+},{}],117:[function(require,module,exports){
 var freeGlobal = require('./_freeGlobal');
 
 /** Detect free variable `self`. */
@@ -12786,7 +12922,7 @@ var root = freeGlobal || freeSelf || Function('return this')();
 
 module.exports = root;
 
-},{"./_freeGlobal":111}],117:[function(require,module,exports){
+},{"./_freeGlobal":112}],118:[function(require,module,exports){
 /**
  * Checks if `value` is object-like. A value is object-like if it's not `null`
  * and has a `typeof` result of "object".
@@ -12817,7 +12953,7 @@ function isObjectLike(value) {
 
 module.exports = isObjectLike;
 
-},{}],118:[function(require,module,exports){
+},{}],119:[function(require,module,exports){
 var baseGetTag = require('./_baseGetTag'),
     getPrototype = require('./_getPrototype'),
     isObjectLike = require('./isObjectLike');
@@ -12881,7 +13017,7 @@ function isPlainObject(value) {
 
 module.exports = isPlainObject;
 
-},{"./_baseGetTag":110,"./_getPrototype":112,"./isObjectLike":117}],119:[function(require,module,exports){
+},{"./_baseGetTag":111,"./_getPrototype":113,"./isObjectLike":118}],120:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -29969,7 +30105,7 @@ module.exports = isPlainObject;
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],120:[function(require,module,exports){
+},{}],121:[function(require,module,exports){
 'use strict';
 
 
@@ -30126,7 +30262,7 @@ MultiMath.prototype.__align = function align(number, base) {
 
 module.exports = MultiMath;
 
-},{"./lib/base64decode":121,"./lib/wa_detect":127,"object-assign":130}],121:[function(require,module,exports){
+},{"./lib/base64decode":122,"./lib/wa_detect":128,"object-assign":131}],122:[function(require,module,exports){
 // base64 decode str -> Uint8Array, to load WA modules
 //
 'use strict';
@@ -30174,7 +30310,7 @@ module.exports = function base64decode(str) {
   return out;
 };
 
-},{}],122:[function(require,module,exports){
+},{}],123:[function(require,module,exports){
 // Calculates 16-bit precision HSL lightness from 8-bit rgba buffer
 //
 'use strict';
@@ -30195,7 +30331,7 @@ module.exports = function hsl_l16_js(img, width, height) {
   return out;
 };
 
-},{}],123:[function(require,module,exports){
+},{}],124:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -30205,7 +30341,7 @@ module.exports = {
   wasm_src: require('./unsharp_mask_wasm_base64')
 };
 
-},{"./unsharp_mask":124,"./unsharp_mask_wasm":125,"./unsharp_mask_wasm_base64":126}],124:[function(require,module,exports){
+},{"./unsharp_mask":125,"./unsharp_mask_wasm":126,"./unsharp_mask_wasm_base64":127}],125:[function(require,module,exports){
 // Unsharp mask filter
 //
 // http://stackoverflow.com/a/23322820/1031804
@@ -30323,7 +30459,7 @@ module.exports = function unsharp(img, width, height, amount, radius, threshold)
   }
 };
 
-},{"./hsl_l16":122,"glur/mono16":102}],125:[function(require,module,exports){
+},{"./hsl_l16":123,"glur/mono16":103}],126:[function(require,module,exports){
 'use strict';
 
 
@@ -30380,7 +30516,7 @@ module.exports = function unsharp(img, width, height, amount, radius, threshold)
   img32.set(new Uint32Array(this.__memory.buffer, 0, pixels));
 };
 
-},{}],126:[function(require,module,exports){
+},{}],127:[function(require,module,exports){
 // This is autogenerated file from math.wasm, don't edit.
 //
 'use strict';
@@ -30388,7 +30524,7 @@ module.exports = function unsharp(img, width, height, amount, radius, threshold)
 /* eslint-disable max-len */
 module.exports = 'AGFzbQEAAAABMQZgAXwBfGACfX8AYAZ/f39/f38AYAh/f39/f39/fQBgBH9/f38AYAh/f39/f39/fwACGQIDZW52A2V4cAAAA2VudgZtZW1vcnkCAAEDBgUBAgMEBQQEAXAAAAdMBRZfX2J1aWxkX2dhdXNzaWFuX2NvZWZzAAEOX19nYXVzczE2X2xpbmUAAgpibHVyTW9ubzE2AAMHaHNsX2wxNgAEB3Vuc2hhcnAABQkBAAqJEAXZAQEGfAJAIAFE24a6Q4Ia+z8gALujIgOaEAAiBCAEoCIGtjgCECABIANEAAAAAAAAAMCiEAAiBbaMOAIUIAFEAAAAAAAA8D8gBKEiAiACoiAEIAMgA6CiRAAAAAAAAPA/oCAFoaMiArY4AgAgASAEIANEAAAAAAAA8L+gIAKioiIHtjgCBCABIAQgA0QAAAAAAADwP6AgAqKiIgO2OAIIIAEgBSACoiIEtow4AgwgASACIAegIAVEAAAAAAAA8D8gBqGgIgKjtjgCGCABIAMgBKEgAqO2OAIcCwu3AwMDfwR9CHwCQCADKgIUIQkgAyoCECEKIAMqAgwhCyADKgIIIQwCQCAEQX9qIgdBAEgiCA0AIAIgAC8BALgiDSADKgIYu6IiDiAJuyIQoiAOIAq7IhGiIA0gAyoCBLsiEqIgAyoCALsiEyANoqCgoCIPtjgCACACQQRqIQIgAEECaiEAIAdFDQAgBCEGA0AgAiAOIBCiIA8iDiARoiANIBKiIBMgAC8BALgiDaKgoKAiD7Y4AgAgAkEEaiECIABBAmohACAGQX9qIgZBAUoNAAsLAkAgCA0AIAEgByAFbEEBdGogAEF+ai8BACIIuCINIAu7IhGiIA0gDLsiEqKgIA0gAyoCHLuiIg4gCrsiE6KgIA4gCbsiFKKgIg8gAkF8aioCALugqzsBACAHRQ0AIAJBeGohAiAAQXxqIQBBACAFQQF0ayEHIAEgBSAEQQF0QXxqbGohBgNAIAghAyAALwEAIQggBiANIBGiIAO4Ig0gEqKgIA8iECAToqAgDiAUoqAiDyACKgIAu6CrOwEAIAYgB2ohBiAAQX5qIQAgAkF8aiECIBAhDiAEQX9qIgRBAUoNAAsLCwvfAgIDfwZ8AkAgB0MAAAAAWw0AIARE24a6Q4Ia+z8gB0MAAAA/l7ujIgyaEAAiDSANoCIPtjgCECAEIAxEAAAAAAAAAMCiEAAiDraMOAIUIAREAAAAAAAA8D8gDaEiCyALoiANIAwgDKCiRAAAAAAAAPA/oCAOoaMiC7Y4AgAgBCANIAxEAAAAAAAA8L+gIAuioiIQtjgCBCAEIA0gDEQAAAAAAADwP6AgC6KiIgy2OAIIIAQgDiALoiINtow4AgwgBCALIBCgIA5EAAAAAAAA8D8gD6GgIgujtjgCGCAEIAwgDaEgC6O2OAIcIAYEQCAFQQF0IQogBiEJIAIhCANAIAAgCCADIAQgBSAGEAIgACAKaiEAIAhBAmohCCAJQX9qIgkNAAsLIAVFDQAgBkEBdCEIIAUhAANAIAIgASADIAQgBiAFEAIgAiAIaiECIAFBAmohASAAQX9qIgANAAsLC7wBAQV/IAMgAmwiAwRAQQAgA2shBgNAIAAoAgAiBEEIdiIHQf8BcSECAn8gBEH/AXEiAyAEQRB2IgRB/wFxIgVPBEAgAyIIIAMgAk8NARoLIAQgBCAHIAIgA0kbIAIgBUkbQf8BcQshCAJAIAMgAk0EQCADIAVNDQELIAQgByAEIAMgAk8bIAIgBUsbQf8BcSEDCyAAQQRqIQAgASADIAhqQYECbEEBdjsBACABQQJqIQEgBkEBaiIGDQALCwvTBgEKfwJAIAazQwAAgEWUQwAAyEKVu0QAAAAAAADgP6CqIQ0gBSAEbCILBEAgB0GBAmwhDgNAQQAgAi8BACADLwEAayIGQQF0IgdrIAcgBkEASBsgDk8EQCAAQQJqLQAAIQUCfyAALQAAIgYgAEEBai0AACIESSIJRQRAIAYiCCAGIAVPDQEaCyAFIAUgBCAEIAVJGyAGIARLGwshCAJ/IAYgBE0EQCAGIgogBiAFTQ0BGgsgBSAFIAQgBCAFSxsgCRsLIgogCGoiD0GBAmwiEEEBdiERQQAhDAJ/QQAiCSAIIApGDQAaIAggCmsiCUH/H2wgD0H+AyAIayAKayAQQYCABEkbbSEMIAYgCEYEQCAEIAVrQf//A2wgCUEGbG0MAQsgBSAGayAGIARrIAQgCEYiBhtB//8DbCAJQQZsbUHVqgFBqtUCIAYbagshCSARIAcgDWxBgBBqQQx1aiIGQQAgBkEAShsiBkH//wMgBkH//wNIGyEGAkACfwJAIAxB//8DcSIFBEAgBkH//wFKDQEgBUGAIGogBmxBgBBqQQx2DAILIAZBCHYiBiEFIAYhBAwCCyAFIAZB//8Dc2xBgBBqQQx2IAZqCyIFQQh2IQcgBkEBdCAFa0EIdiIGIQQCQCAJQdWqAWpB//8DcSIFQanVAksNACAFQf//AU8EQEGq1QIgBWsgByAGa2xBBmxBgIACakEQdiAGaiEEDAELIAchBCAFQanVAEsNACAFIAcgBmtsQQZsQYCAAmpBEHYgBmohBAsCfyAGIgUgCUH//wNxIghBqdUCSw0AGkGq1QIgCGsgByAGa2xBBmxBgIACakEQdiAGaiAIQf//AU8NABogByIFIAhBqdUASw0AGiAIIAcgBmtsQQZsQYCAAmpBEHYgBmoLIQUgCUGr1QJqQf//A3EiCEGp1QJLDQAgCEH//wFPBEBBqtUCIAhrIAcgBmtsQQZsQYCAAmpBEHYgBmohBgwBCyAIQanVAEsEQCAHIQYMAQsgCCAHIAZrbEEGbEGAgAJqQRB2IAZqIQYLIAEgBDoAACABQQFqIAU6AAAgAUECaiAGOgAACyADQQJqIQMgAkECaiECIABBBGohACABQQRqIQEgC0F/aiILDQALCwsL';
 
-},{}],127:[function(require,module,exports){
+},{}],128:[function(require,module,exports){
 // Detect WebAssembly support.
 // - Check global WebAssembly object
 // - Try to load simple module (can be disabled via CSP)
@@ -30436,7 +30572,7 @@ module.exports = function hasWebAssembly() {
   return wa;
 };
 
-},{"./base64decode":121}],128:[function(require,module,exports){
+},{"./base64decode":122}],129:[function(require,module,exports){
 "use strict"
 
 var compile = require("cwise-compiler")
@@ -30899,7 +31035,7 @@ exports.equals = compile({
 
 
 
-},{"cwise-compiler":19}],129:[function(require,module,exports){
+},{"cwise-compiler":20}],130:[function(require,module,exports){
 var iota = require("iota-array")
 var isBuffer = require("is-buffer")
 
@@ -31244,7 +31380,7 @@ function wrappedNDArrayCtor(data, shape, stride, offset) {
 
 module.exports = wrappedNDArrayCtor
 
-},{"iota-array":107,"is-buffer":108}],130:[function(require,module,exports){
+},{"iota-array":108,"is-buffer":109}],131:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -31336,7 +31472,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],131:[function(require,module,exports){
+},{}],132:[function(require,module,exports){
 /*!
  * pad-left <https://github.com/jonschlinkert/pad-left>
  *
@@ -31352,7 +31488,7 @@ module.exports = function padLeft(str, num, ch) {
   ch = typeof ch !== 'undefined' ? (ch + '') : ' ';
   return repeat(ch, num) + str;
 };
-},{"repeat-string":339}],132:[function(require,module,exports){
+},{"repeat-string":340}],133:[function(require,module,exports){
 'use strict';
 
 var assign = require('object-assign');
@@ -31869,7 +32005,7 @@ Pica.prototype.debug = function () {};
 
 module.exports = Pica;
 
-},{"./lib/mathlib":133,"./lib/pool":141,"./lib/tiler":142,"./lib/utils":143,"./lib/worker":144,"object-assign":130,"webworkify":358}],133:[function(require,module,exports){
+},{"./lib/mathlib":134,"./lib/pool":142,"./lib/tiler":143,"./lib/utils":144,"./lib/worker":145,"object-assign":131,"webworkify":359}],134:[function(require,module,exports){
 // Collection of math functions
 //
 // 1. Combine components together
@@ -31916,7 +32052,7 @@ MathLib.prototype.resizeAndUnsharp = function resizeAndUnsharp(options, cache) {
 
 module.exports = MathLib;
 
-},{"./mm_resize":136,"inherits":105,"multimath":120,"multimath/lib/unsharp_mask":123}],134:[function(require,module,exports){
+},{"./mm_resize":137,"inherits":106,"multimath":121,"multimath/lib/unsharp_mask":124}],135:[function(require,module,exports){
 // Resize convolvers, pure JS implementation
 //
 'use strict';
@@ -32055,7 +32191,7 @@ module.exports = {
   convolveVertically: convolveVertically
 };
 
-},{}],135:[function(require,module,exports){
+},{}],136:[function(require,module,exports){
 // This is autogenerated file from math.wasm, don't edit.
 //
 'use strict';
@@ -32064,7 +32200,7 @@ module.exports = {
 
 module.exports = 'AGFzbQEAAAABFAJgBn9/f39/fwBgB39/f39/f38AAg8BA2VudgZtZW1vcnkCAAEDAwIAAQQEAXAAAAcZAghjb252b2x2ZQAACmNvbnZvbHZlSFYAAQkBAArmAwLBAwEQfwJAIANFDQAgBEUNACAFQQRqIRVBACEMQQAhDQNAIA0hDkEAIRFBACEHA0AgB0ECaiESAn8gBSAHQQF0IgdqIgZBAmouAQAiEwRAQQAhCEEAIBNrIRQgFSAHaiEPIAAgDCAGLgEAakECdGohEEEAIQlBACEKQQAhCwNAIBAoAgAiB0EYdiAPLgEAIgZsIAtqIQsgB0H/AXEgBmwgCGohCCAHQRB2Qf8BcSAGbCAKaiEKIAdBCHZB/wFxIAZsIAlqIQkgD0ECaiEPIBBBBGohECAUQQFqIhQNAAsgEiATagwBC0EAIQtBACEKQQAhCUEAIQggEgshByABIA5BAnRqIApBgMAAakEOdSIGQf8BIAZB/wFIG0EQdEGAgPwHcUEAIAZBAEobIAtBgMAAakEOdSIGQf8BIAZB/wFIG0EYdEEAIAZBAEobciAJQYDAAGpBDnUiBkH/ASAGQf8BSBtBCHRBgP4DcUEAIAZBAEobciAIQYDAAGpBDnUiBkH/ASAGQf8BSBtB/wFxQQAgBkEAShtyNgIAIA4gA2ohDiARQQFqIhEgBEcNAAsgDCACaiEMIA1BAWoiDSADRw0ACwsLIQACQEEAIAIgAyAEIAUgABAAIAJBACAEIAUgBiABEAALCw==';
 
-},{}],136:[function(require,module,exports){
+},{}],137:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -32074,7 +32210,7 @@ module.exports = {
   wasm_src: require('./convolve_wasm_base64')
 };
 
-},{"./convolve_wasm_base64":135,"./resize":137,"./resize_wasm":140}],137:[function(require,module,exports){
+},{"./convolve_wasm_base64":136,"./resize":138,"./resize_wasm":141}],138:[function(require,module,exports){
 'use strict';
 
 var createFilters = require('./resize_filter_gen');
@@ -32124,7 +32260,7 @@ module.exports = function resize(options) {
   return dest;
 };
 
-},{"./convolve":134,"./resize_filter_gen":138}],138:[function(require,module,exports){
+},{"./convolve":135,"./resize_filter_gen":139}],139:[function(require,module,exports){
 // Calculate convolution filters for each destination point,
 // and pack data to Int16Array:
 //
@@ -32242,7 +32378,7 @@ module.exports = function resizeFilterGen(quality, srcSize, destSize, scale, off
   return packedFilter;
 };
 
-},{"./resize_filter_info":139}],139:[function(require,module,exports){
+},{"./resize_filter_info":140}],140:[function(require,module,exports){
 // Filter definitions to build tables for
 // resizing convolvers.
 //
@@ -32293,7 +32429,7 @@ module.exports = [{ // Nearest neibor (Box)
   }
 }];
 
-},{}],140:[function(require,module,exports){
+},{}],141:[function(require,module,exports){
 'use strict';
 
 var createFilters = require('./resize_filter_gen');
@@ -32396,7 +32532,7 @@ module.exports = function resize_wasm(options) {
   return dest;
 };
 
-},{"./resize_filter_gen":138}],141:[function(require,module,exports){
+},{"./resize_filter_gen":139}],142:[function(require,module,exports){
 'use strict';
 
 var GC_INTERVAL = 100;
@@ -32469,7 +32605,7 @@ Pool.prototype.gc = function () {
 
 module.exports = Pool;
 
-},{}],142:[function(require,module,exports){
+},{}],143:[function(require,module,exports){
 'use strict';
 
 /*
@@ -32563,7 +32699,7 @@ module.exports = function createRegions(options) {
   return tiles;
 };
 
-},{}],143:[function(require,module,exports){
+},{}],144:[function(require,module,exports){
 'use strict';
 
 function objClass(obj) {
@@ -32657,7 +32793,7 @@ module.exports.cib_support = function cib_support() {
   });
 };
 
-},{}],144:[function(require,module,exports){
+},{}],145:[function(require,module,exports){
 // Web Worker wrapper for image resize function
 
 'use strict';
@@ -32681,7 +32817,7 @@ module.exports = function () {
   };
 };
 
-},{"./mathlib":133}],145:[function(require,module,exports){
+},{"./mathlib":134}],146:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -32867,7 +33003,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],146:[function(require,module,exports){
+},{}],147:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -32932,7 +33068,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 module.exports = checkPropTypes;
 
 }).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":151,"_process":145,"fbjs/lib/invariant":41,"fbjs/lib/warning":48}],147:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":152,"_process":146,"fbjs/lib/invariant":42,"fbjs/lib/warning":49}],148:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -32955,7 +33091,7 @@ module.exports = function(isValidElement) {
   return factory(isValidElement, throwOnDirectAccess);
 };
 
-},{"./factoryWithTypeCheckers":149}],148:[function(require,module,exports){
+},{"./factoryWithTypeCheckers":150}],149:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -33016,7 +33152,7 @@ module.exports = function() {
   return ReactPropTypes;
 };
 
-},{"./lib/ReactPropTypesSecret":151,"fbjs/lib/emptyFunction":33,"fbjs/lib/invariant":41}],149:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":152,"fbjs/lib/emptyFunction":34,"fbjs/lib/invariant":42}],150:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -33532,7 +33668,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 };
 
 }).call(this,require('_process'))
-},{"./checkPropTypes":146,"./lib/ReactPropTypesSecret":151,"_process":145,"fbjs/lib/emptyFunction":33,"fbjs/lib/invariant":41,"fbjs/lib/warning":48}],150:[function(require,module,exports){
+},{"./checkPropTypes":147,"./lib/ReactPropTypesSecret":152,"_process":146,"fbjs/lib/emptyFunction":34,"fbjs/lib/invariant":42,"fbjs/lib/warning":49}],151:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -33566,7 +33702,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./factoryWithThrowingShims":148,"./factoryWithTypeCheckers":149,"_process":145}],151:[function(require,module,exports){
+},{"./factoryWithThrowingShims":149,"./factoryWithTypeCheckers":150,"_process":146}],152:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -33582,12 +33718,12 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-},{}],152:[function(require,module,exports){
+},{}],153:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/ReactDOM');
 
-},{"./lib/ReactDOM":182}],153:[function(require,module,exports){
+},{"./lib/ReactDOM":183}],154:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -33661,7 +33797,7 @@ var ARIADOMPropertyConfig = {
 };
 
 module.exports = ARIADOMPropertyConfig;
-},{}],154:[function(require,module,exports){
+},{}],155:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -33685,7 +33821,7 @@ var AutoFocusUtils = {
 };
 
 module.exports = AutoFocusUtils;
-},{"./ReactDOMComponentTree":185,"fbjs/lib/focusNode":35}],155:[function(require,module,exports){
+},{"./ReactDOMComponentTree":186,"fbjs/lib/focusNode":36}],156:[function(require,module,exports){
 /**
  * Copyright 2013-present Facebook, Inc.
  * All rights reserved.
@@ -34069,7 +34205,7 @@ var BeforeInputEventPlugin = {
 };
 
 module.exports = BeforeInputEventPlugin;
-},{"./EventPropagators":171,"./FallbackCompositionState":172,"./SyntheticCompositionEvent":236,"./SyntheticInputEvent":240,"fbjs/lib/ExecutionEnvironment":27}],156:[function(require,module,exports){
+},{"./EventPropagators":172,"./FallbackCompositionState":173,"./SyntheticCompositionEvent":237,"./SyntheticInputEvent":241,"fbjs/lib/ExecutionEnvironment":28}],157:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -34223,7 +34359,7 @@ var CSSProperty = {
 };
 
 module.exports = CSSProperty;
-},{}],157:[function(require,module,exports){
+},{}],158:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -34440,7 +34576,7 @@ var CSSPropertyOperations = {
 
 module.exports = CSSPropertyOperations;
 }).call(this,require('_process'))
-},{"./CSSProperty":156,"./ReactInstrumentation":214,"./dangerousStyleValue":253,"_process":145,"fbjs/lib/ExecutionEnvironment":27,"fbjs/lib/camelizeStyleName":29,"fbjs/lib/hyphenateStyleName":40,"fbjs/lib/memoizeStringOnly":44,"fbjs/lib/warning":48}],158:[function(require,module,exports){
+},{"./CSSProperty":157,"./ReactInstrumentation":215,"./dangerousStyleValue":254,"_process":146,"fbjs/lib/ExecutionEnvironment":28,"fbjs/lib/camelizeStyleName":30,"fbjs/lib/hyphenateStyleName":41,"fbjs/lib/memoizeStringOnly":45,"fbjs/lib/warning":49}],159:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -34561,7 +34697,7 @@ var CallbackQueue = function () {
 
 module.exports = PooledClass.addPoolingTo(CallbackQueue);
 }).call(this,require('_process'))
-},{"./PooledClass":176,"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41}],159:[function(require,module,exports){
+},{"./PooledClass":177,"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42}],160:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -34873,7 +35009,7 @@ var ChangeEventPlugin = {
 };
 
 module.exports = ChangeEventPlugin;
-},{"./EventPluginHub":168,"./EventPropagators":171,"./ReactDOMComponentTree":185,"./ReactUpdates":229,"./SyntheticEvent":238,"./getEventTarget":261,"./inputValueTracking":267,"./isEventSupported":269,"./isTextInputElement":270,"fbjs/lib/ExecutionEnvironment":27}],160:[function(require,module,exports){
+},{"./EventPluginHub":169,"./EventPropagators":172,"./ReactDOMComponentTree":186,"./ReactUpdates":230,"./SyntheticEvent":239,"./getEventTarget":262,"./inputValueTracking":268,"./isEventSupported":270,"./isTextInputElement":271,"fbjs/lib/ExecutionEnvironment":28}],161:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -35101,7 +35237,7 @@ var DOMChildrenOperations = {
 
 module.exports = DOMChildrenOperations;
 }).call(this,require('_process'))
-},{"./DOMLazyTree":161,"./Danger":165,"./ReactDOMComponentTree":185,"./ReactInstrumentation":214,"./createMicrosoftUnsafeLocalFunction":252,"./setInnerHTML":274,"./setTextContent":275,"_process":145}],161:[function(require,module,exports){
+},{"./DOMLazyTree":162,"./Danger":166,"./ReactDOMComponentTree":186,"./ReactInstrumentation":215,"./createMicrosoftUnsafeLocalFunction":253,"./setInnerHTML":275,"./setTextContent":276,"_process":146}],162:[function(require,module,exports){
 /**
  * Copyright 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -35219,7 +35355,7 @@ DOMLazyTree.queueHTML = queueHTML;
 DOMLazyTree.queueText = queueText;
 
 module.exports = DOMLazyTree;
-},{"./DOMNamespaces":162,"./createMicrosoftUnsafeLocalFunction":252,"./setInnerHTML":274,"./setTextContent":275}],162:[function(require,module,exports){
+},{"./DOMNamespaces":163,"./createMicrosoftUnsafeLocalFunction":253,"./setInnerHTML":275,"./setTextContent":276}],163:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -35239,7 +35375,7 @@ var DOMNamespaces = {
 };
 
 module.exports = DOMNamespaces;
-},{}],163:[function(require,module,exports){
+},{}],164:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -35450,7 +35586,7 @@ var DOMProperty = {
 
 module.exports = DOMProperty;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41}],164:[function(require,module,exports){
+},{"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42}],165:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -35687,7 +35823,7 @@ var DOMPropertyOperations = {
 
 module.exports = DOMPropertyOperations;
 }).call(this,require('_process'))
-},{"./DOMProperty":163,"./ReactDOMComponentTree":185,"./ReactInstrumentation":214,"./quoteAttributeValueForBrowser":271,"_process":145,"fbjs/lib/warning":48}],165:[function(require,module,exports){
+},{"./DOMProperty":164,"./ReactDOMComponentTree":186,"./ReactInstrumentation":215,"./quoteAttributeValueForBrowser":272,"_process":146,"fbjs/lib/warning":49}],166:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -35735,7 +35871,7 @@ var Danger = {
 
 module.exports = Danger;
 }).call(this,require('_process'))
-},{"./DOMLazyTree":161,"./reactProdInvariant":272,"_process":145,"fbjs/lib/ExecutionEnvironment":27,"fbjs/lib/createNodesFromMarkup":32,"fbjs/lib/emptyFunction":33,"fbjs/lib/invariant":41}],166:[function(require,module,exports){
+},{"./DOMLazyTree":162,"./reactProdInvariant":273,"_process":146,"fbjs/lib/ExecutionEnvironment":28,"fbjs/lib/createNodesFromMarkup":33,"fbjs/lib/emptyFunction":34,"fbjs/lib/invariant":42}],167:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -35761,7 +35897,7 @@ module.exports = Danger;
 var DefaultEventPluginOrder = ['ResponderEventPlugin', 'SimpleEventPlugin', 'TapEventPlugin', 'EnterLeaveEventPlugin', 'ChangeEventPlugin', 'SelectEventPlugin', 'BeforeInputEventPlugin'];
 
 module.exports = DefaultEventPluginOrder;
-},{}],167:[function(require,module,exports){
+},{}],168:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -35859,7 +35995,7 @@ var EnterLeaveEventPlugin = {
 };
 
 module.exports = EnterLeaveEventPlugin;
-},{"./EventPropagators":171,"./ReactDOMComponentTree":185,"./SyntheticMouseEvent":242}],168:[function(require,module,exports){
+},{"./EventPropagators":172,"./ReactDOMComponentTree":186,"./SyntheticMouseEvent":243}],169:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -36135,7 +36271,7 @@ var EventPluginHub = {
 
 module.exports = EventPluginHub;
 }).call(this,require('_process'))
-},{"./EventPluginRegistry":169,"./EventPluginUtils":170,"./ReactErrorUtils":205,"./accumulateInto":249,"./forEachAccumulated":257,"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41}],169:[function(require,module,exports){
+},{"./EventPluginRegistry":170,"./EventPluginUtils":171,"./ReactErrorUtils":206,"./accumulateInto":250,"./forEachAccumulated":258,"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42}],170:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -36390,7 +36526,7 @@ var EventPluginRegistry = {
 
 module.exports = EventPluginRegistry;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41}],170:[function(require,module,exports){
+},{"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42}],171:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -36618,7 +36754,7 @@ var EventPluginUtils = {
 
 module.exports = EventPluginUtils;
 }).call(this,require('_process'))
-},{"./ReactErrorUtils":205,"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41,"fbjs/lib/warning":48}],171:[function(require,module,exports){
+},{"./ReactErrorUtils":206,"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42,"fbjs/lib/warning":49}],172:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -36754,7 +36890,7 @@ var EventPropagators = {
 
 module.exports = EventPropagators;
 }).call(this,require('_process'))
-},{"./EventPluginHub":168,"./EventPluginUtils":170,"./accumulateInto":249,"./forEachAccumulated":257,"_process":145,"fbjs/lib/warning":48}],172:[function(require,module,exports){
+},{"./EventPluginHub":169,"./EventPluginUtils":171,"./accumulateInto":250,"./forEachAccumulated":258,"_process":146,"fbjs/lib/warning":49}],173:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -36849,7 +36985,7 @@ _assign(FallbackCompositionState.prototype, {
 PooledClass.addPoolingTo(FallbackCompositionState);
 
 module.exports = FallbackCompositionState;
-},{"./PooledClass":176,"./getTextContentAccessor":265,"object-assign":130}],173:[function(require,module,exports){
+},{"./PooledClass":177,"./getTextContentAccessor":266,"object-assign":131}],174:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -37085,7 +37221,7 @@ var HTMLDOMPropertyConfig = {
 };
 
 module.exports = HTMLDOMPropertyConfig;
-},{"./DOMProperty":163}],174:[function(require,module,exports){
+},{"./DOMProperty":164}],175:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -37144,7 +37280,7 @@ var KeyEscapeUtils = {
 };
 
 module.exports = KeyEscapeUtils;
-},{}],175:[function(require,module,exports){
+},{}],176:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -37284,7 +37420,7 @@ var LinkedValueUtils = {
 
 module.exports = LinkedValueUtils;
 }).call(this,require('_process'))
-},{"./ReactPropTypesSecret":222,"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41,"fbjs/lib/warning":48,"prop-types/factory":147,"react/lib/React":308}],176:[function(require,module,exports){
+},{"./ReactPropTypesSecret":223,"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42,"fbjs/lib/warning":49,"prop-types/factory":148,"react/lib/React":309}],177:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -37398,7 +37534,7 @@ var PooledClass = {
 
 module.exports = PooledClass;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41}],177:[function(require,module,exports){
+},{"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42}],178:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -37722,7 +37858,7 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
 });
 
 module.exports = ReactBrowserEventEmitter;
-},{"./EventPluginRegistry":169,"./ReactEventEmitterMixin":206,"./ViewportMetrics":248,"./getVendorPrefixedEventName":266,"./isEventSupported":269,"object-assign":130}],178:[function(require,module,exports){
+},{"./EventPluginRegistry":170,"./ReactEventEmitterMixin":207,"./ViewportMetrics":249,"./getVendorPrefixedEventName":267,"./isEventSupported":270,"object-assign":131}],179:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -37877,7 +38013,7 @@ var ReactChildReconciler = {
 
 module.exports = ReactChildReconciler;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":174,"./ReactReconciler":224,"./instantiateReactComponent":268,"./shouldUpdateReactComponent":276,"./traverseAllChildren":277,"_process":145,"fbjs/lib/warning":48,"react/lib/ReactComponentTreeHook":311}],179:[function(require,module,exports){
+},{"./KeyEscapeUtils":175,"./ReactReconciler":225,"./instantiateReactComponent":269,"./shouldUpdateReactComponent":277,"./traverseAllChildren":278,"_process":146,"fbjs/lib/warning":49,"react/lib/ReactComponentTreeHook":312}],180:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -37905,7 +38041,7 @@ var ReactComponentBrowserEnvironment = {
 };
 
 module.exports = ReactComponentBrowserEnvironment;
-},{"./DOMChildrenOperations":160,"./ReactDOMIDOperations":189}],180:[function(require,module,exports){
+},{"./DOMChildrenOperations":161,"./ReactDOMIDOperations":190}],181:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -37951,7 +38087,7 @@ var ReactComponentEnvironment = {
 
 module.exports = ReactComponentEnvironment;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41}],181:[function(require,module,exports){
+},{"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42}],182:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -38853,7 +38989,7 @@ var ReactCompositeComponent = {
 
 module.exports = ReactCompositeComponent;
 }).call(this,require('_process'))
-},{"./ReactComponentEnvironment":180,"./ReactErrorUtils":205,"./ReactInstanceMap":213,"./ReactInstrumentation":214,"./ReactNodeTypes":219,"./ReactReconciler":224,"./checkReactTypeSpec":251,"./reactProdInvariant":272,"./shouldUpdateReactComponent":276,"_process":145,"fbjs/lib/emptyObject":34,"fbjs/lib/invariant":41,"fbjs/lib/shallowEqual":47,"fbjs/lib/warning":48,"object-assign":130,"react/lib/React":308,"react/lib/ReactCurrentOwner":312}],182:[function(require,module,exports){
+},{"./ReactComponentEnvironment":181,"./ReactErrorUtils":206,"./ReactInstanceMap":214,"./ReactInstrumentation":215,"./ReactNodeTypes":220,"./ReactReconciler":225,"./checkReactTypeSpec":252,"./reactProdInvariant":273,"./shouldUpdateReactComponent":277,"_process":146,"fbjs/lib/emptyObject":35,"fbjs/lib/invariant":42,"fbjs/lib/shallowEqual":48,"fbjs/lib/warning":49,"object-assign":131,"react/lib/React":309,"react/lib/ReactCurrentOwner":313}],183:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -38966,7 +39102,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactDOM;
 }).call(this,require('_process'))
-},{"./ReactDOMComponentTree":185,"./ReactDOMInvalidARIAHook":191,"./ReactDOMNullInputValuePropHook":192,"./ReactDOMUnknownPropertyHook":199,"./ReactDefaultInjection":202,"./ReactInstrumentation":214,"./ReactMount":217,"./ReactReconciler":224,"./ReactUpdates":229,"./ReactVersion":230,"./findDOMNode":255,"./getHostComponentFromComposite":262,"./renderSubtreeIntoContainer":273,"_process":145,"fbjs/lib/ExecutionEnvironment":27,"fbjs/lib/warning":48}],183:[function(require,module,exports){
+},{"./ReactDOMComponentTree":186,"./ReactDOMInvalidARIAHook":192,"./ReactDOMNullInputValuePropHook":193,"./ReactDOMUnknownPropertyHook":200,"./ReactDefaultInjection":203,"./ReactInstrumentation":215,"./ReactMount":218,"./ReactReconciler":225,"./ReactUpdates":230,"./ReactVersion":231,"./findDOMNode":256,"./getHostComponentFromComposite":263,"./renderSubtreeIntoContainer":274,"_process":146,"fbjs/lib/ExecutionEnvironment":28,"fbjs/lib/warning":49}],184:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -39978,7 +40114,7 @@ _assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mi
 
 module.exports = ReactDOMComponent;
 }).call(this,require('_process'))
-},{"./AutoFocusUtils":154,"./CSSPropertyOperations":157,"./DOMLazyTree":161,"./DOMNamespaces":162,"./DOMProperty":163,"./DOMPropertyOperations":164,"./EventPluginHub":168,"./EventPluginRegistry":169,"./ReactBrowserEventEmitter":177,"./ReactDOMComponentFlags":184,"./ReactDOMComponentTree":185,"./ReactDOMInput":190,"./ReactDOMOption":193,"./ReactDOMSelect":194,"./ReactDOMTextarea":197,"./ReactInstrumentation":214,"./ReactMultiChild":218,"./ReactServerRenderingTransaction":226,"./escapeTextContentForBrowser":254,"./inputValueTracking":267,"./isEventSupported":269,"./reactProdInvariant":272,"./validateDOMNesting":278,"_process":145,"fbjs/lib/emptyFunction":33,"fbjs/lib/invariant":41,"fbjs/lib/shallowEqual":47,"fbjs/lib/warning":48,"object-assign":130}],184:[function(require,module,exports){
+},{"./AutoFocusUtils":155,"./CSSPropertyOperations":158,"./DOMLazyTree":162,"./DOMNamespaces":163,"./DOMProperty":164,"./DOMPropertyOperations":165,"./EventPluginHub":169,"./EventPluginRegistry":170,"./ReactBrowserEventEmitter":178,"./ReactDOMComponentFlags":185,"./ReactDOMComponentTree":186,"./ReactDOMInput":191,"./ReactDOMOption":194,"./ReactDOMSelect":195,"./ReactDOMTextarea":198,"./ReactInstrumentation":215,"./ReactMultiChild":219,"./ReactServerRenderingTransaction":227,"./escapeTextContentForBrowser":255,"./inputValueTracking":268,"./isEventSupported":270,"./reactProdInvariant":273,"./validateDOMNesting":279,"_process":146,"fbjs/lib/emptyFunction":34,"fbjs/lib/invariant":42,"fbjs/lib/shallowEqual":48,"fbjs/lib/warning":49,"object-assign":131}],185:[function(require,module,exports){
 /**
  * Copyright 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -39996,7 +40132,7 @@ var ReactDOMComponentFlags = {
 };
 
 module.exports = ReactDOMComponentFlags;
-},{}],185:[function(require,module,exports){
+},{}],186:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -40193,7 +40329,7 @@ var ReactDOMComponentTree = {
 
 module.exports = ReactDOMComponentTree;
 }).call(this,require('_process'))
-},{"./DOMProperty":163,"./ReactDOMComponentFlags":184,"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41}],186:[function(require,module,exports){
+},{"./DOMProperty":164,"./ReactDOMComponentFlags":185,"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42}],187:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -40228,7 +40364,7 @@ function ReactDOMContainerInfo(topLevelWrapper, node) {
 
 module.exports = ReactDOMContainerInfo;
 }).call(this,require('_process'))
-},{"./validateDOMNesting":278,"_process":145}],187:[function(require,module,exports){
+},{"./validateDOMNesting":279,"_process":146}],188:[function(require,module,exports){
 /**
  * Copyright 2014-present, Facebook, Inc.
  * All rights reserved.
@@ -40288,7 +40424,7 @@ _assign(ReactDOMEmptyComponent.prototype, {
 });
 
 module.exports = ReactDOMEmptyComponent;
-},{"./DOMLazyTree":161,"./ReactDOMComponentTree":185,"object-assign":130}],188:[function(require,module,exports){
+},{"./DOMLazyTree":162,"./ReactDOMComponentTree":186,"object-assign":131}],189:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -40307,7 +40443,7 @@ var ReactDOMFeatureFlags = {
 };
 
 module.exports = ReactDOMFeatureFlags;
-},{}],189:[function(require,module,exports){
+},{}],190:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -40340,7 +40476,7 @@ var ReactDOMIDOperations = {
 };
 
 module.exports = ReactDOMIDOperations;
-},{"./DOMChildrenOperations":160,"./ReactDOMComponentTree":185}],190:[function(require,module,exports){
+},{"./DOMChildrenOperations":161,"./ReactDOMComponentTree":186}],191:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -40629,7 +40765,7 @@ function _handleChange(event) {
 
 module.exports = ReactDOMInput;
 }).call(this,require('_process'))
-},{"./DOMPropertyOperations":164,"./LinkedValueUtils":175,"./ReactDOMComponentTree":185,"./ReactUpdates":229,"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41,"fbjs/lib/warning":48,"object-assign":130}],191:[function(require,module,exports){
+},{"./DOMPropertyOperations":165,"./LinkedValueUtils":176,"./ReactDOMComponentTree":186,"./ReactUpdates":230,"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42,"fbjs/lib/warning":49,"object-assign":131}],192:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -40724,7 +40860,7 @@ var ReactDOMInvalidARIAHook = {
 
 module.exports = ReactDOMInvalidARIAHook;
 }).call(this,require('_process'))
-},{"./DOMProperty":163,"_process":145,"fbjs/lib/warning":48,"react/lib/ReactComponentTreeHook":311}],192:[function(require,module,exports){
+},{"./DOMProperty":164,"_process":146,"fbjs/lib/warning":49,"react/lib/ReactComponentTreeHook":312}],193:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -40769,7 +40905,7 @@ var ReactDOMNullInputValuePropHook = {
 
 module.exports = ReactDOMNullInputValuePropHook;
 }).call(this,require('_process'))
-},{"_process":145,"fbjs/lib/warning":48,"react/lib/ReactComponentTreeHook":311}],193:[function(require,module,exports){
+},{"_process":146,"fbjs/lib/warning":49,"react/lib/ReactComponentTreeHook":312}],194:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -40893,7 +41029,7 @@ var ReactDOMOption = {
 
 module.exports = ReactDOMOption;
 }).call(this,require('_process'))
-},{"./ReactDOMComponentTree":185,"./ReactDOMSelect":194,"_process":145,"fbjs/lib/warning":48,"object-assign":130,"react/lib/React":308}],194:[function(require,module,exports){
+},{"./ReactDOMComponentTree":186,"./ReactDOMSelect":195,"_process":146,"fbjs/lib/warning":49,"object-assign":131,"react/lib/React":309}],195:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -41095,7 +41231,7 @@ function _handleChange(event) {
 
 module.exports = ReactDOMSelect;
 }).call(this,require('_process'))
-},{"./LinkedValueUtils":175,"./ReactDOMComponentTree":185,"./ReactUpdates":229,"_process":145,"fbjs/lib/warning":48,"object-assign":130}],195:[function(require,module,exports){
+},{"./LinkedValueUtils":176,"./ReactDOMComponentTree":186,"./ReactUpdates":230,"_process":146,"fbjs/lib/warning":49,"object-assign":131}],196:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -41307,7 +41443,7 @@ var ReactDOMSelection = {
 };
 
 module.exports = ReactDOMSelection;
-},{"./getNodeForCharacterOffset":264,"./getTextContentAccessor":265,"fbjs/lib/ExecutionEnvironment":27}],196:[function(require,module,exports){
+},{"./getNodeForCharacterOffset":265,"./getTextContentAccessor":266,"fbjs/lib/ExecutionEnvironment":28}],197:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -41471,7 +41607,7 @@ _assign(ReactDOMTextComponent.prototype, {
 
 module.exports = ReactDOMTextComponent;
 }).call(this,require('_process'))
-},{"./DOMChildrenOperations":160,"./DOMLazyTree":161,"./ReactDOMComponentTree":185,"./escapeTextContentForBrowser":254,"./reactProdInvariant":272,"./validateDOMNesting":278,"_process":145,"fbjs/lib/invariant":41,"object-assign":130}],197:[function(require,module,exports){
+},{"./DOMChildrenOperations":161,"./DOMLazyTree":162,"./ReactDOMComponentTree":186,"./escapeTextContentForBrowser":255,"./reactProdInvariant":273,"./validateDOMNesting":279,"_process":146,"fbjs/lib/invariant":42,"object-assign":131}],198:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -41633,7 +41769,7 @@ function _handleChange(event) {
 
 module.exports = ReactDOMTextarea;
 }).call(this,require('_process'))
-},{"./LinkedValueUtils":175,"./ReactDOMComponentTree":185,"./ReactUpdates":229,"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41,"fbjs/lib/warning":48,"object-assign":130}],198:[function(require,module,exports){
+},{"./LinkedValueUtils":176,"./ReactDOMComponentTree":186,"./ReactUpdates":230,"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42,"fbjs/lib/warning":49,"object-assign":131}],199:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -41771,7 +41907,7 @@ module.exports = {
   traverseEnterLeave: traverseEnterLeave
 };
 }).call(this,require('_process'))
-},{"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41}],199:[function(require,module,exports){
+},{"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42}],200:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -41885,7 +42021,7 @@ var ReactDOMUnknownPropertyHook = {
 
 module.exports = ReactDOMUnknownPropertyHook;
 }).call(this,require('_process'))
-},{"./DOMProperty":163,"./EventPluginRegistry":169,"_process":145,"fbjs/lib/warning":48,"react/lib/ReactComponentTreeHook":311}],200:[function(require,module,exports){
+},{"./DOMProperty":164,"./EventPluginRegistry":170,"_process":146,"fbjs/lib/warning":49,"react/lib/ReactComponentTreeHook":312}],201:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2016-present, Facebook, Inc.
@@ -42248,7 +42384,7 @@ if (/[?&]react_perf\b/.test(url)) {
 
 module.exports = ReactDebugTool;
 }).call(this,require('_process'))
-},{"./ReactHostOperationHistoryHook":210,"./ReactInvalidSetStateWarningHook":215,"_process":145,"fbjs/lib/ExecutionEnvironment":27,"fbjs/lib/performanceNow":46,"fbjs/lib/warning":48,"react/lib/ReactComponentTreeHook":311}],201:[function(require,module,exports){
+},{"./ReactHostOperationHistoryHook":211,"./ReactInvalidSetStateWarningHook":216,"_process":146,"fbjs/lib/ExecutionEnvironment":28,"fbjs/lib/performanceNow":47,"fbjs/lib/warning":49,"react/lib/ReactComponentTreeHook":312}],202:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -42316,7 +42452,7 @@ var ReactDefaultBatchingStrategy = {
 };
 
 module.exports = ReactDefaultBatchingStrategy;
-},{"./ReactUpdates":229,"./Transaction":247,"fbjs/lib/emptyFunction":33,"object-assign":130}],202:[function(require,module,exports){
+},{"./ReactUpdates":230,"./Transaction":248,"fbjs/lib/emptyFunction":34,"object-assign":131}],203:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -42402,7 +42538,7 @@ function inject() {
 module.exports = {
   inject: inject
 };
-},{"./ARIADOMPropertyConfig":153,"./BeforeInputEventPlugin":155,"./ChangeEventPlugin":159,"./DefaultEventPluginOrder":166,"./EnterLeaveEventPlugin":167,"./HTMLDOMPropertyConfig":173,"./ReactComponentBrowserEnvironment":179,"./ReactDOMComponent":183,"./ReactDOMComponentTree":185,"./ReactDOMEmptyComponent":187,"./ReactDOMTextComponent":196,"./ReactDOMTreeTraversal":198,"./ReactDefaultBatchingStrategy":201,"./ReactEventListener":207,"./ReactInjection":211,"./ReactReconcileTransaction":223,"./SVGDOMPropertyConfig":231,"./SelectEventPlugin":232,"./SimpleEventPlugin":233}],203:[function(require,module,exports){
+},{"./ARIADOMPropertyConfig":154,"./BeforeInputEventPlugin":156,"./ChangeEventPlugin":160,"./DefaultEventPluginOrder":167,"./EnterLeaveEventPlugin":168,"./HTMLDOMPropertyConfig":174,"./ReactComponentBrowserEnvironment":180,"./ReactDOMComponent":184,"./ReactDOMComponentTree":186,"./ReactDOMEmptyComponent":188,"./ReactDOMTextComponent":197,"./ReactDOMTreeTraversal":199,"./ReactDefaultBatchingStrategy":202,"./ReactEventListener":208,"./ReactInjection":212,"./ReactReconcileTransaction":224,"./SVGDOMPropertyConfig":232,"./SelectEventPlugin":233,"./SimpleEventPlugin":234}],204:[function(require,module,exports){
 /**
  * Copyright 2014-present, Facebook, Inc.
  * All rights reserved.
@@ -42422,7 +42558,7 @@ module.exports = {
 var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol['for']('react.element') || 0xeac7;
 
 module.exports = REACT_ELEMENT_TYPE;
-},{}],204:[function(require,module,exports){
+},{}],205:[function(require,module,exports){
 /**
  * Copyright 2014-present, Facebook, Inc.
  * All rights reserved.
@@ -42452,7 +42588,7 @@ var ReactEmptyComponent = {
 ReactEmptyComponent.injection = ReactEmptyComponentInjection;
 
 module.exports = ReactEmptyComponent;
-},{}],205:[function(require,module,exports){
+},{}],206:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -42530,7 +42666,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactErrorUtils;
 }).call(this,require('_process'))
-},{"_process":145}],206:[function(require,module,exports){
+},{"_process":146}],207:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -42562,7 +42698,7 @@ var ReactEventEmitterMixin = {
 };
 
 module.exports = ReactEventEmitterMixin;
-},{"./EventPluginHub":168}],207:[function(require,module,exports){
+},{"./EventPluginHub":169}],208:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -42717,7 +42853,7 @@ var ReactEventListener = {
 };
 
 module.exports = ReactEventListener;
-},{"./PooledClass":176,"./ReactDOMComponentTree":185,"./ReactUpdates":229,"./getEventTarget":261,"fbjs/lib/EventListener":26,"fbjs/lib/ExecutionEnvironment":27,"fbjs/lib/getUnboundedScrollPosition":38,"object-assign":130}],208:[function(require,module,exports){
+},{"./PooledClass":177,"./ReactDOMComponentTree":186,"./ReactUpdates":230,"./getEventTarget":262,"fbjs/lib/EventListener":27,"fbjs/lib/ExecutionEnvironment":28,"fbjs/lib/getUnboundedScrollPosition":39,"object-assign":131}],209:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -42739,7 +42875,7 @@ var ReactFeatureFlags = {
 };
 
 module.exports = ReactFeatureFlags;
-},{}],209:[function(require,module,exports){
+},{}],210:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -42809,7 +42945,7 @@ var ReactHostComponent = {
 
 module.exports = ReactHostComponent;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41}],210:[function(require,module,exports){
+},{"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42}],211:[function(require,module,exports){
 /**
  * Copyright 2016-present, Facebook, Inc.
  * All rights reserved.
@@ -42843,7 +42979,7 @@ var ReactHostOperationHistoryHook = {
 };
 
 module.exports = ReactHostOperationHistoryHook;
-},{}],211:[function(require,module,exports){
+},{}],212:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -42877,7 +43013,7 @@ var ReactInjection = {
 };
 
 module.exports = ReactInjection;
-},{"./DOMProperty":163,"./EventPluginHub":168,"./EventPluginUtils":170,"./ReactBrowserEventEmitter":177,"./ReactComponentEnvironment":180,"./ReactEmptyComponent":204,"./ReactHostComponent":209,"./ReactUpdates":229}],212:[function(require,module,exports){
+},{"./DOMProperty":164,"./EventPluginHub":169,"./EventPluginUtils":171,"./ReactBrowserEventEmitter":178,"./ReactComponentEnvironment":181,"./ReactEmptyComponent":205,"./ReactHostComponent":210,"./ReactUpdates":230}],213:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -43000,7 +43136,7 @@ var ReactInputSelection = {
 };
 
 module.exports = ReactInputSelection;
-},{"./ReactDOMSelection":195,"fbjs/lib/containsNode":30,"fbjs/lib/focusNode":35,"fbjs/lib/getActiveElement":36}],213:[function(require,module,exports){
+},{"./ReactDOMSelection":196,"fbjs/lib/containsNode":31,"fbjs/lib/focusNode":36,"fbjs/lib/getActiveElement":37}],214:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -43046,7 +43182,7 @@ var ReactInstanceMap = {
 };
 
 module.exports = ReactInstanceMap;
-},{}],214:[function(require,module,exports){
+},{}],215:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2016-present, Facebook, Inc.
@@ -43072,7 +43208,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = { debugTool: debugTool };
 }).call(this,require('_process'))
-},{"./ReactDebugTool":200,"_process":145}],215:[function(require,module,exports){
+},{"./ReactDebugTool":201,"_process":146}],216:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2016-present, Facebook, Inc.
@@ -43111,7 +43247,7 @@ var ReactInvalidSetStateWarningHook = {
 
 module.exports = ReactInvalidSetStateWarningHook;
 }).call(this,require('_process'))
-},{"_process":145,"fbjs/lib/warning":48}],216:[function(require,module,exports){
+},{"_process":146,"fbjs/lib/warning":49}],217:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -43161,7 +43297,7 @@ var ReactMarkupChecksum = {
 };
 
 module.exports = ReactMarkupChecksum;
-},{"./adler32":250}],217:[function(require,module,exports){
+},{"./adler32":251}],218:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -43701,7 +43837,7 @@ var ReactMount = {
 
 module.exports = ReactMount;
 }).call(this,require('_process'))
-},{"./DOMLazyTree":161,"./DOMProperty":163,"./ReactBrowserEventEmitter":177,"./ReactDOMComponentTree":185,"./ReactDOMContainerInfo":186,"./ReactDOMFeatureFlags":188,"./ReactFeatureFlags":208,"./ReactInstanceMap":213,"./ReactInstrumentation":214,"./ReactMarkupChecksum":216,"./ReactReconciler":224,"./ReactUpdateQueue":228,"./ReactUpdates":229,"./instantiateReactComponent":268,"./reactProdInvariant":272,"./setInnerHTML":274,"./shouldUpdateReactComponent":276,"_process":145,"fbjs/lib/emptyObject":34,"fbjs/lib/invariant":41,"fbjs/lib/warning":48,"react/lib/React":308,"react/lib/ReactCurrentOwner":312}],218:[function(require,module,exports){
+},{"./DOMLazyTree":162,"./DOMProperty":164,"./ReactBrowserEventEmitter":178,"./ReactDOMComponentTree":186,"./ReactDOMContainerInfo":187,"./ReactDOMFeatureFlags":189,"./ReactFeatureFlags":209,"./ReactInstanceMap":214,"./ReactInstrumentation":215,"./ReactMarkupChecksum":217,"./ReactReconciler":225,"./ReactUpdateQueue":229,"./ReactUpdates":230,"./instantiateReactComponent":269,"./reactProdInvariant":273,"./setInnerHTML":275,"./shouldUpdateReactComponent":277,"_process":146,"fbjs/lib/emptyObject":35,"fbjs/lib/invariant":42,"fbjs/lib/warning":49,"react/lib/React":309,"react/lib/ReactCurrentOwner":313}],219:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -44149,7 +44285,7 @@ var ReactMultiChild = {
 
 module.exports = ReactMultiChild;
 }).call(this,require('_process'))
-},{"./ReactChildReconciler":178,"./ReactComponentEnvironment":180,"./ReactInstanceMap":213,"./ReactInstrumentation":214,"./ReactReconciler":224,"./flattenChildren":256,"./reactProdInvariant":272,"_process":145,"fbjs/lib/emptyFunction":33,"fbjs/lib/invariant":41,"react/lib/ReactCurrentOwner":312}],219:[function(require,module,exports){
+},{"./ReactChildReconciler":179,"./ReactComponentEnvironment":181,"./ReactInstanceMap":214,"./ReactInstrumentation":215,"./ReactReconciler":225,"./flattenChildren":257,"./reactProdInvariant":273,"_process":146,"fbjs/lib/emptyFunction":34,"fbjs/lib/invariant":42,"react/lib/ReactCurrentOwner":313}],220:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -44191,7 +44327,7 @@ var ReactNodeTypes = {
 
 module.exports = ReactNodeTypes;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41,"react/lib/React":308}],220:[function(require,module,exports){
+},{"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42,"react/lib/React":309}],221:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -44286,7 +44422,7 @@ var ReactOwner = {
 
 module.exports = ReactOwner;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41}],221:[function(require,module,exports){
+},{"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42}],222:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -44313,7 +44449,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactPropTypeLocationNames;
 }).call(this,require('_process'))
-},{"_process":145}],222:[function(require,module,exports){
+},{"_process":146}],223:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -44330,7 +44466,7 @@ module.exports = ReactPropTypeLocationNames;
 var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
-},{}],223:[function(require,module,exports){
+},{}],224:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -44510,7 +44646,7 @@ PooledClass.addPoolingTo(ReactReconcileTransaction);
 
 module.exports = ReactReconcileTransaction;
 }).call(this,require('_process'))
-},{"./CallbackQueue":158,"./PooledClass":176,"./ReactBrowserEventEmitter":177,"./ReactInputSelection":212,"./ReactInstrumentation":214,"./ReactUpdateQueue":228,"./Transaction":247,"_process":145,"object-assign":130}],224:[function(require,module,exports){
+},{"./CallbackQueue":159,"./PooledClass":177,"./ReactBrowserEventEmitter":178,"./ReactInputSelection":213,"./ReactInstrumentation":215,"./ReactUpdateQueue":229,"./Transaction":248,"_process":146,"object-assign":131}],225:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -44678,7 +44814,7 @@ var ReactReconciler = {
 
 module.exports = ReactReconciler;
 }).call(this,require('_process'))
-},{"./ReactInstrumentation":214,"./ReactRef":225,"_process":145,"fbjs/lib/warning":48}],225:[function(require,module,exports){
+},{"./ReactInstrumentation":215,"./ReactRef":226,"_process":146,"fbjs/lib/warning":49}],226:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -44767,7 +44903,7 @@ ReactRef.detachRefs = function (instance, element) {
 };
 
 module.exports = ReactRef;
-},{"./ReactOwner":220}],226:[function(require,module,exports){
+},{"./ReactOwner":221}],227:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -44859,7 +44995,7 @@ PooledClass.addPoolingTo(ReactServerRenderingTransaction);
 
 module.exports = ReactServerRenderingTransaction;
 }).call(this,require('_process'))
-},{"./PooledClass":176,"./ReactInstrumentation":214,"./ReactServerUpdateQueue":227,"./Transaction":247,"_process":145,"object-assign":130}],227:[function(require,module,exports){
+},{"./PooledClass":177,"./ReactInstrumentation":215,"./ReactServerUpdateQueue":228,"./Transaction":248,"_process":146,"object-assign":131}],228:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -45000,7 +45136,7 @@ var ReactServerUpdateQueue = function () {
 
 module.exports = ReactServerUpdateQueue;
 }).call(this,require('_process'))
-},{"./ReactUpdateQueue":228,"_process":145,"fbjs/lib/warning":48}],228:[function(require,module,exports){
+},{"./ReactUpdateQueue":229,"_process":146,"fbjs/lib/warning":49}],229:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -45236,7 +45372,7 @@ var ReactUpdateQueue = {
 
 module.exports = ReactUpdateQueue;
 }).call(this,require('_process'))
-},{"./ReactInstanceMap":213,"./ReactInstrumentation":214,"./ReactUpdates":229,"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41,"fbjs/lib/warning":48,"react/lib/ReactCurrentOwner":312}],229:[function(require,module,exports){
+},{"./ReactInstanceMap":214,"./ReactInstrumentation":215,"./ReactUpdates":230,"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42,"fbjs/lib/warning":49,"react/lib/ReactCurrentOwner":313}],230:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -45489,7 +45625,7 @@ var ReactUpdates = {
 
 module.exports = ReactUpdates;
 }).call(this,require('_process'))
-},{"./CallbackQueue":158,"./PooledClass":176,"./ReactFeatureFlags":208,"./ReactReconciler":224,"./Transaction":247,"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41,"object-assign":130}],230:[function(require,module,exports){
+},{"./CallbackQueue":159,"./PooledClass":177,"./ReactFeatureFlags":209,"./ReactReconciler":225,"./Transaction":248,"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42,"object-assign":131}],231:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -45503,7 +45639,7 @@ module.exports = ReactUpdates;
 'use strict';
 
 module.exports = '15.6.1';
-},{}],231:[function(require,module,exports){
+},{}],232:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -45805,7 +45941,7 @@ Object.keys(ATTRS).forEach(function (key) {
 });
 
 module.exports = SVGDOMPropertyConfig;
-},{}],232:[function(require,module,exports){
+},{}],233:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -45993,7 +46129,7 @@ var SelectEventPlugin = {
 };
 
 module.exports = SelectEventPlugin;
-},{"./EventPropagators":171,"./ReactDOMComponentTree":185,"./ReactInputSelection":212,"./SyntheticEvent":238,"./isTextInputElement":270,"fbjs/lib/ExecutionEnvironment":27,"fbjs/lib/getActiveElement":36,"fbjs/lib/shallowEqual":47}],233:[function(require,module,exports){
+},{"./EventPropagators":172,"./ReactDOMComponentTree":186,"./ReactInputSelection":213,"./SyntheticEvent":239,"./isTextInputElement":271,"fbjs/lib/ExecutionEnvironment":28,"fbjs/lib/getActiveElement":37,"fbjs/lib/shallowEqual":48}],234:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -46221,7 +46357,7 @@ var SimpleEventPlugin = {
 
 module.exports = SimpleEventPlugin;
 }).call(this,require('_process'))
-},{"./EventPropagators":171,"./ReactDOMComponentTree":185,"./SyntheticAnimationEvent":234,"./SyntheticClipboardEvent":235,"./SyntheticDragEvent":237,"./SyntheticEvent":238,"./SyntheticFocusEvent":239,"./SyntheticKeyboardEvent":241,"./SyntheticMouseEvent":242,"./SyntheticTouchEvent":243,"./SyntheticTransitionEvent":244,"./SyntheticUIEvent":245,"./SyntheticWheelEvent":246,"./getEventCharCode":258,"./reactProdInvariant":272,"_process":145,"fbjs/lib/EventListener":26,"fbjs/lib/emptyFunction":33,"fbjs/lib/invariant":41}],234:[function(require,module,exports){
+},{"./EventPropagators":172,"./ReactDOMComponentTree":186,"./SyntheticAnimationEvent":235,"./SyntheticClipboardEvent":236,"./SyntheticDragEvent":238,"./SyntheticEvent":239,"./SyntheticFocusEvent":240,"./SyntheticKeyboardEvent":242,"./SyntheticMouseEvent":243,"./SyntheticTouchEvent":244,"./SyntheticTransitionEvent":245,"./SyntheticUIEvent":246,"./SyntheticWheelEvent":247,"./getEventCharCode":259,"./reactProdInvariant":273,"_process":146,"fbjs/lib/EventListener":27,"fbjs/lib/emptyFunction":34,"fbjs/lib/invariant":42}],235:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46260,7 +46396,7 @@ function SyntheticAnimationEvent(dispatchConfig, dispatchMarker, nativeEvent, na
 SyntheticEvent.augmentClass(SyntheticAnimationEvent, AnimationEventInterface);
 
 module.exports = SyntheticAnimationEvent;
-},{"./SyntheticEvent":238}],235:[function(require,module,exports){
+},{"./SyntheticEvent":239}],236:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46298,7 +46434,7 @@ function SyntheticClipboardEvent(dispatchConfig, dispatchMarker, nativeEvent, na
 SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
 
 module.exports = SyntheticClipboardEvent;
-},{"./SyntheticEvent":238}],236:[function(require,module,exports){
+},{"./SyntheticEvent":239}],237:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46334,7 +46470,7 @@ function SyntheticCompositionEvent(dispatchConfig, dispatchMarker, nativeEvent, 
 SyntheticEvent.augmentClass(SyntheticCompositionEvent, CompositionEventInterface);
 
 module.exports = SyntheticCompositionEvent;
-},{"./SyntheticEvent":238}],237:[function(require,module,exports){
+},{"./SyntheticEvent":239}],238:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46370,7 +46506,7 @@ function SyntheticDragEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeE
 SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
 
 module.exports = SyntheticDragEvent;
-},{"./SyntheticMouseEvent":242}],238:[function(require,module,exports){
+},{"./SyntheticMouseEvent":243}],239:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -46638,7 +46774,7 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
   }
 }
 }).call(this,require('_process'))
-},{"./PooledClass":176,"_process":145,"fbjs/lib/emptyFunction":33,"fbjs/lib/warning":48,"object-assign":130}],239:[function(require,module,exports){
+},{"./PooledClass":177,"_process":146,"fbjs/lib/emptyFunction":34,"fbjs/lib/warning":49,"object-assign":131}],240:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46674,7 +46810,7 @@ function SyntheticFocusEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
 
 module.exports = SyntheticFocusEvent;
-},{"./SyntheticUIEvent":245}],240:[function(require,module,exports){
+},{"./SyntheticUIEvent":246}],241:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46711,7 +46847,7 @@ function SyntheticInputEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticEvent.augmentClass(SyntheticInputEvent, InputEventInterface);
 
 module.exports = SyntheticInputEvent;
-},{"./SyntheticEvent":238}],241:[function(require,module,exports){
+},{"./SyntheticEvent":239}],242:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46795,7 +46931,7 @@ function SyntheticKeyboardEvent(dispatchConfig, dispatchMarker, nativeEvent, nat
 SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
 
 module.exports = SyntheticKeyboardEvent;
-},{"./SyntheticUIEvent":245,"./getEventCharCode":258,"./getEventKey":259,"./getEventModifierState":260}],242:[function(require,module,exports){
+},{"./SyntheticUIEvent":246,"./getEventCharCode":259,"./getEventKey":260,"./getEventModifierState":261}],243:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46867,7 +47003,7 @@ function SyntheticMouseEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 
 module.exports = SyntheticMouseEvent;
-},{"./SyntheticUIEvent":245,"./ViewportMetrics":248,"./getEventModifierState":260}],243:[function(require,module,exports){
+},{"./SyntheticUIEvent":246,"./ViewportMetrics":249,"./getEventModifierState":261}],244:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46912,7 +47048,7 @@ function SyntheticTouchEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
 
 module.exports = SyntheticTouchEvent;
-},{"./SyntheticUIEvent":245,"./getEventModifierState":260}],244:[function(require,module,exports){
+},{"./SyntheticUIEvent":246,"./getEventModifierState":261}],245:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46951,7 +47087,7 @@ function SyntheticTransitionEvent(dispatchConfig, dispatchMarker, nativeEvent, n
 SyntheticEvent.augmentClass(SyntheticTransitionEvent, TransitionEventInterface);
 
 module.exports = SyntheticTransitionEvent;
-},{"./SyntheticEvent":238}],245:[function(require,module,exports){
+},{"./SyntheticEvent":239}],246:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47010,7 +47146,7 @@ function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEve
 SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 
 module.exports = SyntheticUIEvent;
-},{"./SyntheticEvent":238,"./getEventTarget":261}],246:[function(require,module,exports){
+},{"./SyntheticEvent":239,"./getEventTarget":262}],247:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47061,7 +47197,7 @@ function SyntheticWheelEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
 
 module.exports = SyntheticWheelEvent;
-},{"./SyntheticMouseEvent":242}],247:[function(require,module,exports){
+},{"./SyntheticMouseEvent":243}],248:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -47291,7 +47427,7 @@ var TransactionImpl = {
 
 module.exports = TransactionImpl;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41}],248:[function(require,module,exports){
+},{"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42}],249:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47316,7 +47452,7 @@ var ViewportMetrics = {
 };
 
 module.exports = ViewportMetrics;
-},{}],249:[function(require,module,exports){
+},{}],250:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -47376,7 +47512,7 @@ function accumulateInto(current, next) {
 
 module.exports = accumulateInto;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41}],250:[function(require,module,exports){
+},{"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42}],251:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47420,7 +47556,7 @@ function adler32(data) {
 }
 
 module.exports = adler32;
-},{}],251:[function(require,module,exports){
+},{}],252:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -47509,7 +47645,7 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
 module.exports = checkReactTypeSpec;
 }).call(this,require('_process'))
-},{"./ReactPropTypeLocationNames":221,"./ReactPropTypesSecret":222,"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41,"fbjs/lib/warning":48,"react/lib/ReactComponentTreeHook":311}],252:[function(require,module,exports){
+},{"./ReactPropTypeLocationNames":222,"./ReactPropTypesSecret":223,"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42,"fbjs/lib/warning":49,"react/lib/ReactComponentTreeHook":312}],253:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47541,7 +47677,7 @@ var createMicrosoftUnsafeLocalFunction = function (func) {
 };
 
 module.exports = createMicrosoftUnsafeLocalFunction;
-},{}],253:[function(require,module,exports){
+},{}],254:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -47622,7 +47758,7 @@ function dangerousStyleValue(name, value, component, isCustomProperty) {
 
 module.exports = dangerousStyleValue;
 }).call(this,require('_process'))
-},{"./CSSProperty":156,"_process":145,"fbjs/lib/warning":48}],254:[function(require,module,exports){
+},{"./CSSProperty":157,"_process":146,"fbjs/lib/warning":49}],255:[function(require,module,exports){
 /**
  * Copyright 2016-present, Facebook, Inc.
  * All rights reserved.
@@ -47744,7 +47880,7 @@ function escapeTextContentForBrowser(text) {
 }
 
 module.exports = escapeTextContentForBrowser;
-},{}],255:[function(require,module,exports){
+},{}],256:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -47806,7 +47942,7 @@ function findDOMNode(componentOrElement) {
 
 module.exports = findDOMNode;
 }).call(this,require('_process'))
-},{"./ReactDOMComponentTree":185,"./ReactInstanceMap":213,"./getHostComponentFromComposite":262,"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41,"fbjs/lib/warning":48,"react/lib/ReactCurrentOwner":312}],256:[function(require,module,exports){
+},{"./ReactDOMComponentTree":186,"./ReactInstanceMap":214,"./getHostComponentFromComposite":263,"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42,"fbjs/lib/warning":49,"react/lib/ReactCurrentOwner":313}],257:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -47884,7 +48020,7 @@ function flattenChildren(children, selfDebugID) {
 
 module.exports = flattenChildren;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":174,"./traverseAllChildren":277,"_process":145,"fbjs/lib/warning":48,"react/lib/ReactComponentTreeHook":311}],257:[function(require,module,exports){
+},{"./KeyEscapeUtils":175,"./traverseAllChildren":278,"_process":146,"fbjs/lib/warning":49,"react/lib/ReactComponentTreeHook":312}],258:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47915,7 +48051,7 @@ function forEachAccumulated(arr, cb, scope) {
 }
 
 module.exports = forEachAccumulated;
-},{}],258:[function(require,module,exports){
+},{}],259:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47965,7 +48101,7 @@ function getEventCharCode(nativeEvent) {
 }
 
 module.exports = getEventCharCode;
-},{}],259:[function(require,module,exports){
+},{}],260:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48077,7 +48213,7 @@ function getEventKey(nativeEvent) {
 }
 
 module.exports = getEventKey;
-},{"./getEventCharCode":258}],260:[function(require,module,exports){
+},{"./getEventCharCode":259}],261:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48120,7 +48256,7 @@ function getEventModifierState(nativeEvent) {
 }
 
 module.exports = getEventModifierState;
-},{}],261:[function(require,module,exports){
+},{}],262:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48155,7 +48291,7 @@ function getEventTarget(nativeEvent) {
 }
 
 module.exports = getEventTarget;
-},{}],262:[function(require,module,exports){
+},{}],263:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48185,7 +48321,7 @@ function getHostComponentFromComposite(inst) {
 }
 
 module.exports = getHostComponentFromComposite;
-},{"./ReactNodeTypes":219}],263:[function(require,module,exports){
+},{"./ReactNodeTypes":220}],264:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48226,7 +48362,7 @@ function getIteratorFn(maybeIterable) {
 }
 
 module.exports = getIteratorFn;
-},{}],264:[function(require,module,exports){
+},{}],265:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48300,7 +48436,7 @@ function getNodeForCharacterOffset(root, offset) {
 }
 
 module.exports = getNodeForCharacterOffset;
-},{}],265:[function(require,module,exports){
+},{}],266:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48333,7 +48469,7 @@ function getTextContentAccessor() {
 }
 
 module.exports = getTextContentAccessor;
-},{"fbjs/lib/ExecutionEnvironment":27}],266:[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":28}],267:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48434,7 +48570,7 @@ function getVendorPrefixedEventName(eventName) {
 }
 
 module.exports = getVendorPrefixedEventName;
-},{"fbjs/lib/ExecutionEnvironment":27}],267:[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":28}],268:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48557,7 +48693,7 @@ var inputValueTracking = {
 };
 
 module.exports = inputValueTracking;
-},{"./ReactDOMComponentTree":185}],268:[function(require,module,exports){
+},{"./ReactDOMComponentTree":186}],269:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -48688,7 +48824,7 @@ _assign(ReactCompositeComponentWrapper.prototype, ReactCompositeComponent, {
 
 module.exports = instantiateReactComponent;
 }).call(this,require('_process'))
-},{"./ReactCompositeComponent":181,"./ReactEmptyComponent":204,"./ReactHostComponent":209,"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41,"fbjs/lib/warning":48,"object-assign":130,"react/lib/getNextDebugID":326}],269:[function(require,module,exports){
+},{"./ReactCompositeComponent":182,"./ReactEmptyComponent":205,"./ReactHostComponent":210,"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42,"fbjs/lib/warning":49,"object-assign":131,"react/lib/getNextDebugID":327}],270:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48748,7 +48884,7 @@ function isEventSupported(eventNameSuffix, capture) {
 }
 
 module.exports = isEventSupported;
-},{"fbjs/lib/ExecutionEnvironment":27}],270:[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":28}],271:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48799,7 +48935,7 @@ function isTextInputElement(elem) {
 }
 
 module.exports = isTextInputElement;
-},{}],271:[function(require,module,exports){
+},{}],272:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48825,7 +48961,7 @@ function quoteAttributeValueForBrowser(value) {
 }
 
 module.exports = quoteAttributeValueForBrowser;
-},{"./escapeTextContentForBrowser":254}],272:[function(require,module,exports){
+},{"./escapeTextContentForBrowser":255}],273:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48864,7 +49000,7 @@ function reactProdInvariant(code) {
 }
 
 module.exports = reactProdInvariant;
-},{}],273:[function(require,module,exports){
+},{}],274:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48880,7 +49016,7 @@ module.exports = reactProdInvariant;
 var ReactMount = require('./ReactMount');
 
 module.exports = ReactMount.renderSubtreeIntoContainer;
-},{"./ReactMount":217}],274:[function(require,module,exports){
+},{"./ReactMount":218}],275:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48978,7 +49114,7 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = setInnerHTML;
-},{"./DOMNamespaces":162,"./createMicrosoftUnsafeLocalFunction":252,"fbjs/lib/ExecutionEnvironment":27}],275:[function(require,module,exports){
+},{"./DOMNamespaces":163,"./createMicrosoftUnsafeLocalFunction":253,"fbjs/lib/ExecutionEnvironment":28}],276:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -49030,7 +49166,7 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = setTextContent;
-},{"./escapeTextContentForBrowser":254,"./setInnerHTML":274,"fbjs/lib/ExecutionEnvironment":27}],276:[function(require,module,exports){
+},{"./escapeTextContentForBrowser":255,"./setInnerHTML":275,"fbjs/lib/ExecutionEnvironment":28}],277:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -49072,7 +49208,7 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 }
 
 module.exports = shouldUpdateReactComponent;
-},{}],277:[function(require,module,exports){
+},{}],278:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -49250,7 +49386,7 @@ function traverseAllChildren(children, callback, traverseContext) {
 
 module.exports = traverseAllChildren;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":174,"./ReactElementSymbol":203,"./getIteratorFn":263,"./reactProdInvariant":272,"_process":145,"fbjs/lib/invariant":41,"fbjs/lib/warning":48,"react/lib/ReactCurrentOwner":312}],278:[function(require,module,exports){
+},{"./KeyEscapeUtils":175,"./ReactElementSymbol":204,"./getIteratorFn":264,"./reactProdInvariant":273,"_process":146,"fbjs/lib/invariant":42,"fbjs/lib/warning":49,"react/lib/ReactCurrentOwner":313}],279:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -49623,7 +49759,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = validateDOMNesting;
 }).call(this,require('_process'))
-},{"_process":145,"fbjs/lib/emptyFunction":33,"fbjs/lib/warning":48,"object-assign":130}],279:[function(require,module,exports){
+},{"_process":146,"fbjs/lib/emptyFunction":34,"fbjs/lib/warning":49,"object-assign":131}],280:[function(require,module,exports){
 var React = require('react');
 
 var FileInput = React.createClass({
@@ -49690,7 +49826,7 @@ var FileInput = React.createClass({
 
 module.exports = FileInput;
 
-},{"react":331}],280:[function(require,module,exports){
+},{"react":332}],281:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -49935,7 +50071,7 @@ Modal.defaultStyles = {
   }
 };
 exports.default = Modal;
-},{"../helpers/ariaAppHider":282,"../helpers/safeHTMLElement":286,"./ModalPortal":281,"prop-types":150,"react":331,"react-dom":152}],281:[function(require,module,exports){
+},{"../helpers/ariaAppHider":283,"../helpers/safeHTMLElement":287,"./ModalPortal":282,"prop-types":151,"react":332,"react-dom":153}],282:[function(require,module,exports){
 (function (process){
 "use strict";
 
@@ -50340,7 +50476,7 @@ ModalPortal.propTypes = {
 exports.default = ModalPortal;
 module.exports = exports["default"];
 }).call(this,require('_process'))
-},{"../helpers/ariaAppHider":282,"../helpers/bodyClassList":283,"../helpers/focusManager":284,"../helpers/refCount":285,"../helpers/safeHTMLElement":286,"../helpers/scopeTab":287,"_process":145,"prop-types":150,"react":331}],282:[function(require,module,exports){
+},{"../helpers/ariaAppHider":283,"../helpers/bodyClassList":284,"../helpers/focusManager":285,"../helpers/refCount":286,"../helpers/safeHTMLElement":287,"../helpers/scopeTab":288,"_process":146,"prop-types":151,"react":332}],283:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50405,7 +50541,7 @@ function documentNotReadyOrSSRTesting() {
 function resetForTesting() {
   globalElement = document.body;
 }
-},{}],283:[function(require,module,exports){
+},{}],284:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50437,7 +50573,7 @@ function remove(bodyClass) {
     return document.body.classList.remove(className);
   });
 }
-},{"./refCount":285}],284:[function(require,module,exports){
+},{"./refCount":286}],285:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50525,7 +50661,7 @@ function teardownScopedFocus() {
     document.detachEvent("onFocus", handleFocus);
   }
 }
-},{"../helpers/tabbable":288}],285:[function(require,module,exports){
+},{"../helpers/tabbable":289}],286:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50562,7 +50698,7 @@ function totalCount() {
     return acc + classListMap[curr];
   }, 0);
 }
-},{}],286:[function(require,module,exports){
+},{}],287:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50583,7 +50719,7 @@ var SafeHTMLElement = EE.canUseDOM ? window.HTMLElement : {};
 var canUseDOM = exports.canUseDOM = EE.canUseDOM;
 
 exports.default = SafeHTMLElement;
-},{"exenv":25}],287:[function(require,module,exports){
+},{"exenv":26}],288:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50613,7 +50749,7 @@ function scopeTab(node, event) {
   target.focus();
 }
 module.exports = exports["default"];
-},{"./tabbable":288}],288:[function(require,module,exports){
+},{"./tabbable":289}],289:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50665,7 +50801,7 @@ function findTabbableDescendants(element) {
   return [].slice.call(element.querySelectorAll("*"), 0).filter(tabbable);
 }
 module.exports = exports["default"];
-},{}],289:[function(require,module,exports){
+},{}],290:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50680,7 +50816,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = _Modal2.default;
 module.exports = exports["default"];
-},{"./components/Modal":280}],290:[function(require,module,exports){
+},{"./components/Modal":281}],291:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -50769,7 +50905,7 @@ function createProvider() {
 
 exports.default = createProvider();
 }).call(this,require('_process'))
-},{"../utils/PropTypes":300,"../utils/warning":304,"_process":145,"prop-types":150,"react":331}],291:[function(require,module,exports){
+},{"../utils/PropTypes":301,"../utils/warning":305,"_process":146,"prop-types":151,"react":332}],292:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -51078,7 +51214,7 @@ selectorFactory) {
   };
 }
 }).call(this,require('_process'))
-},{"../utils/PropTypes":300,"../utils/Subscription":301,"_process":145,"hoist-non-react-statics":103,"invariant":106,"react":331}],292:[function(require,module,exports){
+},{"../utils/PropTypes":301,"../utils/Subscription":302,"_process":146,"hoist-non-react-statics":104,"invariant":107,"react":332}],293:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -51207,7 +51343,7 @@ function createConnect() {
 }
 
 exports.default = createConnect();
-},{"../components/connectAdvanced":291,"../utils/shallowEqual":302,"./mapDispatchToProps":293,"./mapStateToProps":294,"./mergeProps":295,"./selectorFactory":296}],293:[function(require,module,exports){
+},{"../components/connectAdvanced":292,"../utils/shallowEqual":303,"./mapDispatchToProps":294,"./mapStateToProps":295,"./mergeProps":296,"./selectorFactory":297}],294:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -51236,7 +51372,7 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 }
 
 exports.default = [whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject];
-},{"./wrapMapToProps":298,"redux":337}],294:[function(require,module,exports){
+},{"./wrapMapToProps":299,"redux":338}],295:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -51256,7 +51392,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 }
 
 exports.default = [whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing];
-},{"./wrapMapToProps":298}],295:[function(require,module,exports){
+},{"./wrapMapToProps":299}],296:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -51317,7 +51453,7 @@ function whenMergePropsIsOmitted(mergeProps) {
 
 exports.default = [whenMergePropsIsFunction, whenMergePropsIsOmitted];
 }).call(this,require('_process'))
-},{"../utils/verifyPlainObject":303,"_process":145}],296:[function(require,module,exports){
+},{"../utils/verifyPlainObject":304,"_process":146}],297:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -51433,7 +51569,7 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
   return selectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, options);
 }
 }).call(this,require('_process'))
-},{"./verifySubselectors":297,"_process":145}],297:[function(require,module,exports){
+},{"./verifySubselectors":298,"_process":146}],298:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -51460,7 +51596,7 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
   verify(mapDispatchToProps, 'mapDispatchToProps', displayName);
   verify(mergeProps, 'mergeProps', displayName);
 }
-},{"../utils/warning":304}],298:[function(require,module,exports){
+},{"../utils/warning":305}],299:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -51541,7 +51677,7 @@ function wrapMapToPropsFunc(mapToProps, methodName) {
   };
 }
 }).call(this,require('_process'))
-},{"../utils/verifyPlainObject":303,"_process":145}],299:[function(require,module,exports){
+},{"../utils/verifyPlainObject":304,"_process":146}],300:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -51565,7 +51701,7 @@ exports.Provider = _Provider2.default;
 exports.createProvider = _Provider.createProvider;
 exports.connectAdvanced = _connectAdvanced2.default;
 exports.connect = _connect2.default;
-},{"./components/Provider":290,"./components/connectAdvanced":291,"./connect/connect":292}],300:[function(require,module,exports){
+},{"./components/Provider":291,"./components/connectAdvanced":292,"./connect/connect":293}],301:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -51589,7 +51725,7 @@ var storeShape = exports.storeShape = _propTypes2.default.shape({
   dispatch: _propTypes2.default.func.isRequired,
   getState: _propTypes2.default.func.isRequired
 });
-},{"prop-types":150}],301:[function(require,module,exports){
+},{"prop-types":151}],302:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -51686,7 +51822,7 @@ var Subscription = function () {
 }();
 
 exports.default = Subscription;
-},{}],302:[function(require,module,exports){
+},{}],303:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -51721,7 +51857,7 @@ function shallowEqual(objA, objB) {
 
   return true;
 }
-},{}],303:[function(require,module,exports){
+},{}],304:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -51742,7 +51878,7 @@ function verifyPlainObject(value, displayName, methodName) {
     (0, _warning2.default)(methodName + '() in ' + displayName + ' must return a plain object. Instead received ' + value + '.');
   }
 }
-},{"./warning":304,"lodash/isPlainObject":118}],304:[function(require,module,exports){
+},{"./warning":305,"lodash/isPlainObject":119}],305:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -51768,7 +51904,7 @@ function warning(message) {
   } catch (e) {}
   /* eslint-enable no-empty */
 }
-},{}],305:[function(require,module,exports){
+},{}],306:[function(require,module,exports){
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['react','prop-types','create-react-class'], factory);
@@ -52632,11 +52768,11 @@ function warning(message) {
   return ReactSlider;
 }));
 
-},{"create-react-class":18,"prop-types":150,"react":331}],306:[function(require,module,exports){
-arguments[4][174][0].apply(exports,arguments)
-},{"dup":174}],307:[function(require,module,exports){
-arguments[4][176][0].apply(exports,arguments)
-},{"./reactProdInvariant":329,"_process":145,"dup":176,"fbjs/lib/invariant":41}],308:[function(require,module,exports){
+},{"create-react-class":19,"prop-types":151,"react":332}],307:[function(require,module,exports){
+arguments[4][175][0].apply(exports,arguments)
+},{"dup":175}],308:[function(require,module,exports){
+arguments[4][177][0].apply(exports,arguments)
+},{"./reactProdInvariant":330,"_process":146,"dup":177,"fbjs/lib/invariant":42}],309:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -52770,7 +52906,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = React;
 }).call(this,require('_process'))
-},{"./ReactBaseClasses":309,"./ReactChildren":310,"./ReactDOMFactories":313,"./ReactElement":314,"./ReactElementValidator":316,"./ReactPropTypes":319,"./ReactVersion":321,"./canDefineProperty":322,"./createClass":324,"./lowPriorityWarning":327,"./onlyChild":328,"_process":145,"object-assign":130}],309:[function(require,module,exports){
+},{"./ReactBaseClasses":310,"./ReactChildren":311,"./ReactDOMFactories":314,"./ReactElement":315,"./ReactElementValidator":317,"./ReactPropTypes":320,"./ReactVersion":322,"./canDefineProperty":323,"./createClass":325,"./lowPriorityWarning":328,"./onlyChild":329,"_process":146,"object-assign":131}],310:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -52915,7 +53051,7 @@ module.exports = {
   PureComponent: ReactPureComponent
 };
 }).call(this,require('_process'))
-},{"./ReactNoopUpdateQueue":317,"./canDefineProperty":322,"./lowPriorityWarning":327,"./reactProdInvariant":329,"_process":145,"fbjs/lib/emptyObject":34,"fbjs/lib/invariant":41,"object-assign":130}],310:[function(require,module,exports){
+},{"./ReactNoopUpdateQueue":318,"./canDefineProperty":323,"./lowPriorityWarning":328,"./reactProdInvariant":330,"_process":146,"fbjs/lib/emptyObject":35,"fbjs/lib/invariant":42,"object-assign":131}],311:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -53106,7 +53242,7 @@ var ReactChildren = {
 };
 
 module.exports = ReactChildren;
-},{"./PooledClass":307,"./ReactElement":314,"./traverseAllChildren":330,"fbjs/lib/emptyFunction":33}],311:[function(require,module,exports){
+},{"./PooledClass":308,"./ReactElement":315,"./traverseAllChildren":331,"fbjs/lib/emptyFunction":34}],312:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2016-present, Facebook, Inc.
@@ -53487,7 +53623,7 @@ var ReactComponentTreeHook = {
 
 module.exports = ReactComponentTreeHook;
 }).call(this,require('_process'))
-},{"./ReactCurrentOwner":312,"./reactProdInvariant":329,"_process":145,"fbjs/lib/invariant":41,"fbjs/lib/warning":48}],312:[function(require,module,exports){
+},{"./ReactCurrentOwner":313,"./reactProdInvariant":330,"_process":146,"fbjs/lib/invariant":42,"fbjs/lib/warning":49}],313:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -53516,7 +53652,7 @@ var ReactCurrentOwner = {
 };
 
 module.exports = ReactCurrentOwner;
-},{}],313:[function(require,module,exports){
+},{}],314:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -53687,7 +53823,7 @@ var ReactDOMFactories = {
 
 module.exports = ReactDOMFactories;
 }).call(this,require('_process'))
-},{"./ReactElement":314,"./ReactElementValidator":316,"_process":145}],314:[function(require,module,exports){
+},{"./ReactElement":315,"./ReactElementValidator":317,"_process":146}],315:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -54030,9 +54166,9 @@ ReactElement.isValidElement = function (object) {
 
 module.exports = ReactElement;
 }).call(this,require('_process'))
-},{"./ReactCurrentOwner":312,"./ReactElementSymbol":315,"./canDefineProperty":322,"_process":145,"fbjs/lib/warning":48,"object-assign":130}],315:[function(require,module,exports){
-arguments[4][203][0].apply(exports,arguments)
-},{"dup":203}],316:[function(require,module,exports){
+},{"./ReactCurrentOwner":313,"./ReactElementSymbol":316,"./canDefineProperty":323,"_process":146,"fbjs/lib/warning":49,"object-assign":131}],316:[function(require,module,exports){
+arguments[4][204][0].apply(exports,arguments)
+},{"dup":204}],317:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -54289,7 +54425,7 @@ var ReactElementValidator = {
 
 module.exports = ReactElementValidator;
 }).call(this,require('_process'))
-},{"./ReactComponentTreeHook":311,"./ReactCurrentOwner":312,"./ReactElement":314,"./canDefineProperty":322,"./checkReactTypeSpec":323,"./getIteratorFn":325,"./lowPriorityWarning":327,"_process":145,"fbjs/lib/warning":48}],317:[function(require,module,exports){
+},{"./ReactComponentTreeHook":312,"./ReactCurrentOwner":313,"./ReactElement":315,"./canDefineProperty":323,"./checkReactTypeSpec":324,"./getIteratorFn":326,"./lowPriorityWarning":328,"_process":146,"fbjs/lib/warning":49}],318:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -54386,9 +54522,9 @@ var ReactNoopUpdateQueue = {
 
 module.exports = ReactNoopUpdateQueue;
 }).call(this,require('_process'))
-},{"_process":145,"fbjs/lib/warning":48}],318:[function(require,module,exports){
-arguments[4][221][0].apply(exports,arguments)
-},{"_process":145,"dup":221}],319:[function(require,module,exports){
+},{"_process":146,"fbjs/lib/warning":49}],319:[function(require,module,exports){
+arguments[4][222][0].apply(exports,arguments)
+},{"_process":146,"dup":222}],320:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -54407,11 +54543,11 @@ var _require = require('./ReactElement'),
 var factory = require('prop-types/factory');
 
 module.exports = factory(isValidElement);
-},{"./ReactElement":314,"prop-types/factory":147}],320:[function(require,module,exports){
-arguments[4][222][0].apply(exports,arguments)
-},{"dup":222}],321:[function(require,module,exports){
-arguments[4][230][0].apply(exports,arguments)
-},{"dup":230}],322:[function(require,module,exports){
+},{"./ReactElement":315,"prop-types/factory":148}],321:[function(require,module,exports){
+arguments[4][223][0].apply(exports,arguments)
+},{"dup":223}],322:[function(require,module,exports){
+arguments[4][231][0].apply(exports,arguments)
+},{"dup":231}],323:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -54439,7 +54575,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = canDefineProperty;
 }).call(this,require('_process'))
-},{"_process":145}],323:[function(require,module,exports){
+},{"_process":146}],324:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -54528,7 +54664,7 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
 module.exports = checkReactTypeSpec;
 }).call(this,require('_process'))
-},{"./ReactComponentTreeHook":311,"./ReactPropTypeLocationNames":318,"./ReactPropTypesSecret":320,"./reactProdInvariant":329,"_process":145,"fbjs/lib/invariant":41,"fbjs/lib/warning":48}],324:[function(require,module,exports){
+},{"./ReactComponentTreeHook":312,"./ReactPropTypeLocationNames":319,"./ReactPropTypesSecret":321,"./reactProdInvariant":330,"_process":146,"fbjs/lib/invariant":42,"fbjs/lib/warning":49}],325:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -54551,9 +54687,9 @@ var ReactNoopUpdateQueue = require('./ReactNoopUpdateQueue');
 var factory = require('create-react-class/factory');
 
 module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
-},{"./ReactBaseClasses":309,"./ReactElement":314,"./ReactNoopUpdateQueue":317,"create-react-class/factory":17}],325:[function(require,module,exports){
-arguments[4][263][0].apply(exports,arguments)
-},{"dup":263}],326:[function(require,module,exports){
+},{"./ReactBaseClasses":310,"./ReactElement":315,"./ReactNoopUpdateQueue":318,"create-react-class/factory":18}],326:[function(require,module,exports){
+arguments[4][264][0].apply(exports,arguments)
+},{"dup":264}],327:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -54574,7 +54710,7 @@ function getNextDebugID() {
 }
 
 module.exports = getNextDebugID;
-},{}],327:[function(require,module,exports){
+},{}],328:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -54641,7 +54777,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = lowPriorityWarning;
 }).call(this,require('_process'))
-},{"_process":145}],328:[function(require,module,exports){
+},{"_process":146}],329:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -54681,9 +54817,9 @@ function onlyChild(children) {
 
 module.exports = onlyChild;
 }).call(this,require('_process'))
-},{"./ReactElement":314,"./reactProdInvariant":329,"_process":145,"fbjs/lib/invariant":41}],329:[function(require,module,exports){
-arguments[4][272][0].apply(exports,arguments)
-},{"dup":272}],330:[function(require,module,exports){
+},{"./ReactElement":315,"./reactProdInvariant":330,"_process":146,"fbjs/lib/invariant":42}],330:[function(require,module,exports){
+arguments[4][273][0].apply(exports,arguments)
+},{"dup":273}],331:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -54861,12 +54997,12 @@ function traverseAllChildren(children, callback, traverseContext) {
 
 module.exports = traverseAllChildren;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":306,"./ReactCurrentOwner":312,"./ReactElementSymbol":315,"./getIteratorFn":325,"./reactProdInvariant":329,"_process":145,"fbjs/lib/invariant":41,"fbjs/lib/warning":48}],331:[function(require,module,exports){
+},{"./KeyEscapeUtils":307,"./ReactCurrentOwner":313,"./ReactElementSymbol":316,"./getIteratorFn":326,"./reactProdInvariant":330,"_process":146,"fbjs/lib/invariant":42,"fbjs/lib/warning":49}],332:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":308}],332:[function(require,module,exports){
+},{"./lib/React":309}],333:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -54925,7 +55061,7 @@ function applyMiddleware() {
     };
   };
 }
-},{"./compose":335}],333:[function(require,module,exports){
+},{"./compose":336}],334:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -54977,7 +55113,7 @@ function bindActionCreators(actionCreators, dispatch) {
   }
   return boundActionCreators;
 }
-},{}],334:[function(require,module,exports){
+},{}],335:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -55123,7 +55259,7 @@ function combineReducers(reducers) {
   };
 }
 }).call(this,require('_process'))
-},{"./createStore":336,"./utils/warning":338,"_process":145,"lodash/isPlainObject":118}],335:[function(require,module,exports){
+},{"./createStore":337,"./utils/warning":339,"_process":146,"lodash/isPlainObject":119}],336:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -55160,7 +55296,7 @@ function compose() {
     };
   });
 }
-},{}],336:[function(require,module,exports){
+},{}],337:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -55422,7 +55558,7 @@ var ActionTypes = exports.ActionTypes = {
     replaceReducer: replaceReducer
   }, _ref2[_symbolObservable2['default']] = observable, _ref2;
 }
-},{"lodash/isPlainObject":118,"symbol-observable":341}],337:[function(require,module,exports){
+},{"lodash/isPlainObject":119,"symbol-observable":342}],338:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -55471,7 +55607,7 @@ exports.bindActionCreators = _bindActionCreators2['default'];
 exports.applyMiddleware = _applyMiddleware2['default'];
 exports.compose = _compose2['default'];
 }).call(this,require('_process'))
-},{"./applyMiddleware":332,"./bindActionCreators":333,"./combineReducers":334,"./compose":335,"./createStore":336,"./utils/warning":338,"_process":145}],338:[function(require,module,exports){
+},{"./applyMiddleware":333,"./bindActionCreators":334,"./combineReducers":335,"./compose":336,"./createStore":337,"./utils/warning":339,"_process":146}],339:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -55497,7 +55633,7 @@ function warning(message) {
   } catch (e) {}
   /* eslint-enable no-empty */
 }
-},{}],339:[function(require,module,exports){
+},{}],340:[function(require,module,exports){
 /*!
  * repeat-string <https://github.com/jonschlinkert/repeat-string>
  *
@@ -55569,7 +55705,7 @@ function repeat(str, num) {
   return res;
 }
 
-},{}],340:[function(require,module,exports){
+},{}],341:[function(require,module,exports){
 /* global window, exports, define */
 
 !function() {
@@ -55789,10 +55925,10 @@ function repeat(str, num) {
     /* eslint-enable quote-props */
 }()
 
-},{}],341:[function(require,module,exports){
+},{}],342:[function(require,module,exports){
 module.exports = require('./lib/index');
 
-},{"./lib/index":342}],342:[function(require,module,exports){
+},{"./lib/index":343}],343:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -55824,7 +55960,7 @@ if (typeof self !== 'undefined') {
 var result = (0, _ponyfill2['default'])(root);
 exports['default'] = result;
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./ponyfill":343}],343:[function(require,module,exports){
+},{"./ponyfill":344}],344:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -55848,7 +55984,7 @@ function symbolObservablePonyfill(root) {
 
 	return result;
 };
-},{}],344:[function(require,module,exports){
+},{}],345:[function(require,module,exports){
 (function (global,Buffer){
 'use strict'
 
@@ -56065,7 +56201,7 @@ exports.clearCache = function clearCache() {
   }
 }
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer)
-},{"bit-twiddle":14,"buffer":15,"dup":23}],345:[function(require,module,exports){
+},{"bit-twiddle":15,"buffer":16,"dup":24}],346:[function(require,module,exports){
 "use strict"
 
 function unique_pred(list, compare) {
@@ -56124,16 +56260,16 @@ function unique(list, compare, sorted) {
 
 module.exports = unique
 
-},{}],346:[function(require,module,exports){
-arguments[4][105][0].apply(exports,arguments)
-},{"dup":105}],347:[function(require,module,exports){
+},{}],347:[function(require,module,exports){
+arguments[4][106][0].apply(exports,arguments)
+},{"dup":106}],348:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],348:[function(require,module,exports){
+},{}],349:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -56723,7 +56859,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":347,"_process":145,"inherits":346}],349:[function(require,module,exports){
+},{"./support/isBuffer":348,"_process":146,"inherits":347}],350:[function(require,module,exports){
 var v1 = require('./v1');
 var v4 = require('./v4');
 
@@ -56733,7 +56869,7 @@ uuid.v4 = v4;
 
 module.exports = uuid;
 
-},{"./v1":352,"./v4":353}],350:[function(require,module,exports){
+},{"./v1":353,"./v4":354}],351:[function(require,module,exports){
 /**
  * Convert array of 16 byte values to UUID string format of the form:
  * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -56758,7 +56894,7 @@ function bytesToUuid(buf, offset) {
 
 module.exports = bytesToUuid;
 
-},{}],351:[function(require,module,exports){
+},{}],352:[function(require,module,exports){
 (function (global){
 // Unique ID creation requires a high quality random # generator.  In the
 // browser this is a little complicated due to unknown quality of Math.random()
@@ -56795,7 +56931,7 @@ if (!rng) {
 module.exports = rng;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],352:[function(require,module,exports){
+},{}],353:[function(require,module,exports){
 var rng = require('./lib/rng');
 var bytesToUuid = require('./lib/bytesToUuid');
 
@@ -56897,7 +57033,7 @@ function v1(options, buf, offset) {
 
 module.exports = v1;
 
-},{"./lib/bytesToUuid":350,"./lib/rng":351}],353:[function(require,module,exports){
+},{"./lib/bytesToUuid":351,"./lib/rng":352}],354:[function(require,module,exports){
 var rng = require('./lib/rng');
 var bytesToUuid = require('./lib/bytesToUuid');
 
@@ -56928,7 +57064,7 @@ function v4(options, buf, offset) {
 
 module.exports = v4;
 
-},{"./lib/bytesToUuid":350,"./lib/rng":351}],354:[function(require,module,exports){
+},{"./lib/bytesToUuid":351,"./lib/rng":352}],355:[function(require,module,exports){
 // Copyright (C) 2011 Google Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -57615,7 +57751,7 @@ module.exports = v4;
   }
 })();
 
-},{}],355:[function(require,module,exports){
+},{}],356:[function(require,module,exports){
 var hiddenStore = require('./hidden-store.js');
 
 module.exports = createStore;
@@ -57636,7 +57772,7 @@ function createStore() {
     };
 }
 
-},{"./hidden-store.js":356}],356:[function(require,module,exports){
+},{"./hidden-store.js":357}],357:[function(require,module,exports){
 module.exports = hiddenStore;
 
 function hiddenStore(obj, key) {
@@ -57654,7 +57790,7 @@ function hiddenStore(obj, key) {
     return store;
 }
 
-},{}],357:[function(require,module,exports){
+},{}],358:[function(require,module,exports){
 // Original - @Gozola.
 // https://gist.github.com/Gozala/1269991
 // This is a reimplemented version (with a few bug fixes).
@@ -57685,7 +57821,7 @@ function weakMap() {
     }
 }
 
-},{"./create-store.js":355}],358:[function(require,module,exports){
+},{"./create-store.js":356}],359:[function(require,module,exports){
 var bundleFn = arguments[3];
 var sources = arguments[4];
 var cache = arguments[5];
@@ -57768,7 +57904,7 @@ module.exports = function (fn, options) {
     return worker;
 };
 
-},{}],359:[function(require,module,exports){
+},{}],360:[function(require,module,exports){
 "use strict";
 
 function createThumbnail(img, size) {
@@ -57794,7 +57930,7 @@ function createThumbnail(img, size) {
 
 module.exports = createThumbnail;
 
-},{}],360:[function(require,module,exports){
+},{}],361:[function(require,module,exports){
 "use strict";
 
 var textureFromArray = require("./texture_from_array");
@@ -57824,7 +57960,7 @@ module.exports = {
   setUniformForCurves: setUniformForCurves
 };
 
-},{"./texture_from_array":365}],361:[function(require,module,exports){
+},{"./texture_from_array":366}],362:[function(require,module,exports){
 "use strict";
 
 var _slicedToArray = function () {
@@ -58964,7 +59100,7 @@ _.keys(ExposureSettings.PROPS).forEach(function (key) {
 
 module.exports = ExposureSettings;
 
-},{"./curves":360,"assert":11,"cat-rom-spline":16,"events":24,"lodash":119}],362:[function(require,module,exports){
+},{"./curves":361,"assert":12,"cat-rom-spline":17,"events":25,"lodash":120}],363:[function(require,module,exports){
 "use strict";
 
 var _createClass = function () {
@@ -58995,7 +59131,7 @@ var Filter = function () {
     _classCallCheck(this, Filter);
 
     this.gl = gl;
-    this.shader = glShader(this.gl, glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}"]), glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\nvarying vec2 screenPosition;\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\n// these control the curves settings\n// each texture represents the mapping of color values\nuniform sampler2D rgb_curve_points;\nuniform bool rgb_curve_enabled;\n\nuniform sampler2D r_curve_points;\nuniform bool r_curve_enabled;\n\nuniform sampler2D g_curve_points;\nuniform bool g_curve_enabled;\n\nuniform sampler2D b_curve_points;\nuniform bool b_curve_enabled;\n\n// HSL\nuniform float hue;\nuniform float saturation;\nuniform float lightness;\n\nuniform float cyans_hue;\nuniform float cyans_saturation;\nuniform float cyans_lightness;\n\nuniform float magentas_hue;\nuniform float magentas_saturation;\nuniform float magentas_lightness;\n\nuniform float yellows_hue;\nuniform float yellows_saturation;\nuniform float yellows_lightness;\n\nuniform float reds_hue;\nuniform float reds_saturation;\nuniform float reds_lightness;\n\nuniform float greens_hue;\nuniform float greens_saturation;\nuniform float greens_lightness;\n\nuniform float blues_hue;\nuniform float blues_saturation;\nuniform float blues_lightness;\n\n// selective color controls\nuniform float cyans_cyan_shift;\nuniform float cyans_magenta_shift;\nuniform float cyans_yellow_shift;\nuniform float cyans_black_shift;\nuniform float cyans_red_shift;\nuniform float cyans_green_shift;\nuniform float cyans_blue_shift;\nuniform float cyans_gray_shift;\nuniform float cyans_white_shift;\n\nuniform float magentas_cyan_shift;\nuniform float magentas_magenta_shift;\nuniform float magentas_yellow_shift;\nuniform float magentas_black_shift;\nuniform float magentas_red_shift;\nuniform float magentas_green_shift;\nuniform float magentas_blue_shift;\nuniform float magentas_gray_shift;\nuniform float magentas_white_shift;\n\nuniform float yellows_cyan_shift;\nuniform float yellows_magenta_shift;\nuniform float yellows_yellow_shift;\nuniform float yellows_black_shift;\nuniform float yellows_red_shift;\nuniform float yellows_green_shift;\nuniform float yellows_blue_shift;\nuniform float yellows_gray_shift;\nuniform float yellows_white_shift;\n\nuniform float blacks_cyan_shift;\nuniform float blacks_magenta_shift;\nuniform float blacks_yellow_shift;\nuniform float blacks_black_shift;\nuniform float blacks_red_shift;\nuniform float blacks_green_shift;\nuniform float blacks_blue_shift;\nuniform float blacks_gray_shift;\nuniform float blacks_white_shift;\n\nuniform float reds_cyan_shift;\nuniform float reds_magenta_shift;\nuniform float reds_yellow_shift;\nuniform float reds_black_shift;\nuniform float reds_red_shift;\nuniform float reds_green_shift;\nuniform float reds_blue_shift;\nuniform float reds_gray_shift;\nuniform float reds_white_shift;\n\nuniform float greens_cyan_shift;\nuniform float greens_magenta_shift;\nuniform float greens_yellow_shift;\nuniform float greens_black_shift;\nuniform float greens_red_shift;\nuniform float greens_green_shift;\nuniform float greens_blue_shift;\nuniform float greens_gray_shift;\nuniform float greens_white_shift;\n\nuniform float blues_cyan_shift;\nuniform float blues_magenta_shift;\nuniform float blues_yellow_shift;\nuniform float blues_black_shift;\nuniform float blues_red_shift;\nuniform float blues_green_shift;\nuniform float blues_blue_shift;\nuniform float blues_gray_shift;\nuniform float blues_white_shift;\n\nuniform float grays_cyan_shift;\nuniform float grays_magenta_shift;\nuniform float grays_yellow_shift;\nuniform float grays_black_shift;\nuniform float grays_red_shift;\nuniform float grays_green_shift;\nuniform float grays_blue_shift;\nuniform float grays_gray_shift;\nuniform float grays_white_shift;\n\nuniform float whites_cyan_shift;\nuniform float whites_magenta_shift;\nuniform float whites_yellow_shift;\nuniform float whites_black_shift;\nuniform float whites_red_shift;\nuniform float whites_green_shift;\nuniform float whites_blue_shift;\nuniform float whites_gray_shift;\nuniform float whites_white_shift;\n\nfloat mix_factor(vec4 range, vec3 hsl) {\n  float mix_factor = 0.0;\n\n  if (hsl.x >= range.x && hsl.x <= range.w) {\n    // lower range\n    if (hsl.x >= range.x && hsl.x < range.y) {\n      mix_factor = smoothstep(range.x, range.y, hsl.x);\n    }\n\n    // target range\n    if (hsl.x >= range.y && hsl.x <= range.z) {\n      mix_factor = 1.0;\n    }\n\n    // upper range\n    if (hsl.x > range.z && hsl.x <= range.w) {\n      mix_factor = 1.0 - smoothstep(range.z, range.w, hsl.x);\n    }\n  }\n\n  vec2 lightness_range = vec2(0.0, 0.2);\n  vec2 saturation_range = vec2(0.0, 0.2);\n  mix_factor *= smoothstep(saturation_range.x, saturation_range.y, hsl.y);\n  mix_factor *= smoothstep(lightness_range.x, lightness_range.y, hsl.z);\n\n  return mix_factor;\n}\n\n// Returns a number between 0 and 1 as if the number line is circular\n// 1.1 => 0.1\n// -0.1 => 0.9\nfloat clamp_continuous(float value) {\n  float unit = value;\n\n  if (unit > 1.0) {\n    unit = mod(unit, 1.0);\n  } else if (unit < 0.0) {\n    unit = 1.0 + unit;\n  }\n\n  return unit;\n}\n\n// These functions based on http://www.chilliant.com/rgb2hsv.html\nvec3 HUEtoRGB(float h) {\n  float r = abs(h * 6.0 - 3.0) - 1.0;\n  float g = 2.0 - abs(h * 6.0 - 2.0);\n  float b = 2.0 - abs(h * 6.0 - 4.0);\n  return clamp(vec3(r, g, b), 0.0, 1.0);\n}\n\nvec3 RGBtoHCV(vec3 RGB) {\n  float Epsilon = 0.00000000001;\n  // Based on work by Sam Hocevar and Emil Persson\n  vec4 P = (RGB.g < RGB.b) ? vec4(RGB.bg, -1.0, 2.0/3.0) : vec4(RGB.gb, 0.0, -1.0/3.0);\n  vec4 Q = (RGB.r < P.x) ? vec4(P.xyw, RGB.r) : vec4(RGB.r, P.yzx);\n  float C = Q.x - min(Q.w, Q.y);\n  float H = abs((Q.w - Q.y) / (6.0 * C + Epsilon) + Q.z);\n  return vec3(H, C, Q.x);\n}\n\nvec3 RGBtoHSL(vec3 RGB) {\n  float Epsilon = 0.00000000001;\n  vec3 HCV = RGBtoHCV(RGB);\n  float L = HCV.z - HCV.y * 0.5;\n  float S = HCV.y / (1.0 - abs(L * 2.0 - 1.0) + Epsilon);\n  return vec3(HCV.x, S, L);\n}\n\nvec3 HSLtoRGB(vec3 HSL) {\n  vec3 RGB = HUEtoRGB(HSL.x);\n  float C = (1.0 - abs(2.0 * HSL.z - 1.0)) * HSL.y;\n  return (RGB - 0.5) * C + HSL.z;\n}\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n  color.a = 1.0;\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n  color.a = 1.0;\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n  color.a = 1.0;\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n  color.a = 1.0;\n\n  // Then adjust channels seperately\n  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);\n  color.r = pow(color.r, (1.0 / r_gamma));\n  color.r = mix(r_out_min, r_out_max, color.r);\n  color.a = 1.0;\n\n  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);\n  color.g = pow(color.g, (1.0 / g_gamma));\n  color.g = mix(g_out_min, g_out_max, color.g);\n  color.a = 1.0;\n\n  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);\n  color.b = pow(color.b, (1.0 / b_gamma));\n  color.b = mix(b_out_min, b_out_max, color.b);\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////   curves   /////////\n  ////////////////////////////\n\n  // rgb curves\n  if (rgb_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n\n    float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;\n    float out_g = texture2D(rgb_curve_points, vec2(in_g, 0.5)).x;\n    float out_b = texture2D(rgb_curve_points, vec2(in_b, 0.5)).x;\n\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  // r curves\n  if (r_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float out_r = texture2D(r_curve_points, vec2(in_r, 0.5)).x;\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n  }\n\n  // g curves\n  if (g_curve_enabled) {\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float out_g = texture2D(g_curve_points, vec2(in_g, 0.5)).x;\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n  }\n\n  // b curves\n  if (b_curve_enabled) {\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n    float out_b = texture2D(b_curve_points, vec2(in_b, 0.5)).x;\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  ////////////////////////////\n  ////         HSL        ////\n  ////////////////////////////\n\n  vec3 hsl = RGBtoHSL(color.rgb);\n\n  // Color ranges here\n  // https://gist.github.com/actionnick/d184d17e39d1669759204bcb8eaad501\n\n  vec4 MASTER_RANGE = vec4(0.0, 0.0, 1.0, 1.0);\n  vec4 CYAN_RANGE = vec4(0.375, 0.4583, 0.54167, 0.625);\n  vec4 MAGENTA_RANGE = vec4(0.7083, 0.79167, 0.875, 0.9583);\n  vec4 YELLOW_RANGE = vec4(0.04167, 0.125, 0.2083, 0.29167);\n  vec4 RED_RANGE_1 = vec4(0.875, 0.9583, 1.0, 1.0); // Red is a special case because it goes from 315 -> 45 degrees\n  vec4 RED_RANGE_2 = vec4(0.0, 0.0, 0.04167, 0.125);\n  vec4 GREEN_RANGE = vec4(0.2083, 0.29167, 0.375, 0.4583);\n  vec4 BLUE_RANGE = vec4(0.54167, 0.625, 0.7083, 0.79167);\n\n  // Master\n  float master_mix_factor = mix_factor(MASTER_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (hue * master_mix_factor));\n  hsl.y = clamp(hsl.y + (saturation * master_mix_factor), 0.0, 1.0);\n  hsl.z = clamp(hsl.z + (lightness * master_mix_factor), 0.0, 1.0);\n\n  // Cyan\n  float cyans_mix_factor = mix_factor(CYAN_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (cyans_hue * cyans_mix_factor));\n  hsl.y = clamp(hsl.y + (cyans_saturation * cyans_mix_factor), 0.0, 1.0);\n  hsl.z = clamp(hsl.z + (cyans_lightness * cyans_mix_factor), 0.0, 1.0);\n\n  // Magentas\n  float magentas_mix_factor = mix_factor(MAGENTA_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (magentas_hue * magentas_mix_factor));\n  hsl.y = clamp(hsl.y + (magentas_saturation * magentas_mix_factor), 0.0, 1.0);\n  hsl.z = clamp(hsl.z + (magentas_lightness * magentas_mix_factor), 0.0, 1.0);\n\n  // Yellows\n  float yellows_mix_factor = mix_factor(YELLOW_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (yellows_hue * yellows_mix_factor));\n  hsl.y = clamp(hsl.y + (yellows_saturation * yellows_mix_factor), 0.0, 1.0);\n  hsl.z = clamp(hsl.z + (yellows_lightness * yellows_mix_factor), 0.0, 1.0);\n\n  // Reds\n  float reds_mix_factor = max(mix_factor(RED_RANGE_1, hsl), mix_factor(RED_RANGE_2, hsl));\n  hsl.x = clamp_continuous(hsl.x + (reds_hue * reds_mix_factor));\n  hsl.y = clamp(hsl.y + (reds_saturation * reds_mix_factor), 0.0, 1.0);\n  hsl.z = clamp(hsl.z + (reds_lightness * reds_mix_factor), 0.0, 1.0);\n\n  // Greens\n  float greens_mix_factor = mix_factor(GREEN_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (greens_hue * greens_mix_factor));\n  hsl.y = clamp(hsl.y + (greens_saturation * greens_mix_factor), 0.0, 1.0);\n  hsl.z = clamp(hsl.z + (greens_lightness * greens_mix_factor), 0.0, 1.0);\n\n  // Blues\n  float blues_mix_factor = mix_factor(BLUE_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (blues_hue * blues_mix_factor));\n  hsl.y = clamp(hsl.y + (blues_saturation * blues_mix_factor), 0.0, 1.0);\n  hsl.z = clamp(hsl.z + (blues_lightness * blues_mix_factor), 0.0, 1.0);\n\n  color.rgb = HSLtoRGB(hsl);\n\n  ////////////////////////////\n  ////  selective color   ////\n  ////////////////////////////\n\n  vec3 CYAN = vec3(0.0, 1.0, 1.0);\n  vec3 MAGENTA = vec3(1.0, 0.0, 1.0);\n  vec3 YELLOW = vec3(1.0, 1.0, 0.0);\n  vec3 BLACK = vec3(0.0, 0.0, 0.0);\n  vec3 RED = vec3(1.0, 0.0, 0.0);\n  vec3 GREEN = vec3(0.0, 1.0, 0.0);\n  vec3 BLUE = vec3(0.0, 0.0, 1.0);\n  vec3 WHITE = vec3(1.0, 1.0, 1.0);\n  vec3 GRAY = vec3(0.5, 0.5, 0.5);\n  float MAX_DISTANCE = length(vec3(1.0, 1.0, 1.0));\n\n  // cyans\n  float cyan_distance = length(CYAN - color.rgb);\n  cyans_mix_factor = pow(1.0 - (cyan_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, cyans_mix_factor * cyans_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, cyans_mix_factor * cyans_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, cyans_mix_factor * cyans_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, cyans_mix_factor * cyans_black_shift);\n  color.rgb = mix(color.rgb, RED, cyans_mix_factor * cyans_red_shift);\n  color.rgb = mix(color.rgb, GREEN, cyans_mix_factor * cyans_green_shift);\n  color.rgb = mix(color.rgb, BLUE, cyans_mix_factor * cyans_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, cyans_mix_factor * cyans_white_shift);\n  color.rgb = mix(color.rgb, GRAY, cyans_mix_factor * cyans_gray_shift);\n\n  // magentas\n  float magenta_distance = length(MAGENTA - color.rgb);\n  magentas_mix_factor = pow(1.0 - (magenta_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, magentas_mix_factor * magentas_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, magentas_mix_factor * magentas_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, magentas_mix_factor * magentas_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, magentas_mix_factor * magentas_black_shift);\n  color.rgb = mix(color.rgb, RED, magentas_mix_factor * magentas_red_shift);\n  color.rgb = mix(color.rgb, GREEN, magentas_mix_factor * magentas_green_shift);\n  color.rgb = mix(color.rgb, BLUE, magentas_mix_factor * magentas_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, magentas_mix_factor * magentas_white_shift);\n  color.rgb = mix(color.rgb, GRAY, magentas_mix_factor * magentas_gray_shift);\n\n  // yellows\n  float yellow_distance = length(YELLOW - color.rgb);\n  yellows_mix_factor = pow(1.0 - (yellow_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, yellows_mix_factor * yellows_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, yellows_mix_factor * yellows_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, yellows_mix_factor * yellows_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, yellows_mix_factor * yellows_black_shift);\n  color.rgb = mix(color.rgb, RED, yellows_mix_factor * yellows_red_shift);\n  color.rgb = mix(color.rgb, GREEN, yellows_mix_factor * yellows_green_shift);\n  color.rgb = mix(color.rgb, BLUE, yellows_mix_factor * yellows_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, yellows_mix_factor * yellows_white_shift);\n  color.rgb = mix(color.rgb, GRAY, yellows_mix_factor * yellows_gray_shift);\n\n  // blacks\n  float black_distance = length(BLACK - color.rgb);\n  float black_mix_factor = pow(1.0 - (black_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, black_mix_factor * blacks_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, black_mix_factor * blacks_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, black_mix_factor * blacks_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, black_mix_factor * blacks_black_shift);\n  color.rgb = mix(color.rgb, RED, black_mix_factor * blacks_red_shift);\n  color.rgb = mix(color.rgb, GREEN, black_mix_factor * blacks_green_shift);\n  color.rgb = mix(color.rgb, BLUE, black_mix_factor * blacks_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, black_mix_factor * blacks_white_shift);\n  color.rgb = mix(color.rgb, GRAY, black_mix_factor * blacks_gray_shift);\n\n  // reds\n  float red_distance = length(RED - color.rgb);\n  reds_mix_factor = pow(1.0 - (red_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, reds_mix_factor * reds_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, reds_mix_factor * reds_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, reds_mix_factor * reds_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, reds_mix_factor * reds_black_shift);\n  color.rgb = mix(color.rgb, RED, reds_mix_factor * reds_red_shift);\n  color.rgb = mix(color.rgb, GREEN, reds_mix_factor * reds_green_shift);\n  color.rgb = mix(color.rgb, BLUE, reds_mix_factor * reds_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, reds_mix_factor * reds_white_shift);\n  color.rgb = mix(color.rgb, GRAY, reds_mix_factor * reds_gray_shift);\n\n  // greens\n  float green_distance = length(GREEN - color.rgb);\n  greens_mix_factor = pow(1.0 - (green_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, greens_mix_factor * greens_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, greens_mix_factor * greens_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, greens_mix_factor * greens_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, greens_mix_factor * greens_black_shift);\n  color.rgb = mix(color.rgb, RED, greens_mix_factor * greens_red_shift);\n  color.rgb = mix(color.rgb, GREEN, greens_mix_factor * greens_green_shift);\n  color.rgb = mix(color.rgb, BLUE, greens_mix_factor * greens_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, greens_mix_factor * greens_white_shift);\n  color.rgb = mix(color.rgb, GRAY, greens_mix_factor * greens_gray_shift);\n\n  // blues\n  float blue_distance = length(BLUE - color.rgb);\n  blues_mix_factor = pow(1.0 - (blue_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, blues_mix_factor * blues_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, blues_mix_factor * blues_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, blues_mix_factor * blues_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, blues_mix_factor * blues_black_shift);\n  color.rgb = mix(color.rgb, RED, blues_mix_factor * blues_red_shift);\n  color.rgb = mix(color.rgb, GREEN, blues_mix_factor * blues_green_shift);\n  color.rgb = mix(color.rgb, BLUE, blues_mix_factor * blues_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, blues_mix_factor * blues_white_shift);\n  color.rgb = mix(color.rgb, GRAY, blues_mix_factor * blues_gray_shift);\n\n  // grays\n  float gray_distance = length(GRAY - color.rgb);\n  float gray_mix_factor = pow(1.0 - (gray_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, gray_mix_factor * grays_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, gray_mix_factor * grays_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, gray_mix_factor * grays_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, gray_mix_factor * grays_black_shift);\n  color.rgb = mix(color.rgb, RED, gray_mix_factor * grays_red_shift);\n  color.rgb = mix(color.rgb, GREEN, gray_mix_factor * grays_green_shift);\n  color.rgb = mix(color.rgb, BLUE, gray_mix_factor * grays_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, gray_mix_factor * grays_white_shift);\n  color.rgb = mix(color.rgb, GRAY, gray_mix_factor * grays_gray_shift);\n\n  // whites\n  float white_distance = length(WHITE - color.rgb);\n  float white_mix_factor = pow(1.0 - (white_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, white_mix_factor * whites_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, white_mix_factor * whites_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, white_mix_factor * whites_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, white_mix_factor * whites_black_shift);\n  color.rgb = mix(color.rgb, RED, white_mix_factor * whites_red_shift);\n  color.rgb = mix(color.rgb, GREEN, white_mix_factor * whites_green_shift);\n  color.rgb = mix(color.rgb, BLUE, white_mix_factor * whites_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, white_mix_factor * whites_white_shift);\n  color.rgb = mix(color.rgb, GRAY, white_mix_factor * whites_gray_shift);\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n"]));
+    this.shader = glShader(this.gl, glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}"]), glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\nvarying vec2 screenPosition;\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\n// these control the curves settings\n// each texture represents the mapping of color values\nuniform sampler2D rgb_curve_points;\nuniform bool rgb_curve_enabled;\n\nuniform sampler2D r_curve_points;\nuniform bool r_curve_enabled;\n\nuniform sampler2D g_curve_points;\nuniform bool g_curve_enabled;\n\nuniform sampler2D b_curve_points;\nuniform bool b_curve_enabled;\n\n// HSL\nuniform float hue;\nuniform float saturation;\nuniform float lightness;\n\nuniform float cyans_hue;\nuniform float cyans_saturation;\nuniform float cyans_lightness;\n\nuniform float magentas_hue;\nuniform float magentas_saturation;\nuniform float magentas_lightness;\n\nuniform float yellows_hue;\nuniform float yellows_saturation;\nuniform float yellows_lightness;\n\nuniform float reds_hue;\nuniform float reds_saturation;\nuniform float reds_lightness;\n\nuniform float greens_hue;\nuniform float greens_saturation;\nuniform float greens_lightness;\n\nuniform float blues_hue;\nuniform float blues_saturation;\nuniform float blues_lightness;\n\n// selective color controls\nuniform float cyans_cyan_shift;\nuniform float cyans_magenta_shift;\nuniform float cyans_yellow_shift;\nuniform float cyans_black_shift;\nuniform float cyans_red_shift;\nuniform float cyans_green_shift;\nuniform float cyans_blue_shift;\nuniform float cyans_gray_shift;\nuniform float cyans_white_shift;\n\nuniform float magentas_cyan_shift;\nuniform float magentas_magenta_shift;\nuniform float magentas_yellow_shift;\nuniform float magentas_black_shift;\nuniform float magentas_red_shift;\nuniform float magentas_green_shift;\nuniform float magentas_blue_shift;\nuniform float magentas_gray_shift;\nuniform float magentas_white_shift;\n\nuniform float yellows_cyan_shift;\nuniform float yellows_magenta_shift;\nuniform float yellows_yellow_shift;\nuniform float yellows_black_shift;\nuniform float yellows_red_shift;\nuniform float yellows_green_shift;\nuniform float yellows_blue_shift;\nuniform float yellows_gray_shift;\nuniform float yellows_white_shift;\n\nuniform float reds_cyan_shift;\nuniform float reds_magenta_shift;\nuniform float reds_yellow_shift;\nuniform float reds_black_shift;\nuniform float reds_red_shift;\nuniform float reds_green_shift;\nuniform float reds_blue_shift;\nuniform float reds_gray_shift;\nuniform float reds_white_shift;\n\nuniform float greens_cyan_shift;\nuniform float greens_magenta_shift;\nuniform float greens_yellow_shift;\nuniform float greens_black_shift;\nuniform float greens_red_shift;\nuniform float greens_green_shift;\nuniform float greens_blue_shift;\nuniform float greens_gray_shift;\nuniform float greens_white_shift;\n\nuniform float blues_cyan_shift;\nuniform float blues_magenta_shift;\nuniform float blues_yellow_shift;\nuniform float blues_black_shift;\nuniform float blues_red_shift;\nuniform float blues_green_shift;\nuniform float blues_blue_shift;\nuniform float blues_gray_shift;\nuniform float blues_white_shift;\n\nuniform float blacks_cyan_shift;\nuniform float blacks_magenta_shift;\nuniform float blacks_yellow_shift;\nuniform float blacks_black_shift;\nuniform float blacks_red_shift;\nuniform float blacks_green_shift;\nuniform float blacks_blue_shift;\nuniform float blacks_gray_shift;\nuniform float blacks_white_shift;\n\nuniform float grays_cyan_shift;\nuniform float grays_magenta_shift;\nuniform float grays_yellow_shift;\nuniform float grays_black_shift;\nuniform float grays_red_shift;\nuniform float grays_green_shift;\nuniform float grays_blue_shift;\nuniform float grays_gray_shift;\nuniform float grays_white_shift;\n\nuniform float whites_cyan_shift;\nuniform float whites_magenta_shift;\nuniform float whites_yellow_shift;\nuniform float whites_black_shift;\nuniform float whites_red_shift;\nuniform float whites_green_shift;\nuniform float whites_blue_shift;\nuniform float whites_gray_shift;\nuniform float whites_white_shift;\n\nfloat mix_factor(vec4 range, vec3 hsl) {\n  float mix_factor = 0.0;\n\n  if (hsl.x >= range.x && hsl.x <= range.w) {\n    // lower range\n    if (hsl.x >= range.x && hsl.x < range.y) {\n      mix_factor = smoothstep(range.x, range.y, hsl.x);\n    }\n\n    // target range\n    if (hsl.x >= range.y && hsl.x <= range.z) {\n      mix_factor = 1.0;\n    }\n\n    // upper range\n    if (hsl.x > range.z && hsl.x <= range.w) {\n      mix_factor = 1.0 - smoothstep(range.z, range.w, hsl.x);\n    }\n\n  }\n\n  vec2 lightness_range = vec2(0.0, 0.08333);\n  vec2 saturation_range = vec2(0.0, 0.08333);\n  mix_factor *= smoothstep(saturation_range.x, saturation_range.y, hsl.y);\n  mix_factor *= smoothstep(lightness_range.x, lightness_range.y, hsl.z);\n\n  return mix_factor;\n}\n\n// Returns a number between 0 and 1 as if the number line is circular\n// 1.1 => 0.1\n// -0.1 => 0.9\nfloat clamp_continuous(float value) {\n  float unit = value;\n\n  if (unit > 1.0) {\n    unit = mod(unit, 1.0);\n  } else if (unit < 0.0) {\n    unit = 1.0 + unit;\n  }\n\n  return unit;\n}\n\n// These functions based on http://www.chilliant.com/rgb2hsv.html\nvec3 HUEtoRGB(float h) {\n  float r = abs(h * 6.0 - 3.0) - 1.0;\n  float g = 2.0 - abs(h * 6.0 - 2.0);\n  float b = 2.0 - abs(h * 6.0 - 4.0);\n  return clamp(vec3(r, g, b), 0.0, 1.0);\n}\n\nvec3 RGBtoHCV(vec3 RGB) {\n  float Epsilon = 0.00000000001;\n  // Based on work by Sam Hocevar and Emil Persson\n  vec4 P = (RGB.g < RGB.b) ? vec4(RGB.bg, -1.0, 2.0/3.0) : vec4(RGB.gb, 0.0, -1.0/3.0);\n  vec4 Q = (RGB.r < P.x) ? vec4(P.xyw, RGB.r) : vec4(RGB.r, P.yzx);\n  float C = Q.x - min(Q.w, Q.y);\n  float H = abs((Q.w - Q.y) / (6.0 * C + Epsilon) + Q.z);\n  return vec3(H, C, Q.x);\n}\n\nvec3 RGBtoHSL(vec3 RGB) {\n  float Epsilon = 0.00000000001;\n  vec3 HCV = RGBtoHCV(RGB);\n  float L = HCV.z - HCV.y * 0.5;\n  float S = HCV.y / (1.0 - abs(L * 2.0 - 1.0) + Epsilon);\n  return vec3(HCV.x, S, L);\n}\n\nvec3 HSLtoRGB(vec3 HSL) {\n  vec3 RGB = HUEtoRGB(HSL.x);\n  float C = (1.0 - abs(2.0 * HSL.z - 1.0)) * HSL.y;\n  return (RGB - 0.5) * C + HSL.z;\n}\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n  color.a = 1.0;\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n  color.a = 1.0;\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n  color.a = 1.0;\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n  color.a = 1.0;\n\n  // Then adjust channels seperately\n  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);\n  color.r = pow(color.r, (1.0 / r_gamma));\n  color.r = mix(r_out_min, r_out_max, color.r);\n  color.a = 1.0;\n\n  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);\n  color.g = pow(color.g, (1.0 / g_gamma));\n  color.g = mix(g_out_min, g_out_max, color.g);\n  color.a = 1.0;\n\n  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);\n  color.b = pow(color.b, (1.0 / b_gamma));\n  color.b = mix(b_out_min, b_out_max, color.b);\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////   curves   /////////\n  ////////////////////////////\n\n  // rgb curves\n  if (rgb_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n\n    float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;\n    float out_g = texture2D(rgb_curve_points, vec2(in_g, 0.5)).x;\n    float out_b = texture2D(rgb_curve_points, vec2(in_b, 0.5)).x;\n\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  // r curves\n  if (r_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float out_r = texture2D(r_curve_points, vec2(in_r, 0.5)).x;\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n  }\n\n  // g curves\n  if (g_curve_enabled) {\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float out_g = texture2D(g_curve_points, vec2(in_g, 0.5)).x;\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n  }\n\n  // b curves\n  if (b_curve_enabled) {\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n    float out_b = texture2D(b_curve_points, vec2(in_b, 0.5)).x;\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  ////////////////////////////\n  ////         HSL        ////\n  ////////////////////////////\n\n  vec3 hsl = RGBtoHSL(color.rgb);\n\n  // Color ranges here\n  // https://gist.github.com/actionnick/d184d17e39d1669759204bcb8eaad501\n\n  vec4 MASTER_RANGE = vec4(0.0, 0.0, 1.0, 1.0);\n  vec4 CYAN_RANGE = vec4(0.375, 0.4583, 0.54167, 0.625);\n  vec4 MAGENTA_RANGE = vec4(0.7083, 0.79167, 0.875, 0.9583);\n  vec4 YELLOW_RANGE = vec4(0.04167, 0.125, 0.2083, 0.29167);\n  vec4 RED_RANGE_1 = vec4(0.875, 0.9583, 1.0, 1.0); // Red is a special case because it goes from 315 -> 45 degrees\n  vec4 RED_RANGE_2 = vec4(0.0, 0.0, 0.04167, 0.125);\n  vec4 GREEN_RANGE = vec4(0.2083, 0.29167, 0.375, 0.4583);\n  vec4 BLUE_RANGE = vec4(0.54167, 0.625, 0.7083, 0.79167);\n\n  // Master\n  float master_mix_factor = mix_factor(MASTER_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (hue * master_mix_factor));\n  hsl.y = clamp(hsl.y + (saturation * master_mix_factor), 0.0, 1.0);\n  hsl.z = clamp(mix(hsl.z, 1.0, max(0.0, lightness)), 0.0, 1.0);\n  hsl.z = clamp(mix(hsl.z, 0.0, abs(min(0.0, lightness))), 0.0, 1.0);\n\n  // Cyan\n  float cyans_mix_factor = mix_factor(CYAN_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (cyans_hue * cyans_mix_factor));\n  hsl.y = clamp(hsl.y + (cyans_saturation * cyans_mix_factor), 0.0, 1.0);\n  // hsl.z = clamp(mix(hsl.z, 1.0, max(0.0, cyans_lightness * cyans_mix_factor)), 0.0, 1.0);\n  // hsl.z = clamp(mix(hsl.z, 0.0, abs(min(0.0, cyans_lightness * cyans_mix_factor))), 0.0, 1.0);\n  hsl.z = clamp(hsl.z + (cyans_lightness * cyans_mix_factor), 0.0, 1.0);\n\n  // Magentas\n  float magentas_mix_factor = mix_factor(MAGENTA_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (magentas_hue * magentas_mix_factor));\n  hsl.y = clamp(hsl.y + (magentas_saturation * magentas_mix_factor), 0.0, 1.0);\n  hsl.z = clamp(hsl.z + (magentas_lightness * magentas_mix_factor), 0.0, 1.0);\n\n  // Yellows\n  float yellows_mix_factor = mix_factor(YELLOW_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (yellows_hue * yellows_mix_factor));\n  hsl.y = clamp(hsl.y + (yellows_saturation * yellows_mix_factor), 0.0, 1.0);\n  hsl.z = clamp(hsl.z + (yellows_lightness * yellows_mix_factor), 0.0, 1.0);\n\n  // Reds\n  float reds_mix_factor = max(mix_factor(RED_RANGE_1, hsl), mix_factor(RED_RANGE_2, hsl));\n  hsl.x = clamp_continuous(hsl.x + (reds_hue * reds_mix_factor));\n  hsl.y = clamp(hsl.y + (reds_saturation * reds_mix_factor), 0.0, 1.0);\n  hsl.z = clamp(hsl.z + (reds_lightness * reds_mix_factor), 0.0, 1.0);\n\n  // Greens\n  float greens_mix_factor = mix_factor(GREEN_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (greens_hue * greens_mix_factor));\n  hsl.y = clamp(hsl.y + (greens_saturation * greens_mix_factor), 0.0, 1.0);\n  hsl.z = clamp(hsl.z + (greens_lightness * greens_mix_factor), 0.0, 1.0);\n\n  // Blues\n  float blues_mix_factor = mix_factor(BLUE_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (blues_hue * blues_mix_factor));\n  hsl.y = clamp(hsl.y + (blues_saturation * blues_mix_factor), 0.0, 1.0);\n  hsl.z = clamp(hsl.z + (blues_lightness * blues_mix_factor), 0.0, 1.0);\n\n  ////////////////////////////\n  ////  selective color   ////\n  ////////////////////////////\n\n  float RED_HUE = 0.0;\n  float YELLOW_HUE = 0.167;\n  float GREEN_HUE = 0.333;\n  float CYAN_HUE = 0.5;\n  float MAGENTA_HUE = 0.8333;\n  float BLUE_HUE = 0.6667;\n  vec2 BLACK_SAT_LUM = vec2(0.0, 0.0);\n  vec2 GRAY_SAT_LUM = vec2(0.0, 0.5);\n  vec2 WHITE_SAT_LUM = vec2(0.0, 1.0);\n\n  // cyans\n  hsl.x = mix(hsl.x, CYAN_HUE, cyans_mix_factor * cyans_cyan_shift);\n  hsl.x = mix(hsl.x, MAGENTA_HUE, cyans_mix_factor * cyans_magenta_shift);\n  hsl.x = mix(hsl.x, YELLOW_HUE, cyans_mix_factor * cyans_yellow_shift);\n  hsl.x = mix(hsl.x, RED_HUE, cyans_mix_factor * cyans_red_shift);\n  hsl.x = mix(hsl.x, GREEN_HUE, cyans_mix_factor * cyans_green_shift);\n  hsl.x = mix(hsl.x, BLUE_HUE, cyans_mix_factor * cyans_blue_shift);\n  hsl.yz = mix(hsl.yz, BLACK_SAT_LUM, cyans_mix_factor * cyans_black_shift);\n  hsl.yz = mix(hsl.yz, WHITE_SAT_LUM, cyans_mix_factor * cyans_white_shift);\n  hsl.yz = mix(hsl.yz, GRAY_SAT_LUM, cyans_mix_factor * cyans_gray_shift);\n\n  // magentas\n  hsl.x = mix(hsl.x, CYAN_HUE, magentas_mix_factor * magentas_cyan_shift);\n  hsl.x = mix(hsl.x, MAGENTA_HUE, magentas_mix_factor * magentas_magenta_shift);\n  hsl.x = mix(hsl.x, YELLOW_HUE, magentas_mix_factor * magentas_yellow_shift);\n  hsl.x = mix(hsl.x, RED_HUE, magentas_mix_factor * magentas_red_shift);\n  hsl.x = mix(hsl.x, GREEN_HUE, magentas_mix_factor * magentas_green_shift);\n  hsl.x = mix(hsl.x, BLUE_HUE, magentas_mix_factor * magentas_blue_shift);\n  hsl.yz = mix(hsl.yz, WHITE_SAT_LUM, magentas_mix_factor * magentas_white_shift);\n  hsl.yz = mix(hsl.yz, GRAY_SAT_LUM, magentas_mix_factor * magentas_gray_shift);\n  hsl.yz = mix(hsl.yz, BLACK_SAT_LUM, magentas_mix_factor * magentas_black_shift);\n\n  // yellows\n  hsl.x = mix(hsl.x, CYAN_HUE, yellows_mix_factor * yellows_cyan_shift);\n  hsl.x = mix(hsl.x, MAGENTA_HUE, yellows_mix_factor * yellows_magenta_shift);\n  hsl.x = mix(hsl.x, YELLOW_HUE, yellows_mix_factor * yellows_yellow_shift);\n  hsl.x = mix(hsl.x, RED_HUE, yellows_mix_factor * yellows_red_shift);\n  hsl.x = mix(hsl.x, GREEN_HUE, yellows_mix_factor * yellows_green_shift);\n  hsl.x = mix(hsl.x, BLUE_HUE, yellows_mix_factor * yellows_blue_shift);\n  hsl.yz = mix(hsl.yz, WHITE_SAT_LUM, yellows_mix_factor * yellows_white_shift);\n  hsl.yz = mix(hsl.yz, GRAY_SAT_LUM, yellows_mix_factor * yellows_gray_shift);\n  hsl.yz = mix(hsl.yz, BLACK_SAT_LUM, yellows_mix_factor * yellows_black_shift);\n\n  // reds\n  hsl.x = mix(hsl.x, CYAN_HUE, reds_mix_factor * reds_cyan_shift);\n  hsl.x = mix(hsl.x, MAGENTA_HUE, reds_mix_factor * reds_magenta_shift);\n  hsl.x = mix(hsl.x, YELLOW_HUE, reds_mix_factor * reds_yellow_shift);\n  hsl.x = mix(hsl.x, RED_HUE, reds_mix_factor * reds_red_shift);\n  hsl.x = mix(hsl.x, GREEN_HUE, reds_mix_factor * reds_green_shift);\n  hsl.x = mix(hsl.x, BLUE_HUE, reds_mix_factor * reds_blue_shift);\n  hsl.yz = mix(hsl.yz, WHITE_SAT_LUM, reds_mix_factor * reds_white_shift);\n  hsl.yz = mix(hsl.yz, GRAY_SAT_LUM, reds_mix_factor * reds_gray_shift);\n  hsl.yz = mix(hsl.yz, BLACK_SAT_LUM, reds_mix_factor * reds_black_shift);\n\n  // greens\n  hsl.x = mix(hsl.x, CYAN_HUE, greens_mix_factor * greens_cyan_shift);\n  hsl.x = mix(hsl.x, MAGENTA_HUE, greens_mix_factor * greens_magenta_shift);\n  hsl.x = mix(hsl.x, YELLOW_HUE, greens_mix_factor * greens_yellow_shift);\n  hsl.x = mix(hsl.x, RED_HUE, greens_mix_factor * greens_red_shift);\n  hsl.x = mix(hsl.x, GREEN_HUE, greens_mix_factor * greens_green_shift);\n  hsl.x = mix(hsl.x, BLUE_HUE, greens_mix_factor * greens_blue_shift);\n  hsl.yz = mix(hsl.yz, WHITE_SAT_LUM, greens_mix_factor * greens_white_shift);\n  hsl.yz = mix(hsl.yz, GRAY_SAT_LUM, greens_mix_factor * greens_gray_shift);\n  hsl.yz = mix(hsl.yz, BLACK_SAT_LUM, greens_mix_factor * greens_black_shift);\n\n  // blues\n  hsl.x = mix(hsl.x, CYAN_HUE, blues_mix_factor * blues_cyan_shift);\n  hsl.x = mix(hsl.x, MAGENTA_HUE, blues_mix_factor * blues_magenta_shift);\n  hsl.x = mix(hsl.x, YELLOW_HUE, blues_mix_factor * blues_yellow_shift);\n  hsl.x = mix(hsl.x, RED_HUE, blues_mix_factor * blues_red_shift);\n  hsl.x = mix(hsl.x, GREEN_HUE, blues_mix_factor * blues_green_shift);\n  hsl.x = mix(hsl.x, BLUE_HUE, blues_mix_factor * blues_blue_shift);\n  hsl.yz = mix(hsl.yz, WHITE_SAT_LUM, blues_mix_factor * blues_white_shift);\n  hsl.yz = mix(hsl.yz, GRAY_SAT_LUM, blues_mix_factor * blues_gray_shift);\n  hsl.yz = mix(hsl.yz, BLACK_SAT_LUM, blues_mix_factor * blues_black_shift);\n\n  color.rgb = HSLtoRGB(hsl);\n\n  vec3 CYAN = vec3(0.0, 1.0, 1.0);\n  vec3 MAGENTA = vec3(1.0, 0.0, 1.0);\n  vec3 YELLOW = vec3(1.0, 1.0, 0.0);\n  vec3 BLACK = vec3(0.0, 0.0, 0.0);\n  vec3 RED = vec3(1.0, 0.0, 0.0);\n  vec3 GREEN = vec3(0.0, 1.0, 0.0);\n  vec3 BLUE = vec3(0.0, 0.0, 1.0);\n  vec3 WHITE = vec3(1.0, 1.0, 1.0);\n  vec3 GRAY = vec3(0.5, 0.5, 0.5);\n  float MAX_DISTANCE = length(vec3(1.0, 1.0, 1.0));\n\n  // blacks\n  float black_distance = length(BLACK - color.rgb);\n  float black_mix_factor = pow(1.0 - (black_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, black_mix_factor * blacks_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, black_mix_factor * blacks_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, black_mix_factor * blacks_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, black_mix_factor * blacks_black_shift);\n  color.rgb = mix(color.rgb, RED, black_mix_factor * blacks_red_shift);\n  color.rgb = mix(color.rgb, GREEN, black_mix_factor * blacks_green_shift);\n  color.rgb = mix(color.rgb, BLUE, black_mix_factor * blacks_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, black_mix_factor * blacks_white_shift);\n  color.rgb = mix(color.rgb, GRAY, black_mix_factor * blacks_gray_shift);\n\n  // grays\n  float gray_distance = length(GRAY - color.rgb);\n  float gray_mix_factor = pow(1.0 - (gray_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, gray_mix_factor * grays_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, gray_mix_factor * grays_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, gray_mix_factor * grays_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, gray_mix_factor * grays_black_shift);\n  color.rgb = mix(color.rgb, RED, gray_mix_factor * grays_red_shift);\n  color.rgb = mix(color.rgb, GREEN, gray_mix_factor * grays_green_shift);\n  color.rgb = mix(color.rgb, BLUE, gray_mix_factor * grays_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, gray_mix_factor * grays_white_shift);\n  color.rgb = mix(color.rgb, GRAY, gray_mix_factor * grays_gray_shift);\n\n  // whites\n  float white_distance = length(WHITE - color.rgb);\n  float white_mix_factor = pow(1.0 - (white_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, white_mix_factor * whites_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, white_mix_factor * whites_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, white_mix_factor * whites_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, white_mix_factor * whites_black_shift);\n  color.rgb = mix(color.rgb, RED, white_mix_factor * whites_red_shift);\n  color.rgb = mix(color.rgb, GREEN, white_mix_factor * whites_green_shift);\n  color.rgb = mix(color.rgb, BLUE, white_mix_factor * whites_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, white_mix_factor * whites_white_shift);\n  color.rgb = mix(color.rgb, GRAY, white_mix_factor * whites_gray_shift);\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n"]));
     this.shader.attributes.position.location = 0;
     this.fbo = glFbo(gl, [gl.drawingBufferWidth, gl.drawingBufferHeight]);
     this.fbo.color[0].minFilter = gl.LINEAR;
@@ -59074,7 +59210,7 @@ var Filter = function () {
 
 module.exports = Filter;
 
-},{"./exposure_settings":361,"a-big-triangle":9,"gl-fbo":52,"gl-shader":78,"glslify":101,"lodash":119}],363:[function(require,module,exports){
+},{"./exposure_settings":362,"a-big-triangle":10,"gl-fbo":53,"gl-shader":79,"glslify":102,"lodash":120}],364:[function(require,module,exports){
 "use strict";
 
 var _createClass = function () {
@@ -59224,7 +59360,7 @@ var Frame = function () {
 
 module.exports = Frame;
 
-},{"./create_thumbnail":359,"./filter":362,"./resize_image":364,"downloadjs":22,"gl-mat4":63,"gl-shader":78,"glslify":101,"lodash":119,"uuid":349}],364:[function(require,module,exports){
+},{"./create_thumbnail":360,"./filter":363,"./resize_image":365,"downloadjs":23,"gl-mat4":64,"gl-shader":79,"glslify":102,"lodash":120,"uuid":350}],365:[function(require,module,exports){
 "use strict";
 
 var pica = require('pica');
@@ -59277,7 +59413,7 @@ var resizeImage = function resizeImage(img, maxSize, callback) {
 
 module.exports = resizeImage;
 
-},{"pica":132}],365:[function(require,module,exports){
+},{"pica":133}],366:[function(require,module,exports){
 "use strict";
 
 // Creates a [array.length x 1] texture where each pixel is a value in the array.
@@ -59302,4 +59438,4 @@ function textureFromArray(gl, array) {
 
 module.exports = textureFromArray;
 
-},{}]},{},[7]);
+},{}]},{},[8]);
