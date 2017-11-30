@@ -3,7 +3,7 @@ const ReactSlider = require("react-slider");
 const ExposureSettings = require("../src/exposure_settings");
 
 const COLORS = ["cyans", "magentas", "yellows", "reds", "greens", "blues"];
-const CONTROLS = ["hue", "saturation", "lightness"];
+const CONTROLS = ["hue", "saturation"];
 
 class HSL extends React.Component {
   constructor(props) {

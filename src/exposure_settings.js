@@ -257,12 +257,6 @@ class ExposureSettings extends EventEmitter {
       max: 1.0,
       default: 0.0,
     },
-    cyans_lightness: {
-      type: Number,
-      min: -1.0,
-      max: 1.0,
-      default: 0.0,
-    },
     magentas_hue: {
       type: Number,
       min: -0.5,
@@ -270,12 +264,6 @@ class ExposureSettings extends EventEmitter {
       default: 0.0,
     },
     magentas_saturation: {
-      type: Number,
-      min: -1.0,
-      max: 1.0,
-      default: 0.0,
-    },
-    magentas_lightness: {
       type: Number,
       min: -1.0,
       max: 1.0,
@@ -293,12 +281,6 @@ class ExposureSettings extends EventEmitter {
       max: 1.0,
       default: 0.0,
     },
-    yellows_lightness: {
-      type: Number,
-      min: -1.0,
-      max: 1.0,
-      default: 0.0,
-    },
     reds_hue: {
       type: Number,
       min: -0.5,
@@ -306,12 +288,6 @@ class ExposureSettings extends EventEmitter {
       default: 0.0,
     },
     reds_saturation: {
-      type: Number,
-      min: -1.0,
-      max: 1.0,
-      default: 0.0,
-    },
-    reds_lightness: {
       type: Number,
       min: -1.0,
       max: 1.0,
@@ -329,12 +305,6 @@ class ExposureSettings extends EventEmitter {
       max: 1.0,
       default: 0.0,
     },
-    greens_lightness: {
-      type: Number,
-      min: -1.0,
-      max: 1.0,
-      default: 0.0,
-    },
     blues_hue: {
       type: Number,
       min: -0.5,
@@ -342,12 +312,6 @@ class ExposureSettings extends EventEmitter {
       default: 0.0,
     },
     blues_saturation: {
-      type: Number,
-      min: -1.0,
-      max: 1.0,
-      default: 0.0,
-    },
-    blues_lightness: {
       type: Number,
       min: -1.0,
       max: 1.0,
