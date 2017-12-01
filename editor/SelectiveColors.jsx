@@ -1,5 +1,6 @@
 const React = require("react");
 const ReactSlider = require("react-slider");
+const ExposureSettings = require("../src/exposure_settings");
 
 const COLORS = [
   "cyans",
@@ -12,7 +13,7 @@ const COLORS = [
   "grays",
   "whites",
 ];
-const SHIFTABLE = ["cyan", "magenta", "yellow", "black", "red", "green", "blue", "white", "gray"];
+const SHIFTABLE = ["cyan", "magenta", "yellow", "red", "green", "blue", "white", "gray", "black"];
 
 class SelectiveColors extends React.Component {
   constructor(props) {
@@ -66,8 +67,16 @@ class SelectiveColors extends React.Component {
                     this,
                     `${this.state.currentColor}_${color}_shift`
                   )}
-                  min={0}
-                  max={100}
+                  min={
+                    ExposureSettings.PROPS[`${this.state.currentColor}_${color}_shift`].min *
+                    100 /
+                    10
+                  }
+                  max={
+                    ExposureSettings.PROPS[`${this.state.currentColor}_${color}_shift`].max *
+                    100 /
+                    10
+                  }
                   defaultValue={s[`${this.state.currentColor}_${color}_shift`] * 100}
                 />
               </div>

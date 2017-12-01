@@ -398,87 +398,11 @@ void main() {
   hsl.x = clamp_continuous(hsl.x + (blues_hue * blues_mix_factor));
   hsl.y = clamp(hsl.y + (blues_saturation * blues_mix_factor), 0.0, 1.0);
 
+  color.rgb = HSLtoRGB(hsl);
+
   ////////////////////////////
   ////  selective color   ////
   ////////////////////////////
-
-  float RED_HUE = 0.0;
-  float YELLOW_HUE = 0.167;
-  float GREEN_HUE = 0.333;
-  float CYAN_HUE = 0.5;
-  float MAGENTA_HUE = 0.8333;
-  float BLUE_HUE = 0.6667;
-  float BLACK_SAT_LUM = 0.0;
-  float GRAY_SAT_LUM = 0.0;
-  float WHITE_SAT_LUM = 1.0;
-
-  // cyans
-  hsl.x = mix(hsl.x, CYAN_HUE, cyans_mix_factor * cyans_cyan_shift);
-  hsl.x = mix(hsl.x, MAGENTA_HUE, cyans_mix_factor * cyans_magenta_shift);
-  hsl.x = mix(hsl.x, YELLOW_HUE, cyans_mix_factor * cyans_yellow_shift);
-  hsl.x = mix(hsl.x, RED_HUE, cyans_mix_factor * cyans_red_shift);
-  hsl.x = mix(hsl.x, GREEN_HUE, cyans_mix_factor * cyans_green_shift);
-  hsl.x = mix(hsl.x, BLUE_HUE, cyans_mix_factor * cyans_blue_shift);
-  hsl.z = mix(hsl.z, BLACK_SAT_LUM, cyans_mix_factor * cyans_black_shift);
-  hsl.z = mix(hsl.z, WHITE_SAT_LUM, cyans_mix_factor * cyans_white_shift);
-  hsl.y = mix(hsl.y, GRAY_SAT_LUM, cyans_mix_factor * cyans_gray_shift);
-
-  // magentas
-  hsl.x = mix(hsl.x, CYAN_HUE, magentas_mix_factor * magentas_cyan_shift);
-  hsl.x = mix(hsl.x, MAGENTA_HUE, magentas_mix_factor * magentas_magenta_shift);
-  hsl.x = mix(hsl.x, YELLOW_HUE, magentas_mix_factor * magentas_yellow_shift);
-  hsl.x = mix(hsl.x, RED_HUE, magentas_mix_factor * magentas_red_shift);
-  hsl.x = mix(hsl.x, GREEN_HUE, magentas_mix_factor * magentas_green_shift);
-  hsl.x = mix(hsl.x, BLUE_HUE, magentas_mix_factor * magentas_blue_shift);
-  // hsl.yz = mix(hsl.yz, WHITE_SAT_LUM, magentas_mix_factor * magentas_white_shift);
-  // hsl.yz = mix(hsl.yz, GRAY_SAT_LUM, magentas_mix_factor * magentas_gray_shift);
-  // hsl.yz = mix(hsl.yz, BLACK_SAT_LUM, magentas_mix_factor * magentas_black_shift);
-
-  // yellows
-  hsl.x = mix(hsl.x, CYAN_HUE, yellows_mix_factor * yellows_cyan_shift);
-  hsl.x = mix(hsl.x, MAGENTA_HUE, yellows_mix_factor * yellows_magenta_shift);
-  hsl.x = mix(hsl.x, YELLOW_HUE, yellows_mix_factor * yellows_yellow_shift);
-  hsl.x = mix(hsl.x, RED_HUE, yellows_mix_factor * yellows_red_shift);
-  hsl.x = mix(hsl.x, GREEN_HUE, yellows_mix_factor * yellows_green_shift);
-  hsl.x = mix(hsl.x, BLUE_HUE, yellows_mix_factor * yellows_blue_shift);
-  // hsl.yz = mix(hsl.yz, WHITE_SAT_LUM, yellows_mix_factor * yellows_white_shift);
-  // hsl.yz = mix(hsl.yz, GRAY_SAT_LUM, yellows_mix_factor * yellows_gray_shift);
-  // hsl.yz = mix(hsl.yz, BLACK_SAT_LUM, yellows_mix_factor * yellows_black_shift);
-
-  // reds
-  hsl.x = mix(hsl.x, CYAN_HUE, reds_mix_factor * reds_cyan_shift);
-  hsl.x = mix(hsl.x, MAGENTA_HUE, reds_mix_factor * reds_magenta_shift);
-  hsl.x = mix(hsl.x, YELLOW_HUE, reds_mix_factor * reds_yellow_shift);
-  hsl.x = mix(hsl.x, RED_HUE, reds_mix_factor * reds_red_shift);
-  hsl.x = mix(hsl.x, GREEN_HUE, reds_mix_factor * reds_green_shift);
-  hsl.x = mix(hsl.x, BLUE_HUE, reds_mix_factor * reds_blue_shift);
-  // hsl.yz = mix(hsl.yz, WHITE_SAT_LUM, reds_mix_factor * reds_white_shift);
-  // hsl.yz = mix(hsl.yz, GRAY_SAT_LUM, reds_mix_factor * reds_gray_shift);
-  // hsl.yz = mix(hsl.yz, BLACK_SAT_LUM, reds_mix_factor * reds_black_shift);
-
-  // greens
-  hsl.x = mix(hsl.x, CYAN_HUE, greens_mix_factor * greens_cyan_shift);
-  hsl.x = mix(hsl.x, MAGENTA_HUE, greens_mix_factor * greens_magenta_shift);
-  hsl.x = mix(hsl.x, YELLOW_HUE, greens_mix_factor * greens_yellow_shift);
-  hsl.x = mix(hsl.x, RED_HUE, greens_mix_factor * greens_red_shift);
-  hsl.x = mix(hsl.x, GREEN_HUE, greens_mix_factor * greens_green_shift);
-  hsl.x = mix(hsl.x, BLUE_HUE, greens_mix_factor * greens_blue_shift);
-  // hsl.yz = mix(hsl.yz, WHITE_SAT_LUM, greens_mix_factor * greens_white_shift);
-  // hsl.yz = mix(hsl.yz, GRAY_SAT_LUM, greens_mix_factor * greens_gray_shift);
-  // hsl.yz = mix(hsl.yz, BLACK_SAT_LUM, greens_mix_factor * greens_black_shift);
-
-  // blues
-  hsl.x = mix(hsl.x, CYAN_HUE, blues_mix_factor * blues_cyan_shift);
-  hsl.x = mix(hsl.x, MAGENTA_HUE, blues_mix_factor * blues_magenta_shift);
-  hsl.x = mix(hsl.x, YELLOW_HUE, blues_mix_factor * blues_yellow_shift);
-  hsl.x = mix(hsl.x, RED_HUE, blues_mix_factor * blues_red_shift);
-  hsl.x = mix(hsl.x, GREEN_HUE, blues_mix_factor * blues_green_shift);
-  hsl.x = mix(hsl.x, BLUE_HUE, blues_mix_factor * blues_blue_shift);
-  // hsl.yz = mix(hsl.yz, WHITE_SAT_LUM, blues_mix_factor * blues_white_shift);
-  // hsl.yz = mix(hsl.yz, GRAY_SAT_LUM, blues_mix_factor * blues_gray_shift);
-  // hsl.yz = mix(hsl.yz, BLACK_SAT_LUM, blues_mix_factor * blues_black_shift);
-
-  color.rgb = HSLtoRGB(hsl);
 
   vec3 CYAN = vec3(0.0, 1.0, 1.0);
   vec3 MAGENTA = vec3(1.0, 0.0, 1.0);
@@ -490,6 +414,72 @@ void main() {
   vec3 WHITE = vec3(1.0, 1.0, 1.0);
   vec3 GRAY = vec3(0.5, 0.5, 0.5);
   float MAX_DISTANCE = length(vec3(1.0, 1.0, 1.0));
+
+  // cyans
+  color.rgb = mix(color.rgb, (CYAN * color.rgb), cyans_mix_factor * cyans_cyan_shift);
+  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), cyans_mix_factor * cyans_magenta_shift);
+  color.rgb = mix(color.rgb, (YELLOW * color.rgb), cyans_mix_factor * cyans_yellow_shift);
+  color.rgb = mix(color.rgb, (RED * color.rgb), cyans_mix_factor * cyans_red_shift);
+  color.rgb = mix(color.rgb, (GREEN * color.rgb), cyans_mix_factor * cyans_green_shift);
+  color.rgb = mix(color.rgb, (BLUE * color.rgb), cyans_mix_factor * cyans_blue_shift);
+  color.rgb = mix(color.rgb, WHITE, cyans_mix_factor * cyans_white_shift);
+  color.rgb = mix(color.rgb, GRAY, cyans_mix_factor * cyans_gray_shift);
+  color.rgb = mix(color.rgb, BLACK, cyans_mix_factor * cyans_black_shift);
+
+  // magentas
+  color.rgb = mix(color.rgb, (CYAN * color.rgb), magentas_mix_factor * magentas_cyan_shift);
+  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), magentas_mix_factor * magentas_magenta_shift);
+  color.rgb = mix(color.rgb, (YELLOW * color.rgb), magentas_mix_factor * magentas_yellow_shift);
+  color.rgb = mix(color.rgb, (RED * color.rgb), magentas_mix_factor * magentas_red_shift);
+  color.rgb = mix(color.rgb, (GREEN * color.rgb), magentas_mix_factor * magentas_green_shift);
+  color.rgb = mix(color.rgb, (BLUE * color.rgb), magentas_mix_factor * magentas_blue_shift);
+  color.rgb = mix(color.rgb, WHITE, magentas_mix_factor * magentas_white_shift);
+  color.rgb = mix(color.rgb, GRAY, magentas_mix_factor * magentas_gray_shift);
+  color.rgb = mix(color.rgb, BLACK, magentas_mix_factor * magentas_black_shift);
+
+  // yellows
+  color.rgb = mix(color.rgb, (CYAN * color.rgb), yellows_mix_factor * yellows_cyan_shift);
+  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), yellows_mix_factor * yellows_magenta_shift);
+  color.rgb = mix(color.rgb, (YELLOW * color.rgb), yellows_mix_factor * yellows_yellow_shift);
+  color.rgb = mix(color.rgb, (RED * color.rgb), yellows_mix_factor * yellows_red_shift);
+  color.rgb = mix(color.rgb, (GREEN * color.rgb), yellows_mix_factor * yellows_green_shift);
+  color.rgb = mix(color.rgb, (BLUE * color.rgb), yellows_mix_factor * yellows_blue_shift);
+  color.rgb = mix(color.rgb, WHITE, yellows_mix_factor * yellows_white_shift);
+  color.rgb = mix(color.rgb, GRAY, yellows_mix_factor * yellows_gray_shift);
+  color.rgb = mix(color.rgb, BLACK, yellows_mix_factor * yellows_black_shift);
+
+  // reds
+  color.rgb = mix(color.rgb, (CYAN * color.rgb), reds_mix_factor * reds_cyan_shift);
+  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), reds_mix_factor * reds_magenta_shift);
+  color.rgb = mix(color.rgb, (YELLOW * color.rgb), reds_mix_factor * reds_yellow_shift);
+  color.rgb = mix(color.rgb, (RED * color.rgb), reds_mix_factor * reds_red_shift);
+  color.rgb = mix(color.rgb, (GREEN * color.rgb), reds_mix_factor * reds_green_shift);
+  color.rgb = mix(color.rgb, (BLUE * color.rgb), reds_mix_factor * reds_blue_shift);
+  color.rgb = mix(color.rgb, WHITE, reds_mix_factor * reds_white_shift);
+  color.rgb = mix(color.rgb, GRAY, reds_mix_factor * reds_gray_shift);
+  color.rgb = mix(color.rgb, BLACK, reds_mix_factor * reds_black_shift);
+
+  // greens
+  color.rgb = mix(color.rgb, (CYAN * color.rgb), greens_mix_factor * greens_cyan_shift);
+  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), greens_mix_factor * greens_magenta_shift);
+  color.rgb = mix(color.rgb, (YELLOW * color.rgb), greens_mix_factor * greens_yellow_shift);
+  color.rgb = mix(color.rgb, (RED * color.rgb), greens_mix_factor * greens_red_shift);
+  color.rgb = mix(color.rgb, (GREEN * color.rgb), greens_mix_factor * greens_green_shift);
+  color.rgb = mix(color.rgb, (BLUE * color.rgb), greens_mix_factor * greens_blue_shift);
+  color.rgb = mix(color.rgb, WHITE, greens_mix_factor * greens_white_shift);
+  color.rgb = mix(color.rgb, GRAY, greens_mix_factor * greens_gray_shift);
+  color.rgb = mix(color.rgb, BLACK, greens_mix_factor * greens_black_shift);
+
+  // blues
+  color.rgb = mix(color.rgb, (CYAN * color.rgb), blues_mix_factor * blues_cyan_shift);
+  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), blues_mix_factor * blues_magenta_shift);
+  color.rgb = mix(color.rgb, (YELLOW * color.rgb), blues_mix_factor * blues_yellow_shift);
+  color.rgb = mix(color.rgb, (RED * color.rgb), blues_mix_factor * blues_red_shift);
+  color.rgb = mix(color.rgb, (GREEN * color.rgb), blues_mix_factor * blues_green_shift);
+  color.rgb = mix(color.rgb, (BLUE * color.rgb), blues_mix_factor * blues_blue_shift);
+  color.rgb = mix(color.rgb, WHITE, blues_mix_factor * blues_white_shift);
+  color.rgb = mix(color.rgb, GRAY, blues_mix_factor * blues_gray_shift);
+  color.rgb = mix(color.rgb, BLACK, blues_mix_factor * blues_black_shift);
 
   // blacks
   float black_distance = length(BLACK - color.rgb);
