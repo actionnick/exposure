@@ -7,6 +7,7 @@ const initialState = {
   settings: [],
   currentSettings: null,
   settingsJson: null,
+  showBefore: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -57,13 +58,15 @@ const reducer = (state = initialState, action) => {
   } else if (action.type === "SETTINGS_CHANGED") {
     newState.currentSettings = newState.settings[action.index];
     newState.selectedFrame.settings = newState.currentSettings;
+  } else if (action.type === "SHOW_BEFORE") {
+    newState.showBefore = true;
+  } else if (action.type === "SHOW_AFTER") {
+    newState.showBefore = false;
   }
 
   if (newState.currentSettings) {
     newState.settingsJson = newState.currentSettings.json;
   }
-
-  window.currentSettings = newState.currentSettings;
 
   return newState;
 };

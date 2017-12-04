@@ -28,11 +28,15 @@ body {
 }
 
 #top {
-  display: -webkit-flex;
   display: flex;
-  height: 7%;
+  height: 70px;
   border-bottom: 1px solid rgb(222, 219, 219);
-  min-height: 35px;
+  align-items: center;
+}
+
+.before-after-button {
+  font-size: 25px;
+  margin-left: 16px;
 }
 
 #logo {
@@ -115,6 +119,10 @@ body {
   -webkit-transition: left 0.4s ease-in;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 .current-canvas {
   max-height: 100%;
   max-width: 100%;
@@ -125,6 +133,7 @@ body {
   -moz-box-shadow: 0 0 10px #dedede;
   -webkit-box-shadow: 0 0 10px #dedede;
   box-shadow: 0 0 10px #dedede;
+  image-rendering: pixelated;
 }
 
 #image-container {

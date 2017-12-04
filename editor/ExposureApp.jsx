@@ -3,6 +3,7 @@ const { connect } = require("react-redux");
 const ImageStage = require("./ImageStage.jsx");
 const ImageList = require("./ImageList.jsx");
 const Controls = require("./Controls.jsx");
+const BeforeAfterButton = require("./BeforeAfterButton.jsx");
 const _ = require("lodash");
 const uuid = require("uuid");
 const Frame = require("../src/frame");
@@ -38,6 +39,8 @@ const mapDispatchToProps = dispatch => {
         dispatch({ type: "REMOVE_CONTROL_POINT", index, controlPointsIdentifier }),
       addSettings: () => dispatch({ type: "SETTINGS_ADDED", settings: new ExposureSettings() }),
       changeSettings: index => dispatch({ type: "SETTINGS_CHANGED", index }),
+      showBefore: () => dispatch({ type: "SHOW_BEFORE" }),
+      showAfter: () => dispatch({ type: "SHOW_AFTER" }),
     },
   };
 };
@@ -51,12 +54,17 @@ class ExposureApp extends React.Component {
   };
 
   render() {
-    const { frames, selectedFrame, actions, currentSettings } = this.props;
+    const { frames, selectedFrame, actions, currentSettings, showBefore } = this.props;
 
     return (
       <div id="main" className="no-buffer">
         <div id="top" className="no-buffer">
           <div id="logo" className="no-buffer" />
+          <BeforeAfterButton
+            actions={actions}
+            showBefore={showBefore}
+            selectedFrame={selectedFrame}
+          />
         </div>
         <div id="middle" className="no-buffer">
           <ImageList frames={frames} selectedFrame={selectedFrame} actions={actions} />
@@ -65,6 +73,7 @@ class ExposureApp extends React.Component {
               actions={actions}
               selectedFrame={selectedFrame}
               webGLSupported={Modernizr.webgl}
+              showBefore={showBefore}
             />
           </div>
 

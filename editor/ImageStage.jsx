@@ -32,9 +32,10 @@ class ImageStage extends React.Component {
   componentDidUpdate() {
     var frame = this.props.selectedFrame;
     if (frame) {
-      var canvas = frame.canvas;
-      canvas.className = "current-canvas";
-      this.container.appendChild(frame.canvas);
+      const domElement = this.props.showBefore ? frame.img : frame.canvas;
+      domElement.className = "current-canvas";
+      $(this.container).empty();
+      this.container.appendChild(domElement);
     }
   }
 
