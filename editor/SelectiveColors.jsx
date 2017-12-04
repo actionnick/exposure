@@ -77,7 +77,7 @@ class SelectiveColors extends React.Component {
                     100 /
                     10
                   }
-                  defaultValue={s[`${this.state.currentColor}_${color}_shift`] * 100}
+                  value={s[`${this.state.currentColor}_${color}_shift`] * 100}
                 />
               </div>
             </div>

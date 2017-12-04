@@ -40,6 +40,10 @@ body {
   cursor: pointer;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 #logo {
   width: 15%;
   min-width: 150px;
@@ -397,19 +401,28 @@ body {
   cursor: pointer;
 }
 
-.about_modal {
+.flex {
+  display: flex;
+}
+
+.flex-v-centered {
+  align-items: center;
+}
+
+.modal {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
   height: 80%;
-  margin-top: 10%;
+  margin-top: 5%;
   overflow-y: scroll;
   background-color: white;
   padding: 20px;
-  box-shadow: 10px 10px 20px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.75);
+  outline: none;
 }
 
-.about_modal #title {
+.modal #title {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -417,10 +430,17 @@ body {
   padding-bottom: 10px;
 }
 
-.about_modal #close {
+.modal #close {
   width: 25px;
   cursor: pointer;
   float: right;
+}
+
+.modal .json-output textarea {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  resize: none;
 }
 
 .close_button {
@@ -434,8 +454,11 @@ body {
   cursor: pointer;
 }
 
-#json-output {
+.json-output {
   line-height: 19px;
+  height: 80%;
+  overflow-y: scroll;
+  border: solid 1px lightgray;
 }
 
 .browser-download {

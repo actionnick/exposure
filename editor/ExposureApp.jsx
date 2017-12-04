@@ -8,6 +8,7 @@ const _ = require("lodash");
 const uuid = require("uuid");
 const Frame = require("../src/frame");
 const ExposureSettings = require("../src/exposure_settings");
+const JsonEditor = require("./JsonEditor.jsx");
 
 const mapStateToProps = state => state;
 
@@ -41,6 +42,7 @@ const mapDispatchToProps = dispatch => {
       changeSettings: index => dispatch({ type: "SETTINGS_CHANGED", index }),
       showBefore: () => dispatch({ type: "SHOW_BEFORE" }),
       showAfter: () => dispatch({ type: "SHOW_AFTER" }),
+      setSettings: json => dispatch({ type: "SET_SETTINGS", settings: new ExposureSettings(json) }),
     },
   };
 };
@@ -60,7 +62,7 @@ class ExposureApp extends React.Component {
       <div className="top-button">
         <i
           onClick={() => this.props.selectedFrame.download()}
-          className="fa fa-floppy-o"
+          className="fa fa-floppy-o clickable"
           aria-hidden="true"
         />
       </div>
@@ -68,7 +70,14 @@ class ExposureApp extends React.Component {
   }
 
   render() {
-    const { frames, selectedFrame, actions, currentSettings, showBefore } = this.props;
+    const {
+      frames,
+      selectedFrame,
+      actions,
+      currentSettings,
+      showBefore,
+      settingsJson,
+    } = this.props;
 
     return (
       <div id="main" className="no-buffer">
@@ -80,6 +89,7 @@ class ExposureApp extends React.Component {
             selectedFrame={selectedFrame}
           />
           {this.getDownloadButton()}
+          <JsonEditor actions={actions} selectedFrame={selectedFrame} />
         </div>
         <div id="middle" className="no-buffer">
           <ImageList frames={frames} selectedFrame={selectedFrame} actions={actions} />

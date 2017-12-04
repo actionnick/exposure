@@ -42,7 +42,7 @@ class HSL extends React.Component {
               onChange={this.handleChange.bind(this, "hue")}
               min={-50}
               max={50}
-              defaultValue={s.hue * 100}
+              value={s.hue * 100}
             />
           </div>
         </div>
@@ -54,7 +54,7 @@ class HSL extends React.Component {
               onChange={this.handleChange.bind(this, "saturation")}
               min={-100}
               max={100}
-              defaultValue={s.saturation * 100}
+              value={s.saturation * 100}
             />
           </div>
         </div>
@@ -66,7 +66,7 @@ class HSL extends React.Component {
               onChange={this.handleChange.bind(this, "lightness")}
               min={-100}
               max={100}
-              defaultValue={s.lightness * 100}
+              value={s.lightness * 100}
             />
           </div>
         </div>
@@ -92,7 +92,7 @@ class HSL extends React.Component {
                 onChange={this.handleChange.bind(this, `${this.state.currentColor}_${control}`)}
                 min={ExposureSettings.PROPS[`${this.state.currentColor}_${control}`].min * 100}
                 max={ExposureSettings.PROPS[`${this.state.currentColor}_${control}`].max * 100}
-                defaultValue={s[`${this.state.currentColor}_${control}`] * 100}
+                value={s[`${this.state.currentColor}_${control}`] * 100}
               />
             </div>
           </div>

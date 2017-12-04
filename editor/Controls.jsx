@@ -43,7 +43,7 @@ class Controls extends React.Component {
                 onChange={this.handleChange.bind(this, "brightness")}
                 min={0}
                 max={200}
-                defaultValue={s.brightness * 100}
+                value={s.brightness * 100}
               />
             </div>
           </div>
@@ -55,7 +55,7 @@ class Controls extends React.Component {
                 onChange={this.handleChange.bind(this, "contrast")}
                 min={0}
                 max={300}
-                defaultValue={s.contrast * 100}
+                value={s.contrast * 100}
               />
             </div>
           </div>
@@ -71,7 +71,7 @@ class Controls extends React.Component {
                 onChange={this.handleChange.bind(this, "rgb_in_")}
                 min={0}
                 max={100}
-                defaultValue={[s.rgb_in_min * 100, s.rgb_in_max * 100]}
+                value={[s.rgb_in_min * 100, s.rgb_in_max * 100]}
               />
             </div>
           </div>
@@ -82,7 +82,7 @@ class Controls extends React.Component {
                 onChange={this.handleChange.bind(this, "rgb_out_")}
                 min={0}
                 max={100}
-                defaultValue={[s.rgb_out_min * 100, s.rgb_out_max * 100]}
+                value={[s.rgb_out_min * 100, s.rgb_out_max * 100]}
               />
             </div>
           </div>
@@ -93,7 +93,7 @@ class Controls extends React.Component {
                 onChange={this.handleChange.bind(this, "rgb_gamma")}
                 min={0}
                 max={1000}
-                defaultValue={s.rgb_gamma * 100}
+                value={s.rgb_gamma * 100}
               />
             </div>
           </div>
@@ -107,7 +107,7 @@ class Controls extends React.Component {
                 onChange={this.handleChange.bind(this, "r_in_")}
                 min={0}
                 max={100}
-                defaultValue={[s.r_in_min * 100, s.r_in_max * 100]}
+                value={[s.r_in_min * 100, s.r_in_max * 100]}
               />
             </div>
           </div>
@@ -119,7 +119,7 @@ class Controls extends React.Component {
                 onChange={this.handleChange.bind(this, "r_out_")}
                 min={0}
                 max={100}
-                defaultValue={[s.r_out_min * 100, s.r_out_max * 100]}
+                value={[s.r_out_min * 100, s.r_out_max * 100]}
               />
             </div>
           </div>
@@ -131,7 +131,7 @@ class Controls extends React.Component {
                 onChange={this.handleChange.bind(this, "r_gamma")}
                 min={0}
                 max={1000}
-                defaultValue={s.r_gamma * 100}
+                value={s.r_gamma * 100}
               />
             </div>
           </div>
@@ -145,7 +145,7 @@ class Controls extends React.Component {
                 onChange={this.handleChange.bind(this, "g_in_")}
                 min={0}
                 max={100}
-                defaultValue={[s.g_in_min * 100, s.g_in_max * 100]}
+                value={[s.g_in_min * 100, s.g_in_max * 100]}
               />
             </div>
           </div>
@@ -157,7 +157,7 @@ class Controls extends React.Component {
                 onChange={this.handleChange.bind(this, "g_out_")}
                 min={0}
                 max={100}
-                defaultValue={[s.g_out_min * 100, s.g_out_max * 100]}
+                value={[s.g_out_min * 100, s.g_out_max * 100]}
               />
             </div>
           </div>
@@ -169,7 +169,7 @@ class Controls extends React.Component {
                 onChange={this.handleChange.bind(this, "g_gamma")}
                 min={0}
                 max={1000}
-                defaultValue={s.g_gamma * 100}
+                value={s.g_gamma * 100}
               />
             </div>
           </div>
@@ -183,7 +183,7 @@ class Controls extends React.Component {
                 onChange={this.handleChange.bind(this, "b_in_")}
                 min={0}
                 max={100}
-                defaultValue={[s.b_in_min * 100, s.b_in_max * 100]}
+                value={[s.b_in_min * 100, s.b_in_max * 100]}
               />
             </div>
           </div>
@@ -195,7 +195,7 @@ class Controls extends React.Component {
                 onChange={this.handleChange.bind(this, "b_out_")}
                 min={0}
                 max={100}
-                defaultValue={[s.b_out_min * 100, s.b_out_max * 100]}
+                value={[s.b_out_min * 100, s.b_out_max * 100]}
               />
             </div>
           </div>
@@ -207,7 +207,7 @@ class Controls extends React.Component {
                 onChange={this.handleChange.bind(this, "b_gamma")}
                 min={0}
                 max={1000}
-                defaultValue={s.b_gamma * 100}
+                value={s.b_gamma * 100}
               />
             </div>
           </div>

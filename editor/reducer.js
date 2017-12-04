@@ -62,6 +62,9 @@ const reducer = (state = initialState, action) => {
     newState.showBefore = true;
   } else if (action.type === "SHOW_AFTER") {
     newState.showBefore = false;
+  } else if (action.type === "SET_SETTINGS") {
+    newState.currentSettings = action.settings;
+    newState.selectedFrame.settings = newState.currentSettings;
   }
 
   if (newState.currentSettings) {

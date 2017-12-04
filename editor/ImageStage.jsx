@@ -65,7 +65,7 @@ class ImageStage extends React.Component {
   render() {
     if (!this.props.webGLSupported) {
       return (
-        <Modal isOpen={true} className="about_modal" contentLabel="Oops!">
+        <Modal isOpen={true} className="modal" contentLabel="Oops!">
           <h3>Oops! It doesn't seem like your browser supports webGL!</h3>
           <p>You should download one of these browsers. Your life will be better</p>
           <iframe className="browser-download" src="http://outdatedbrowser.com/en" />
@@ -89,7 +89,7 @@ class ImageStage extends React.Component {
             ref={container => (this.container = container)}
           />
 
-          <Modal isOpen={this.state.showJSON} className="about_modal" contentLabel="JSON">
+          <Modal isOpen={this.state.showJSON} className="modal" contentLabel="JSON">
             <img id="close" onClick={this.hideJSON.bind(this)} src="assets/x.svg" />
             <h3>JSON</h3>
             <p>
@@ -99,7 +99,9 @@ class ImageStage extends React.Component {
                 here
               </a>.
             </p>
-            <pre id="json-output">{vkbeautify.json(JSON.stringify(frame.settings.json), 2)}</pre>
+            <pre className="json-output">
+              {vkbeautify.json(JSON.stringify(frame.settings.json), 2)}
+            </pre>
           </Modal>
         </div>
       );
