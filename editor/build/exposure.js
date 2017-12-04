@@ -64,7 +64,7 @@ var BeforeAfterButton = function (_React$Component) {
 
       var className = showBefore ? "fa fa-eye-slash" : "fa fa-eye";
 
-      return React.createElement("div", { className: "before-after-button", __source: {
+      return React.createElement("div", { className: "top-button", __source: {
           fileName: _jsxFileName,
           lineNumber: 26
         }
@@ -1020,6 +1020,29 @@ var ExposureApp = function (_React$Component) {
   }
 
   _createClass(ExposureApp, [{
+    key: "getDownloadButton",
+    value: function getDownloadButton() {
+      var _this2 = this;
+
+      if (!this.props.selectedFrame) return null;
+
+      return React.createElement("div", { className: "top-button", __source: {
+          fileName: _jsxFileName,
+          lineNumber: 60
+        }
+      }, React.createElement("i", {
+        onClick: function onClick() {
+          return _this2.props.selectedFrame.download();
+        },
+        className: "fa fa-floppy-o",
+        "aria-hidden": "true",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 61
+        }
+      }));
+    }
+  }, {
     key: "render",
     value: function render() {
       var _props = this.props,
@@ -1031,15 +1054,15 @@ var ExposureApp = function (_React$Component) {
 
       return React.createElement("div", { id: "main", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
+          lineNumber: 74
         }
       }, React.createElement("div", { id: "top", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 75
         }
       }, React.createElement("div", { id: "logo", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 62
+          lineNumber: 76
         }
       }), React.createElement(BeforeAfterButton, {
         actions: actions,
@@ -1047,19 +1070,19 @@ var ExposureApp = function (_React$Component) {
         selectedFrame: selectedFrame,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 77
         }
-      })), React.createElement("div", { id: "middle", className: "no-buffer", __source: {
+      }), this.getDownloadButton()), React.createElement("div", { id: "middle", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 84
         }
       }, React.createElement(ImageList, { frames: frames, selectedFrame: selectedFrame, actions: actions, __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 85
         }
       }), React.createElement("div", { id: "current-image", className: "no-buffer", __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
+          lineNumber: 86
         }
       }, React.createElement(ImageStage, {
         actions: actions,
@@ -1068,11 +1091,11 @@ var ExposureApp = function (_React$Component) {
         showBefore: showBefore,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 87
         }
       })), React.createElement(Controls, { frame: selectedFrame, settings: currentSettings, actions: actions, __source: {
           fileName: _jsxFileName,
-          lineNumber: 80
+          lineNumber: 95
         }
       })));
     }

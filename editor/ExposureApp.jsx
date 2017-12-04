@@ -53,6 +53,20 @@ class ExposureApp extends React.Component {
     currentSettings: React.PropTypes.object,
   };
 
+  getDownloadButton() {
+    if (!this.props.selectedFrame) return null;
+
+    return (
+      <div className="top-button">
+        <i
+          onClick={() => this.props.selectedFrame.download()}
+          className="fa fa-floppy-o"
+          aria-hidden="true"
+        />
+      </div>
+    );
+  }
+
   render() {
     const { frames, selectedFrame, actions, currentSettings, showBefore } = this.props;
 
@@ -65,6 +79,7 @@ class ExposureApp extends React.Component {
             showBefore={showBefore}
             selectedFrame={selectedFrame}
           />
+          {this.getDownloadButton()}
         </div>
         <div id="middle" className="no-buffer">
           <ImageList frames={frames} selectedFrame={selectedFrame} actions={actions} />

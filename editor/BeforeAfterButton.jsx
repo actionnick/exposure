@@ -23,7 +23,7 @@ class BeforeAfterButton extends React.Component {
     const className = showBefore ? "fa fa-eye-slash" : "fa fa-eye";
 
     return (
-      <div className="before-after-button">
+      <div className="top-button">
         <i
           onClick={() => this.handleClick()}
           className={`clickable ${className}`}

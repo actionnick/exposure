@@ -34,9 +34,10 @@ body {
   align-items: center;
 }
 
-.before-after-button {
+.top-button {
   font-size: 25px;
   margin-left: 16px;
+  cursor: pointer;
 }
 
 #logo {
@@ -117,10 +118,6 @@ body {
   -ms-transition: left 0.4s ease-in;
   -moz-transition: left 0.4s ease-in;
   -webkit-transition: left 0.4s ease-in;
-}
-
-.clickable {
-  cursor: pointer;
 }
 
 .current-canvas {
