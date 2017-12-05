@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "babel-core": "~6.26.0",
+    "babel-plugin-glslify": "~2.0.0",
     "babel-plugin-transform-class-properties": "~6.24.1",
     "babel-plugin-transform-object-rest-spread": "~6.26.0",
     "babel-plugin-transform-react-jsx-source": "~6.22.0",
@@ -20,11 +21,15 @@
     "browserify": "~14.5.0",
     "classnames": "~2.2.5",
     "create-react-class": "~15.6.2",
+    "find": "~0.2.7",
     "glslify": "~6.1.0",
     "grunt": "~1.0.1",
+    "grunt-babel": "~7.0.0",
     "grunt-browserify": "~5.2.0",
+    "grunt-contrib-copy": "~1.0.0",
     "grunt-contrib-uglify": "~3.1.0",
     "grunt-contrib-watch": "~1.0.0",
+    "grunt-execute": "~0.2.2",
     "grunt-parallel": "~0.5.1",
     "grunt-watchify": "~0.1.0",
     "load-grunt-tasks": "~3.5.2",
@@ -32,7 +37,7 @@
     "react": "~15.6.1",
     "react-dom": "~15.6.1",
     "react-file-input": "~0.2.4",
-    "react-json-view": "^1.13.3",
+    "react-json-view": "~1.13.3",
     "react-modal": "~3.1.0",
     "react-redux": "~5.0.6",
     "react-slider": "~0.9.0",
@@ -55,8 +60,18 @@
   "engine": "node >= 0.10.0",
   "browserify": {
     "transform": [
-      "babelify",
-      "glslify"
+      [
+        "babelify",
+        {
+          "presets": ["react", "es2015", "es2016", "es2017"],
+          "plugins": [
+            "babel-plugin-transform-react-jsx-source",
+            "babel-plugin-transform-object-rest-spread",
+            "babel-plugin-transform-class-properties",
+            "glslify"
+          ]
+        }
+      ]
     ]
   }
 }
