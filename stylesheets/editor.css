@@ -91,7 +91,7 @@ body {
 #middle {
   display: -webkit-flex;
   display: flex;
-  height: 92%;
+  height: 100%;
 }
 
 #images {
