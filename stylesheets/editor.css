@@ -23,8 +23,9 @@ body {
 }
 
 #main {
-  width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 #top {
@@ -45,8 +46,7 @@ body {
 }
 
 #logo {
-  width: 15%;
-  min-width: 150px;
+  width: 180px;
   height: 100%;
   background: url(../assets/color_logo.svg) center center no-repeat;
   background-size: 80%;

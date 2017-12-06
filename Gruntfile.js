@@ -82,7 +82,7 @@ module.exports = function(grunt) {
     },
   });
 
-  grunt.registerTask("release", "build dist director", ["execute:build_dist"]);
+  grunt.registerTask("release", "build dist director", ["babel"]);
   grunt.registerTask("editor_build", "prod build for editor", [
     "browserify:editor",
     "uglify:editor",
