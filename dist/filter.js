@@ -5,7 +5,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var glShader = require("gl-shader");
-var glslify = require("glslify");
 var glFbo = require("gl-fbo");
 var _draw = require("a-big-triangle");
 var ExposureSettings = require("./exposure_settings");

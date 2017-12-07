@@ -1,12 +1,11 @@
 const mat4 = require("gl-mat4");
 const glShader = require("gl-shader");
-const glslify = require("glslify");
 const Filter = require("./filter");
-const resizeImage = require("./resize_image");
 const createThumbnail = require("./create_thumbnail");
 const _ = require("lodash");
 const uuid = require("uuid");
 const download = require("downloadjs");
+const glslify = require("glslify");
 
 const MAX_SIZE = 2500;
 const THUMBNAIL_SIZE = 300;

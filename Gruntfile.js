@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     "babel-plugin-transform-class-properties",
     "glslify",
   ];
-  const transform = [["babelify", { presets, plugins }], "glslify"];
+  const transform = [["babelify", { presets, plugins }]];
 
   const srcFiles = find.fileSync(/\.js$/, "src");
   const distFiles = srcFiles.map(fileName => {
@@ -19,10 +19,16 @@ module.exports = function(grunt) {
     return fileParts.join("/");
   });
 
+  const exec = {};
+  distFiles.forEach(pathName => {
+    exec[pathName] = `sed -i '' '/require\("glslify"\)/d' ${pathName}`;
+  });
+
   const babelFiles = {};
   srcFiles.forEach((fileName, i) => (babelFiles[distFiles[i]] = fileName));
 
   grunt.initConfig({
+    exec,
     babel: {
       options: {
         plugins,
@@ -82,10 +88,11 @@ module.exports = function(grunt) {
     },
   });
 
-  grunt.registerTask("release", "build dist director", ["babel"]);
-  grunt.registerTask("editor_build", "prod build for editor", [
+  grunt.registerTask("release", "build for release", [
     "browserify:editor",
     "uglify:editor",
+    "babel",
+    "exec",
   ]);
   grunt.registerTask("editor_watch", "watch js and shaders", ["parallel:editor"]);
 };

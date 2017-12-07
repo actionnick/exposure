@@ -6,9 +6,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var mat4 = require("gl-mat4");
 var glShader = require("gl-shader");
-var glslify = require("glslify");
 var Filter = require("./filter");
-var resizeImage = require("./resize_image");
 var createThumbnail = require("./create_thumbnail");
 var _ = require("lodash");
 var uuid = require("uuid");

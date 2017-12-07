@@ -1,9 +1,9 @@
-var glShader = require("gl-shader");
-var glslify = require("glslify");
-var glFbo = require("gl-fbo");
-var draw = require("a-big-triangle");
-var ExposureSettings = require("./exposure_settings");
-var _ = require("lodash");
+const glShader = require("gl-shader");
+const glFbo = require("gl-fbo");
+const draw = require("a-big-triangle");
+const glslify = require("glslify");
+const ExposureSettings = require("./exposure_settings");
+const _ = require("lodash");
 
 class Filter {
   constructor(gl, json) {

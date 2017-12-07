@@ -1,6 +1,8 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _jsxFileName = "/Users/nick/projects/exposure/editor/BeforeAfterButton.jsx";
 
 var _createClass = function () {
@@ -22,12 +24,12 @@ function _classCallCheck(instance, Constructor) {
 function _possibleConstructorReturn(self, call) {
   if (!self) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
 }
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
   }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
@@ -93,8 +95,10 @@ BeforeAfterButton.propTypes = {
 
 module.exports = BeforeAfterButton;
 
-},{"react":334}],2:[function(require,module,exports){
+},{"react":311}],2:[function(require,module,exports){
 "use strict";
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _jsxFileName = "/Users/nick/projects/exposure/editor/Controls.jsx";
 
@@ -117,12 +121,12 @@ function _classCallCheck(instance, Constructor) {
 function _possibleConstructorReturn(self, call) {
   if (!self) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
 }
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
   }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
@@ -594,8 +598,10 @@ Controls.propTypes = {
 
 module.exports = Controls;
 
-},{"./Curves.jsx":3,"./HSL.jsx":5,"./SelectiveColors.jsx":9,"react":334,"react-slider":308}],3:[function(require,module,exports){
+},{"./Curves.jsx":3,"./HSL.jsx":5,"./SelectiveColors.jsx":9,"react":311,"react-slider":285}],3:[function(require,module,exports){
 "use strict";
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _jsxFileName = "/Users/nick/projects/exposure/editor/Curves.jsx";
 
@@ -644,12 +650,12 @@ function _classCallCheck(instance, Constructor) {
 function _possibleConstructorReturn(self, call) {
   if (!self) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
 }
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
   }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
@@ -908,8 +914,10 @@ Curves.propTypes = {
 
 module.exports = Curves;
 
-},{"lodash":122,"react":334}],4:[function(require,module,exports){
+},{"lodash":120,"react":311}],4:[function(require,module,exports){
 "use strict";
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _jsxFileName = "/Users/nick/projects/exposure/editor/ExposureApp.jsx";
 
@@ -932,12 +940,12 @@ function _classCallCheck(instance, Constructor) {
 function _possibleConstructorReturn(self, call) {
   if (!self) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
 }
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
   }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
@@ -1122,8 +1130,10 @@ ExposureApp.propTypes = {
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(ExposureApp);
 
-},{"../src/exposure_settings":364,"../src/frame":366,"./BeforeAfterButton.jsx":1,"./Controls.jsx":2,"./ImageList.jsx":6,"./ImageStage.jsx":7,"./JsonEditor.jsx":8,"lodash":122,"react":334,"react-redux":302,"uuid":352}],5:[function(require,module,exports){
+},{"../src/exposure_settings":341,"../src/frame":343,"./BeforeAfterButton.jsx":1,"./Controls.jsx":2,"./ImageList.jsx":6,"./ImageStage.jsx":7,"./JsonEditor.jsx":8,"lodash":120,"react":311,"react-redux":279,"uuid":329}],5:[function(require,module,exports){
 "use strict";
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _jsxFileName = "/Users/nick/projects/exposure/editor/HSL.jsx";
 
@@ -1146,12 +1156,12 @@ function _classCallCheck(instance, Constructor) {
 function _possibleConstructorReturn(self, call) {
   if (!self) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
 }
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
   }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
@@ -1329,8 +1339,10 @@ HSL.propTypes = {
 
 module.exports = HSL;
 
-},{"../src/exposure_settings":364,"react":334,"react-slider":308}],6:[function(require,module,exports){
+},{"../src/exposure_settings":341,"react":311,"react-slider":285}],6:[function(require,module,exports){
 "use strict";
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _jsxFileName = "/Users/nick/projects/exposure/editor/ImageList.jsx";
 
@@ -1353,12 +1365,12 @@ function _classCallCheck(instance, Constructor) {
 function _possibleConstructorReturn(self, call) {
   if (!self) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
 }
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
   }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
@@ -1463,8 +1475,10 @@ ImageList.propTypes = {
 
 module.exports = ImageList;
 
-},{"lodash":122,"react":334}],7:[function(require,module,exports){
+},{"lodash":120,"react":311}],7:[function(require,module,exports){
 "use strict";
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _jsxFileName = "/Users/nick/projects/exposure/editor/ImageStage.jsx";
 
@@ -1487,12 +1501,12 @@ function _classCallCheck(instance, Constructor) {
 function _possibleConstructorReturn(self, call) {
   if (!self) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
 }
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
   }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
@@ -1708,8 +1722,10 @@ ImageStage.propTypes = {
 
 module.exports = ImageStage;
 
-},{"react":334,"react-file-input":282,"react-modal":292}],8:[function(require,module,exports){
+},{"react":311,"react-file-input":259,"react-modal":269}],8:[function(require,module,exports){
 "use strict";
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _jsxFileName = "/Users/nick/projects/exposure/editor/JsonEditor.jsx";
 
@@ -1732,12 +1748,12 @@ function _classCallCheck(instance, Constructor) {
 function _possibleConstructorReturn(self, call) {
   if (!self) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
 }
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
   }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
@@ -1854,8 +1870,10 @@ JsonEditor.propTypes = {
 
 module.exports = JsonEditor;
 
-},{"react":334,"react-modal":292}],9:[function(require,module,exports){
+},{"react":311,"react-modal":269}],9:[function(require,module,exports){
 "use strict";
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _jsxFileName = "/Users/nick/projects/exposure/editor/SelectiveColors.jsx";
 
@@ -1878,12 +1896,12 @@ function _classCallCheck(instance, Constructor) {
 function _possibleConstructorReturn(self, call) {
   if (!self) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
 }
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
   }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
@@ -1994,7 +2012,7 @@ SelectiveColors.propTypes = {
 
 module.exports = SelectiveColors;
 
-},{"../src/exposure_settings":364,"react":334,"react-slider":308}],10:[function(require,module,exports){
+},{"../src/exposure_settings":341,"react":311,"react-slider":285}],10:[function(require,module,exports){
 'use strict';
 
 var _jsxFileName = '/Users/nick/projects/exposure/editor/main.js';
@@ -2083,7 +2101,7 @@ ReactDOM.render(React.createElement(Provider, { store: store, __source: {
 //   render(frame, onControlChange);
 // });
 
-},{"./ExposureApp.jsx":4,"./reducer":11,"react":334,"react-dom":155,"react-redux":302,"redux":340}],11:[function(require,module,exports){
+},{"./ExposureApp.jsx":4,"./reducer":11,"react":311,"react-dom":132,"react-redux":279,"redux":317}],11:[function(require,module,exports){
 "use strict";
 
 var _extends = Object.assign || function (target) {
@@ -2184,7 +2202,7 @@ var reducer = function reducer() {
 
 module.exports = reducer;
 
-},{"lodash":122}],12:[function(require,module,exports){
+},{"lodash":120}],12:[function(require,module,exports){
 'use strict'
 
 var weakMap      = typeof WeakMap === 'undefined' ? require('weak-map') : WeakMap
@@ -2215,7 +2233,7 @@ function createABigTriangle(gl) {
 
 module.exports = createABigTriangle
 
-},{"gl-buffer":52,"gl-vao":92,"weak-map":357}],13:[function(require,module,exports){
+},{"gl-buffer":52,"gl-vao":92,"weak-map":335}],13:[function(require,module,exports){
 var padLeft = require('pad-left')
 
 module.exports = addLineNumbers
@@ -2233,7 +2251,7 @@ function addLineNumbers (string, start, delim) {
   }).join('\n')
 }
 
-},{"pad-left":134}],14:[function(require,module,exports){
+},{"pad-left":124}],14:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -2727,7 +2745,7 @@ var objectKeys = Object.keys || function (obj) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"util/":351}],15:[function(require,module,exports){
+},{"util/":328}],15:[function(require,module,exports){
 module.exports = function _atob(str) {
   return atob(str)
 }
@@ -4770,7 +4788,7 @@ function numberIsNaN (obj) {
   return obj !== obj // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":16,"ieee754":107}],19:[function(require,module,exports){
+},{"base64-js":16,"ieee754":106}],19:[function(require,module,exports){
 var add = require('gl-vec2/add');
 var scale = require('gl-vec2/scale');
 var distance = require('gl-vec2/distance');
@@ -5740,7 +5758,7 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
 module.exports = factory;
 
 }).call(this,require('_process'))
-},{"_process":148,"fbjs/lib/emptyObject":37,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"object-assign":133}],21:[function(require,module,exports){
+},{"_process":125,"fbjs/lib/emptyObject":37,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"object-assign":123}],21:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -5770,7 +5788,7 @@ module.exports = factory(
   ReactNoopUpdateQueue
 );
 
-},{"./factory":20,"react":334}],22:[function(require,module,exports){
+},{"./factory":20,"react":311}],22:[function(require,module,exports){
 "use strict"
 
 var createThunk = require("./lib/thunk.js")
@@ -6241,7 +6259,7 @@ function generateCWiseOp(proc, typesig) {
 }
 module.exports = generateCWiseOp
 
-},{"uniq":348}],24:[function(require,module,exports){
+},{"uniq":325}],24:[function(require,module,exports){
 "use strict"
 
 // The function below is called when constructing a cwise function object, and does the following:
@@ -6900,11 +6918,9 @@ function isUndefined(arg) {
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
  */
@@ -6973,14 +6989,12 @@ var EventListener = {
 
 module.exports = EventListener;
 }).call(this,require('_process'))
-},{"./emptyFunction":36,"_process":148}],30:[function(require,module,exports){
+},{"./emptyFunction":36,"_process":125}],30:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -7014,11 +7028,9 @@ module.exports = ExecutionEnvironment;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
  */
@@ -7044,11 +7056,9 @@ module.exports = camelize;
 },{}],32:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
  */
@@ -7086,11 +7096,9 @@ module.exports = camelizeStyleName;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -7127,11 +7135,9 @@ module.exports = containsNode;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
  */
@@ -7250,17 +7256,15 @@ function createArrayFromMixed(obj) {
 
 module.exports = createArrayFromMixed;
 }).call(this,require('_process'))
-},{"./invariant":44,"_process":148}],35:[function(require,module,exports){
+},{"./invariant":44,"_process":125}],35:[function(require,module,exports){
 (function (process){
 'use strict';
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
  */
@@ -7336,16 +7340,14 @@ function createNodesFromMarkup(markup, handleScript) {
 
 module.exports = createNodesFromMarkup;
 }).call(this,require('_process'))
-},{"./ExecutionEnvironment":30,"./createArrayFromMixed":34,"./getMarkupWrap":40,"./invariant":44,"_process":148}],36:[function(require,module,exports){
+},{"./ExecutionEnvironment":30,"./createArrayFromMixed":34,"./getMarkupWrap":40,"./invariant":44,"_process":125}],36:[function(require,module,exports){
 "use strict";
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -7379,11 +7381,9 @@ module.exports = emptyFunction;
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -7397,14 +7397,12 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = emptyObject;
 }).call(this,require('_process'))
-},{"_process":148}],38:[function(require,module,exports){
+},{"_process":125}],38:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -7429,11 +7427,9 @@ module.exports = focusNode;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
  */
@@ -7469,11 +7465,9 @@ module.exports = getActiveElement;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -7560,14 +7554,12 @@ function getMarkupWrap(nodeName) {
 
 module.exports = getMarkupWrap;
 }).call(this,require('_process'))
-},{"./ExecutionEnvironment":30,"./invariant":44,"_process":148}],41:[function(require,module,exports){
+},{"./ExecutionEnvironment":30,"./invariant":44,"_process":125}],41:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
  */
@@ -7604,11 +7596,9 @@ module.exports = getUnboundedScrollPosition;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
  */
@@ -7635,11 +7625,9 @@ module.exports = hyphenate;
 },{}],43:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
  */
@@ -7675,11 +7663,9 @@ module.exports = hyphenateStyleName;
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -7729,16 +7715,14 @@ function invariant(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 }).call(this,require('_process'))
-},{"_process":148}],45:[function(require,module,exports){
+},{"_process":125}],45:[function(require,module,exports){
 'use strict';
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
  */
@@ -7759,11 +7743,9 @@ module.exports = isNode;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
  */
@@ -7782,11 +7764,9 @@ module.exports = isTextNode;
 },{"./isNode":45}],47:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  * @typechecks static-only
@@ -7812,11 +7792,9 @@ module.exports = memoizeStringOnly;
 },{}],48:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
  */
@@ -7837,11 +7815,9 @@ module.exports = performance || {};
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
  */
@@ -7869,11 +7845,9 @@ module.exports = performanceNow;
 },{"./performance":48}],50:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
  * 
@@ -7937,12 +7911,10 @@ module.exports = shallowEqual;
 },{}],51:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2014-2015, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2014-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -8001,7 +7973,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 }).call(this,require('_process'))
-},{"./emptyFunction":36,"_process":148}],52:[function(require,module,exports){
+},{"./emptyFunction":36,"_process":125}],52:[function(require,module,exports){
 "use strict"
 
 var pool = require("typedarray-pool")
@@ -8155,7 +8127,7 @@ function createBuffer(gl, data, type, usage) {
 
 module.exports = createBuffer
 
-},{"ndarray":132,"ndarray-ops":131,"typedarray-pool":347}],53:[function(require,module,exports){
+},{"ndarray":122,"ndarray-ops":121,"typedarray-pool":324}],53:[function(require,module,exports){
 module.exports = {
   0: 'NONE',
   1: 'ONE',
@@ -8984,7 +8956,7 @@ function formatCompilerError(errLog, src, type) {
 }
 
 
-},{"add-line-numbers":13,"gl-constants/lookup":54,"glsl-shader-name":96,"sprintf-js":343}],57:[function(require,module,exports){
+},{"add-line-numbers":13,"gl-constants/lookup":54,"glsl-shader-name":96,"sprintf-js":320}],57:[function(require,module,exports){
 module.exports = adjoint;
 
 /**
@@ -10982,7 +10954,7 @@ function createProgram(gl, vref, fref, attribs, locations) {
   return getCache(gl).getProgram(vref, fref, attribs, locations)
 }
 
-},{"./GLError":82,"gl-format-compiler-error":56,"weakmap-shim":360}],88:[function(require,module,exports){
+},{"./GLError":82,"gl-format-compiler-error":56,"weakmap-shim":338}],88:[function(require,module,exports){
 'use strict'
 
 var ndarray = require('ndarray')
@@ -11545,7 +11517,7 @@ function createTexture2D(gl) {
   throw new Error('gl-texture2d: Invalid arguments for texture2d constructor')
 }
 
-},{"ndarray":132,"ndarray-ops":131,"typedarray-pool":347}],89:[function(require,module,exports){
+},{"ndarray":122,"ndarray-ops":121,"typedarray-pool":324}],89:[function(require,module,exports){
 "use strict"
 
 function doBind(gl, elements, attributes) {
@@ -12678,127 +12650,6 @@ module.exports = function(strings) {
 }
 
 },{}],105:[function(require,module,exports){
-// Calculate Gaussian blur of an image using IIR filter
-// The method is taken from Intel's white paper and code example attached to it:
-// https://software.intel.com/en-us/articles/iir-gaussian-blur-filter
-// -implementation-using-intel-advanced-vector-extensions
-
-var a0, a1, a2, a3, b1, b2, left_corner, right_corner;
-
-function gaussCoef(sigma) {
-  if (sigma < 0.5) {
-    sigma = 0.5;
-  }
-
-  var a = Math.exp(0.726 * 0.726) / sigma,
-      g1 = Math.exp(-a),
-      g2 = Math.exp(-2 * a),
-      k = (1 - g1) * (1 - g1) / (1 + 2 * a * g1 - g2);
-
-  a0 = k;
-  a1 = k * (a - 1) * g1;
-  a2 = k * (a + 1) * g1;
-  a3 = -k * g2;
-  b1 = 2 * g1;
-  b2 = -g2;
-  left_corner = (a0 + a1) / (1 - b1 - b2);
-  right_corner = (a2 + a3) / (1 - b1 - b2);
-
-  // Attempt to force type to FP32.
-  return new Float32Array([ a0, a1, a2, a3, b1, b2, left_corner, right_corner ]);
-}
-
-function convolveMono16(src, out, line, coeff, width, height) {
-  // takes src image and writes the blurred and transposed result into out
-
-  var prev_src, curr_src, curr_out, prev_out, prev_prev_out;
-  var src_index, out_index, line_index;
-  var i, j;
-  var coeff_a0, coeff_a1, coeff_b1, coeff_b2;
-
-  for (i = 0; i < height; i++) {
-    src_index = i * width;
-    out_index = i;
-    line_index = 0;
-
-    // left to right
-    prev_src = src[src_index];
-    prev_prev_out = prev_src * coeff[6];
-    prev_out = prev_prev_out;
-
-    coeff_a0 = coeff[0];
-    coeff_a1 = coeff[1];
-    coeff_b1 = coeff[4];
-    coeff_b2 = coeff[5];
-
-    for (j = 0; j < width; j++) {
-      curr_src = src[src_index];
-
-      curr_out = curr_src * coeff_a0 +
-                 prev_src * coeff_a1 +
-                 prev_out * coeff_b1 +
-                 prev_prev_out * coeff_b2;
-
-      prev_prev_out = prev_out;
-      prev_out = curr_out;
-      prev_src = curr_src;
-
-      line[line_index] = prev_out;
-      line_index++;
-      src_index++;
-    }
-
-    src_index--;
-    line_index--;
-    out_index += height * (width - 1);
-
-    // right to left
-    prev_src = src[src_index];
-    prev_prev_out = prev_src * coeff[7];
-    prev_out = prev_prev_out;
-    curr_src = prev_src;
-
-    coeff_a0 = coeff[2];
-    coeff_a1 = coeff[3];
-
-    for (j = width - 1; j >= 0; j--) {
-      curr_out = curr_src * coeff_a0 +
-                 prev_src * coeff_a1 +
-                 prev_out * coeff_b1 +
-                 prev_prev_out * coeff_b2;
-
-      prev_prev_out = prev_out;
-      prev_out = curr_out;
-
-      prev_src = curr_src;
-      curr_src = src[src_index];
-
-      out[out_index] = line[line_index] + prev_out;
-
-      src_index--;
-      line_index--;
-      out_index -= height;
-    }
-  }
-}
-
-
-function blurMono16(src, width, height, radius) {
-  // Quick exit on zero radius
-  if (!radius) { return; }
-
-  var out      = new Uint16Array(src.length),
-      tmp_line = new Float32Array(Math.max(width, height));
-
-  var coeff = gaussCoef(radius);
-
-  convolveMono16(src, out, tmp_line, coeff, width, height, radius);
-  convolveMono16(out, src, tmp_line, coeff, height, width, radius);
-}
-
-module.exports = blurMono16;
-
-},{}],106:[function(require,module,exports){
 /**
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
@@ -12865,7 +12716,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
     return targetComponent;
 };
 
-},{}],107:[function(require,module,exports){
+},{}],106:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -12951,32 +12802,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],108:[function(require,module,exports){
-if (typeof Object.create === 'function') {
-  // implementation from standard node.js 'util' module
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    ctor.prototype = Object.create(superCtor.prototype, {
-      constructor: {
-        value: ctor,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-  };
-} else {
-  // old school shim for old browsers
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    var TempCtor = function () {}
-    TempCtor.prototype = superCtor.prototype
-    ctor.prototype = new TempCtor()
-    ctor.prototype.constructor = ctor
-  }
-}
-
-},{}],109:[function(require,module,exports){
+},{}],107:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -13031,7 +12857,7 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 module.exports = invariant;
 
 }).call(this,require('_process'))
-},{"_process":148}],110:[function(require,module,exports){
+},{"_process":125}],108:[function(require,module,exports){
 "use strict"
 
 function iota(n) {
@@ -13043,11 +12869,11 @@ function iota(n) {
 }
 
 module.exports = iota
-},{}],111:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
- * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @author   Feross Aboukhadijeh <https://feross.org>
  * @license  MIT
  */
 
@@ -13066,7 +12892,7 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],112:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 var root = require('./_root');
 
 /** Built-in value references. */
@@ -13074,7 +12900,7 @@ var Symbol = root.Symbol;
 
 module.exports = Symbol;
 
-},{"./_root":119}],113:[function(require,module,exports){
+},{"./_root":117}],111:[function(require,module,exports){
 var Symbol = require('./_Symbol'),
     getRawTag = require('./_getRawTag'),
     objectToString = require('./_objectToString');
@@ -13104,7 +12930,7 @@ function baseGetTag(value) {
 
 module.exports = baseGetTag;
 
-},{"./_Symbol":112,"./_getRawTag":116,"./_objectToString":117}],114:[function(require,module,exports){
+},{"./_Symbol":110,"./_getRawTag":114,"./_objectToString":115}],112:[function(require,module,exports){
 (function (global){
 /** Detect free variable `global` from Node.js. */
 var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
@@ -13112,7 +12938,7 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 module.exports = freeGlobal;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],115:[function(require,module,exports){
+},{}],113:[function(require,module,exports){
 var overArg = require('./_overArg');
 
 /** Built-in value references. */
@@ -13120,7 +12946,7 @@ var getPrototype = overArg(Object.getPrototypeOf, Object);
 
 module.exports = getPrototype;
 
-},{"./_overArg":118}],116:[function(require,module,exports){
+},{"./_overArg":116}],114:[function(require,module,exports){
 var Symbol = require('./_Symbol');
 
 /** Used for built-in method references. */
@@ -13168,7 +12994,7 @@ function getRawTag(value) {
 
 module.exports = getRawTag;
 
-},{"./_Symbol":112}],117:[function(require,module,exports){
+},{"./_Symbol":110}],115:[function(require,module,exports){
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
 
@@ -13192,7 +13018,7 @@ function objectToString(value) {
 
 module.exports = objectToString;
 
-},{}],118:[function(require,module,exports){
+},{}],116:[function(require,module,exports){
 /**
  * Creates a unary function that invokes `func` with its argument transformed.
  *
@@ -13209,7 +13035,7 @@ function overArg(func, transform) {
 
 module.exports = overArg;
 
-},{}],119:[function(require,module,exports){
+},{}],117:[function(require,module,exports){
 var freeGlobal = require('./_freeGlobal');
 
 /** Detect free variable `self`. */
@@ -13220,7 +13046,7 @@ var root = freeGlobal || freeSelf || Function('return this')();
 
 module.exports = root;
 
-},{"./_freeGlobal":114}],120:[function(require,module,exports){
+},{"./_freeGlobal":112}],118:[function(require,module,exports){
 /**
  * Checks if `value` is object-like. A value is object-like if it's not `null`
  * and has a `typeof` result of "object".
@@ -13251,7 +13077,7 @@ function isObjectLike(value) {
 
 module.exports = isObjectLike;
 
-},{}],121:[function(require,module,exports){
+},{}],119:[function(require,module,exports){
 var baseGetTag = require('./_baseGetTag'),
     getPrototype = require('./_getPrototype'),
     isObjectLike = require('./isObjectLike');
@@ -13315,7 +13141,7 @@ function isPlainObject(value) {
 
 module.exports = isPlainObject;
 
-},{"./_baseGetTag":113,"./_getPrototype":115,"./isObjectLike":120}],122:[function(require,module,exports){
+},{"./_baseGetTag":111,"./_getPrototype":113,"./isObjectLike":118}],120:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -30403,474 +30229,7 @@ module.exports = isPlainObject;
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],123:[function(require,module,exports){
-'use strict';
-
-
-var assign         = require('object-assign');
-var base64decode   = require('./lib/base64decode');
-var hasWebAssembly = require('./lib/wa_detect');
-
-
-var DEFAULT_OPTIONS = {
-  js: true,
-  wasm: true
-};
-
-
-function MultiMath(options) {
-  if (!(this instanceof MultiMath)) return new MultiMath(options);
-
-  var opts = assign({}, DEFAULT_OPTIONS, options || {});
-
-  this.options         = opts;
-
-  this.__cache         = {};
-  this.has_wasm        = hasWebAssembly();
-
-  this.__init_promise  = null;
-  this.__modules       = opts.modules || {};
-  this.__memory        = null;
-  this.__wasm          = {};
-
-  this.__isLE = ((new Uint32Array((new Uint8Array([ 1, 0, 0, 0 ])).buffer))[0] === 1);
-
-  if (!this.options.js && !this.options.wasm) {
-    throw new Error('mathlib: at least "js" or "wasm" should be enabled');
-  }
-}
-
-
-MultiMath.prototype.use = function (module) {
-  this.__modules[module.name] = module;
-
-  // Pin the best possible implementation
-  if (!this.has_wasm || !this.options.wasm || !module.wasm_fn) {
-    this[module.name] = module.fn;
-  } else {
-    this[module.name] = module.wasm_fn;
-  }
-
-  return this;
-};
-
-
-MultiMath.prototype.init = function () {
-  if (this.__init_promise) return this.__init_promise;
-
-  if (!this.options.js && this.options.wasm && !this.has_wasm) {
-    return Promise.reject(new Error('mathlib: only "wasm" was enabled, but it\'s not supported'));
-  }
-
-  var self = this;
-
-  this.__init_promise = Promise.all(Object.keys(self.__modules).map(function (name) {
-    var module = self.__modules[name];
-
-    if (!self.has_wasm || !self.options.wasm || !module.wasm_fn) return null;
-
-    // If already compiled - exit
-    if (self.__wasm[name]) return null;
-
-    // Compile wasm source
-    return WebAssembly.compile(self.__base64decode(module.wasm_src))
-      .then(function (m) { self.__wasm[name] = m; });
-  }))
-    .then(function () { return self; });
-
-  return this.__init_promise;
-};
-
-
-////////////////////////////////////////////////////////////////////////////////
-// Methods below are for internal use from plugins
-
-
-// Simple decode base64 to typed array. Useful to load embedded webassembly
-// code. You probably don't need to call this method directly.
-//
-MultiMath.prototype.__base64decode = base64decode;
-
-
-// Increase current memory to include specified number of bytes. Do nothing if
-// size is already ok. You probably don't need to call this method directly,
-// because it will be invoked from `.__instance()`.
-//
-MultiMath.prototype.__reallocate = function mem_grow_to(bytes) {
-  if (!this.__memory) {
-    this.__memory = new WebAssembly.Memory({
-      initial: Math.ceil(bytes / (64 * 1024))
-    });
-    return this.__memory;
-  }
-
-  var mem_size = this.__memory.buffer.byteLength;
-
-  if (mem_size < bytes) {
-    this.__memory.grow(Math.ceil((bytes - mem_size) / (64 * 1024)));
-  }
-
-  return this.__memory;
-};
-
-
-// Returns instantinated webassembly item by name, with specified memory size
-// and environment.
-// - use cache if available
-// - do sync module init, if async init was not called earlier
-// - allocate memory if not enougth
-// - can export functions to webassembly via "env_extra",
-//   for example, { exp: Math.exp }
-//
-MultiMath.prototype.__instance = function instance(name, memsize, env_extra) {
-  if (memsize) this.__reallocate(memsize);
-
-  // If .init() was not called, do sync compile
-  if (!this.__wasm[name]) {
-    var module = this.__modules[name];
-    this.__wasm[name] = new WebAssembly.Module(this.__base64decode(module.wasm_src));
-  }
-
-  if (!this.__cache[name]) {
-    var env_base = {
-      memoryBase: 0,
-      memory: this.__memory,
-      tableBase: 0,
-      table: new WebAssembly.Table({ initial: 0, element: 'anyfunc' })
-    };
-
-    this.__cache[name] = new WebAssembly.Instance(this.__wasm[name], {
-      env: assign(env_base, env_extra || {})
-    });
-  }
-
-  return this.__cache[name];
-};
-
-
-// Helper to calculate memory aligh for pointers. Webassembly does not require
-// this, but you may wish to experiment. Default base = 8;
-//
-MultiMath.prototype.__align = function align(number, base) {
-  base = base || 8;
-  var reminder = number % base;
-  return number + (reminder ? base - reminder : 0);
-};
-
-
-module.exports = MultiMath;
-
-},{"./lib/base64decode":124,"./lib/wa_detect":130,"object-assign":133}],124:[function(require,module,exports){
-// base64 decode str -> Uint8Array, to load WA modules
-//
-'use strict';
-
-
-var BASE64_MAP = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-
-
-module.exports = function base64decode(str) {
-  var input = str.replace(/[\r\n=]/g, ''), // remove CR/LF & padding to simplify scan
-      max   = input.length;
-
-  var out = new Uint8Array((max * 3) >> 2);
-
-  // Collect by 6*4 bits (3 bytes)
-
-  var bits = 0;
-  var ptr  = 0;
-
-  for (var idx = 0; idx < max; idx++) {
-    if ((idx % 4 === 0) && idx) {
-      out[ptr++] = (bits >> 16) & 0xFF;
-      out[ptr++] = (bits >> 8) & 0xFF;
-      out[ptr++] = bits & 0xFF;
-    }
-
-    bits = (bits << 6) | BASE64_MAP.indexOf(input.charAt(idx));
-  }
-
-  // Dump tail
-
-  var tailbits = (max % 4) * 6;
-
-  if (tailbits === 0) {
-    out[ptr++] = (bits >> 16) & 0xFF;
-    out[ptr++] = (bits >> 8) & 0xFF;
-    out[ptr++] = bits & 0xFF;
-  } else if (tailbits === 18) {
-    out[ptr++] = (bits >> 10) & 0xFF;
-    out[ptr++] = (bits >> 2) & 0xFF;
-  } else if (tailbits === 12) {
-    out[ptr++] = (bits >> 4) & 0xFF;
-  }
-
-  return out;
-};
-
-},{}],125:[function(require,module,exports){
-// Calculates 16-bit precision HSL lightness from 8-bit rgba buffer
-//
-'use strict';
-
-
-module.exports = function hsl_l16_js(img, width, height) {
-  var size = width * height;
-  var out = new Uint16Array(size);
-  var r, g, b, min, max;
-  for (var i = 0; i < size; i++) {
-    r = img[4 * i];
-    g = img[4 * i + 1];
-    b = img[4 * i + 2];
-    max = (r >= g && r >= b) ? r : (g >= b && g >= r) ? g : b;
-    min = (r <= g && r <= b) ? r : (g <= b && g <= r) ? g : b;
-    out[i] = (max + min) * 257 >> 1;
-  }
-  return out;
-};
-
-},{}],126:[function(require,module,exports){
-'use strict';
-
-module.exports = {
-  name:     'unsharp_mask',
-  fn:       require('./unsharp_mask'),
-  wasm_fn:  require('./unsharp_mask_wasm'),
-  wasm_src: require('./unsharp_mask_wasm_base64')
-};
-
-},{"./unsharp_mask":127,"./unsharp_mask_wasm":128,"./unsharp_mask_wasm_base64":129}],127:[function(require,module,exports){
-// Unsharp mask filter
-//
-// http://stackoverflow.com/a/23322820/1031804
-// USM(O) = O + (2 * (Amount / 100) * (O - GB))
-// GB - gaussian blur.
-//
-// Image is converted from RGB to HSL, unsharp mask is applied to the
-// lightness channel and then image is converted back to RGB.
-//
-'use strict';
-
-
-var glur_mono16 = require('glur/mono16');
-var hsl_l16     = require('./hsl_l16');
-
-
-module.exports = function unsharp(img, width, height, amount, radius, threshold) {
-  var r, g, b;
-  var h, s, l;
-  var min, max;
-  var m1, m2, hShifted;
-  var diff, iTimes4;
-
-  if (amount === 0 || radius < 0.5) {
-    return;
-  }
-  if (radius > 2.0) {
-    radius = 2.0;
-  }
-
-  var lightness = hsl_l16(img, width, height);
-
-  var blured = new Uint16Array(lightness); // copy, because blur modify src
-
-  glur_mono16(blured, width, height, radius);
-
-  var amountFp = (amount / 100 * 0x1000 + 0.5)|0;
-  var thresholdFp = (threshold * 257)|0;
-
-  var size = width * height;
-
-  /* eslint-disable indent */
-  for (var i = 0; i < size; i++) {
-    diff = 2 * (lightness[i] - blured[i]);
-
-    if (Math.abs(diff) >= thresholdFp) {
-      iTimes4 = i * 4;
-      r = img[iTimes4];
-      g = img[iTimes4 + 1];
-      b = img[iTimes4 + 2];
-
-      // convert RGB to HSL
-      // take RGB, 8-bit unsigned integer per each channel
-      // save HSL, H and L are 16-bit unsigned integers, S is 12-bit unsigned integer
-      // math is taken from here: http://www.easyrgb.com/index.php?X=MATH&H=18
-      // and adopted to be integer (fixed point in fact) for sake of performance
-      max = (r >= g && r >= b) ? r : (g >= r && g >= b) ? g : b; // min and max are in [0..0xff]
-      min = (r <= g && r <= b) ? r : (g <= r && g <= b) ? g : b;
-      l = (max + min) * 257 >> 1; // l is in [0..0xffff] that is caused by multiplication by 257
-
-      if (min === max) {
-        h = s = 0;
-      } else {
-        s = (l <= 0x7fff) ?
-          (((max - min) * 0xfff) / (max + min))|0 :
-          (((max - min) * 0xfff) / (2 * 0xff - max - min))|0; // s is in [0..0xfff]
-        // h could be less 0, it will be fixed in backward conversion to RGB, |h| <= 0xffff / 6
-        h = (r === max) ? (((g - b) * 0xffff) / (6 * (max - min)))|0
-          : (g === max) ? 0x5555 + ((((b - r) * 0xffff) / (6 * (max - min)))|0) // 0x5555 == 0xffff / 3
-          : 0xaaaa + ((((r - g) * 0xffff) / (6 * (max - min)))|0); // 0xaaaa == 0xffff * 2 / 3
-      }
-
-      // add unsharp mask mask to the lightness channel
-      l += (amountFp * diff + 0x800) >> 12;
-      if (l > 0xffff) {
-        l = 0xffff;
-      } else if (l < 0) {
-        l = 0;
-      }
-
-      // convert HSL back to RGB
-      // for information about math look above
-      if (s === 0) {
-        r = g = b = l >> 8;
-      } else {
-        m2 = (l <= 0x7fff) ? (l * (0x1000 + s) + 0x800) >> 12 :
-          l  + (((0xffff - l) * s + 0x800) >>  12);
-        m1 = 2 * l - m2 >> 8;
-        m2 >>= 8;
-        // save result to RGB channels
-        // R channel
-        hShifted = (h + 0x5555) & 0xffff; // 0x5555 == 0xffff / 3
-        r = (hShifted >= 0xaaaa) ? m1 // 0xaaaa == 0xffff * 2 / 3
-          : (hShifted >= 0x7fff) ?  m1 + ((m2 - m1) * 6 * (0xaaaa - hShifted) + 0x8000 >> 16)
-          : (hShifted >= 0x2aaa) ? m2 // 0x2aaa == 0xffff / 6
-          : m1 + ((m2 - m1) * 6 * hShifted + 0x8000 >> 16);
-        // G channel
-        hShifted = h & 0xffff;
-        g = (hShifted >= 0xaaaa) ? m1 // 0xaaaa == 0xffff * 2 / 3
-          : (hShifted >= 0x7fff) ?  m1 + ((m2 - m1) * 6 * (0xaaaa - hShifted) + 0x8000 >> 16)
-          : (hShifted >= 0x2aaa) ? m2 // 0x2aaa == 0xffff / 6
-          : m1 + ((m2 - m1) * 6 * hShifted + 0x8000 >> 16);
-        // B channel
-        hShifted = (h - 0x5555) & 0xffff;
-        b = (hShifted >= 0xaaaa) ? m1 // 0xaaaa == 0xffff * 2 / 3
-          : (hShifted >= 0x7fff) ?  m1 + ((m2 - m1) * 6 * (0xaaaa - hShifted) + 0x8000 >> 16)
-          : (hShifted >= 0x2aaa) ? m2 // 0x2aaa == 0xffff / 6
-          : m1 + ((m2 - m1) * 6 * hShifted + 0x8000 >> 16);
-      }
-
-      img[iTimes4] = r;
-      img[iTimes4 + 1] = g;
-      img[iTimes4 + 2] = b;
-    }
-  }
-};
-
-},{"./hsl_l16":125,"glur/mono16":105}],128:[function(require,module,exports){
-'use strict';
-
-
-module.exports = function unsharp(img, width, height, amount, radius, threshold) {
-  if (amount === 0 || radius < 0.5) {
-    return;
-  }
-
-  if (radius > 2.0) {
-    radius = 2.0;
-  }
-
-  var pixels = width * height;
-
-  var img_bytes_cnt        = pixels * 4;
-  var hsl_bytes_cnt        = pixels * 2;
-  var blur_bytes_cnt       = pixels * 2;
-  var blur_line_byte_cnt   = Math.max(width, height) * 4; // float32 array
-  var blur_coeffs_byte_cnt = 8 * 4; // float32 array
-
-  var img_offset         = 0;
-  var hsl_offset         = img_bytes_cnt;
-  var blur_offset        = hsl_offset + hsl_bytes_cnt;
-  var blur_tmp_offset    = blur_offset + blur_bytes_cnt;
-  var blur_line_offset   = blur_tmp_offset + blur_bytes_cnt;
-  var blur_coeffs_offset = blur_line_offset + blur_line_byte_cnt;
-
-  var instance = this.__instance(
-    'unsharp_mask',
-    img_bytes_cnt + hsl_bytes_cnt + blur_bytes_cnt * 2 + blur_line_byte_cnt + blur_coeffs_byte_cnt,
-    { exp: Math.exp }
-  );
-
-  // 32-bit copy is much faster in chrome
-  var img32 = new Uint32Array(img.buffer);
-  var mem32 = new Uint32Array(this.__memory.buffer);
-  mem32.set(img32);
-
-  // HSL
-  var fn = instance.exports.hsl_l16 || instance.exports._hsl_l16;
-  fn(img_offset, hsl_offset, width, height);
-
-  // BLUR
-  fn = instance.exports.blurMono16 || instance.exports._blurMono16;
-  fn(hsl_offset, blur_offset, blur_tmp_offset,
-    blur_line_offset, blur_coeffs_offset, width, height, radius);
-
-  // UNSHARP
-  fn = instance.exports.unsharp || instance.exports._unsharp;
-  fn(img_offset, img_offset, hsl_offset,
-    blur_offset, width, height, amount, threshold);
-
-  // 32-bit copy is much faster in chrome
-  img32.set(new Uint32Array(this.__memory.buffer, 0, pixels));
-};
-
-},{}],129:[function(require,module,exports){
-// This is autogenerated file from math.wasm, don't edit.
-//
-'use strict';
-
-/* eslint-disable max-len */
-module.exports = 'AGFzbQEAAAABMQZgAXwBfGACfX8AYAZ/f39/f38AYAh/f39/f39/fQBgBH9/f38AYAh/f39/f39/fwACGQIDZW52A2V4cAAAA2VudgZtZW1vcnkCAAEDBgUBAgMEBQQEAXAAAAdMBRZfX2J1aWxkX2dhdXNzaWFuX2NvZWZzAAEOX19nYXVzczE2X2xpbmUAAgpibHVyTW9ubzE2AAMHaHNsX2wxNgAEB3Vuc2hhcnAABQkBAAqJEAXZAQEGfAJAIAFE24a6Q4Ia+z8gALujIgOaEAAiBCAEoCIGtjgCECABIANEAAAAAAAAAMCiEAAiBbaMOAIUIAFEAAAAAAAA8D8gBKEiAiACoiAEIAMgA6CiRAAAAAAAAPA/oCAFoaMiArY4AgAgASAEIANEAAAAAAAA8L+gIAKioiIHtjgCBCABIAQgA0QAAAAAAADwP6AgAqKiIgO2OAIIIAEgBSACoiIEtow4AgwgASACIAegIAVEAAAAAAAA8D8gBqGgIgKjtjgCGCABIAMgBKEgAqO2OAIcCwu3AwMDfwR9CHwCQCADKgIUIQkgAyoCECEKIAMqAgwhCyADKgIIIQwCQCAEQX9qIgdBAEgiCA0AIAIgAC8BALgiDSADKgIYu6IiDiAJuyIQoiAOIAq7IhGiIA0gAyoCBLsiEqIgAyoCALsiEyANoqCgoCIPtjgCACACQQRqIQIgAEECaiEAIAdFDQAgBCEGA0AgAiAOIBCiIA8iDiARoiANIBKiIBMgAC8BALgiDaKgoKAiD7Y4AgAgAkEEaiECIABBAmohACAGQX9qIgZBAUoNAAsLAkAgCA0AIAEgByAFbEEBdGogAEF+ai8BACIIuCINIAu7IhGiIA0gDLsiEqKgIA0gAyoCHLuiIg4gCrsiE6KgIA4gCbsiFKKgIg8gAkF8aioCALugqzsBACAHRQ0AIAJBeGohAiAAQXxqIQBBACAFQQF0ayEHIAEgBSAEQQF0QXxqbGohBgNAIAghAyAALwEAIQggBiANIBGiIAO4Ig0gEqKgIA8iECAToqAgDiAUoqAiDyACKgIAu6CrOwEAIAYgB2ohBiAAQX5qIQAgAkF8aiECIBAhDiAEQX9qIgRBAUoNAAsLCwvfAgIDfwZ8AkAgB0MAAAAAWw0AIARE24a6Q4Ia+z8gB0MAAAA/l7ujIgyaEAAiDSANoCIPtjgCECAEIAxEAAAAAAAAAMCiEAAiDraMOAIUIAREAAAAAAAA8D8gDaEiCyALoiANIAwgDKCiRAAAAAAAAPA/oCAOoaMiC7Y4AgAgBCANIAxEAAAAAAAA8L+gIAuioiIQtjgCBCAEIA0gDEQAAAAAAADwP6AgC6KiIgy2OAIIIAQgDiALoiINtow4AgwgBCALIBCgIA5EAAAAAAAA8D8gD6GgIgujtjgCGCAEIAwgDaEgC6O2OAIcIAYEQCAFQQF0IQogBiEJIAIhCANAIAAgCCADIAQgBSAGEAIgACAKaiEAIAhBAmohCCAJQX9qIgkNAAsLIAVFDQAgBkEBdCEIIAUhAANAIAIgASADIAQgBiAFEAIgAiAIaiECIAFBAmohASAAQX9qIgANAAsLC7wBAQV/IAMgAmwiAwRAQQAgA2shBgNAIAAoAgAiBEEIdiIHQf8BcSECAn8gBEH/AXEiAyAEQRB2IgRB/wFxIgVPBEAgAyIIIAMgAk8NARoLIAQgBCAHIAIgA0kbIAIgBUkbQf8BcQshCAJAIAMgAk0EQCADIAVNDQELIAQgByAEIAMgAk8bIAIgBUsbQf8BcSEDCyAAQQRqIQAgASADIAhqQYECbEEBdjsBACABQQJqIQEgBkEBaiIGDQALCwvTBgEKfwJAIAazQwAAgEWUQwAAyEKVu0QAAAAAAADgP6CqIQ0gBSAEbCILBEAgB0GBAmwhDgNAQQAgAi8BACADLwEAayIGQQF0IgdrIAcgBkEASBsgDk8EQCAAQQJqLQAAIQUCfyAALQAAIgYgAEEBai0AACIESSIJRQRAIAYiCCAGIAVPDQEaCyAFIAUgBCAEIAVJGyAGIARLGwshCAJ/IAYgBE0EQCAGIgogBiAFTQ0BGgsgBSAFIAQgBCAFSxsgCRsLIgogCGoiD0GBAmwiEEEBdiERQQAhDAJ/QQAiCSAIIApGDQAaIAggCmsiCUH/H2wgD0H+AyAIayAKayAQQYCABEkbbSEMIAYgCEYEQCAEIAVrQf//A2wgCUEGbG0MAQsgBSAGayAGIARrIAQgCEYiBhtB//8DbCAJQQZsbUHVqgFBqtUCIAYbagshCSARIAcgDWxBgBBqQQx1aiIGQQAgBkEAShsiBkH//wMgBkH//wNIGyEGAkACfwJAIAxB//8DcSIFBEAgBkH//wFKDQEgBUGAIGogBmxBgBBqQQx2DAILIAZBCHYiBiEFIAYhBAwCCyAFIAZB//8Dc2xBgBBqQQx2IAZqCyIFQQh2IQcgBkEBdCAFa0EIdiIGIQQCQCAJQdWqAWpB//8DcSIFQanVAksNACAFQf//AU8EQEGq1QIgBWsgByAGa2xBBmxBgIACakEQdiAGaiEEDAELIAchBCAFQanVAEsNACAFIAcgBmtsQQZsQYCAAmpBEHYgBmohBAsCfyAGIgUgCUH//wNxIghBqdUCSw0AGkGq1QIgCGsgByAGa2xBBmxBgIACakEQdiAGaiAIQf//AU8NABogByIFIAhBqdUASw0AGiAIIAcgBmtsQQZsQYCAAmpBEHYgBmoLIQUgCUGr1QJqQf//A3EiCEGp1QJLDQAgCEH//wFPBEBBqtUCIAhrIAcgBmtsQQZsQYCAAmpBEHYgBmohBgwBCyAIQanVAEsEQCAHIQYMAQsgCCAHIAZrbEEGbEGAgAJqQRB2IAZqIQYLIAEgBDoAACABQQFqIAU6AAAgAUECaiAGOgAACyADQQJqIQMgAkECaiECIABBBGohACABQQRqIQEgC0F/aiILDQALCwsL';
-
-},{}],130:[function(require,module,exports){
-// Detect WebAssembly support.
-// - Check global WebAssembly object
-// - Try to load simple module (can be disabled via CSP)
-//
-'use strict';
-
-
-var base64decode = require('./base64decode');
-
-// See support/wa_detect/detect.c
-// Dummy module with `function detect() { return 1; }`
-var detector_src = 'AGFzbQEAAAABBQFgAAF/Ag8BA2VudgZtZW1vcnkCAAEDAgEABAQBcAAABwoBBmRldGVjdAAACQEACgYBBABBAQs=';
-
-
-var wa;
-
-
-module.exports = function hasWebAssembly() {
-  // use cache if called before;
-  if (typeof wa !== 'undefined') return wa;
-
-  wa = false;
-
-  if (typeof WebAssembly === 'undefined') return wa;
-
-  // If WebAssenbly is disabled, code can throw on compile
-  try {
-    var module = new WebAssembly.Module(base64decode(detector_src));
-
-    var env = {
-      memoryBase: 0,
-      memory:     new WebAssembly.Memory({ initial: 1 }),
-      tableBase:  0,
-      table:      new WebAssembly.Table({ initial: 0, element: 'anyfunc' })
-    };
-
-    var instance = new WebAssembly.Instance(module, { env: env });
-    var detect = instance.exports.detect;
-
-    if (detect() === 1) wa = true;
-
-    return wa;
-  } catch (__) {}
-
-  return wa;
-};
-
-},{"./base64decode":124}],131:[function(require,module,exports){
+},{}],121:[function(require,module,exports){
 "use strict"
 
 var compile = require("cwise-compiler")
@@ -31333,7 +30692,7 @@ exports.equals = compile({
 
 
 
-},{"cwise-compiler":22}],132:[function(require,module,exports){
+},{"cwise-compiler":22}],122:[function(require,module,exports){
 var iota = require("iota-array")
 var isBuffer = require("is-buffer")
 
@@ -31678,7 +31037,7 @@ function wrappedNDArrayCtor(data, shape, stride, offset) {
 
 module.exports = wrappedNDArrayCtor
 
-},{"iota-array":110,"is-buffer":111}],133:[function(require,module,exports){
+},{"iota-array":108,"is-buffer":109}],123:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -31770,7 +31129,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],134:[function(require,module,exports){
+},{}],124:[function(require,module,exports){
 /*!
  * pad-left <https://github.com/jonschlinkert/pad-left>
  *
@@ -31786,1336 +31145,7 @@ module.exports = function padLeft(str, num, ch) {
   ch = typeof ch !== 'undefined' ? (ch + '') : ' ';
   return repeat(ch, num) + str;
 };
-},{"repeat-string":342}],135:[function(require,module,exports){
-'use strict';
-
-var assign = require('object-assign');
-var webworkify = require('webworkify');
-
-var MathLib = require('./lib/mathlib');
-var Pool = require('./lib/pool');
-var utils = require('./lib/utils');
-var worker = require('./lib/worker');
-var createRegions = require('./lib/tiler');
-
-// Deduplicate pools & limiters with the same configs
-// when user creates multiple pica instances.
-var singletones = {};
-
-var NEED_SAFARI_FIX = false;
-try {
-  if (typeof navigator !== 'undefined' && navigator.userAgent) {
-    NEED_SAFARI_FIX = navigator.userAgent.indexOf('Safari') >= 0;
-  }
-} catch (e) {}
-
-var concurrency = 1;
-if (typeof navigator !== 'undefined') {
-  concurrency = Math.min(navigator.hardwareConcurrency || 1, 4);
-}
-
-var DEFAULT_PICA_OPTS = {
-  tile: 1024,
-  concurrency: concurrency,
-  features: ['js', 'wasm', 'ww'],
-  idle: 2000
-};
-
-var DEFAULT_RESIZE_OPTS = {
-  quality: 3,
-  alpha: false,
-  unsharpAmount: 0,
-  unsharpRadius: 0.0,
-  unsharpThreshold: 0
-};
-
-var CAN_NEW_IMAGE_DATA = void 0;
-var CAN_CREATE_IMAGE_BITMAP = void 0;
-
-function workerFabric() {
-  return {
-    value: webworkify(worker),
-    destroy: function destroy() {
-      this.value.terminate();
-
-      if (typeof window !== 'undefined') {
-        var url = window.URL || window.webkitURL || window.mozURL || window.msURL;
-        if (url && url.revokeObjectURL && this.value.objectURL) {
-          url.revokeObjectURL(this.value.objectURL);
-        }
-      }
-    }
-  };
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// API methods
-
-function Pica(options) {
-  if (!(this instanceof Pica)) return new Pica(options);
-
-  this.options = assign(DEFAULT_PICA_OPTS, options || {});
-
-  var limiter_key = 'lk_' + this.options.concurrency;
-
-  // Share limiters to avoid multiple parallel workers when user creates
-  // multiple pica instances.
-  this.__limit = singletones[limiter_key] || utils.limiter(this.options.concurrency);
-
-  if (!singletones[limiter_key]) singletones[limiter_key] = this.__limit;
-
-  // List of supported features, according to options & browser/node.js
-  this.features = {
-    js: false, // pure JS implementation, can be disabled for testing
-    wasm: false, // webassembly implementation for heavy functions
-    cib: false, // resize via createImageBitmap (only FF at this moment)
-    ww: false // webworkers
-  };
-
-  this.__workersPool = null;
-
-  // Store requested features for webworkers
-  this.__requested_features = [];
-
-  this.__mathlib = null;
-}
-
-Pica.prototype.init = function () {
-  var _this = this;
-
-  if (this.__initPromise) return this.__initPromise;
-
-  // Test if we can create ImageData without canvas and memory copy
-  if (CAN_NEW_IMAGE_DATA !== false && CAN_NEW_IMAGE_DATA !== true) {
-    CAN_NEW_IMAGE_DATA = false;
-    if (typeof ImageData !== 'undefined' && typeof Uint8ClampedArray !== 'undefined') {
-      try {
-        /* eslint-disable no-new */
-        new ImageData(new Uint8ClampedArray(400), 10, 10);
-        CAN_NEW_IMAGE_DATA = true;
-      } catch (__) {}
-    }
-  }
-
-  // ImageBitmap can be effective in 2 places:
-  //
-  // 1. Threaded jpeg unpack (basic)
-  // 2. Built-in resize (blocked due problem in chrome, see issue #89)
-  //
-  // For basic use we also need ImageBitmap wo support .close() method,
-  // see https://developer.mozilla.org/ru/docs/Web/API/ImageBitmap
-
-  if (CAN_CREATE_IMAGE_BITMAP !== false && CAN_CREATE_IMAGE_BITMAP !== true) {
-    CAN_CREATE_IMAGE_BITMAP = false;
-    if (typeof ImageBitmap !== 'undefined') {
-      if (ImageBitmap.prototype && ImageBitmap.prototype.close) {
-        CAN_CREATE_IMAGE_BITMAP = true;
-      } else {
-        this.debug('ImageBitmap does not support .close(), disabled');
-      }
-    }
-  }
-
-  var features = this.options.features.slice();
-
-  if (features.indexOf('all') >= 0) {
-    features = ['cib', 'wasm', 'js', 'ww'];
-  }
-
-  this.__requested_features = features;
-
-  this.__mathlib = new MathLib(features);
-
-  // Check WebWorker support if requested
-  if (features.indexOf('ww') >= 0) {
-    if (typeof window !== 'undefined' && 'Worker' in window) {
-      // IE <= 11 don't allow to create webworkers from string. We should check it.
-      // https://connect.microsoft.com/IE/feedback/details/801810/web-workers-from-blob-urls-in-ie-10-and-11
-      try {
-        var wkr = require('webworkify')(function () {});
-        wkr.terminate();
-        this.features.ww = true;
-
-        // pool uniqueness depends on pool config + webworker config
-        var wpool_key = 'wp_' + JSON.stringify(this.options);
-
-        if (singletones[wpool_key]) {
-          this.__workersPool = singletones[wpool_key];
-        } else {
-          this.__workersPool = new Pool(workerFabric, this.options.idle);
-          singletones[wpool_key] = this.__workersPool;
-        }
-      } catch (__) {}
-    }
-  }
-
-  var initMath = this.__mathlib.init().then(function (mathlib) {
-    // Copy detected features
-    assign(_this.features, mathlib.features);
-  });
-
-  var checkCibResize = void 0;
-
-  if (!CAN_CREATE_IMAGE_BITMAP) {
-    checkCibResize = Promise.resolve(false);
-  } else {
-    checkCibResize = utils.cib_support().then(function (status) {
-      if (_this.features.cib && features.indexOf('cib') < 0) {
-        _this.debug('createImageBitmap() resize supported, but disabled by config');
-        return;
-      }
-
-      if (features.indexOf('cib') >= 0) _this.features.cib = status;
-    });
-  }
-
-  // Init math lib. That's async because can load some
-  this.__initPromise = Promise.all([initMath, checkCibResize]).then(function () {
-    return _this;
-  });
-
-  return this.__initPromise;
-};
-
-Pica.prototype.resize = function (from, to, options) {
-  var _this2 = this;
-
-  this.debug('Start resize...');
-
-  var opts = DEFAULT_RESIZE_OPTS;
-
-  if (!isNaN(options)) {
-    opts = assign(opts, { quality: options });
-  } else if (options) {
-    opts = assign(opts, options);
-  }
-
-  opts.toWidth = to.width;
-  opts.toHeigth = to.height;
-  opts.width = from.naturalWidth || from.width;
-  opts.height = from.naturalHeight || from.height;
-
-  var canceled = false;
-  var cancelToken = null;
-
-  if (opts.cancelToken) {
-    // Wrap cancelToken to avoid successive resolve & set flag
-    cancelToken = opts.cancelToken.then(function (data) {
-      canceled = true;throw data;
-    }, function (err) {
-      canceled = true;throw err;
-    });
-  }
-
-  var toCtx = to.getContext('2d', { alpha: Boolean(opts.alpha) });
-
-  return this.init().then(function () {
-    if (canceled) return cancelToken;
-
-    // if createImageBitmap supports resize, just do it and return
-    if (_this2.features.cib) {
-      _this2.debug('Resize via createImageBitmap()');
-
-      return createImageBitmap(from, {
-        resizeWidth: opts.toWidth,
-        resizeHeight: opts.toHeigth,
-        resizeQuality: utils.cib_quality_name(opts.quality)
-      }).then(function (imageBitmap) {
-        if (canceled) return cancelToken;
-
-        // if no unsharp - draw directly to output canvas
-        if (!opts.unsharpAmount) {
-          toCtx.drawImage(imageBitmap, 0, 0);
-          imageBitmap.close();
-          toCtx = null;
-
-          _this2.debug('Finished!');
-
-          return to;
-        }
-
-        _this2.debug('Unsharp result');
-
-        var tmpCanvas = document.createElement('canvas');
-
-        tmpCanvas.width = opts.toWidth;
-        tmpCanvas.height = opts.toHeigth;
-
-        var tmpCtx = tmpCanvas.getContext('2d', { alpha: Boolean(opts.alpha) });
-
-        tmpCtx.drawImage(imageBitmap, 0, 0);
-        imageBitmap.close();
-
-        var iData = tmpCtx.getImageData(0, 0, opts.toWidth, opts.toHeigth);
-
-        _this2.__mathlib.unsharp(iData.data, opts.toWidth, opts.toHeigth, opts.unsharpAmount, opts.unsharpRadius, opts.unsharpThreshold);
-
-        toCtx.putImageData(iData, 0, 0);
-        iData = tmpCtx = tmpCanvas = toCtx = null;
-
-        _this2.debug('Finished!');
-
-        return to;
-      });
-    }
-
-    //
-    // No easy way, let's resize manually via arrays
-    //
-
-    var srcCtx = void 0;
-    var srcImageBitmap = void 0;
-
-    // Share cache between calls:
-    //
-    // - wasm instance
-    // - wasm memory object
-    //
-    var cache = {};
-
-    // Call resizer in webworker or locally, depending on config
-    var invokeResize = function invokeResize(opts) {
-      return Promise.resolve().then(function () {
-        if (!_this2.features.ww) return _this2.__mathlib.resizeAndUnsharp(opts, cache);
-
-        return new Promise(function (resolve, reject) {
-          var w = _this2.__workersPool.acquire();
-
-          if (cancelToken) cancelToken.catch(function (err) {
-            return reject(err);
-          });
-
-          w.value.onmessage = function (ev) {
-            w.release();
-
-            if (ev.data.err) reject(ev.data.err);else resolve(ev.data.result);
-          };
-
-          w.value.postMessage({
-            opts: opts,
-            features: _this2.__requested_features,
-            preload: {
-              wasm_nodule: _this2.__mathlib.__
-            }
-          }, [opts.src.buffer]);
-        });
-      });
-    };
-
-    var processTile = function processTile(tile) {
-      return _this2.__limit(function () {
-        if (canceled) return cancelToken;
-
-        var srcImageData = void 0;
-
-        // Extract tile RGBA buffer, depending on input type
-        if (utils.isCanvas(from)) {
-          _this2.debug('Get tile pixel data');
-
-          // If input is Canvas - extract region data directly
-          srcImageData = srcCtx.getImageData(tile.x, tile.y, tile.width, tile.height);
-        } else {
-          // If input is Image or decoded to ImageBitmap,
-          // draw region to temporary canvas and extract data from it
-          //
-          // Note! Attempt to reuse this canvas causes significant slowdown in chrome
-          //
-          _this2.debug('Draw tile imageBitmap/image to temporary canvas');
-
-          var tmpCanvas = document.createElement('canvas');
-          tmpCanvas.width = tile.width;
-          tmpCanvas.height = tile.height;
-
-          var tmpCtx = tmpCanvas.getContext('2d', { alpha: Boolean(opts.alpha) });
-          tmpCtx.globalCompositeOperation = 'copy';
-          tmpCtx.drawImage(srcImageBitmap || from, tile.x, tile.y, tile.width, tile.height, 0, 0, tile.width, tile.height);
-
-          _this2.debug('Get tile pixel data');
-
-          srcImageData = tmpCtx.getImageData(0, 0, tile.width, tile.height);
-          tmpCtx = tmpCanvas = null;
-        }
-
-        var o = {
-          src: srcImageData.data,
-          width: tile.width,
-          height: tile.height,
-          toWidth: tile.toWidth,
-          toHeight: tile.toHeight,
-          scaleX: tile.scaleX,
-          scaleY: tile.scaleY,
-          offsetX: tile.offsetX,
-          offsetY: tile.offsetY,
-          quality: opts.quality,
-          alpha: opts.alpha,
-          unsharpAmount: opts.unsharpAmount,
-          unsharpRadius: opts.unsharpRadius,
-          unsharpThreshold: opts.unsharpThreshold
-        };
-
-        _this2.debug('Invoke resize math');
-
-        return Promise.resolve().then(function () {
-          return invokeResize(o);
-        }).then(function (result) {
-          if (canceled) return cancelToken;
-
-          srcImageData = null;
-
-          var toImageData = void 0;
-
-          _this2.debug('Convert raw rgba tile result to ImageData');
-
-          if (CAN_NEW_IMAGE_DATA) {
-            // this branch is for modern browsers
-            // If `new ImageData()` & Uint8ClampedArray suported
-            toImageData = new ImageData(new Uint8ClampedArray(result), tile.toWidth, tile.toHeight);
-          } else {
-            // fallback for `node-canvas` and old browsers
-            // (IE11 has ImageData but does not support `new ImageData()`)
-            toImageData = toCtx.createImageData(tile.toWidth, tile.toHeight);
-
-            if (toImageData.data.set) {
-              toImageData.data.set(result);
-            } else {
-              // IE9 don't have `.set()`
-              for (var i = toImageData.data.length - 1; i >= 0; i--) {
-                toImageData.data[i] = result[i];
-              }
-            }
-          }
-
-          _this2.debug('Draw tile');
-
-          if (NEED_SAFARI_FIX) {
-            // Safari draws thin white stripes between tiles without this fix
-            toCtx.putImageData(toImageData, tile.toX, tile.toY, tile.toInnerX - tile.toX, tile.toInnerY - tile.toY, tile.toInnerWidth + 1e-5, tile.toInnerHeight + 1e-5);
-          } else {
-            toCtx.putImageData(toImageData, tile.toX, tile.toY, tile.toInnerX - tile.toX, tile.toInnerY - tile.toY, tile.toInnerWidth, tile.toInnerHeight);
-          }
-
-          return null;
-        });
-      });
-    };
-
-    // Need normalize data source first. It can be canvas or image.
-    // If image - try to decode in background if possible
-    return Promise.resolve().then(function () {
-      if (utils.isCanvas(from)) {
-        srcCtx = from.getContext('2d', { alpha: Boolean(opts.alpha) });
-        return null;
-      }
-
-      if (utils.isImage(from)) {
-        // try do decode image in background for faster next operations
-        if (!CAN_CREATE_IMAGE_BITMAP) return null;
-
-        _this2.debug('Decode image via createImageBitmap');
-
-        return createImageBitmap(from).then(function (imageBitmap) {
-          srcImageBitmap = imageBitmap;
-        });
-      }
-
-      throw new Error('".from" should be image or canvas');
-    }).then(function () {
-      if (canceled) return cancelToken;
-
-      _this2.debug('Calculate tiles');
-
-      //
-      // Here we are with "normalized" source,
-      // follow to tiling
-      //
-
-      var DEST_TILE_BORDER = 3; // Max possible filter window size
-
-      var regions = createRegions({
-        width: opts.width,
-        height: opts.height,
-        srcTileSize: _this2.options.tile,
-        toWidth: opts.toWidth,
-        toHeight: opts.toHeigth,
-        destTileBorder: Math.ceil(Math.max(DEST_TILE_BORDER, 2.5 * opts.unsharpRadius | 0))
-      });
-
-      var jobs = regions.map(function (tile) {
-        return processTile(tile);
-      });
-
-      function cleanup() {
-        if (srcImageBitmap) {
-          srcImageBitmap.close();
-          srcImageBitmap = null;
-        }
-      }
-
-      _this2.debug('Process tiles');
-
-      return Promise.all(jobs).then(function () {
-        _this2.debug('Finished!');
-        cleanup();return to;
-      }, function (err) {
-        cleanup();throw err;
-      });
-    });
-  });
-};
-
-// RGBA buffer resize
-//
-Pica.prototype.resizeBuffer = function (options) {
-  var _this3 = this;
-
-  var opts = assign(DEFAULT_RESIZE_OPTS, options);
-
-  return this.init().then(function () {
-    return _this3.__mathlib.resizeAndUnsharp(opts);
-  });
-};
-
-Pica.prototype.toBlob = function (canvas, mimeType, quality) {
-  mimeType = mimeType || 'image/png';
-
-  return new Promise(function (resolve) {
-    if (canvas.toBlob) {
-      canvas.toBlob(function (blob) {
-        return resolve(blob);
-      }, mimeType, quality);
-      return;
-    }
-
-    // Fallback for old browsers
-    var asString = atob(canvas.toDataURL(mimeType, quality).split(',')[1]);
-    var len = asString.length;
-    var asBuffer = new Uint8Array(len);
-
-    for (var i = 0; i < len; i++) {
-      asBuffer[i] = asString.charCodeAt(i);
-    }
-
-    resolve(new Blob([asBuffer], { type: mimeType }));
-  });
-};
-
-Pica.prototype.debug = function () {};
-
-module.exports = Pica;
-
-},{"./lib/mathlib":136,"./lib/pool":144,"./lib/tiler":145,"./lib/utils":146,"./lib/worker":147,"object-assign":133,"webworkify":361}],136:[function(require,module,exports){
-// Collection of math functions
-//
-// 1. Combine components together
-// 2. Has async init to load wasm modules
-//
-'use strict';
-
-var inherits = require('inherits');
-var Multimath = require('multimath');
-
-var mm_unsharp_mask = require('multimath/lib/unsharp_mask');
-var mm_resize = require('./mm_resize');
-
-function MathLib(requested_features) {
-  var __requested_features = requested_features || [];
-
-  var features = {
-    js: __requested_features.indexOf('js') >= 0,
-    wasm: __requested_features.indexOf('wasm') >= 0
-  };
-
-  Multimath.call(this, features);
-
-  this.features = {
-    js: features.js,
-    wasm: features.wasm && this.has_wasm
-  };
-
-  this.use(mm_unsharp_mask);
-  this.use(mm_resize);
-}
-
-inherits(MathLib, Multimath);
-
-MathLib.prototype.resizeAndUnsharp = function resizeAndUnsharp(options, cache) {
-  var result = this.resize(options, cache);
-
-  if (options.unsharpAmount) {
-    this.unsharp_mask(result, options.toWidth, options.toHeight, options.unsharpAmount, options.unsharpRadius, options.unsharpThreshold);
-  }
-
-  return result;
-};
-
-module.exports = MathLib;
-
-},{"./mm_resize":139,"inherits":108,"multimath":123,"multimath/lib/unsharp_mask":126}],137:[function(require,module,exports){
-// Resize convolvers, pure JS implementation
-//
-'use strict';
-
-// Precision of fixed FP values
-//var FIXED_FRAC_BITS = 14;
-
-
-function clampTo8(i) {
-  return i < 0 ? 0 : i > 255 ? 255 : i;
-}
-
-// Convolve image in horizontal directions and transpose output. In theory,
-// transpose allow:
-//
-// - use the same convolver for both passes (this fails due different
-//   types of input array and temporary buffer)
-// - making vertical pass by horisonltal lines inprove CPU cache use.
-//
-// But in real life this doesn't work :)
-//
-function convolveHorizontally(src, dest, srcW, srcH, destW, filters) {
-
-  var r, g, b, a;
-  var filterPtr, filterShift, filterSize;
-  var srcPtr, srcY, destX, filterVal;
-  var srcOffset = 0,
-      destOffset = 0;
-
-  // For each row
-  for (srcY = 0; srcY < srcH; srcY++) {
-    filterPtr = 0;
-
-    // Apply precomputed filters to each destination row point
-    for (destX = 0; destX < destW; destX++) {
-      // Get the filter that determines the current output pixel.
-      filterShift = filters[filterPtr++];
-      filterSize = filters[filterPtr++];
-
-      srcPtr = srcOffset + filterShift * 4 | 0;
-
-      r = g = b = a = 0;
-
-      // Apply the filter to the row to get the destination pixel r, g, b, a
-      for (; filterSize > 0; filterSize--) {
-        filterVal = filters[filterPtr++];
-
-        // Use reverse order to workaround deopts in old v8 (node v.10)
-        // Big thanks to @mraleph (Vyacheslav Egorov) for the tip.
-        a = a + filterVal * src[srcPtr + 3] | 0;
-        b = b + filterVal * src[srcPtr + 2] | 0;
-        g = g + filterVal * src[srcPtr + 1] | 0;
-        r = r + filterVal * src[srcPtr] | 0;
-        srcPtr = srcPtr + 4 | 0;
-      }
-
-      // Bring this value back in range. All of the filter scaling factors
-      // are in fixed point with FIXED_FRAC_BITS bits of fractional part.
-      //
-      // (!) Add 1/2 of value before clamping to get proper rounding. In other
-      // case brightness loss will be noticeable if you resize image with white
-      // border and place it on white background.
-      //
-      dest[destOffset + 3] = clampTo8(a + (1 << 13) >> 14 /*FIXED_FRAC_BITS*/);
-      dest[destOffset + 2] = clampTo8(b + (1 << 13) >> 14 /*FIXED_FRAC_BITS*/);
-      dest[destOffset + 1] = clampTo8(g + (1 << 13) >> 14 /*FIXED_FRAC_BITS*/);
-      dest[destOffset] = clampTo8(r + (1 << 13) >> 14 /*FIXED_FRAC_BITS*/);
-      destOffset = destOffset + srcH * 4 | 0;
-    }
-
-    destOffset = (srcY + 1) * 4 | 0;
-    srcOffset = (srcY + 1) * srcW * 4 | 0;
-  }
-}
-
-// Technically, convolvers are the same. But input array and temporary
-// buffer can be of different type (especially, in old browsers). So,
-// keep code in separate functions to avoid deoptimizations & speed loss.
-
-function convolveVertically(src, dest, srcW, srcH, destW, filters) {
-
-  var r, g, b, a;
-  var filterPtr, filterShift, filterSize;
-  var srcPtr, srcY, destX, filterVal;
-  var srcOffset = 0,
-      destOffset = 0;
-
-  // For each row
-  for (srcY = 0; srcY < srcH; srcY++) {
-    filterPtr = 0;
-
-    // Apply precomputed filters to each destination row point
-    for (destX = 0; destX < destW; destX++) {
-      // Get the filter that determines the current output pixel.
-      filterShift = filters[filterPtr++];
-      filterSize = filters[filterPtr++];
-
-      srcPtr = srcOffset + filterShift * 4 | 0;
-
-      r = g = b = a = 0;
-
-      // Apply the filter to the row to get the destination pixel r, g, b, a
-      for (; filterSize > 0; filterSize--) {
-        filterVal = filters[filterPtr++];
-
-        // Use reverse order to workaround deopts in old v8 (node v.10)
-        // Big thanks to @mraleph (Vyacheslav Egorov) for the tip.
-        a = a + filterVal * src[srcPtr + 3] | 0;
-        b = b + filterVal * src[srcPtr + 2] | 0;
-        g = g + filterVal * src[srcPtr + 1] | 0;
-        r = r + filterVal * src[srcPtr] | 0;
-        srcPtr = srcPtr + 4 | 0;
-      }
-
-      // Bring this value back in range. All of the filter scaling factors
-      // are in fixed point with FIXED_FRAC_BITS bits of fractional part.
-      //
-      // (!) Add 1/2 of value before clamping to get proper rounding. In other
-      // case brightness loss will be noticeable if you resize image with white
-      // border and place it on white background.
-      //
-      dest[destOffset + 3] = clampTo8(a + (1 << 13) >> 14 /*FIXED_FRAC_BITS*/);
-      dest[destOffset + 2] = clampTo8(b + (1 << 13) >> 14 /*FIXED_FRAC_BITS*/);
-      dest[destOffset + 1] = clampTo8(g + (1 << 13) >> 14 /*FIXED_FRAC_BITS*/);
-      dest[destOffset] = clampTo8(r + (1 << 13) >> 14 /*FIXED_FRAC_BITS*/);
-      destOffset = destOffset + srcH * 4 | 0;
-    }
-
-    destOffset = (srcY + 1) * 4 | 0;
-    srcOffset = (srcY + 1) * srcW * 4 | 0;
-  }
-}
-
-module.exports = {
-  convolveHorizontally: convolveHorizontally,
-  convolveVertically: convolveVertically
-};
-
-},{}],138:[function(require,module,exports){
-// This is autogenerated file from math.wasm, don't edit.
-//
-'use strict';
-
-/* eslint-disable max-len */
-
-module.exports = 'AGFzbQEAAAABFAJgBn9/f39/fwBgB39/f39/f38AAg8BA2VudgZtZW1vcnkCAAEDAwIAAQQEAXAAAAcZAghjb252b2x2ZQAACmNvbnZvbHZlSFYAAQkBAArmAwLBAwEQfwJAIANFDQAgBEUNACAFQQRqIRVBACEMQQAhDQNAIA0hDkEAIRFBACEHA0AgB0ECaiESAn8gBSAHQQF0IgdqIgZBAmouAQAiEwRAQQAhCEEAIBNrIRQgFSAHaiEPIAAgDCAGLgEAakECdGohEEEAIQlBACEKQQAhCwNAIBAoAgAiB0EYdiAPLgEAIgZsIAtqIQsgB0H/AXEgBmwgCGohCCAHQRB2Qf8BcSAGbCAKaiEKIAdBCHZB/wFxIAZsIAlqIQkgD0ECaiEPIBBBBGohECAUQQFqIhQNAAsgEiATagwBC0EAIQtBACEKQQAhCUEAIQggEgshByABIA5BAnRqIApBgMAAakEOdSIGQf8BIAZB/wFIG0EQdEGAgPwHcUEAIAZBAEobIAtBgMAAakEOdSIGQf8BIAZB/wFIG0EYdEEAIAZBAEobciAJQYDAAGpBDnUiBkH/ASAGQf8BSBtBCHRBgP4DcUEAIAZBAEobciAIQYDAAGpBDnUiBkH/ASAGQf8BSBtB/wFxQQAgBkEAShtyNgIAIA4gA2ohDiARQQFqIhEgBEcNAAsgDCACaiEMIA1BAWoiDSADRw0ACwsLIQACQEEAIAIgAyAEIAUgABAAIAJBACAEIAUgBiABEAALCw==';
-
-},{}],139:[function(require,module,exports){
-'use strict';
-
-module.exports = {
-  name: 'resize',
-  fn: require('./resize'),
-  wasm_fn: require('./resize_wasm'),
-  wasm_src: require('./convolve_wasm_base64')
-};
-
-},{"./convolve_wasm_base64":138,"./resize":140,"./resize_wasm":143}],140:[function(require,module,exports){
-'use strict';
-
-var createFilters = require('./resize_filter_gen');
-var convolveHorizontally = require('./convolve').convolveHorizontally;
-var convolveVertically = require('./convolve').convolveVertically;
-
-function resetAlpha(dst, width, height) {
-  var ptr = 3,
-      len = width * height * 4 | 0;
-  while (ptr < len) {
-    dst[ptr] = 0xFF;ptr = ptr + 4 | 0;
-  }
-}
-
-module.exports = function resize(options) {
-  var src = options.src;
-  var srcW = options.width;
-  var srcH = options.height;
-  var destW = options.toWidth;
-  var destH = options.toHeight;
-  var scaleX = options.scaleX || options.toWidth / options.width;
-  var scaleY = options.scaleY || options.toHeight / options.height;
-  var offsetX = options.offsetX || 0;
-  var offsetY = options.offsetY || 0;
-  var dest = options.dest || new Uint8Array(destW * destH * 4);
-  var quality = typeof options.quality === 'undefined' ? 3 : options.quality;
-  var alpha = options.alpha || false;
-
-  var filtersX = createFilters(quality, srcW, destW, scaleX, offsetX),
-      filtersY = createFilters(quality, srcH, destH, scaleY, offsetY);
-
-  var tmp = new Uint8Array(destW * srcH * 4);
-
-  // To use single function we need src & tmp of the same type.
-  // But src can be CanvasPixelArray, and tmp - Uint8Array. So, keep
-  // vertical and horizontal passes separately to avoid deoptimization.
-
-  convolveHorizontally(src, tmp, srcW, srcH, destW, filtersX);
-  convolveVertically(tmp, dest, srcH, destW, destH, filtersY);
-
-  // That's faster than doing checks in convolver.
-  // !!! Note, canvas data is not premultipled. We don't need other
-  // alpha corrections.
-
-  if (!alpha) resetAlpha(dest, destW, destH);
-
-  return dest;
-};
-
-},{"./convolve":137,"./resize_filter_gen":141}],141:[function(require,module,exports){
-// Calculate convolution filters for each destination point,
-// and pack data to Int16Array:
-//
-// [ shift, length, data..., shift2, length2, data..., ... ]
-//
-// - shift - offset in src image
-// - length - filter length (in src points)
-// - data - filter values sequence
-//
-'use strict';
-
-var FILTER_INFO = require('./resize_filter_info');
-
-// Precision of fixed FP values
-var FIXED_FRAC_BITS = 14;
-
-function toFixedPoint(num) {
-  return Math.round(num * ((1 << FIXED_FRAC_BITS) - 1));
-}
-
-module.exports = function resizeFilterGen(quality, srcSize, destSize, scale, offset) {
-
-  var filterFunction = FILTER_INFO[quality].filter;
-
-  var scaleInverted = 1.0 / scale;
-  var scaleClamped = Math.min(1.0, scale); // For upscale
-
-  // Filter window (averaging interval), scaled to src image
-  var srcWindow = FILTER_INFO[quality].win / scaleClamped;
-
-  var destPixel, srcPixel, srcFirst, srcLast, filterElementSize, floatFilter, fxpFilter, total, pxl, idx, floatVal, filterTotal, filterVal;
-  var leftNotEmpty, rightNotEmpty, filterShift, filterSize;
-
-  var maxFilterElementSize = Math.floor((srcWindow + 1) * 2);
-  var packedFilter = new Int16Array((maxFilterElementSize + 2) * destSize);
-  var packedFilterPtr = 0;
-
-  var slowCopy = !packedFilter.subarray || !packedFilter.set;
-
-  // For each destination pixel calculate source range and built filter values
-  for (destPixel = 0; destPixel < destSize; destPixel++) {
-
-    // Scaling should be done relative to central pixel point
-    srcPixel = (destPixel + 0.5) * scaleInverted + offset;
-
-    srcFirst = Math.max(0, Math.floor(srcPixel - srcWindow));
-    srcLast = Math.min(srcSize - 1, Math.ceil(srcPixel + srcWindow));
-
-    filterElementSize = srcLast - srcFirst + 1;
-    floatFilter = new Float32Array(filterElementSize);
-    fxpFilter = new Int16Array(filterElementSize);
-
-    total = 0.0;
-
-    // Fill filter values for calculated range
-    for (pxl = srcFirst, idx = 0; pxl <= srcLast; pxl++, idx++) {
-      floatVal = filterFunction((pxl + 0.5 - srcPixel) * scaleClamped);
-      total += floatVal;
-      floatFilter[idx] = floatVal;
-    }
-
-    // Normalize filter, convert to fixed point and accumulate conversion error
-    filterTotal = 0;
-
-    for (idx = 0; idx < floatFilter.length; idx++) {
-      filterVal = floatFilter[idx] / total;
-      filterTotal += filterVal;
-      fxpFilter[idx] = toFixedPoint(filterVal);
-    }
-
-    // Compensate normalization error, to minimize brightness drift
-    fxpFilter[destSize >> 1] += toFixedPoint(1.0 - filterTotal);
-
-    //
-    // Now pack filter to useable form
-    //
-    // 1. Trim heading and tailing zero values, and compensate shitf/length
-    // 2. Put all to single array in this format:
-    //
-    //    [ pos shift, data length, value1, value2, value3, ... ]
-    //
-
-    leftNotEmpty = 0;
-    while (leftNotEmpty < fxpFilter.length && fxpFilter[leftNotEmpty] === 0) {
-      leftNotEmpty++;
-    }
-
-    if (leftNotEmpty < fxpFilter.length) {
-      rightNotEmpty = fxpFilter.length - 1;
-      while (rightNotEmpty > 0 && fxpFilter[rightNotEmpty] === 0) {
-        rightNotEmpty--;
-      }
-
-      filterShift = srcFirst + leftNotEmpty;
-      filterSize = rightNotEmpty - leftNotEmpty + 1;
-
-      packedFilter[packedFilterPtr++] = filterShift; // shift
-      packedFilter[packedFilterPtr++] = filterSize; // size
-
-      if (!slowCopy) {
-        packedFilter.set(fxpFilter.subarray(leftNotEmpty, rightNotEmpty + 1), packedFilterPtr);
-        packedFilterPtr += filterSize;
-      } else {
-        // fallback for old IE < 11, without subarray/set methods
-        for (idx = leftNotEmpty; idx <= rightNotEmpty; idx++) {
-          packedFilter[packedFilterPtr++] = fxpFilter[idx];
-        }
-      }
-    } else {
-      // zero data, write header only
-      packedFilter[packedFilterPtr++] = 0; // shift
-      packedFilter[packedFilterPtr++] = 0; // size
-    }
-  }
-  return packedFilter;
-};
-
-},{"./resize_filter_info":142}],142:[function(require,module,exports){
-// Filter definitions to build tables for
-// resizing convolvers.
-//
-// Presets for quality 0..3. Filter functions + window size
-//
-'use strict';
-
-module.exports = [{ // Nearest neibor (Box)
-  win: 0.5,
-  filter: function filter(x) {
-    return x >= -0.5 && x < 0.5 ? 1.0 : 0.0;
-  }
-}, { // Hamming
-  win: 1.0,
-  filter: function filter(x) {
-    if (x <= -1.0 || x >= 1.0) {
-      return 0.0;
-    }
-    if (x > -1.19209290E-07 && x < 1.19209290E-07) {
-      return 1.0;
-    }
-    var xpi = x * Math.PI;
-    return Math.sin(xpi) / xpi * (0.54 + 0.46 * Math.cos(xpi / 1.0));
-  }
-}, { // Lanczos, win = 2
-  win: 2.0,
-  filter: function filter(x) {
-    if (x <= -2.0 || x >= 2.0) {
-      return 0.0;
-    }
-    if (x > -1.19209290E-07 && x < 1.19209290E-07) {
-      return 1.0;
-    }
-    var xpi = x * Math.PI;
-    return Math.sin(xpi) / xpi * Math.sin(xpi / 2.0) / (xpi / 2.0);
-  }
-}, { // Lanczos, win = 3
-  win: 3.0,
-  filter: function filter(x) {
-    if (x <= -3.0 || x >= 3.0) {
-      return 0.0;
-    }
-    if (x > -1.19209290E-07 && x < 1.19209290E-07) {
-      return 1.0;
-    }
-    var xpi = x * Math.PI;
-    return Math.sin(xpi) / xpi * Math.sin(xpi / 3.0) / (xpi / 3.0);
-  }
-}];
-
-},{}],143:[function(require,module,exports){
-'use strict';
-
-var createFilters = require('./resize_filter_gen');
-
-function resetAlpha(dst, width, height) {
-  var ptr = 3,
-      len = width * height * 4 | 0;
-  while (ptr < len) {
-    dst[ptr] = 0xFF;ptr = ptr + 4 | 0;
-  }
-}
-
-function asUint8Array(src) {
-  return new Uint8Array(src.buffer, 0, src.byteLength);
-}
-
-var IS_LE = true;
-// should not crash everything on module load in old browsers
-try {
-  IS_LE = new Uint32Array(new Uint8Array([1, 0, 0, 0]).buffer)[0] === 1;
-} catch (__) {}
-
-function copyInt16asLE(src, target, target_offset) {
-  if (IS_LE) {
-    target.set(asUint8Array(src), target_offset);
-    return;
-  }
-
-  for (var ptr = target_offset, i = 0; i < src.length; i++) {
-    var data = src[i];
-    target[ptr++] = data & 0xFF;
-    target[ptr++] = data >> 8 & 0xFF;
-  }
-}
-
-module.exports = function resize_wasm(options) {
-  var src = options.src;
-  var srcW = options.width;
-  var srcH = options.height;
-  var destW = options.toWidth;
-  var destH = options.toHeight;
-  var scaleX = options.scaleX || options.toWidth / options.width;
-  var scaleY = options.scaleY || options.toHeight / options.height;
-  var offsetX = options.offsetX || 0.0;
-  var offsetY = options.offsetY || 0.0;
-  var dest = options.dest || new Uint8Array(destW * destH * 4);
-  var quality = typeof options.quality === 'undefined' ? 3 : options.quality;
-  var alpha = options.alpha || false;
-
-  var filtersX = createFilters(quality, srcW, destW, scaleX, offsetX),
-      filtersY = createFilters(quality, srcH, destH, scaleY, offsetY);
-
-  // destination is 0 too.
-  var src_offset = 0;
-  // buffer between convolve passes
-  var tmp_offset = this.__align(src_offset + Math.max(src.byteLength, dest.byteLength), 8);
-  var filtersX_offset = this.__align(tmp_offset + srcH * destW * 4, 8);
-  var filtersY_offset = this.__align(filtersX_offset + filtersX.byteLength, 8);
-  var alloc_bytes = filtersY_offset + filtersY.byteLength;
-
-  var instance = this.__instance('resize', alloc_bytes);
-
-  //
-  // Fill memory block with data to process
-  //
-
-  var mem = new Uint8Array(this.__memory.buffer);
-  var mem32 = new Uint32Array(this.__memory.buffer);
-
-  // 32-bit copy is much faster in chrome
-  var src32 = new Uint32Array(src.buffer);
-  mem32.set(src32);
-
-  // We should guarantee LE bytes order. Filters are not big, so
-  // speed difference is not significant vs direct .set()
-  copyInt16asLE(filtersX, mem, filtersX_offset);
-  copyInt16asLE(filtersY, mem, filtersY_offset);
-
-  //
-  // Now call webassembly method
-  // emsdk does method names with '_'
-  var fn = instance.exports.convolveHV || instance.exports._convolveHV;
-
-  fn(filtersX_offset, filtersY_offset, tmp_offset, srcW, srcH, destW, destH);
-
-  //
-  // Copy data back to typed array
-  //
-
-  // 32-bit copy is much faster in chrome
-  var dest32 = new Uint32Array(dest.buffer);
-  dest32.set(new Uint32Array(this.__memory.buffer, 0, destH * destW));
-
-  // That's faster than doing checks in convolver.
-  // !!! Note, canvas data is not premultipled. We don't need other
-  // alpha corrections.
-
-  if (!alpha) resetAlpha(dest, destW, destH);
-
-  return dest;
-};
-
-},{"./resize_filter_gen":141}],144:[function(require,module,exports){
-'use strict';
-
-var GC_INTERVAL = 100;
-
-function Pool(create, idle) {
-  this.create = create;
-
-  this.available = [];
-  this.acquired = {};
-  this.lastId = 1;
-
-  this.timeoutId = 0;
-  this.idle = idle || 2000;
-}
-
-Pool.prototype.acquire = function () {
-  var _this = this;
-
-  var resource = void 0;
-
-  if (this.available.length !== 0) {
-    resource = this.available.pop();
-  } else {
-    resource = this.create();
-    resource.id = this.lastId++;
-    resource.release = function () {
-      return _this.release(resource);
-    };
-  }
-  this.acquired[resource.id] = resource;
-  return resource;
-};
-
-Pool.prototype.release = function (resource) {
-  var _this2 = this;
-
-  delete this.acquired[resource.id];
-
-  resource.lastUsed = Date.now();
-  this.available.push(resource);
-
-  if (this.timeoutId === 0) {
-    this.timeoutId = setTimeout(function () {
-      return _this2.gc();
-    }, GC_INTERVAL);
-  }
-};
-
-Pool.prototype.gc = function () {
-  var _this3 = this;
-
-  var now = Date.now();
-
-  this.available = this.available.filter(function (resource) {
-    if (now - resource.lastUsed > _this3.idle) {
-      resource.destroy();
-      return false;
-    }
-    return true;
-  });
-
-  if (this.available.length !== 0) {
-    this.timeoutId = setTimeout(function () {
-      return _this3.gc();
-    }, GC_INTERVAL);
-  } else {
-    this.timeoutId = 0;
-  }
-};
-
-module.exports = Pool;
-
-},{}],145:[function(require,module,exports){
-'use strict';
-
-/*
- * pixelFloor and pixelCeil are modified versions of Math.floor and Math.ceil
- * functions which take into account floating point arithmetic errors.
- * Those errors can cause undesired increments/decrements of sizes and offsets:
- * Math.ceil(36 / (36 / 500)) = 501
- * pixelCeil(36 / (36 / 500)) = 500
- */
-
-var PIXEL_EPSILON = 1e-5;
-
-function pixelFloor(x) {
-  var nearest = Math.round(x);
-
-  if (Math.abs(x - nearest) < PIXEL_EPSILON) {
-    return nearest;
-  }
-  return Math.floor(x);
-}
-
-function pixelCeil(x) {
-  var nearest = Math.round(x);
-
-  if (Math.abs(x - nearest) < PIXEL_EPSILON) {
-    return nearest;
-  }
-  return Math.ceil(x);
-}
-
-module.exports = function createRegions(options) {
-  var scaleX = options.toWidth / options.width;
-  var scaleY = options.toHeight / options.height;
-
-  var innerTileWidth = pixelFloor(options.srcTileSize * scaleX) - 2 * options.destTileBorder;
-  var innerTileHeight = pixelFloor(options.srcTileSize * scaleY) - 2 * options.destTileBorder;
-
-  var x, y;
-  var innerX, innerY, toTileWidth, toTileHeight;
-  var tiles = [];
-  var tile;
-
-  // we go top-to-down instead of left-to-right to make image displayed from top to
-  // doesn in the browser
-  for (innerY = 0; innerY < options.toHeight; innerY += innerTileHeight) {
-    for (innerX = 0; innerX < options.toWidth; innerX += innerTileWidth) {
-      x = innerX - options.destTileBorder;
-      if (x < 0) {
-        x = 0;
-      }
-      toTileWidth = innerX + innerTileWidth + options.destTileBorder - x;
-      if (x + toTileWidth >= options.toWidth) {
-        toTileWidth = options.toWidth - x;
-      }
-
-      y = innerY - options.destTileBorder;
-      if (y < 0) {
-        y = 0;
-      }
-      toTileHeight = innerY + innerTileHeight + options.destTileBorder - y;
-      if (y + toTileHeight >= options.toHeight) {
-        toTileHeight = options.toHeight - y;
-      }
-
-      tile = {
-        toX: x,
-        toY: y,
-        toWidth: toTileWidth,
-        toHeight: toTileHeight,
-
-        toInnerX: innerX,
-        toInnerY: innerY,
-        toInnerWidth: innerTileWidth,
-        toInnerHeight: innerTileHeight,
-
-        offsetX: x / scaleX - pixelFloor(x / scaleX),
-        offsetY: y / scaleY - pixelFloor(y / scaleY),
-        scaleX: scaleX,
-        scaleY: scaleY,
-
-        x: pixelFloor(x / scaleX),
-        y: pixelFloor(y / scaleY),
-        width: pixelCeil(toTileWidth / scaleX),
-        height: pixelCeil(toTileHeight / scaleY)
-      };
-
-      tiles.push(tile);
-    }
-  }
-
-  return tiles;
-};
-
-},{}],146:[function(require,module,exports){
-'use strict';
-
-function objClass(obj) {
-  return Object.prototype.toString.call(obj);
-}
-
-module.exports.isCanvas = function isCanvas(element) {
-  //return (element.nodeName && element.nodeName.toLowerCase() === 'canvas') ||
-  var cname = objClass(element);
-
-  return cname === '[object HTMLCanvasElement]' /* browser */ || cname === '[object Canvas]' /* node-canvas */;
-};
-
-module.exports.isImage = function isImage(element) {
-  //return element.nodeName && element.nodeName.toLowerCase() === 'img';
-  return objClass(element) === '[object HTMLImageElement]';
-};
-
-module.exports.limiter = function limiter(concurrency) {
-  var active = 0,
-      queue = [];
-
-  function roll() {
-    if (active < concurrency && queue.length) {
-      active++;
-      queue.shift()();
-    }
-  }
-
-  return function limit(fn) {
-    return new Promise(function (resolve, reject) {
-      queue.push(function () {
-        fn().then(function (result) {
-          resolve(result);
-          active--;
-          roll();
-        }, function (err) {
-          reject(err);
-          active--;
-          roll();
-        });
-      });
-
-      roll();
-    });
-  };
-};
-
-module.exports.cib_quality_name = function cib_quality_name(num) {
-  switch (num) {
-    case 0:
-      return 'pixelated';
-    case 1:
-      return 'low';
-    case 2:
-      return 'medium';
-  }
-  return 'high';
-};
-
-module.exports.cib_support = function cib_support() {
-  return Promise.resolve().then(function () {
-    if (typeof createImageBitmap === 'undefined' || typeof document === 'undefined') {
-      return false;
-    }
-
-    var c = document.createElement('canvas');
-    c.width = 100;
-    c.height = 100;
-
-    return createImageBitmap(c, 0, 0, 100, 100, {
-      resizeWidth: 10,
-      resizeHeight: 10,
-      resizeQuality: 'high'
-    }).then(function (bitmap) {
-      var status = bitmap.width === 10;
-
-      // Branch below is filtered on upper level. We do not call resize
-      // detection for basic ImageBitmap.
-      //
-      // https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap
-      // old Crome 51 has ImageBitmap without .close(). Then this code
-      // will throw and return 'false' as expected.
-      //
-      bitmap.close();
-      c = null;
-      return status;
-    });
-  }).catch(function () {
-    return false;
-  });
-};
-
-},{}],147:[function(require,module,exports){
-// Web Worker wrapper for image resize function
-
-'use strict';
-
-module.exports = function () {
-  var MathLib = require('./mathlib');
-
-  var mathLib = void 0;
-
-  /* eslint-disable no-undef */
-  onmessage = function onmessage(ev) {
-    var opts = ev.data.opts;
-
-    if (!mathLib) mathLib = new MathLib(ev.data.features);
-
-    // Use multimath's sync auto-init. Avoid Promise use in old browsers,
-    // because polyfills are not propagated to webworker.
-    var result = mathLib.resizeAndUnsharp(opts);
-
-    postMessage({ result: result }, [result.buffer]);
-  };
-};
-
-},{"./mathlib":136}],148:[function(require,module,exports){
+},{"repeat-string":319}],125:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -33301,15 +31331,13 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],149:[function(require,module,exports){
+},{}],126:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 'use strict';
@@ -33343,7 +31371,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
         try {
           // This is intentionally an invariant that gets caught. It's the same
           // behavior as without this statement except with a better message.
-          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'React.PropTypes.', componentName || 'React class', location, typeSpecName);
+          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'the `prop-types` package, but received `%s`.', componentName || 'React class', location, typeSpecName, typeof typeSpecs[typeSpecName]);
           error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
         } catch (ex) {
           error = ex;
@@ -33366,14 +31394,12 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 module.exports = checkPropTypes;
 
 }).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":154,"_process":148,"fbjs/lib/invariant":44,"fbjs/lib/warning":51}],150:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":131,"_process":125,"fbjs/lib/invariant":44,"fbjs/lib/warning":51}],127:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 'use strict';
@@ -33389,14 +31415,12 @@ module.exports = function(isValidElement) {
   return factory(isValidElement, throwOnDirectAccess);
 };
 
-},{"./factoryWithTypeCheckers":152}],151:[function(require,module,exports){
+},{"./factoryWithTypeCheckers":129}],128:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 'use strict';
@@ -33441,7 +31465,8 @@ module.exports = function() {
     objectOf: getShim,
     oneOf: getShim,
     oneOfType: getShim,
-    shape: getShim
+    shape: getShim,
+    exact: getShim
   };
 
   ReactPropTypes.checkPropTypes = emptyFunction;
@@ -33450,15 +31475,13 @@ module.exports = function() {
   return ReactPropTypes;
 };
 
-},{"./lib/ReactPropTypesSecret":154,"fbjs/lib/emptyFunction":36,"fbjs/lib/invariant":44}],152:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":131,"fbjs/lib/emptyFunction":36,"fbjs/lib/invariant":44}],129:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 'use strict';
@@ -33466,6 +31489,7 @@ module.exports = function() {
 var emptyFunction = require('fbjs/lib/emptyFunction');
 var invariant = require('fbjs/lib/invariant');
 var warning = require('fbjs/lib/warning');
+var assign = require('object-assign');
 
 var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
 var checkPropTypes = require('./checkPropTypes');
@@ -33564,7 +31588,8 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
     objectOf: createObjectOfTypeChecker,
     oneOf: createEnumTypeChecker,
     oneOfType: createUnionTypeChecker,
-    shape: createShapeTypeChecker
+    shape: createShapeTypeChecker,
+    exact: createStrictShapeTypeChecker,
   };
 
   /**
@@ -33779,7 +31804,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
       if (typeof checker !== 'function') {
         warning(
           false,
-          'Invalid argument supplid to oneOfType. Expected an array of check functions, but ' +
+          'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
           'received %s at index %s.',
           getPostfixForTypeWarning(checker),
           i
@@ -33830,6 +31855,36 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
       }
       return null;
     }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createStrictShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      // We need to check all keys in case some are required but missing from
+      // props.
+      var allKeys = assign({}, props[propName], shapeTypes);
+      for (var key in allKeys) {
+        var checker = shapeTypes[key];
+        if (!checker) {
+          return new PropTypeError(
+            'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
+            '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
+            '\nValid keys: ' +  JSON.stringify(Object.keys(shapeTypes), null, '  ')
+          );
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+
     return createChainableTypeChecker(validate);
   }
 
@@ -33966,15 +32021,13 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 };
 
 }).call(this,require('_process'))
-},{"./checkPropTypes":149,"./lib/ReactPropTypesSecret":154,"_process":148,"fbjs/lib/emptyFunction":36,"fbjs/lib/invariant":44,"fbjs/lib/warning":51}],153:[function(require,module,exports){
+},{"./checkPropTypes":126,"./lib/ReactPropTypesSecret":131,"_process":125,"fbjs/lib/emptyFunction":36,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"object-assign":123}],130:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 if (process.env.NODE_ENV !== 'production') {
@@ -34000,14 +32053,12 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./factoryWithThrowingShims":151,"./factoryWithTypeCheckers":152,"_process":148}],154:[function(require,module,exports){
+},{"./factoryWithThrowingShims":128,"./factoryWithTypeCheckers":129,"_process":125}],131:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 'use strict';
@@ -34016,19 +32067,17 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-},{}],155:[function(require,module,exports){
+},{}],132:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/ReactDOM');
 
-},{"./lib/ReactDOM":185}],156:[function(require,module,exports){
+},{"./lib/ReactDOM":162}],133:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -34095,14 +32144,12 @@ var ARIADOMPropertyConfig = {
 };
 
 module.exports = ARIADOMPropertyConfig;
-},{}],157:[function(require,module,exports){
+},{}],134:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -34119,14 +32166,12 @@ var AutoFocusUtils = {
 };
 
 module.exports = AutoFocusUtils;
-},{"./ReactDOMComponentTree":188,"fbjs/lib/focusNode":38}],158:[function(require,module,exports){
+},{"./ReactDOMComponentTree":165,"fbjs/lib/focusNode":38}],135:[function(require,module,exports){
 /**
- * Copyright 2013-present Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -34503,14 +32548,12 @@ var BeforeInputEventPlugin = {
 };
 
 module.exports = BeforeInputEventPlugin;
-},{"./EventPropagators":174,"./FallbackCompositionState":175,"./SyntheticCompositionEvent":239,"./SyntheticInputEvent":243,"fbjs/lib/ExecutionEnvironment":30}],159:[function(require,module,exports){
+},{"./EventPropagators":151,"./FallbackCompositionState":152,"./SyntheticCompositionEvent":216,"./SyntheticInputEvent":220,"fbjs/lib/ExecutionEnvironment":30}],136:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -34529,6 +32572,7 @@ var isUnitlessNumber = {
   boxFlexGroup: true,
   boxOrdinalGroup: true,
   columnCount: true,
+  columns: true,
   flex: true,
   flexGrow: true,
   flexPositive: true,
@@ -34657,15 +32701,13 @@ var CSSProperty = {
 };
 
 module.exports = CSSProperty;
-},{}],160:[function(require,module,exports){
+},{}],137:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -34874,15 +32916,13 @@ var CSSPropertyOperations = {
 
 module.exports = CSSPropertyOperations;
 }).call(this,require('_process'))
-},{"./CSSProperty":159,"./ReactInstrumentation":217,"./dangerousStyleValue":256,"_process":148,"fbjs/lib/ExecutionEnvironment":30,"fbjs/lib/camelizeStyleName":32,"fbjs/lib/hyphenateStyleName":43,"fbjs/lib/memoizeStringOnly":47,"fbjs/lib/warning":51}],161:[function(require,module,exports){
+},{"./CSSProperty":136,"./ReactInstrumentation":194,"./dangerousStyleValue":233,"_process":125,"fbjs/lib/ExecutionEnvironment":30,"fbjs/lib/camelizeStyleName":32,"fbjs/lib/hyphenateStyleName":43,"fbjs/lib/memoizeStringOnly":47,"fbjs/lib/warning":51}],138:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -34995,14 +33035,12 @@ var CallbackQueue = function () {
 
 module.exports = PooledClass.addPoolingTo(CallbackQueue);
 }).call(this,require('_process'))
-},{"./PooledClass":179,"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44}],162:[function(require,module,exports){
+},{"./PooledClass":156,"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44}],139:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -35127,7 +33165,7 @@ if (ExecutionEnvironment.canUseDOM) {
   // IE9 claims to support the input event but fails to trigger it when
   // deleting text, so we ignore its input events.
 
-  isInputEventSupported = isEventSupported('input') && (!('documentMode' in document) || document.documentMode > 9);
+  isInputEventSupported = isEventSupported('input') && (!document.documentMode || document.documentMode > 9);
 }
 
 /**
@@ -35307,15 +33345,13 @@ var ChangeEventPlugin = {
 };
 
 module.exports = ChangeEventPlugin;
-},{"./EventPluginHub":171,"./EventPropagators":174,"./ReactDOMComponentTree":188,"./ReactUpdates":232,"./SyntheticEvent":241,"./getEventTarget":264,"./inputValueTracking":270,"./isEventSupported":272,"./isTextInputElement":273,"fbjs/lib/ExecutionEnvironment":30}],163:[function(require,module,exports){
+},{"./EventPluginHub":148,"./EventPropagators":151,"./ReactDOMComponentTree":165,"./ReactUpdates":209,"./SyntheticEvent":218,"./getEventTarget":241,"./inputValueTracking":247,"./isEventSupported":249,"./isTextInputElement":250,"fbjs/lib/ExecutionEnvironment":30}],140:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -35535,14 +33571,12 @@ var DOMChildrenOperations = {
 
 module.exports = DOMChildrenOperations;
 }).call(this,require('_process'))
-},{"./DOMLazyTree":164,"./Danger":168,"./ReactDOMComponentTree":188,"./ReactInstrumentation":217,"./createMicrosoftUnsafeLocalFunction":255,"./setInnerHTML":277,"./setTextContent":278,"_process":148}],164:[function(require,module,exports){
+},{"./DOMLazyTree":141,"./Danger":145,"./ReactDOMComponentTree":165,"./ReactInstrumentation":194,"./createMicrosoftUnsafeLocalFunction":232,"./setInnerHTML":254,"./setTextContent":255,"_process":125}],141:[function(require,module,exports){
 /**
- * Copyright 2015-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -35653,14 +33687,12 @@ DOMLazyTree.queueHTML = queueHTML;
 DOMLazyTree.queueText = queueText;
 
 module.exports = DOMLazyTree;
-},{"./DOMNamespaces":165,"./createMicrosoftUnsafeLocalFunction":255,"./setInnerHTML":277,"./setTextContent":278}],165:[function(require,module,exports){
+},{"./DOMNamespaces":142,"./createMicrosoftUnsafeLocalFunction":232,"./setInnerHTML":254,"./setTextContent":255}],142:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -35673,15 +33705,13 @@ var DOMNamespaces = {
 };
 
 module.exports = DOMNamespaces;
-},{}],166:[function(require,module,exports){
+},{}],143:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -35884,15 +33914,13 @@ var DOMProperty = {
 
 module.exports = DOMProperty;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44}],167:[function(require,module,exports){
+},{"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44}],144:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -36121,15 +34149,13 @@ var DOMPropertyOperations = {
 
 module.exports = DOMPropertyOperations;
 }).call(this,require('_process'))
-},{"./DOMProperty":166,"./ReactDOMComponentTree":188,"./ReactInstrumentation":217,"./quoteAttributeValueForBrowser":274,"_process":148,"fbjs/lib/warning":51}],168:[function(require,module,exports){
+},{"./DOMProperty":143,"./ReactDOMComponentTree":165,"./ReactInstrumentation":194,"./quoteAttributeValueForBrowser":251,"_process":125,"fbjs/lib/warning":51}],145:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -36169,14 +34195,12 @@ var Danger = {
 
 module.exports = Danger;
 }).call(this,require('_process'))
-},{"./DOMLazyTree":164,"./reactProdInvariant":275,"_process":148,"fbjs/lib/ExecutionEnvironment":30,"fbjs/lib/createNodesFromMarkup":35,"fbjs/lib/emptyFunction":36,"fbjs/lib/invariant":44}],169:[function(require,module,exports){
+},{"./DOMLazyTree":141,"./reactProdInvariant":252,"_process":125,"fbjs/lib/ExecutionEnvironment":30,"fbjs/lib/createNodesFromMarkup":35,"fbjs/lib/emptyFunction":36,"fbjs/lib/invariant":44}],146:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -36195,14 +34219,12 @@ module.exports = Danger;
 var DefaultEventPluginOrder = ['ResponderEventPlugin', 'SimpleEventPlugin', 'TapEventPlugin', 'EnterLeaveEventPlugin', 'ChangeEventPlugin', 'SelectEventPlugin', 'BeforeInputEventPlugin'];
 
 module.exports = DefaultEventPluginOrder;
-},{}],170:[function(require,module,exports){
+},{}],147:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -36293,15 +34315,13 @@ var EnterLeaveEventPlugin = {
 };
 
 module.exports = EnterLeaveEventPlugin;
-},{"./EventPropagators":174,"./ReactDOMComponentTree":188,"./SyntheticMouseEvent":245}],171:[function(require,module,exports){
+},{"./EventPropagators":151,"./ReactDOMComponentTree":165,"./SyntheticMouseEvent":222}],148:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -36569,15 +34589,13 @@ var EventPluginHub = {
 
 module.exports = EventPluginHub;
 }).call(this,require('_process'))
-},{"./EventPluginRegistry":172,"./EventPluginUtils":173,"./ReactErrorUtils":208,"./accumulateInto":252,"./forEachAccumulated":260,"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44}],172:[function(require,module,exports){
+},{"./EventPluginRegistry":149,"./EventPluginUtils":150,"./ReactErrorUtils":185,"./accumulateInto":229,"./forEachAccumulated":237,"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44}],149:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -36824,15 +34842,13 @@ var EventPluginRegistry = {
 
 module.exports = EventPluginRegistry;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44}],173:[function(require,module,exports){
+},{"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44}],150:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -37052,15 +35068,13 @@ var EventPluginUtils = {
 
 module.exports = EventPluginUtils;
 }).call(this,require('_process'))
-},{"./ReactErrorUtils":208,"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44,"fbjs/lib/warning":51}],174:[function(require,module,exports){
+},{"./ReactErrorUtils":185,"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44,"fbjs/lib/warning":51}],151:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -37188,14 +35202,12 @@ var EventPropagators = {
 
 module.exports = EventPropagators;
 }).call(this,require('_process'))
-},{"./EventPluginHub":171,"./EventPluginUtils":173,"./accumulateInto":252,"./forEachAccumulated":260,"_process":148,"fbjs/lib/warning":51}],175:[function(require,module,exports){
+},{"./EventPluginHub":148,"./EventPluginUtils":150,"./accumulateInto":229,"./forEachAccumulated":237,"_process":125,"fbjs/lib/warning":51}],152:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -37283,14 +35295,12 @@ _assign(FallbackCompositionState.prototype, {
 PooledClass.addPoolingTo(FallbackCompositionState);
 
 module.exports = FallbackCompositionState;
-},{"./PooledClass":179,"./getTextContentAccessor":268,"object-assign":133}],176:[function(require,module,exports){
+},{"./PooledClass":156,"./getTextContentAccessor":245,"object-assign":123}],153:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -37339,6 +35349,7 @@ var HTMLDOMPropertyConfig = {
     contentEditable: 0,
     contextMenu: 0,
     controls: HAS_BOOLEAN_VALUE,
+    controlsList: 0,
     coords: 0,
     crossOrigin: 0,
     data: 0, // For `<object />` acts as `src`.
@@ -37519,14 +35530,12 @@ var HTMLDOMPropertyConfig = {
 };
 
 module.exports = HTMLDOMPropertyConfig;
-},{"./DOMProperty":166}],177:[function(require,module,exports){
+},{"./DOMProperty":143}],154:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -37578,15 +35587,13 @@ var KeyEscapeUtils = {
 };
 
 module.exports = KeyEscapeUtils;
-},{}],178:[function(require,module,exports){
+},{}],155:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -37718,15 +35725,13 @@ var LinkedValueUtils = {
 
 module.exports = LinkedValueUtils;
 }).call(this,require('_process'))
-},{"./ReactPropTypesSecret":225,"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"prop-types/factory":150,"react/lib/React":311}],179:[function(require,module,exports){
+},{"./ReactPropTypesSecret":202,"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"prop-types/factory":127,"react/lib/React":288}],156:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -37832,14 +35837,12 @@ var PooledClass = {
 
 module.exports = PooledClass;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44}],180:[function(require,module,exports){
+},{"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44}],157:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -38156,15 +36159,13 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
 });
 
 module.exports = ReactBrowserEventEmitter;
-},{"./EventPluginRegistry":172,"./ReactEventEmitterMixin":209,"./ViewportMetrics":251,"./getVendorPrefixedEventName":269,"./isEventSupported":272,"object-assign":133}],181:[function(require,module,exports){
+},{"./EventPluginRegistry":149,"./ReactEventEmitterMixin":186,"./ViewportMetrics":228,"./getVendorPrefixedEventName":246,"./isEventSupported":249,"object-assign":123}],158:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2014-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2014-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -38311,14 +36312,12 @@ var ReactChildReconciler = {
 
 module.exports = ReactChildReconciler;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":177,"./ReactReconciler":227,"./instantiateReactComponent":271,"./shouldUpdateReactComponent":279,"./traverseAllChildren":280,"_process":148,"fbjs/lib/warning":51,"react/lib/ReactComponentTreeHook":314}],182:[function(require,module,exports){
+},{"./KeyEscapeUtils":154,"./ReactReconciler":204,"./instantiateReactComponent":248,"./shouldUpdateReactComponent":256,"./traverseAllChildren":257,"_process":125,"fbjs/lib/warning":51,"react/lib/ReactComponentTreeHook":291}],159:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -38339,15 +36338,13 @@ var ReactComponentBrowserEnvironment = {
 };
 
 module.exports = ReactComponentBrowserEnvironment;
-},{"./DOMChildrenOperations":163,"./ReactDOMIDOperations":192}],183:[function(require,module,exports){
+},{"./DOMChildrenOperations":140,"./ReactDOMIDOperations":169}],160:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2014-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2014-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -38385,15 +36382,13 @@ var ReactComponentEnvironment = {
 
 module.exports = ReactComponentEnvironment;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44}],184:[function(require,module,exports){
+},{"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44}],161:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -38662,7 +36657,7 @@ var ReactCompositeComponent = {
   },
 
   _constructComponent: function (doConstruct, publicProps, publicContext, updateQueue) {
-    if (process.env.NODE_ENV !== 'production') {
+    if (process.env.NODE_ENV !== 'production' && !doConstruct) {
       ReactCurrentOwner.current = this;
       try {
         return this._constructComponentWithoutOwner(doConstruct, publicProps, publicContext, updateQueue);
@@ -39287,15 +37282,13 @@ var ReactCompositeComponent = {
 
 module.exports = ReactCompositeComponent;
 }).call(this,require('_process'))
-},{"./ReactComponentEnvironment":183,"./ReactErrorUtils":208,"./ReactInstanceMap":216,"./ReactInstrumentation":217,"./ReactNodeTypes":222,"./ReactReconciler":227,"./checkReactTypeSpec":254,"./reactProdInvariant":275,"./shouldUpdateReactComponent":279,"_process":148,"fbjs/lib/emptyObject":37,"fbjs/lib/invariant":44,"fbjs/lib/shallowEqual":50,"fbjs/lib/warning":51,"object-assign":133,"react/lib/React":311,"react/lib/ReactCurrentOwner":315}],185:[function(require,module,exports){
+},{"./ReactComponentEnvironment":160,"./ReactErrorUtils":185,"./ReactInstanceMap":193,"./ReactInstrumentation":194,"./ReactNodeTypes":199,"./ReactReconciler":204,"./checkReactTypeSpec":231,"./reactProdInvariant":252,"./shouldUpdateReactComponent":256,"_process":125,"fbjs/lib/emptyObject":37,"fbjs/lib/invariant":44,"fbjs/lib/shallowEqual":50,"fbjs/lib/warning":51,"object-assign":123,"react/lib/React":288,"react/lib/ReactCurrentOwner":292}],162:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -39400,15 +37393,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactDOM;
 }).call(this,require('_process'))
-},{"./ReactDOMComponentTree":188,"./ReactDOMInvalidARIAHook":194,"./ReactDOMNullInputValuePropHook":195,"./ReactDOMUnknownPropertyHook":202,"./ReactDefaultInjection":205,"./ReactInstrumentation":217,"./ReactMount":220,"./ReactReconciler":227,"./ReactUpdates":232,"./ReactVersion":233,"./findDOMNode":258,"./getHostComponentFromComposite":265,"./renderSubtreeIntoContainer":276,"_process":148,"fbjs/lib/ExecutionEnvironment":30,"fbjs/lib/warning":51}],186:[function(require,module,exports){
+},{"./ReactDOMComponentTree":165,"./ReactDOMInvalidARIAHook":171,"./ReactDOMNullInputValuePropHook":172,"./ReactDOMUnknownPropertyHook":179,"./ReactDefaultInjection":182,"./ReactInstrumentation":194,"./ReactMount":197,"./ReactReconciler":204,"./ReactUpdates":209,"./ReactVersion":210,"./findDOMNode":235,"./getHostComponentFromComposite":242,"./renderSubtreeIntoContainer":253,"_process":125,"fbjs/lib/ExecutionEnvironment":30,"fbjs/lib/warning":51}],163:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -40169,6 +38160,10 @@ ReactDOMComponent.Mixin = {
         // happen after `_updateDOMProperties`. Otherwise HTML5 input validations
         // raise warnings and prevent the new value from being assigned.
         ReactDOMInput.updateWrapper(this);
+
+        // We also check that we haven't missed a value update, such as a
+        // Radio group shifting the checked value to another named radio input.
+        inputValueTracking.updateValueIfChanged(this);
         break;
       case 'textarea':
         ReactDOMTextarea.updateWrapper(this);
@@ -40412,14 +38407,12 @@ _assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mi
 
 module.exports = ReactDOMComponent;
 }).call(this,require('_process'))
-},{"./AutoFocusUtils":157,"./CSSPropertyOperations":160,"./DOMLazyTree":164,"./DOMNamespaces":165,"./DOMProperty":166,"./DOMPropertyOperations":167,"./EventPluginHub":171,"./EventPluginRegistry":172,"./ReactBrowserEventEmitter":180,"./ReactDOMComponentFlags":187,"./ReactDOMComponentTree":188,"./ReactDOMInput":193,"./ReactDOMOption":196,"./ReactDOMSelect":197,"./ReactDOMTextarea":200,"./ReactInstrumentation":217,"./ReactMultiChild":221,"./ReactServerRenderingTransaction":229,"./escapeTextContentForBrowser":257,"./inputValueTracking":270,"./isEventSupported":272,"./reactProdInvariant":275,"./validateDOMNesting":281,"_process":148,"fbjs/lib/emptyFunction":36,"fbjs/lib/invariant":44,"fbjs/lib/shallowEqual":50,"fbjs/lib/warning":51,"object-assign":133}],187:[function(require,module,exports){
+},{"./AutoFocusUtils":134,"./CSSPropertyOperations":137,"./DOMLazyTree":141,"./DOMNamespaces":142,"./DOMProperty":143,"./DOMPropertyOperations":144,"./EventPluginHub":148,"./EventPluginRegistry":149,"./ReactBrowserEventEmitter":157,"./ReactDOMComponentFlags":164,"./ReactDOMComponentTree":165,"./ReactDOMInput":170,"./ReactDOMOption":173,"./ReactDOMSelect":174,"./ReactDOMTextarea":177,"./ReactInstrumentation":194,"./ReactMultiChild":198,"./ReactServerRenderingTransaction":206,"./escapeTextContentForBrowser":234,"./inputValueTracking":247,"./isEventSupported":249,"./reactProdInvariant":252,"./validateDOMNesting":258,"_process":125,"fbjs/lib/emptyFunction":36,"fbjs/lib/invariant":44,"fbjs/lib/shallowEqual":50,"fbjs/lib/warning":51,"object-assign":123}],164:[function(require,module,exports){
 /**
- * Copyright 2015-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -40430,15 +38423,13 @@ var ReactDOMComponentFlags = {
 };
 
 module.exports = ReactDOMComponentFlags;
-},{}],188:[function(require,module,exports){
+},{}],165:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -40627,15 +38618,13 @@ var ReactDOMComponentTree = {
 
 module.exports = ReactDOMComponentTree;
 }).call(this,require('_process'))
-},{"./DOMProperty":166,"./ReactDOMComponentFlags":187,"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44}],189:[function(require,module,exports){
+},{"./DOMProperty":143,"./ReactDOMComponentFlags":164,"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44}],166:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -40662,14 +38651,12 @@ function ReactDOMContainerInfo(topLevelWrapper, node) {
 
 module.exports = ReactDOMContainerInfo;
 }).call(this,require('_process'))
-},{"./validateDOMNesting":281,"_process":148}],190:[function(require,module,exports){
+},{"./validateDOMNesting":258,"_process":125}],167:[function(require,module,exports){
 /**
- * Copyright 2014-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2014-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -40722,14 +38709,12 @@ _assign(ReactDOMEmptyComponent.prototype, {
 });
 
 module.exports = ReactDOMEmptyComponent;
-},{"./DOMLazyTree":164,"./ReactDOMComponentTree":188,"object-assign":133}],191:[function(require,module,exports){
+},{"./DOMLazyTree":141,"./ReactDOMComponentTree":165,"object-assign":123}],168:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -40741,14 +38726,12 @@ var ReactDOMFeatureFlags = {
 };
 
 module.exports = ReactDOMFeatureFlags;
-},{}],192:[function(require,module,exports){
+},{}],169:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -40774,15 +38757,13 @@ var ReactDOMIDOperations = {
 };
 
 module.exports = ReactDOMIDOperations;
-},{"./DOMChildrenOperations":163,"./ReactDOMComponentTree":188}],193:[function(require,module,exports){
+},{"./DOMChildrenOperations":140,"./ReactDOMComponentTree":165}],170:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -41063,15 +39044,13 @@ function _handleChange(event) {
 
 module.exports = ReactDOMInput;
 }).call(this,require('_process'))
-},{"./DOMPropertyOperations":167,"./LinkedValueUtils":178,"./ReactDOMComponentTree":188,"./ReactUpdates":232,"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"object-assign":133}],194:[function(require,module,exports){
+},{"./DOMPropertyOperations":144,"./LinkedValueUtils":155,"./ReactDOMComponentTree":165,"./ReactUpdates":209,"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"object-assign":123}],171:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -41158,15 +39137,13 @@ var ReactDOMInvalidARIAHook = {
 
 module.exports = ReactDOMInvalidARIAHook;
 }).call(this,require('_process'))
-},{"./DOMProperty":166,"_process":148,"fbjs/lib/warning":51,"react/lib/ReactComponentTreeHook":314}],195:[function(require,module,exports){
+},{"./DOMProperty":143,"_process":125,"fbjs/lib/warning":51,"react/lib/ReactComponentTreeHook":291}],172:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -41203,15 +39180,13 @@ var ReactDOMNullInputValuePropHook = {
 
 module.exports = ReactDOMNullInputValuePropHook;
 }).call(this,require('_process'))
-},{"_process":148,"fbjs/lib/warning":51,"react/lib/ReactComponentTreeHook":314}],196:[function(require,module,exports){
+},{"_process":125,"fbjs/lib/warning":51,"react/lib/ReactComponentTreeHook":291}],173:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -41327,15 +39302,13 @@ var ReactDOMOption = {
 
 module.exports = ReactDOMOption;
 }).call(this,require('_process'))
-},{"./ReactDOMComponentTree":188,"./ReactDOMSelect":197,"_process":148,"fbjs/lib/warning":51,"object-assign":133,"react/lib/React":311}],197:[function(require,module,exports){
+},{"./ReactDOMComponentTree":165,"./ReactDOMSelect":174,"_process":125,"fbjs/lib/warning":51,"object-assign":123,"react/lib/React":288}],174:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -41529,14 +39502,12 @@ function _handleChange(event) {
 
 module.exports = ReactDOMSelect;
 }).call(this,require('_process'))
-},{"./LinkedValueUtils":178,"./ReactDOMComponentTree":188,"./ReactUpdates":232,"_process":148,"fbjs/lib/warning":51,"object-assign":133}],198:[function(require,module,exports){
+},{"./LinkedValueUtils":155,"./ReactDOMComponentTree":165,"./ReactUpdates":209,"_process":125,"fbjs/lib/warning":51,"object-assign":123}],175:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -41741,15 +39712,13 @@ var ReactDOMSelection = {
 };
 
 module.exports = ReactDOMSelection;
-},{"./getNodeForCharacterOffset":267,"./getTextContentAccessor":268,"fbjs/lib/ExecutionEnvironment":30}],199:[function(require,module,exports){
+},{"./getNodeForCharacterOffset":244,"./getTextContentAccessor":245,"fbjs/lib/ExecutionEnvironment":30}],176:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -41905,15 +39874,13 @@ _assign(ReactDOMTextComponent.prototype, {
 
 module.exports = ReactDOMTextComponent;
 }).call(this,require('_process'))
-},{"./DOMChildrenOperations":163,"./DOMLazyTree":164,"./ReactDOMComponentTree":188,"./escapeTextContentForBrowser":257,"./reactProdInvariant":275,"./validateDOMNesting":281,"_process":148,"fbjs/lib/invariant":44,"object-assign":133}],200:[function(require,module,exports){
+},{"./DOMChildrenOperations":140,"./DOMLazyTree":141,"./ReactDOMComponentTree":165,"./escapeTextContentForBrowser":234,"./reactProdInvariant":252,"./validateDOMNesting":258,"_process":125,"fbjs/lib/invariant":44,"object-assign":123}],177:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -42067,15 +40034,13 @@ function _handleChange(event) {
 
 module.exports = ReactDOMTextarea;
 }).call(this,require('_process'))
-},{"./LinkedValueUtils":178,"./ReactDOMComponentTree":188,"./ReactUpdates":232,"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"object-assign":133}],201:[function(require,module,exports){
+},{"./LinkedValueUtils":155,"./ReactDOMComponentTree":165,"./ReactUpdates":209,"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"object-assign":123}],178:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2015-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -42205,15 +40170,13 @@ module.exports = {
   traverseEnterLeave: traverseEnterLeave
 };
 }).call(this,require('_process'))
-},{"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44}],202:[function(require,module,exports){
+},{"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44}],179:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -42319,15 +40282,13 @@ var ReactDOMUnknownPropertyHook = {
 
 module.exports = ReactDOMUnknownPropertyHook;
 }).call(this,require('_process'))
-},{"./DOMProperty":166,"./EventPluginRegistry":172,"_process":148,"fbjs/lib/warning":51,"react/lib/ReactComponentTreeHook":314}],203:[function(require,module,exports){
+},{"./DOMProperty":143,"./EventPluginRegistry":149,"_process":125,"fbjs/lib/warning":51,"react/lib/ReactComponentTreeHook":291}],180:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2016-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2016-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -42682,14 +40643,12 @@ if (/[?&]react_perf\b/.test(url)) {
 
 module.exports = ReactDebugTool;
 }).call(this,require('_process'))
-},{"./ReactHostOperationHistoryHook":213,"./ReactInvalidSetStateWarningHook":218,"_process":148,"fbjs/lib/ExecutionEnvironment":30,"fbjs/lib/performanceNow":49,"fbjs/lib/warning":51,"react/lib/ReactComponentTreeHook":314}],204:[function(require,module,exports){
+},{"./ReactHostOperationHistoryHook":190,"./ReactInvalidSetStateWarningHook":195,"_process":125,"fbjs/lib/ExecutionEnvironment":30,"fbjs/lib/performanceNow":49,"fbjs/lib/warning":51,"react/lib/ReactComponentTreeHook":291}],181:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -42750,14 +40709,12 @@ var ReactDefaultBatchingStrategy = {
 };
 
 module.exports = ReactDefaultBatchingStrategy;
-},{"./ReactUpdates":232,"./Transaction":250,"fbjs/lib/emptyFunction":36,"object-assign":133}],205:[function(require,module,exports){
+},{"./ReactUpdates":209,"./Transaction":227,"fbjs/lib/emptyFunction":36,"object-assign":123}],182:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -42836,14 +40793,12 @@ function inject() {
 module.exports = {
   inject: inject
 };
-},{"./ARIADOMPropertyConfig":156,"./BeforeInputEventPlugin":158,"./ChangeEventPlugin":162,"./DefaultEventPluginOrder":169,"./EnterLeaveEventPlugin":170,"./HTMLDOMPropertyConfig":176,"./ReactComponentBrowserEnvironment":182,"./ReactDOMComponent":186,"./ReactDOMComponentTree":188,"./ReactDOMEmptyComponent":190,"./ReactDOMTextComponent":199,"./ReactDOMTreeTraversal":201,"./ReactDefaultBatchingStrategy":204,"./ReactEventListener":210,"./ReactInjection":214,"./ReactReconcileTransaction":226,"./SVGDOMPropertyConfig":234,"./SelectEventPlugin":235,"./SimpleEventPlugin":236}],206:[function(require,module,exports){
+},{"./ARIADOMPropertyConfig":133,"./BeforeInputEventPlugin":135,"./ChangeEventPlugin":139,"./DefaultEventPluginOrder":146,"./EnterLeaveEventPlugin":147,"./HTMLDOMPropertyConfig":153,"./ReactComponentBrowserEnvironment":159,"./ReactDOMComponent":163,"./ReactDOMComponentTree":165,"./ReactDOMEmptyComponent":167,"./ReactDOMTextComponent":176,"./ReactDOMTreeTraversal":178,"./ReactDefaultBatchingStrategy":181,"./ReactEventListener":187,"./ReactInjection":191,"./ReactReconcileTransaction":203,"./SVGDOMPropertyConfig":211,"./SelectEventPlugin":212,"./SimpleEventPlugin":213}],183:[function(require,module,exports){
 /**
- * Copyright 2014-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2014-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -42856,14 +40811,12 @@ module.exports = {
 var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol['for']('react.element') || 0xeac7;
 
 module.exports = REACT_ELEMENT_TYPE;
-},{}],207:[function(require,module,exports){
+},{}],184:[function(require,module,exports){
 /**
- * Copyright 2014-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2014-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -42886,15 +40839,13 @@ var ReactEmptyComponent = {
 ReactEmptyComponent.injection = ReactEmptyComponentInjection;
 
 module.exports = ReactEmptyComponent;
-},{}],208:[function(require,module,exports){
+},{}],185:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -42951,7 +40902,9 @@ if (process.env.NODE_ENV !== 'production') {
   if (typeof window !== 'undefined' && typeof window.dispatchEvent === 'function' && typeof document !== 'undefined' && typeof document.createEvent === 'function') {
     var fakeNode = document.createElement('react');
     ReactErrorUtils.invokeGuardedCallback = function (name, func, a) {
-      var boundFunc = func.bind(null, a);
+      var boundFunc = function () {
+        func(a);
+      };
       var evtType = 'react-' + name;
       fakeNode.addEventListener(evtType, boundFunc, false);
       var evt = document.createEvent('Event');
@@ -42964,14 +40917,12 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactErrorUtils;
 }).call(this,require('_process'))
-},{"_process":148}],209:[function(require,module,exports){
+},{"_process":125}],186:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -42996,14 +40947,12 @@ var ReactEventEmitterMixin = {
 };
 
 module.exports = ReactEventEmitterMixin;
-},{"./EventPluginHub":171}],210:[function(require,module,exports){
+},{"./EventPluginHub":148}],187:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -43151,14 +41100,12 @@ var ReactEventListener = {
 };
 
 module.exports = ReactEventListener;
-},{"./PooledClass":179,"./ReactDOMComponentTree":188,"./ReactUpdates":232,"./getEventTarget":264,"fbjs/lib/EventListener":29,"fbjs/lib/ExecutionEnvironment":30,"fbjs/lib/getUnboundedScrollPosition":41,"object-assign":133}],211:[function(require,module,exports){
+},{"./PooledClass":156,"./ReactDOMComponentTree":165,"./ReactUpdates":209,"./getEventTarget":241,"fbjs/lib/EventListener":29,"fbjs/lib/ExecutionEnvironment":30,"fbjs/lib/getUnboundedScrollPosition":41,"object-assign":123}],188:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -43173,15 +41120,13 @@ var ReactFeatureFlags = {
 };
 
 module.exports = ReactFeatureFlags;
-},{}],212:[function(require,module,exports){
+},{}],189:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2014-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2014-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -43243,14 +41188,12 @@ var ReactHostComponent = {
 
 module.exports = ReactHostComponent;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44}],213:[function(require,module,exports){
+},{"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44}],190:[function(require,module,exports){
 /**
- * Copyright 2016-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2016-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -43277,14 +41220,12 @@ var ReactHostOperationHistoryHook = {
 };
 
 module.exports = ReactHostOperationHistoryHook;
-},{}],214:[function(require,module,exports){
+},{}],191:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -43311,14 +41252,12 @@ var ReactInjection = {
 };
 
 module.exports = ReactInjection;
-},{"./DOMProperty":166,"./EventPluginHub":171,"./EventPluginUtils":173,"./ReactBrowserEventEmitter":180,"./ReactComponentEnvironment":183,"./ReactEmptyComponent":207,"./ReactHostComponent":212,"./ReactUpdates":232}],215:[function(require,module,exports){
+},{"./DOMProperty":143,"./EventPluginHub":148,"./EventPluginUtils":150,"./ReactBrowserEventEmitter":157,"./ReactComponentEnvironment":160,"./ReactEmptyComponent":184,"./ReactHostComponent":189,"./ReactUpdates":209}],192:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -43434,14 +41373,12 @@ var ReactInputSelection = {
 };
 
 module.exports = ReactInputSelection;
-},{"./ReactDOMSelection":198,"fbjs/lib/containsNode":33,"fbjs/lib/focusNode":38,"fbjs/lib/getActiveElement":39}],216:[function(require,module,exports){
+},{"./ReactDOMSelection":175,"fbjs/lib/containsNode":33,"fbjs/lib/focusNode":38,"fbjs/lib/getActiveElement":39}],193:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -43480,15 +41417,13 @@ var ReactInstanceMap = {
 };
 
 module.exports = ReactInstanceMap;
-},{}],217:[function(require,module,exports){
+},{}],194:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2016-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2016-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -43506,15 +41441,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = { debugTool: debugTool };
 }).call(this,require('_process'))
-},{"./ReactDebugTool":203,"_process":148}],218:[function(require,module,exports){
+},{"./ReactDebugTool":180,"_process":125}],195:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2016-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2016-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -43545,14 +41478,12 @@ var ReactInvalidSetStateWarningHook = {
 
 module.exports = ReactInvalidSetStateWarningHook;
 }).call(this,require('_process'))
-},{"_process":148,"fbjs/lib/warning":51}],219:[function(require,module,exports){
+},{"_process":125,"fbjs/lib/warning":51}],196:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -43595,15 +41526,13 @@ var ReactMarkupChecksum = {
 };
 
 module.exports = ReactMarkupChecksum;
-},{"./adler32":253}],220:[function(require,module,exports){
+},{"./adler32":230}],197:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -44135,15 +42064,13 @@ var ReactMount = {
 
 module.exports = ReactMount;
 }).call(this,require('_process'))
-},{"./DOMLazyTree":164,"./DOMProperty":166,"./ReactBrowserEventEmitter":180,"./ReactDOMComponentTree":188,"./ReactDOMContainerInfo":189,"./ReactDOMFeatureFlags":191,"./ReactFeatureFlags":211,"./ReactInstanceMap":216,"./ReactInstrumentation":217,"./ReactMarkupChecksum":219,"./ReactReconciler":227,"./ReactUpdateQueue":231,"./ReactUpdates":232,"./instantiateReactComponent":271,"./reactProdInvariant":275,"./setInnerHTML":277,"./shouldUpdateReactComponent":279,"_process":148,"fbjs/lib/emptyObject":37,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"react/lib/React":311,"react/lib/ReactCurrentOwner":315}],221:[function(require,module,exports){
+},{"./DOMLazyTree":141,"./DOMProperty":143,"./ReactBrowserEventEmitter":157,"./ReactDOMComponentTree":165,"./ReactDOMContainerInfo":166,"./ReactDOMFeatureFlags":168,"./ReactFeatureFlags":188,"./ReactInstanceMap":193,"./ReactInstrumentation":194,"./ReactMarkupChecksum":196,"./ReactReconciler":204,"./ReactUpdateQueue":208,"./ReactUpdates":209,"./instantiateReactComponent":248,"./reactProdInvariant":252,"./setInnerHTML":254,"./shouldUpdateReactComponent":256,"_process":125,"fbjs/lib/emptyObject":37,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"react/lib/React":288,"react/lib/ReactCurrentOwner":292}],198:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -44583,15 +42510,13 @@ var ReactMultiChild = {
 
 module.exports = ReactMultiChild;
 }).call(this,require('_process'))
-},{"./ReactChildReconciler":181,"./ReactComponentEnvironment":183,"./ReactInstanceMap":216,"./ReactInstrumentation":217,"./ReactReconciler":227,"./flattenChildren":259,"./reactProdInvariant":275,"_process":148,"fbjs/lib/emptyFunction":36,"fbjs/lib/invariant":44,"react/lib/ReactCurrentOwner":315}],222:[function(require,module,exports){
+},{"./ReactChildReconciler":158,"./ReactComponentEnvironment":160,"./ReactInstanceMap":193,"./ReactInstrumentation":194,"./ReactReconciler":204,"./flattenChildren":236,"./reactProdInvariant":252,"_process":125,"fbjs/lib/emptyFunction":36,"fbjs/lib/invariant":44,"react/lib/ReactCurrentOwner":292}],199:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -44625,15 +42550,13 @@ var ReactNodeTypes = {
 
 module.exports = ReactNodeTypes;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44,"react/lib/React":311}],223:[function(require,module,exports){
+},{"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44,"react/lib/React":288}],200:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -44720,15 +42643,13 @@ var ReactOwner = {
 
 module.exports = ReactOwner;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44}],224:[function(require,module,exports){
+},{"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44}],201:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -44747,14 +42668,12 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactPropTypeLocationNames;
 }).call(this,require('_process'))
-},{"_process":148}],225:[function(require,module,exports){
+},{"_process":125}],202:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -44764,15 +42683,13 @@ module.exports = ReactPropTypeLocationNames;
 var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
-},{}],226:[function(require,module,exports){
+},{}],203:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -44944,15 +42861,13 @@ PooledClass.addPoolingTo(ReactReconcileTransaction);
 
 module.exports = ReactReconcileTransaction;
 }).call(this,require('_process'))
-},{"./CallbackQueue":161,"./PooledClass":179,"./ReactBrowserEventEmitter":180,"./ReactInputSelection":215,"./ReactInstrumentation":217,"./ReactUpdateQueue":231,"./Transaction":250,"_process":148,"object-assign":133}],227:[function(require,module,exports){
+},{"./CallbackQueue":138,"./PooledClass":156,"./ReactBrowserEventEmitter":157,"./ReactInputSelection":192,"./ReactInstrumentation":194,"./ReactUpdateQueue":208,"./Transaction":227,"_process":125,"object-assign":123}],204:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -45112,14 +43027,12 @@ var ReactReconciler = {
 
 module.exports = ReactReconciler;
 }).call(this,require('_process'))
-},{"./ReactInstrumentation":217,"./ReactRef":228,"_process":148,"fbjs/lib/warning":51}],228:[function(require,module,exports){
+},{"./ReactInstrumentation":194,"./ReactRef":205,"_process":125,"fbjs/lib/warning":51}],205:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -45201,15 +43114,13 @@ ReactRef.detachRefs = function (instance, element) {
 };
 
 module.exports = ReactRef;
-},{"./ReactOwner":223}],229:[function(require,module,exports){
+},{"./ReactOwner":200}],206:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2014-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2014-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -45293,15 +43204,13 @@ PooledClass.addPoolingTo(ReactServerRenderingTransaction);
 
 module.exports = ReactServerRenderingTransaction;
 }).call(this,require('_process'))
-},{"./PooledClass":179,"./ReactInstrumentation":217,"./ReactServerUpdateQueue":230,"./Transaction":250,"_process":148,"object-assign":133}],230:[function(require,module,exports){
+},{"./PooledClass":156,"./ReactInstrumentation":194,"./ReactServerUpdateQueue":207,"./Transaction":227,"_process":125,"object-assign":123}],207:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2015-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -45434,15 +43343,13 @@ var ReactServerUpdateQueue = function () {
 
 module.exports = ReactServerUpdateQueue;
 }).call(this,require('_process'))
-},{"./ReactUpdateQueue":231,"_process":148,"fbjs/lib/warning":51}],231:[function(require,module,exports){
+},{"./ReactUpdateQueue":208,"_process":125,"fbjs/lib/warning":51}],208:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2015-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -45670,15 +43577,13 @@ var ReactUpdateQueue = {
 
 module.exports = ReactUpdateQueue;
 }).call(this,require('_process'))
-},{"./ReactInstanceMap":216,"./ReactInstrumentation":217,"./ReactUpdates":232,"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"react/lib/ReactCurrentOwner":315}],232:[function(require,module,exports){
+},{"./ReactInstanceMap":193,"./ReactInstrumentation":194,"./ReactUpdates":209,"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"react/lib/ReactCurrentOwner":292}],209:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -45886,7 +43791,7 @@ function enqueueUpdate(component) {
  * if no updates are currently being performed.
  */
 function asap(callback, context) {
-  !batchingStrategy.isBatchingUpdates ? process.env.NODE_ENV !== 'production' ? invariant(false, 'ReactUpdates.asap: Can\'t enqueue an asap callback in a context whereupdates are not being batched.') : _prodInvariant('125') : void 0;
+  invariant(batchingStrategy.isBatchingUpdates, "ReactUpdates.asap: Can't enqueue an asap callback in a context where" + 'updates are not being batched.');
   asapCallbackQueue.enqueue(callback, context);
   asapEnqueued = true;
 }
@@ -45923,28 +43828,24 @@ var ReactUpdates = {
 
 module.exports = ReactUpdates;
 }).call(this,require('_process'))
-},{"./CallbackQueue":161,"./PooledClass":179,"./ReactFeatureFlags":211,"./ReactReconciler":227,"./Transaction":250,"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44,"object-assign":133}],233:[function(require,module,exports){
+},{"./CallbackQueue":138,"./PooledClass":156,"./ReactFeatureFlags":188,"./ReactReconciler":204,"./Transaction":227,"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44,"object-assign":123}],210:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
 'use strict';
 
-module.exports = '15.6.1';
-},{}],234:[function(require,module,exports){
+module.exports = '15.6.2';
+},{}],211:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -46239,14 +44140,12 @@ Object.keys(ATTRS).forEach(function (key) {
 });
 
 module.exports = SVGDOMPropertyConfig;
-},{}],235:[function(require,module,exports){
+},{}],212:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -46427,15 +44326,13 @@ var SelectEventPlugin = {
 };
 
 module.exports = SelectEventPlugin;
-},{"./EventPropagators":174,"./ReactDOMComponentTree":188,"./ReactInputSelection":215,"./SyntheticEvent":241,"./isTextInputElement":273,"fbjs/lib/ExecutionEnvironment":30,"fbjs/lib/getActiveElement":39,"fbjs/lib/shallowEqual":50}],236:[function(require,module,exports){
+},{"./EventPropagators":151,"./ReactDOMComponentTree":165,"./ReactInputSelection":192,"./SyntheticEvent":218,"./isTextInputElement":250,"fbjs/lib/ExecutionEnvironment":30,"fbjs/lib/getActiveElement":39,"fbjs/lib/shallowEqual":50}],213:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -46655,14 +44552,12 @@ var SimpleEventPlugin = {
 
 module.exports = SimpleEventPlugin;
 }).call(this,require('_process'))
-},{"./EventPropagators":174,"./ReactDOMComponentTree":188,"./SyntheticAnimationEvent":237,"./SyntheticClipboardEvent":238,"./SyntheticDragEvent":240,"./SyntheticEvent":241,"./SyntheticFocusEvent":242,"./SyntheticKeyboardEvent":244,"./SyntheticMouseEvent":245,"./SyntheticTouchEvent":246,"./SyntheticTransitionEvent":247,"./SyntheticUIEvent":248,"./SyntheticWheelEvent":249,"./getEventCharCode":261,"./reactProdInvariant":275,"_process":148,"fbjs/lib/EventListener":29,"fbjs/lib/emptyFunction":36,"fbjs/lib/invariant":44}],237:[function(require,module,exports){
+},{"./EventPropagators":151,"./ReactDOMComponentTree":165,"./SyntheticAnimationEvent":214,"./SyntheticClipboardEvent":215,"./SyntheticDragEvent":217,"./SyntheticEvent":218,"./SyntheticFocusEvent":219,"./SyntheticKeyboardEvent":221,"./SyntheticMouseEvent":222,"./SyntheticTouchEvent":223,"./SyntheticTransitionEvent":224,"./SyntheticUIEvent":225,"./SyntheticWheelEvent":226,"./getEventCharCode":238,"./reactProdInvariant":252,"_process":125,"fbjs/lib/EventListener":29,"fbjs/lib/emptyFunction":36,"fbjs/lib/invariant":44}],214:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -46694,14 +44589,12 @@ function SyntheticAnimationEvent(dispatchConfig, dispatchMarker, nativeEvent, na
 SyntheticEvent.augmentClass(SyntheticAnimationEvent, AnimationEventInterface);
 
 module.exports = SyntheticAnimationEvent;
-},{"./SyntheticEvent":241}],238:[function(require,module,exports){
+},{"./SyntheticEvent":218}],215:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -46732,14 +44625,12 @@ function SyntheticClipboardEvent(dispatchConfig, dispatchMarker, nativeEvent, na
 SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
 
 module.exports = SyntheticClipboardEvent;
-},{"./SyntheticEvent":241}],239:[function(require,module,exports){
+},{"./SyntheticEvent":218}],216:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -46768,14 +44659,12 @@ function SyntheticCompositionEvent(dispatchConfig, dispatchMarker, nativeEvent, 
 SyntheticEvent.augmentClass(SyntheticCompositionEvent, CompositionEventInterface);
 
 module.exports = SyntheticCompositionEvent;
-},{"./SyntheticEvent":241}],240:[function(require,module,exports){
+},{"./SyntheticEvent":218}],217:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -46804,15 +44693,13 @@ function SyntheticDragEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeE
 SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
 
 module.exports = SyntheticDragEvent;
-},{"./SyntheticMouseEvent":245}],241:[function(require,module,exports){
+},{"./SyntheticMouseEvent":222}],218:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -46988,6 +44875,33 @@ _assign(SyntheticEvent.prototype, {
 
 SyntheticEvent.Interface = EventInterface;
 
+/**
+ * Helper to reduce boilerplate when creating subclasses.
+ *
+ * @param {function} Class
+ * @param {?object} Interface
+ */
+SyntheticEvent.augmentClass = function (Class, Interface) {
+  var Super = this;
+
+  var E = function () {};
+  E.prototype = Super.prototype;
+  var prototype = new E();
+
+  _assign(prototype, Class.prototype);
+  Class.prototype = prototype;
+  Class.prototype.constructor = Class;
+
+  Class.Interface = _assign({}, Super.Interface, Interface);
+  Class.augmentClass = Super.augmentClass;
+
+  PooledClass.addPoolingTo(Class, PooledClass.fourArgumentPooler);
+};
+
+/** Proxying after everything set on SyntheticEvent
+  * to resolve Proxy issue on some WebKit browsers
+  * in which some Event properties are set to undefined (GH#10010)
+  */
 if (process.env.NODE_ENV !== 'production') {
   if (isProxySupported) {
     /*eslint-disable no-func-assign */
@@ -47011,28 +44925,6 @@ if (process.env.NODE_ENV !== 'production') {
     /*eslint-enable no-func-assign */
   }
 }
-/**
- * Helper to reduce boilerplate when creating subclasses.
- *
- * @param {function} Class
- * @param {?object} Interface
- */
-SyntheticEvent.augmentClass = function (Class, Interface) {
-  var Super = this;
-
-  var E = function () {};
-  E.prototype = Super.prototype;
-  var prototype = new E();
-
-  _assign(prototype, Class.prototype);
-  Class.prototype = prototype;
-  Class.prototype.constructor = Class;
-
-  Class.Interface = _assign({}, Super.Interface, Interface);
-  Class.augmentClass = Super.augmentClass;
-
-  PooledClass.addPoolingTo(Class, PooledClass.fourArgumentPooler);
-};
 
 PooledClass.addPoolingTo(SyntheticEvent, PooledClass.fourArgumentPooler);
 
@@ -47072,14 +44964,12 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
   }
 }
 }).call(this,require('_process'))
-},{"./PooledClass":179,"_process":148,"fbjs/lib/emptyFunction":36,"fbjs/lib/warning":51,"object-assign":133}],242:[function(require,module,exports){
+},{"./PooledClass":156,"_process":125,"fbjs/lib/emptyFunction":36,"fbjs/lib/warning":51,"object-assign":123}],219:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -47108,14 +44998,12 @@ function SyntheticFocusEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
 
 module.exports = SyntheticFocusEvent;
-},{"./SyntheticUIEvent":248}],243:[function(require,module,exports){
+},{"./SyntheticUIEvent":225}],220:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -47145,14 +45033,12 @@ function SyntheticInputEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticEvent.augmentClass(SyntheticInputEvent, InputEventInterface);
 
 module.exports = SyntheticInputEvent;
-},{"./SyntheticEvent":241}],244:[function(require,module,exports){
+},{"./SyntheticEvent":218}],221:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -47229,14 +45115,12 @@ function SyntheticKeyboardEvent(dispatchConfig, dispatchMarker, nativeEvent, nat
 SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
 
 module.exports = SyntheticKeyboardEvent;
-},{"./SyntheticUIEvent":248,"./getEventCharCode":261,"./getEventKey":262,"./getEventModifierState":263}],245:[function(require,module,exports){
+},{"./SyntheticUIEvent":225,"./getEventCharCode":238,"./getEventKey":239,"./getEventModifierState":240}],222:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -47301,14 +45185,12 @@ function SyntheticMouseEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 
 module.exports = SyntheticMouseEvent;
-},{"./SyntheticUIEvent":248,"./ViewportMetrics":251,"./getEventModifierState":263}],246:[function(require,module,exports){
+},{"./SyntheticUIEvent":225,"./ViewportMetrics":228,"./getEventModifierState":240}],223:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -47346,14 +45228,12 @@ function SyntheticTouchEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
 
 module.exports = SyntheticTouchEvent;
-},{"./SyntheticUIEvent":248,"./getEventModifierState":263}],247:[function(require,module,exports){
+},{"./SyntheticUIEvent":225,"./getEventModifierState":240}],224:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -47385,14 +45265,12 @@ function SyntheticTransitionEvent(dispatchConfig, dispatchMarker, nativeEvent, n
 SyntheticEvent.augmentClass(SyntheticTransitionEvent, TransitionEventInterface);
 
 module.exports = SyntheticTransitionEvent;
-},{"./SyntheticEvent":241}],248:[function(require,module,exports){
+},{"./SyntheticEvent":218}],225:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -47444,14 +45322,12 @@ function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEve
 SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 
 module.exports = SyntheticUIEvent;
-},{"./SyntheticEvent":241,"./getEventTarget":264}],249:[function(require,module,exports){
+},{"./SyntheticEvent":218,"./getEventTarget":241}],226:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -47495,15 +45371,13 @@ function SyntheticWheelEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
 
 module.exports = SyntheticWheelEvent;
-},{"./SyntheticMouseEvent":245}],250:[function(require,module,exports){
+},{"./SyntheticMouseEvent":222}],227:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -47725,14 +45599,12 @@ var TransactionImpl = {
 
 module.exports = TransactionImpl;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44}],251:[function(require,module,exports){
+},{"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44}],228:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -47750,15 +45622,13 @@ var ViewportMetrics = {
 };
 
 module.exports = ViewportMetrics;
-},{}],252:[function(require,module,exports){
+},{}],229:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2014-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2014-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -47810,14 +45680,12 @@ function accumulateInto(current, next) {
 
 module.exports = accumulateInto;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44}],253:[function(require,module,exports){
+},{"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44}],230:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -47854,15 +45722,13 @@ function adler32(data) {
 }
 
 module.exports = adler32;
-},{}],254:[function(require,module,exports){
+},{}],231:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -47943,14 +45809,12 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
 module.exports = checkReactTypeSpec;
 }).call(this,require('_process'))
-},{"./ReactPropTypeLocationNames":224,"./ReactPropTypesSecret":225,"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"react/lib/ReactComponentTreeHook":314}],255:[function(require,module,exports){
+},{"./ReactPropTypeLocationNames":201,"./ReactPropTypesSecret":202,"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"react/lib/ReactComponentTreeHook":291}],232:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -47975,15 +45839,13 @@ var createMicrosoftUnsafeLocalFunction = function (func) {
 };
 
 module.exports = createMicrosoftUnsafeLocalFunction;
-},{}],256:[function(require,module,exports){
+},{}],233:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -48056,14 +45918,12 @@ function dangerousStyleValue(name, value, component, isCustomProperty) {
 
 module.exports = dangerousStyleValue;
 }).call(this,require('_process'))
-},{"./CSSProperty":159,"_process":148,"fbjs/lib/warning":51}],257:[function(require,module,exports){
+},{"./CSSProperty":136,"_process":125,"fbjs/lib/warning":51}],234:[function(require,module,exports){
 /**
- * Copyright 2016-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2016-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * Based on the escape-html library, which is used under the MIT License below:
  *
@@ -48178,15 +46038,13 @@ function escapeTextContentForBrowser(text) {
 }
 
 module.exports = escapeTextContentForBrowser;
-},{}],258:[function(require,module,exports){
+},{}],235:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -48240,15 +46098,13 @@ function findDOMNode(componentOrElement) {
 
 module.exports = findDOMNode;
 }).call(this,require('_process'))
-},{"./ReactDOMComponentTree":188,"./ReactInstanceMap":216,"./getHostComponentFromComposite":265,"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"react/lib/ReactCurrentOwner":315}],259:[function(require,module,exports){
+},{"./ReactDOMComponentTree":165,"./ReactInstanceMap":193,"./getHostComponentFromComposite":242,"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"react/lib/ReactCurrentOwner":292}],236:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -48318,14 +46174,12 @@ function flattenChildren(children, selfDebugID) {
 
 module.exports = flattenChildren;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":177,"./traverseAllChildren":280,"_process":148,"fbjs/lib/warning":51,"react/lib/ReactComponentTreeHook":314}],260:[function(require,module,exports){
+},{"./KeyEscapeUtils":154,"./traverseAllChildren":257,"_process":125,"fbjs/lib/warning":51,"react/lib/ReactComponentTreeHook":291}],237:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -48349,14 +46203,12 @@ function forEachAccumulated(arr, cb, scope) {
 }
 
 module.exports = forEachAccumulated;
-},{}],261:[function(require,module,exports){
+},{}],238:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -48399,14 +46251,12 @@ function getEventCharCode(nativeEvent) {
 }
 
 module.exports = getEventCharCode;
-},{}],262:[function(require,module,exports){
+},{}],239:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -48511,14 +46361,12 @@ function getEventKey(nativeEvent) {
 }
 
 module.exports = getEventKey;
-},{"./getEventCharCode":261}],263:[function(require,module,exports){
+},{"./getEventCharCode":238}],240:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -48554,14 +46402,12 @@ function getEventModifierState(nativeEvent) {
 }
 
 module.exports = getEventModifierState;
-},{}],264:[function(require,module,exports){
+},{}],241:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -48589,14 +46435,12 @@ function getEventTarget(nativeEvent) {
 }
 
 module.exports = getEventTarget;
-},{}],265:[function(require,module,exports){
+},{}],242:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -48619,14 +46463,12 @@ function getHostComponentFromComposite(inst) {
 }
 
 module.exports = getHostComponentFromComposite;
-},{"./ReactNodeTypes":222}],266:[function(require,module,exports){
+},{"./ReactNodeTypes":199}],243:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -48660,14 +46502,12 @@ function getIteratorFn(maybeIterable) {
 }
 
 module.exports = getIteratorFn;
-},{}],267:[function(require,module,exports){
+},{}],244:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -48734,14 +46574,12 @@ function getNodeForCharacterOffset(root, offset) {
 }
 
 module.exports = getNodeForCharacterOffset;
-},{}],268:[function(require,module,exports){
+},{}],245:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -48767,14 +46605,12 @@ function getTextContentAccessor() {
 }
 
 module.exports = getTextContentAccessor;
-},{"fbjs/lib/ExecutionEnvironment":30}],269:[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":30}],246:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -48868,14 +46704,12 @@ function getVendorPrefixedEventName(eventName) {
 }
 
 module.exports = getVendorPrefixedEventName;
-},{"fbjs/lib/ExecutionEnvironment":30}],270:[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":30}],247:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -48898,7 +46732,7 @@ function attachTracker(inst, tracker) {
 }
 
 function detachTracker(inst) {
-  delete inst._wrapperState.valueTracker;
+  inst._wrapperState.valueTracker = null;
 }
 
 function getValueFromNode(node) {
@@ -48991,15 +46825,13 @@ var inputValueTracking = {
 };
 
 module.exports = inputValueTracking;
-},{"./ReactDOMComponentTree":188}],271:[function(require,module,exports){
+},{"./ReactDOMComponentTree":165}],248:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -49122,14 +46954,12 @@ _assign(ReactCompositeComponentWrapper.prototype, ReactCompositeComponent, {
 
 module.exports = instantiateReactComponent;
 }).call(this,require('_process'))
-},{"./ReactCompositeComponent":184,"./ReactEmptyComponent":207,"./ReactHostComponent":212,"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"object-assign":133,"react/lib/getNextDebugID":329}],272:[function(require,module,exports){
+},{"./ReactCompositeComponent":161,"./ReactEmptyComponent":184,"./ReactHostComponent":189,"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"object-assign":123,"react/lib/getNextDebugID":306}],249:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -49182,14 +47012,12 @@ function isEventSupported(eventNameSuffix, capture) {
 }
 
 module.exports = isEventSupported;
-},{"fbjs/lib/ExecutionEnvironment":30}],273:[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":30}],250:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -49233,14 +47061,12 @@ function isTextInputElement(elem) {
 }
 
 module.exports = isTextInputElement;
-},{}],274:[function(require,module,exports){
+},{}],251:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -49259,14 +47085,12 @@ function quoteAttributeValueForBrowser(value) {
 }
 
 module.exports = quoteAttributeValueForBrowser;
-},{"./escapeTextContentForBrowser":257}],275:[function(require,module,exports){
+},{"./escapeTextContentForBrowser":234}],252:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -49298,14 +47122,12 @@ function reactProdInvariant(code) {
 }
 
 module.exports = reactProdInvariant;
-},{}],276:[function(require,module,exports){
+},{}],253:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -49314,14 +47136,12 @@ module.exports = reactProdInvariant;
 var ReactMount = require('./ReactMount');
 
 module.exports = ReactMount.renderSubtreeIntoContainer;
-},{"./ReactMount":220}],277:[function(require,module,exports){
+},{"./ReactMount":197}],254:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -49412,14 +47232,12 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = setInnerHTML;
-},{"./DOMNamespaces":165,"./createMicrosoftUnsafeLocalFunction":255,"fbjs/lib/ExecutionEnvironment":30}],278:[function(require,module,exports){
+},{"./DOMNamespaces":142,"./createMicrosoftUnsafeLocalFunction":232,"fbjs/lib/ExecutionEnvironment":30}],255:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -49464,14 +47282,12 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = setTextContent;
-},{"./escapeTextContentForBrowser":257,"./setInnerHTML":277,"fbjs/lib/ExecutionEnvironment":30}],279:[function(require,module,exports){
+},{"./escapeTextContentForBrowser":234,"./setInnerHTML":254,"fbjs/lib/ExecutionEnvironment":30}],256:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -49506,15 +47322,13 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 }
 
 module.exports = shouldUpdateReactComponent;
-},{}],280:[function(require,module,exports){
+},{}],257:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -49684,15 +47498,13 @@ function traverseAllChildren(children, callback, traverseContext) {
 
 module.exports = traverseAllChildren;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":177,"./ReactElementSymbol":206,"./getIteratorFn":266,"./reactProdInvariant":275,"_process":148,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"react/lib/ReactCurrentOwner":315}],281:[function(require,module,exports){
+},{"./KeyEscapeUtils":154,"./ReactElementSymbol":183,"./getIteratorFn":243,"./reactProdInvariant":252,"_process":125,"fbjs/lib/invariant":44,"fbjs/lib/warning":51,"react/lib/ReactCurrentOwner":292}],258:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2015-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -50057,7 +47869,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = validateDOMNesting;
 }).call(this,require('_process'))
-},{"_process":148,"fbjs/lib/emptyFunction":36,"fbjs/lib/warning":51,"object-assign":133}],282:[function(require,module,exports){
+},{"_process":125,"fbjs/lib/emptyFunction":36,"fbjs/lib/warning":51,"object-assign":123}],259:[function(require,module,exports){
 var React = require('react');
 
 var FileInput = React.createClass({
@@ -50124,7 +47936,7 @@ var FileInput = React.createClass({
 
 module.exports = FileInput;
 
-},{"react":334}],283:[function(require,module,exports){
+},{"react":311}],260:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50369,7 +48181,7 @@ Modal.defaultStyles = {
   }
 };
 exports.default = Modal;
-},{"../helpers/ariaAppHider":285,"../helpers/safeHTMLElement":289,"./ModalPortal":284,"prop-types":153,"react":334,"react-dom":155}],284:[function(require,module,exports){
+},{"../helpers/ariaAppHider":262,"../helpers/safeHTMLElement":266,"./ModalPortal":261,"prop-types":130,"react":311,"react-dom":132}],261:[function(require,module,exports){
 (function (process){
 "use strict";
 
@@ -50455,22 +48267,27 @@ var ModalPortal = function (_Component) {
     };
 
     _this.afterClose = function () {
+      var _this$props = _this.props,
+          appElement = _this$props.appElement,
+          ariaHideApp = _this$props.ariaHideApp;
+
       // Remove body class
+
       bodyClassList.remove(_this.props.bodyOpenClassName);
 
-      if (_this.shouldReturnFocus()) {
-        focusManager.returnFocus();
-        focusManager.teardownScopedFocus();
+      // Reset aria-hidden attribute if all modals have been removed
+      if (ariaHideApp && refCount.totalCount() < 1) {
+        ariaAppHider.show(appElement);
       }
-    };
 
-    _this.shouldReturnFocus = function () {
-      // Don't restore focus to the element that had focus prior to
-      // the modal's display if:
-      // 1. Focus was never shifted to the modal in the first place
-      //    (shouldFocusAfterRender = false)
-      // 2. Explicit direction to not restore focus
-      return _this.props.shouldFocusAfterRender || _this.props.shouldReturnFocusAfterClose;
+      if (_this.props.shouldFocusAfterRender) {
+        if (_this.props.shouldReturnFocusAfterClose) {
+          focusManager.returnFocus();
+          focusManager.teardownScopedFocus();
+        } else {
+          focusManager.popWithoutFocus();
+        }
+      }
     };
 
     _this.open = function () {
@@ -50479,7 +48296,7 @@ var ModalPortal = function (_Component) {
         clearTimeout(_this.closeTimer);
         _this.setState({ beforeClose: false });
       } else {
-        if (_this.shouldReturnFocus()) {
+        if (_this.props.shouldFocusAfterRender) {
           focusManager.setupScopedFocus(_this.node);
           focusManager.markForFocusLater();
         }
@@ -50495,7 +48312,6 @@ var ModalPortal = function (_Component) {
     };
 
     _this.close = function () {
-      _this.beforeClose();
       if (_this.props.closeTimeoutMS > 0) {
         _this.closeWithTimeout();
       } else {
@@ -50560,7 +48376,10 @@ var ModalPortal = function (_Component) {
       _this.shouldClose = false;
     };
 
-    _this.handleOverlayOnMouseDown = function () {
+    _this.handleOverlayOnMouseDown = function (event) {
+      if (!_this.props.shouldCloseOnOverlayClick && event.target == _this.overlay) {
+        event.preventDefault();
+      }
       _this.moveFromContentToOverlay = false;
     };
 
@@ -50659,9 +48478,7 @@ var ModalPortal = function (_Component) {
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      // Remove body class
-      bodyClassList.remove(this.props.bodyOpenClassName);
-      this.beforeClose();
+      this.afterClose();
       clearTimeout(this.closeTimer);
     }
   }, {
@@ -50679,28 +48496,16 @@ var ModalPortal = function (_Component) {
         ariaAppHider.hide(appElement);
       }
     }
-  }, {
-    key: "beforeClose",
-    value: function beforeClose() {
-      var _props2 = this.props,
-          appElement = _props2.appElement,
-          ariaHideApp = _props2.ariaHideApp;
-      // Reset aria-hidden attribute if all modals have been removed
-
-      if (ariaHideApp && refCount.totalCount() < 1) {
-        ariaAppHider.show(appElement);
-      }
-    }
 
     // Don't steal focus from inner elements
 
   }, {
     key: "render",
     value: function render() {
-      var _props3 = this.props,
-          className = _props3.className,
-          overlayClassName = _props3.overlayClassName,
-          defaultStyles = _props3.defaultStyles;
+      var _props2 = this.props,
+          className = _props2.className,
+          overlayClassName = _props2.overlayClassName,
+          defaultStyles = _props2.defaultStyles;
 
       var contentStyles = className ? {} : defaultStyles.content;
       var overlayStyles = overlayClassName ? {} : defaultStyles.overlay;
@@ -50713,7 +48518,8 @@ var ModalPortal = function (_Component) {
           style: _extends({}, overlayStyles, this.props.style.overlay),
           onClick: this.handleOverlayOnClick,
           onMouseDown: this.handleOverlayOnMouseDown,
-          onMouseUp: this.handleOverlayOnMouseUp
+          onMouseUp: this.handleOverlayOnMouseUp,
+          "aria-modal": "true"
         },
         _react2.default.createElement(
           "div",
@@ -50774,7 +48580,7 @@ ModalPortal.propTypes = {
 exports.default = ModalPortal;
 module.exports = exports["default"];
 }).call(this,require('_process'))
-},{"../helpers/ariaAppHider":285,"../helpers/bodyClassList":286,"../helpers/focusManager":287,"../helpers/refCount":288,"../helpers/safeHTMLElement":289,"../helpers/scopeTab":290,"_process":148,"prop-types":153,"react":334}],285:[function(require,module,exports){
+},{"../helpers/ariaAppHider":262,"../helpers/bodyClassList":263,"../helpers/focusManager":264,"../helpers/refCount":265,"../helpers/safeHTMLElement":266,"../helpers/scopeTab":267,"_process":125,"prop-types":130,"react":311}],262:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50782,12 +48588,18 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.assertNodeList = assertNodeList;
 exports.setElement = setElement;
-exports.tryForceFallback = tryForceFallback;
 exports.validateElement = validateElement;
 exports.hide = hide;
 exports.show = show;
 exports.documentNotReadyOrSSRTesting = documentNotReadyOrSSRTesting;
 exports.resetForTesting = resetForTesting;
+
+var _warning = require("warning");
+
+var _warning2 = _interopRequireDefault(_warning);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var globalElement = null;
 
 function assertNodeList(nodeList, selector) {
@@ -50807,29 +48619,26 @@ function setElement(element) {
   return globalElement;
 }
 
-function tryForceFallback() {
-  if (document && document.body) {
-    // force fallback to document.body
-    setElement(document.body);
-    return true;
-  }
-  return false;
-}
-
 function validateElement(appElement) {
-  if (!appElement && !globalElement && !tryForceFallback()) {
-    throw new Error(["react-modal: Cannot fallback to `document.body`, because it is not", "ready or available. If you are doing server-side rendering, use this", "function to defined an element. `Modal.setAppElement(el)` to make", "this accessible"].join(" "));
+  if (!appElement && !globalElement) {
+    (0, _warning2.default)(false, ["react-modal: App element is not defined.", "Please use `Modal.setAppElement(el)` or set `appElement={el}`.", "This is needed so screen readers don't see main content", "when modal is opened. It is not recommended, but you can opt-out", "by setting `ariaHideApp={false}`."].join(" "));
+
+    return false;
   }
+
+  return true;
 }
 
 function hide(appElement) {
-  validateElement(appElement);
-  (appElement || globalElement).setAttribute("aria-hidden", "true");
+  if (validateElement(appElement)) {
+    (appElement || globalElement).setAttribute("aria-hidden", "true");
+  }
 }
 
 function show(appElement) {
-  validateElement(appElement);
-  (appElement || globalElement).removeAttribute("aria-hidden");
+  if (validateElement(appElement)) {
+    (appElement || globalElement).removeAttribute("aria-hidden");
+  }
 }
 
 function documentNotReadyOrSSRTesting() {
@@ -50837,9 +48646,9 @@ function documentNotReadyOrSSRTesting() {
 }
 
 function resetForTesting() {
-  globalElement = document.body;
+  globalElement = null;
 }
-},{}],286:[function(require,module,exports){
+},{"warning":334}],263:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50871,7 +48680,7 @@ function remove(bodyClass) {
     return document.body.classList.remove(className);
   });
 }
-},{"./refCount":288}],287:[function(require,module,exports){
+},{"./refCount":265}],264:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50881,6 +48690,7 @@ exports.handleBlur = handleBlur;
 exports.handleFocus = handleFocus;
 exports.markForFocusLater = markForFocusLater;
 exports.returnFocus = returnFocus;
+exports.popWithoutFocus = popWithoutFocus;
 exports.setupScopedFocus = setupScopedFocus;
 exports.teardownScopedFocus = teardownScopedFocus;
 
@@ -50936,6 +48746,10 @@ function returnFocus() {
 }
 /* eslint-enable no-console */
 
+function popWithoutFocus() {
+  focusLaterElements.length > 0 && focusLaterElements.pop();
+}
+
 function setupScopedFocus(element) {
   modalElement = element;
 
@@ -50959,7 +48773,7 @@ function teardownScopedFocus() {
     document.detachEvent("onFocus", handleFocus);
   }
 }
-},{"../helpers/tabbable":291}],288:[function(require,module,exports){
+},{"../helpers/tabbable":268}],265:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50996,7 +48810,7 @@ function totalCount() {
     return acc + classListMap[curr];
   }, 0);
 }
-},{}],289:[function(require,module,exports){
+},{}],266:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -51017,7 +48831,7 @@ var SafeHTMLElement = EE.canUseDOM ? window.HTMLElement : {};
 var canUseDOM = exports.canUseDOM = EE.canUseDOM;
 
 exports.default = SafeHTMLElement;
-},{"exenv":28}],290:[function(require,module,exports){
+},{"exenv":28}],267:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -51033,21 +48847,67 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function scopeTab(node, event) {
   var tabbable = (0, _tabbable2.default)(node);
+
   if (!tabbable.length) {
+    // Do nothing, since there are no elements that can receive focus.
     event.preventDefault();
     return;
   }
-  var finalTabbable = tabbable[event.shiftKey ? 0 : tabbable.length - 1];
-  var leavingFinalTabbable = finalTabbable === document.activeElement ||
-  // handle immediate shift+tab after opening with mouse
-  node === document.activeElement;
-  if (!leavingFinalTabbable) return;
+
+  var shiftKey = event.shiftKey;
+  var head = tabbable[0];
+  var tail = tabbable[tabbable.length - 1];
+
+  // proceed with default browser behavior
+  if (node === document.activeElement) {
+    return;
+  }
+
+  var target;
+  if (tail === document.activeElement && !shiftKey) {
+    target = head;
+  }
+
+  if (head === document.activeElement && shiftKey) {
+    target = tail;
+  }
+
+  if (target) {
+    event.preventDefault();
+    target.focus();
+    return;
+  }
+
+  // Safari radio issue.
+  //
+  // Safari does not move the focus to the radio button,
+  // so we need to force it to really walk through all elements.
+  //
+  // This is very error prune, since we are trying to guess
+  // if it is a safari browser from the first occurence between
+  // chrome or safari.
+  //
+  // The chrome user agent contains the first ocurrence
+  // as the 'chrome/version' and later the 'safari/version'.
+  var checkSafari = /(\bChrome\b|\bSafari\b)\//.exec(navigator.userAgent);
+  var isSafariDesktop = checkSafari != null && checkSafari[1] != "Chrome" && /\biPod\b|\biPad\b/g.exec(navigator.userAgent) == null;
+
+  // If we are not in safari desktop, let the browser control
+  // the focus
+  if (!isSafariDesktop) return;
+
+  var x = tabbable.indexOf(document.activeElement);
+
+  if (x > -1) {
+    x += shiftKey ? -1 : 1;
+  }
+
   event.preventDefault();
-  var target = tabbable[event.shiftKey ? tabbable.length - 1 : 0];
-  target.focus();
+
+  tabbable[x].focus();
 }
 module.exports = exports["default"];
-},{"./tabbable":291}],291:[function(require,module,exports){
+},{"./tabbable":268}],268:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -51068,15 +48928,22 @@ exports.default = findTabbableDescendants;
 
 var tabbableNode = /input|select|textarea|button|object/;
 
-function hidden(el) {
-  return el.offsetWidth <= 0 && el.offsetHeight <= 0 || el.style.display === "none";
+function hidesContents(element) {
+  var zeroSize = element.offsetWidth <= 0 && element.offsetHeight <= 0;
+
+  // If the node is empty, this is good enough
+  if (zeroSize && !element.innerHTML) return true;
+
+  // Otherwise we need to check some styles
+  var style = window.getComputedStyle(element);
+  return zeroSize ? style.getPropertyValue("overflow") !== "visible" : style.getPropertyValue("display") == "none";
 }
 
 function visible(element) {
   var parentElement = element;
   while (parentElement) {
     if (parentElement === document.body) break;
-    if (hidden(parentElement)) return false;
+    if (hidesContents(parentElement)) return false;
     parentElement = parentElement.parentNode;
   }
   return true;
@@ -51099,7 +48966,7 @@ function findTabbableDescendants(element) {
   return [].slice.call(element.querySelectorAll("*"), 0).filter(tabbable);
 }
 module.exports = exports["default"];
-},{}],292:[function(require,module,exports){
+},{}],269:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -51114,7 +48981,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = _Modal2.default;
 module.exports = exports["default"];
-},{"./components/Modal":283}],293:[function(require,module,exports){
+},{"./components/Modal":260}],270:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -51203,7 +49070,7 @@ function createProvider() {
 
 exports.default = createProvider();
 }).call(this,require('_process'))
-},{"../utils/PropTypes":303,"../utils/warning":307,"_process":148,"prop-types":153,"react":334}],294:[function(require,module,exports){
+},{"../utils/PropTypes":280,"../utils/warning":284,"_process":125,"prop-types":130,"react":311}],271:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -51512,7 +49379,7 @@ selectorFactory) {
   };
 }
 }).call(this,require('_process'))
-},{"../utils/PropTypes":303,"../utils/Subscription":304,"_process":148,"hoist-non-react-statics":106,"invariant":109,"react":334}],295:[function(require,module,exports){
+},{"../utils/PropTypes":280,"../utils/Subscription":281,"_process":125,"hoist-non-react-statics":105,"invariant":107,"react":311}],272:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -51641,7 +49508,7 @@ function createConnect() {
 }
 
 exports.default = createConnect();
-},{"../components/connectAdvanced":294,"../utils/shallowEqual":305,"./mapDispatchToProps":296,"./mapStateToProps":297,"./mergeProps":298,"./selectorFactory":299}],296:[function(require,module,exports){
+},{"../components/connectAdvanced":271,"../utils/shallowEqual":282,"./mapDispatchToProps":273,"./mapStateToProps":274,"./mergeProps":275,"./selectorFactory":276}],273:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -51670,7 +49537,7 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 }
 
 exports.default = [whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject];
-},{"./wrapMapToProps":301,"redux":340}],297:[function(require,module,exports){
+},{"./wrapMapToProps":278,"redux":317}],274:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -51690,7 +49557,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 }
 
 exports.default = [whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing];
-},{"./wrapMapToProps":301}],298:[function(require,module,exports){
+},{"./wrapMapToProps":278}],275:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -51751,7 +49618,7 @@ function whenMergePropsIsOmitted(mergeProps) {
 
 exports.default = [whenMergePropsIsFunction, whenMergePropsIsOmitted];
 }).call(this,require('_process'))
-},{"../utils/verifyPlainObject":306,"_process":148}],299:[function(require,module,exports){
+},{"../utils/verifyPlainObject":283,"_process":125}],276:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -51867,7 +49734,7 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
   return selectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, options);
 }
 }).call(this,require('_process'))
-},{"./verifySubselectors":300,"_process":148}],300:[function(require,module,exports){
+},{"./verifySubselectors":277,"_process":125}],277:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -51894,7 +49761,7 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
   verify(mapDispatchToProps, 'mapDispatchToProps', displayName);
   verify(mergeProps, 'mergeProps', displayName);
 }
-},{"../utils/warning":307}],301:[function(require,module,exports){
+},{"../utils/warning":284}],278:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -51975,7 +49842,7 @@ function wrapMapToPropsFunc(mapToProps, methodName) {
   };
 }
 }).call(this,require('_process'))
-},{"../utils/verifyPlainObject":306,"_process":148}],302:[function(require,module,exports){
+},{"../utils/verifyPlainObject":283,"_process":125}],279:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -51999,7 +49866,7 @@ exports.Provider = _Provider2.default;
 exports.createProvider = _Provider.createProvider;
 exports.connectAdvanced = _connectAdvanced2.default;
 exports.connect = _connect2.default;
-},{"./components/Provider":293,"./components/connectAdvanced":294,"./connect/connect":295}],303:[function(require,module,exports){
+},{"./components/Provider":270,"./components/connectAdvanced":271,"./connect/connect":272}],280:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -52023,7 +49890,7 @@ var storeShape = exports.storeShape = _propTypes2.default.shape({
   dispatch: _propTypes2.default.func.isRequired,
   getState: _propTypes2.default.func.isRequired
 });
-},{"prop-types":153}],304:[function(require,module,exports){
+},{"prop-types":130}],281:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -52120,7 +49987,7 @@ var Subscription = function () {
 }();
 
 exports.default = Subscription;
-},{}],305:[function(require,module,exports){
+},{}],282:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -52155,7 +50022,7 @@ function shallowEqual(objA, objB) {
 
   return true;
 }
-},{}],306:[function(require,module,exports){
+},{}],283:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -52176,7 +50043,7 @@ function verifyPlainObject(value, displayName, methodName) {
     (0, _warning2.default)(methodName + '() in ' + displayName + ' must return a plain object. Instead received ' + value + '.');
   }
 }
-},{"./warning":307,"lodash/isPlainObject":121}],307:[function(require,module,exports){
+},{"./warning":284,"lodash/isPlainObject":119}],284:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -52202,7 +50069,7 @@ function warning(message) {
   } catch (e) {}
   /* eslint-enable no-empty */
 }
-},{}],308:[function(require,module,exports){
+},{}],285:[function(require,module,exports){
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['react','prop-types','create-react-class'], factory);
@@ -53066,19 +50933,17 @@ function warning(message) {
   return ReactSlider;
 }));
 
-},{"create-react-class":21,"prop-types":153,"react":334}],309:[function(require,module,exports){
-arguments[4][177][0].apply(exports,arguments)
-},{"dup":177}],310:[function(require,module,exports){
-arguments[4][179][0].apply(exports,arguments)
-},{"./reactProdInvariant":332,"_process":148,"dup":179,"fbjs/lib/invariant":44}],311:[function(require,module,exports){
+},{"create-react-class":21,"prop-types":130,"react":311}],286:[function(require,module,exports){
+arguments[4][154][0].apply(exports,arguments)
+},{"dup":154}],287:[function(require,module,exports){
+arguments[4][156][0].apply(exports,arguments)
+},{"./reactProdInvariant":309,"_process":125,"dup":156,"fbjs/lib/invariant":44}],288:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -53204,15 +51069,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = React;
 }).call(this,require('_process'))
-},{"./ReactBaseClasses":312,"./ReactChildren":313,"./ReactDOMFactories":316,"./ReactElement":317,"./ReactElementValidator":319,"./ReactPropTypes":322,"./ReactVersion":324,"./canDefineProperty":325,"./createClass":327,"./lowPriorityWarning":330,"./onlyChild":331,"_process":148,"object-assign":133}],312:[function(require,module,exports){
+},{"./ReactBaseClasses":289,"./ReactChildren":290,"./ReactDOMFactories":293,"./ReactElement":294,"./ReactElementValidator":296,"./ReactPropTypes":299,"./ReactVersion":301,"./canDefineProperty":302,"./createClass":304,"./lowPriorityWarning":307,"./onlyChild":308,"_process":125,"object-assign":123}],289:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -53349,14 +51212,12 @@ module.exports = {
   PureComponent: ReactPureComponent
 };
 }).call(this,require('_process'))
-},{"./ReactNoopUpdateQueue":320,"./canDefineProperty":325,"./lowPriorityWarning":330,"./reactProdInvariant":332,"_process":148,"fbjs/lib/emptyObject":37,"fbjs/lib/invariant":44,"object-assign":133}],313:[function(require,module,exports){
+},{"./ReactNoopUpdateQueue":297,"./canDefineProperty":302,"./lowPriorityWarning":307,"./reactProdInvariant":309,"_process":125,"fbjs/lib/emptyObject":37,"fbjs/lib/invariant":44,"object-assign":123}],290:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -53540,15 +51401,13 @@ var ReactChildren = {
 };
 
 module.exports = ReactChildren;
-},{"./PooledClass":310,"./ReactElement":317,"./traverseAllChildren":333,"fbjs/lib/emptyFunction":36}],314:[function(require,module,exports){
+},{"./PooledClass":287,"./ReactElement":294,"./traverseAllChildren":310,"fbjs/lib/emptyFunction":36}],291:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2016-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2016-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -53921,14 +51780,12 @@ var ReactComponentTreeHook = {
 
 module.exports = ReactComponentTreeHook;
 }).call(this,require('_process'))
-},{"./ReactCurrentOwner":315,"./reactProdInvariant":332,"_process":148,"fbjs/lib/invariant":44,"fbjs/lib/warning":51}],315:[function(require,module,exports){
+},{"./ReactCurrentOwner":292,"./reactProdInvariant":309,"_process":125,"fbjs/lib/invariant":44,"fbjs/lib/warning":51}],292:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -53950,15 +51807,13 @@ var ReactCurrentOwner = {
 };
 
 module.exports = ReactCurrentOwner;
-},{}],316:[function(require,module,exports){
+},{}],293:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -54121,15 +51976,13 @@ var ReactDOMFactories = {
 
 module.exports = ReactDOMFactories;
 }).call(this,require('_process'))
-},{"./ReactElement":317,"./ReactElementValidator":319,"_process":148}],317:[function(require,module,exports){
+},{"./ReactElement":294,"./ReactElementValidator":296,"_process":125}],294:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2014-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2014-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -54464,17 +52317,15 @@ ReactElement.isValidElement = function (object) {
 
 module.exports = ReactElement;
 }).call(this,require('_process'))
-},{"./ReactCurrentOwner":315,"./ReactElementSymbol":318,"./canDefineProperty":325,"_process":148,"fbjs/lib/warning":51,"object-assign":133}],318:[function(require,module,exports){
-arguments[4][206][0].apply(exports,arguments)
-},{"dup":206}],319:[function(require,module,exports){
+},{"./ReactCurrentOwner":292,"./ReactElementSymbol":295,"./canDefineProperty":302,"_process":125,"fbjs/lib/warning":51,"object-assign":123}],295:[function(require,module,exports){
+arguments[4][183][0].apply(exports,arguments)
+},{"dup":183}],296:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2014-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2014-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -54723,15 +52574,13 @@ var ReactElementValidator = {
 
 module.exports = ReactElementValidator;
 }).call(this,require('_process'))
-},{"./ReactComponentTreeHook":314,"./ReactCurrentOwner":315,"./ReactElement":317,"./canDefineProperty":325,"./checkReactTypeSpec":326,"./getIteratorFn":328,"./lowPriorityWarning":330,"_process":148,"fbjs/lib/warning":51}],320:[function(require,module,exports){
+},{"./ReactComponentTreeHook":291,"./ReactCurrentOwner":292,"./ReactElement":294,"./canDefineProperty":302,"./checkReactTypeSpec":303,"./getIteratorFn":305,"./lowPriorityWarning":307,"_process":125,"fbjs/lib/warning":51}],297:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2015-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -54820,16 +52669,14 @@ var ReactNoopUpdateQueue = {
 
 module.exports = ReactNoopUpdateQueue;
 }).call(this,require('_process'))
-},{"_process":148,"fbjs/lib/warning":51}],321:[function(require,module,exports){
-arguments[4][224][0].apply(exports,arguments)
-},{"_process":148,"dup":224}],322:[function(require,module,exports){
+},{"_process":125,"fbjs/lib/warning":51}],298:[function(require,module,exports){
+arguments[4][201][0].apply(exports,arguments)
+},{"_process":125,"dup":201}],299:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -54841,19 +52688,17 @@ var _require = require('./ReactElement'),
 var factory = require('prop-types/factory');
 
 module.exports = factory(isValidElement);
-},{"./ReactElement":317,"prop-types/factory":150}],323:[function(require,module,exports){
-arguments[4][225][0].apply(exports,arguments)
-},{"dup":225}],324:[function(require,module,exports){
-arguments[4][233][0].apply(exports,arguments)
-},{"dup":233}],325:[function(require,module,exports){
+},{"./ReactElement":294,"prop-types/factory":127}],300:[function(require,module,exports){
+arguments[4][202][0].apply(exports,arguments)
+},{"dup":202}],301:[function(require,module,exports){
+arguments[4][210][0].apply(exports,arguments)
+},{"dup":210}],302:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -54873,15 +52718,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = canDefineProperty;
 }).call(this,require('_process'))
-},{"_process":148}],326:[function(require,module,exports){
+},{"_process":125}],303:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -54962,14 +52805,12 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
 module.exports = checkReactTypeSpec;
 }).call(this,require('_process'))
-},{"./ReactComponentTreeHook":314,"./ReactPropTypeLocationNames":321,"./ReactPropTypesSecret":323,"./reactProdInvariant":332,"_process":148,"fbjs/lib/invariant":44,"fbjs/lib/warning":51}],327:[function(require,module,exports){
+},{"./ReactComponentTreeHook":291,"./ReactPropTypeLocationNames":298,"./ReactPropTypesSecret":300,"./reactProdInvariant":309,"_process":125,"fbjs/lib/invariant":44,"fbjs/lib/warning":51}],304:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -54985,16 +52826,14 @@ var ReactNoopUpdateQueue = require('./ReactNoopUpdateQueue');
 var factory = require('create-react-class/factory');
 
 module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
-},{"./ReactBaseClasses":312,"./ReactElement":317,"./ReactNoopUpdateQueue":320,"create-react-class/factory":20}],328:[function(require,module,exports){
-arguments[4][266][0].apply(exports,arguments)
-},{"dup":266}],329:[function(require,module,exports){
+},{"./ReactBaseClasses":289,"./ReactElement":294,"./ReactNoopUpdateQueue":297,"create-react-class/factory":20}],305:[function(require,module,exports){
+arguments[4][243][0].apply(exports,arguments)
+},{"dup":243}],306:[function(require,module,exports){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  * 
  */
@@ -55008,15 +52847,13 @@ function getNextDebugID() {
 }
 
 module.exports = getNextDebugID;
-},{}],330:[function(require,module,exports){
+},{}],307:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2014-2015, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2014-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -55075,15 +52912,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = lowPriorityWarning;
 }).call(this,require('_process'))
-},{"_process":148}],331:[function(require,module,exports){
+},{"_process":125}],308:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 'use strict';
@@ -55115,17 +52950,15 @@ function onlyChild(children) {
 
 module.exports = onlyChild;
 }).call(this,require('_process'))
-},{"./ReactElement":317,"./reactProdInvariant":332,"_process":148,"fbjs/lib/invariant":44}],332:[function(require,module,exports){
-arguments[4][275][0].apply(exports,arguments)
-},{"dup":275}],333:[function(require,module,exports){
+},{"./ReactElement":294,"./reactProdInvariant":309,"_process":125,"fbjs/lib/invariant":44}],309:[function(require,module,exports){
+arguments[4][252][0].apply(exports,arguments)
+},{"dup":252}],310:[function(require,module,exports){
 (function (process){
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
+ * Copyright (c) 2013-present, Facebook, Inc.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
  */
 
@@ -55295,12 +53128,12 @@ function traverseAllChildren(children, callback, traverseContext) {
 
 module.exports = traverseAllChildren;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":309,"./ReactCurrentOwner":315,"./ReactElementSymbol":318,"./getIteratorFn":328,"./reactProdInvariant":332,"_process":148,"fbjs/lib/invariant":44,"fbjs/lib/warning":51}],334:[function(require,module,exports){
+},{"./KeyEscapeUtils":286,"./ReactCurrentOwner":292,"./ReactElementSymbol":295,"./getIteratorFn":305,"./reactProdInvariant":309,"_process":125,"fbjs/lib/invariant":44,"fbjs/lib/warning":51}],311:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":311}],335:[function(require,module,exports){
+},{"./lib/React":288}],312:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -55359,7 +53192,7 @@ function applyMiddleware() {
     };
   };
 }
-},{"./compose":338}],336:[function(require,module,exports){
+},{"./compose":315}],313:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -55411,7 +53244,7 @@ function bindActionCreators(actionCreators, dispatch) {
   }
   return boundActionCreators;
 }
-},{}],337:[function(require,module,exports){
+},{}],314:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -55557,7 +53390,7 @@ function combineReducers(reducers) {
   };
 }
 }).call(this,require('_process'))
-},{"./createStore":339,"./utils/warning":341,"_process":148,"lodash/isPlainObject":121}],338:[function(require,module,exports){
+},{"./createStore":316,"./utils/warning":318,"_process":125,"lodash/isPlainObject":119}],315:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -55594,7 +53427,7 @@ function compose() {
     };
   });
 }
-},{}],339:[function(require,module,exports){
+},{}],316:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -55856,7 +53689,7 @@ var ActionTypes = exports.ActionTypes = {
     replaceReducer: replaceReducer
   }, _ref2[_symbolObservable2['default']] = observable, _ref2;
 }
-},{"lodash/isPlainObject":121,"symbol-observable":344}],340:[function(require,module,exports){
+},{"lodash/isPlainObject":119,"symbol-observable":321}],317:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -55905,7 +53738,7 @@ exports.bindActionCreators = _bindActionCreators2['default'];
 exports.applyMiddleware = _applyMiddleware2['default'];
 exports.compose = _compose2['default'];
 }).call(this,require('_process'))
-},{"./applyMiddleware":335,"./bindActionCreators":336,"./combineReducers":337,"./compose":338,"./createStore":339,"./utils/warning":341,"_process":148}],341:[function(require,module,exports){
+},{"./applyMiddleware":312,"./bindActionCreators":313,"./combineReducers":314,"./compose":315,"./createStore":316,"./utils/warning":318,"_process":125}],318:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -55931,7 +53764,7 @@ function warning(message) {
   } catch (e) {}
   /* eslint-enable no-empty */
 }
-},{}],342:[function(require,module,exports){
+},{}],319:[function(require,module,exports){
 /*!
  * repeat-string <https://github.com/jonschlinkert/repeat-string>
  *
@@ -56003,7 +53836,7 @@ function repeat(str, num) {
   return res;
 }
 
-},{}],343:[function(require,module,exports){
+},{}],320:[function(require,module,exports){
 /* global window, exports, define */
 
 !function() {
@@ -56223,10 +54056,10 @@ function repeat(str, num) {
     /* eslint-enable quote-props */
 }()
 
-},{}],344:[function(require,module,exports){
+},{}],321:[function(require,module,exports){
 module.exports = require('./lib/index');
 
-},{"./lib/index":345}],345:[function(require,module,exports){
+},{"./lib/index":322}],322:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -56234,7 +54067,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _ponyfill = require('./ponyfill');
+var _ponyfill = require('./ponyfill.js');
 
 var _ponyfill2 = _interopRequireDefault(_ponyfill);
 
@@ -56258,7 +54091,7 @@ if (typeof self !== 'undefined') {
 var result = (0, _ponyfill2['default'])(root);
 exports['default'] = result;
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./ponyfill":346}],346:[function(require,module,exports){
+},{"./ponyfill.js":323}],323:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -56282,7 +54115,7 @@ function symbolObservablePonyfill(root) {
 
 	return result;
 };
-},{}],347:[function(require,module,exports){
+},{}],324:[function(require,module,exports){
 (function (global,Buffer){
 'use strict'
 
@@ -56499,7 +54332,7 @@ exports.clearCache = function clearCache() {
   }
 }
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer)
-},{"bit-twiddle":17,"buffer":18,"dup":26}],348:[function(require,module,exports){
+},{"bit-twiddle":17,"buffer":18,"dup":26}],325:[function(require,module,exports){
 "use strict"
 
 function unique_pred(list, compare) {
@@ -56558,16 +54391,39 @@ function unique(list, compare, sorted) {
 
 module.exports = unique
 
-},{}],349:[function(require,module,exports){
-arguments[4][108][0].apply(exports,arguments)
-},{"dup":108}],350:[function(require,module,exports){
+},{}],326:[function(require,module,exports){
+if (typeof Object.create === 'function') {
+  // implementation from standard node.js 'util' module
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    ctor.prototype = Object.create(superCtor.prototype, {
+      constructor: {
+        value: ctor,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+  };
+} else {
+  // old school shim for old browsers
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    var TempCtor = function () {}
+    TempCtor.prototype = superCtor.prototype
+    ctor.prototype = new TempCtor()
+    ctor.prototype.constructor = ctor
+  }
+}
+
+},{}],327:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],351:[function(require,module,exports){
+},{}],328:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -57157,7 +55013,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":350,"_process":148,"inherits":349}],352:[function(require,module,exports){
+},{"./support/isBuffer":327,"_process":125,"inherits":326}],329:[function(require,module,exports){
 var v1 = require('./v1');
 var v4 = require('./v4');
 
@@ -57167,7 +55023,7 @@ uuid.v4 = v4;
 
 module.exports = uuid;
 
-},{"./v1":355,"./v4":356}],353:[function(require,module,exports){
+},{"./v1":332,"./v4":333}],330:[function(require,module,exports){
 /**
  * Convert array of 16 byte values to UUID string format of the form:
  * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -57192,7 +55048,7 @@ function bytesToUuid(buf, offset) {
 
 module.exports = bytesToUuid;
 
-},{}],354:[function(require,module,exports){
+},{}],331:[function(require,module,exports){
 (function (global){
 // Unique ID creation requires a high quality random # generator.  In the
 // browser this is a little complicated due to unknown quality of Math.random()
@@ -57229,7 +55085,7 @@ if (!rng) {
 module.exports = rng;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],355:[function(require,module,exports){
+},{}],332:[function(require,module,exports){
 var rng = require('./lib/rng');
 var bytesToUuid = require('./lib/bytesToUuid');
 
@@ -57331,7 +55187,7 @@ function v1(options, buf, offset) {
 
 module.exports = v1;
 
-},{"./lib/bytesToUuid":353,"./lib/rng":354}],356:[function(require,module,exports){
+},{"./lib/bytesToUuid":330,"./lib/rng":331}],333:[function(require,module,exports){
 var rng = require('./lib/rng');
 var bytesToUuid = require('./lib/bytesToUuid');
 
@@ -57362,7 +55218,71 @@ function v4(options, buf, offset) {
 
 module.exports = v4;
 
-},{"./lib/bytesToUuid":353,"./lib/rng":354}],357:[function(require,module,exports){
+},{"./lib/bytesToUuid":330,"./lib/rng":331}],334:[function(require,module,exports){
+(function (process){
+/**
+ * Copyright 2014-2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+'use strict';
+
+/**
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+
+var warning = function() {};
+
+if (process.env.NODE_ENV !== 'production') {
+  warning = function(condition, format, args) {
+    var len = arguments.length;
+    args = new Array(len > 2 ? len - 2 : 0);
+    for (var key = 2; key < len; key++) {
+      args[key - 2] = arguments[key];
+    }
+    if (format === undefined) {
+      throw new Error(
+        '`warning(condition, format, ...args)` requires a warning ' +
+        'message argument'
+      );
+    }
+
+    if (format.length < 10 || (/^[s\W]*$/).test(format)) {
+      throw new Error(
+        'The warning format should be able to uniquely identify this ' +
+        'warning. Please, use a more descriptive format than: ' + format
+      );
+    }
+
+    if (!condition) {
+      var argIndex = 0;
+      var message = 'Warning: ' +
+        format.replace(/%s/g, function() {
+          return args[argIndex++];
+        });
+      if (typeof console !== 'undefined') {
+        console.error(message);
+      }
+      try {
+        // This error was thrown as a convenience so that you can use this stack
+        // to find the callsite that caused this warning to fire.
+        throw new Error(message);
+      } catch(x) {}
+    }
+  };
+}
+
+module.exports = warning;
+
+}).call(this,require('_process'))
+},{"_process":125}],335:[function(require,module,exports){
 // Copyright (C) 2011 Google Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -58049,7 +55969,7 @@ module.exports = v4;
   }
 })();
 
-},{}],358:[function(require,module,exports){
+},{}],336:[function(require,module,exports){
 var hiddenStore = require('./hidden-store.js');
 
 module.exports = createStore;
@@ -58070,7 +55990,7 @@ function createStore() {
     };
 }
 
-},{"./hidden-store.js":359}],359:[function(require,module,exports){
+},{"./hidden-store.js":337}],337:[function(require,module,exports){
 module.exports = hiddenStore;
 
 function hiddenStore(obj, key) {
@@ -58088,7 +56008,7 @@ function hiddenStore(obj, key) {
     return store;
 }
 
-},{}],360:[function(require,module,exports){
+},{}],338:[function(require,module,exports){
 // Original - @Gozola.
 // https://gist.github.com/Gozala/1269991
 // This is a reimplemented version (with a few bug fixes).
@@ -58119,90 +56039,7 @@ function weakMap() {
     }
 }
 
-},{"./create-store.js":358}],361:[function(require,module,exports){
-var bundleFn = arguments[3];
-var sources = arguments[4];
-var cache = arguments[5];
-
-var stringify = JSON.stringify;
-
-module.exports = function (fn, options) {
-    var wkey;
-    var cacheKeys = Object.keys(cache);
-
-    for (var i = 0, l = cacheKeys.length; i < l; i++) {
-        var key = cacheKeys[i];
-        var exp = cache[key].exports;
-        // Using babel as a transpiler to use esmodule, the export will always
-        // be an object with the default export as a property of it. To ensure
-        // the existing api and babel esmodule exports are both supported we
-        // check for both
-        if (exp === fn || exp && exp.default === fn) {
-            wkey = key;
-            break;
-        }
-    }
-
-    if (!wkey) {
-        wkey = Math.floor(Math.pow(16, 8) * Math.random()).toString(16);
-        var wcache = {};
-        for (var i = 0, l = cacheKeys.length; i < l; i++) {
-            var key = cacheKeys[i];
-            wcache[key] = key;
-        }
-        sources[wkey] = [
-            Function(['require','module','exports'], '(' + fn + ')(self)'),
-            wcache
-        ];
-    }
-    var skey = Math.floor(Math.pow(16, 8) * Math.random()).toString(16);
-
-    var scache = {}; scache[wkey] = wkey;
-    sources[skey] = [
-        Function(['require'], (
-            // try to call default if defined to also support babel esmodule
-            // exports
-            'var f = require(' + stringify(wkey) + ');' +
-            '(f.default ? f.default : f)(self);'
-        )),
-        scache
-    ];
-
-    var workerSources = {};
-    resolveSources(skey);
-
-    function resolveSources(key) {
-        workerSources[key] = true;
-
-        for (var depPath in sources[key][1]) {
-            var depKey = sources[key][1][depPath];
-            if (!workerSources[depKey]) {
-                resolveSources(depKey);
-            }
-        }
-    }
-
-    var src = '(' + bundleFn + ')({'
-        + Object.keys(workerSources).map(function (key) {
-            return stringify(key) + ':['
-                + sources[key][0]
-                + ',' + stringify(sources[key][1]) + ']'
-            ;
-        }).join(',')
-        + '},{},[' + stringify(skey) + '])'
-    ;
-
-    var URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
-
-    var blob = new Blob([src], { type: 'text/javascript' });
-    if (options && options.bare) { return blob; }
-    var workerUrl = URL.createObjectURL(blob);
-    var worker = new Worker(workerUrl);
-    worker.objectURL = workerUrl;
-    return worker;
-};
-
-},{}],362:[function(require,module,exports){
+},{"./create-store.js":336}],339:[function(require,module,exports){
 "use strict";
 
 function createThumbnail(img, size) {
@@ -58228,7 +56065,7 @@ function createThumbnail(img, size) {
 
 module.exports = createThumbnail;
 
-},{}],363:[function(require,module,exports){
+},{}],340:[function(require,module,exports){
 "use strict";
 
 var textureFromArray = require("./texture_from_array");
@@ -58258,8 +56095,10 @@ module.exports = {
   setUniformForCurves: setUniformForCurves
 };
 
-},{"./texture_from_array":368}],364:[function(require,module,exports){
+},{"./texture_from_array":344}],341:[function(require,module,exports){
 "use strict";
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _slicedToArray = function () {
   function sliceIterator(arr, i) {
@@ -58316,12 +56155,12 @@ function _classCallCheck(instance, Constructor) {
 function _possibleConstructorReturn(self, call) {
   if (!self) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
 }
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
   }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
@@ -59362,7 +57201,7 @@ _.keys(ExposureSettings.PROPS).forEach(function (key) {
 
 module.exports = ExposureSettings;
 
-},{"./curves":363,"assert":14,"cat-rom-spline":19,"events":27,"lodash":122}],365:[function(require,module,exports){
+},{"./curves":340,"assert":14,"cat-rom-spline":19,"events":27,"lodash":120}],342:[function(require,module,exports){
 "use strict";
 
 var _createClass = function () {
@@ -59382,9 +57221,9 @@ function _classCallCheck(instance, Constructor) {
 }
 
 var glShader = require("gl-shader");
-var glslify = require("glslify");
 var glFbo = require("gl-fbo");
 var _draw = require("a-big-triangle");
+var glslify = require("glslify");
 var ExposureSettings = require("./exposure_settings");
 var _ = require("lodash");
 
@@ -59393,7 +57232,7 @@ var Filter = function () {
     _classCallCheck(this, Filter);
 
     this.gl = gl;
-    this.shader = glShader(this.gl, glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}"]), glslify(["precision mediump float;\n#define GLSLIFY 1\n#define GLSLIFY 1\nvarying vec2 screenPosition;\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\n// these control the curves settings\n// each texture represents the mapping of color values\nuniform sampler2D rgb_curve_points;\nuniform bool rgb_curve_enabled;\n\nuniform sampler2D r_curve_points;\nuniform bool r_curve_enabled;\n\nuniform sampler2D g_curve_points;\nuniform bool g_curve_enabled;\n\nuniform sampler2D b_curve_points;\nuniform bool b_curve_enabled;\n\n// HSL\nuniform float hue;\nuniform float saturation;\nuniform float lightness;\n\nuniform float cyans_hue;\nuniform float cyans_saturation;\n\nuniform float magentas_hue;\nuniform float magentas_saturation;\n\nuniform float yellows_hue;\nuniform float yellows_saturation;\n\nuniform float reds_hue;\nuniform float reds_saturation;\n\nuniform float greens_hue;\nuniform float greens_saturation;\n\nuniform float blues_hue;\nuniform float blues_saturation;\n\n// selective color controls\nuniform float cyans_cyan_shift;\nuniform float cyans_magenta_shift;\nuniform float cyans_yellow_shift;\nuniform float cyans_black_shift;\nuniform float cyans_red_shift;\nuniform float cyans_green_shift;\nuniform float cyans_blue_shift;\nuniform float cyans_gray_shift;\nuniform float cyans_white_shift;\n\nuniform float magentas_cyan_shift;\nuniform float magentas_magenta_shift;\nuniform float magentas_yellow_shift;\nuniform float magentas_black_shift;\nuniform float magentas_red_shift;\nuniform float magentas_green_shift;\nuniform float magentas_blue_shift;\nuniform float magentas_gray_shift;\nuniform float magentas_white_shift;\n\nuniform float yellows_cyan_shift;\nuniform float yellows_magenta_shift;\nuniform float yellows_yellow_shift;\nuniform float yellows_black_shift;\nuniform float yellows_red_shift;\nuniform float yellows_green_shift;\nuniform float yellows_blue_shift;\nuniform float yellows_gray_shift;\nuniform float yellows_white_shift;\n\nuniform float reds_cyan_shift;\nuniform float reds_magenta_shift;\nuniform float reds_yellow_shift;\nuniform float reds_black_shift;\nuniform float reds_red_shift;\nuniform float reds_green_shift;\nuniform float reds_blue_shift;\nuniform float reds_gray_shift;\nuniform float reds_white_shift;\n\nuniform float greens_cyan_shift;\nuniform float greens_magenta_shift;\nuniform float greens_yellow_shift;\nuniform float greens_black_shift;\nuniform float greens_red_shift;\nuniform float greens_green_shift;\nuniform float greens_blue_shift;\nuniform float greens_gray_shift;\nuniform float greens_white_shift;\n\nuniform float blues_cyan_shift;\nuniform float blues_magenta_shift;\nuniform float blues_yellow_shift;\nuniform float blues_black_shift;\nuniform float blues_red_shift;\nuniform float blues_green_shift;\nuniform float blues_blue_shift;\nuniform float blues_gray_shift;\nuniform float blues_white_shift;\n\nuniform float blacks_cyan_shift;\nuniform float blacks_magenta_shift;\nuniform float blacks_yellow_shift;\nuniform float blacks_black_shift;\nuniform float blacks_red_shift;\nuniform float blacks_green_shift;\nuniform float blacks_blue_shift;\nuniform float blacks_gray_shift;\nuniform float blacks_white_shift;\n\nuniform float grays_cyan_shift;\nuniform float grays_magenta_shift;\nuniform float grays_yellow_shift;\nuniform float grays_black_shift;\nuniform float grays_red_shift;\nuniform float grays_green_shift;\nuniform float grays_blue_shift;\nuniform float grays_gray_shift;\nuniform float grays_white_shift;\n\nuniform float whites_cyan_shift;\nuniform float whites_magenta_shift;\nuniform float whites_yellow_shift;\nuniform float whites_black_shift;\nuniform float whites_red_shift;\nuniform float whites_green_shift;\nuniform float whites_blue_shift;\nuniform float whites_gray_shift;\nuniform float whites_white_shift;\n\nfloat mix_factor(vec4 range, vec3 hsl) {\n  float mix_factor = 0.0;\n\n  if (hsl.x >= range.x && hsl.x <= range.w) {\n    // lower range\n    if (hsl.x >= range.x && hsl.x < range.y) {\n      mix_factor = smoothstep(range.x, range.y, hsl.x);\n    }\n\n    // target range\n    if (hsl.x >= range.y && hsl.x <= range.z) {\n      mix_factor = 1.0;\n    }\n\n    // upper range\n    if (hsl.x > range.z && hsl.x <= range.w) {\n      mix_factor = 1.0 - smoothstep(range.z, range.w, hsl.x);\n    }\n  }\n\n  vec2 lightness_range = vec2(0.0, 0.08333);\n  vec2 saturation_range = vec2(0.0, 0.08333);\n  mix_factor *= smoothstep(saturation_range.x, saturation_range.y, hsl.y);\n  mix_factor *= smoothstep(lightness_range.x, lightness_range.y, hsl.z);\n\n  return mix_factor;\n}\n\n// Returns a number between 0 and 1 as if the number line is circular\n// 1.1 => 0.1\n// -0.1 => 0.9\nfloat clamp_continuous(float value) {\n  float unit = value;\n\n  if (unit > 1.0) {\n    unit = mod(unit, 1.0);\n  } else if (unit < 0.0) {\n    unit = 1.0 + unit;\n  }\n\n  return unit;\n}\n\n// These functions based on http://www.chilliant.com/rgb2hsv.html\nvec3 HUEtoRGB(float h) {\n  float r = abs(h * 6.0 - 3.0) - 1.0;\n  float g = 2.0 - abs(h * 6.0 - 2.0);\n  float b = 2.0 - abs(h * 6.0 - 4.0);\n  return clamp(vec3(r, g, b), 0.0, 1.0);\n}\n\nvec3 RGBtoHCV(vec3 RGB) {\n  float Epsilon = 0.00000000001;\n  // Based on work by Sam Hocevar and Emil Persson\n  vec4 P = (RGB.g < RGB.b) ? vec4(RGB.bg, -1.0, 2.0/3.0) : vec4(RGB.gb, 0.0, -1.0/3.0);\n  vec4 Q = (RGB.r < P.x) ? vec4(P.xyw, RGB.r) : vec4(RGB.r, P.yzx);\n  float C = Q.x - min(Q.w, Q.y);\n  float H = abs((Q.w - Q.y) / (6.0 * C + Epsilon) + Q.z);\n  return vec3(H, C, Q.x);\n}\n\nvec3 RGBtoHSL(vec3 RGB) {\n  float Epsilon = 0.00000000001;\n  vec3 HCV = RGBtoHCV(RGB);\n  float L = HCV.z - HCV.y * 0.5;\n  float S = HCV.y / (1.0 - abs(L * 2.0 - 1.0) + Epsilon);\n  return vec3(HCV.x, S, L);\n}\n\nvec3 HSLtoRGB(vec3 HSL) {\n  vec3 RGB = HUEtoRGB(HSL.x);\n  float C = (1.0 - abs(2.0 * HSL.z - 1.0)) * HSL.y;\n  return (RGB - 0.5) * C + HSL.z;\n}\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n  color.a = 1.0;\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n  color.a = 1.0;\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n  color.a = 1.0;\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n  color.a = 1.0;\n\n  // Then adjust channels seperately\n  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);\n  color.r = pow(color.r, (1.0 / r_gamma));\n  color.r = mix(r_out_min, r_out_max, color.r);\n  color.a = 1.0;\n\n  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);\n  color.g = pow(color.g, (1.0 / g_gamma));\n  color.g = mix(g_out_min, g_out_max, color.g);\n  color.a = 1.0;\n\n  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);\n  color.b = pow(color.b, (1.0 / b_gamma));\n  color.b = mix(b_out_min, b_out_max, color.b);\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////   curves   /////////\n  ////////////////////////////\n\n  // rgb curves\n  if (rgb_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n\n    float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;\n    float out_g = texture2D(rgb_curve_points, vec2(in_g, 0.5)).x;\n    float out_b = texture2D(rgb_curve_points, vec2(in_b, 0.5)).x;\n\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  // r curves\n  if (r_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float out_r = texture2D(r_curve_points, vec2(in_r, 0.5)).x;\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n  }\n\n  // g curves\n  if (g_curve_enabled) {\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float out_g = texture2D(g_curve_points, vec2(in_g, 0.5)).x;\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n  }\n\n  // b curves\n  if (b_curve_enabled) {\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n    float out_b = texture2D(b_curve_points, vec2(in_b, 0.5)).x;\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  ////////////////////////////\n  ////         HSL        ////\n  ////////////////////////////\n\n  vec3 hsl = RGBtoHSL(color.rgb);\n\n  // Color ranges here\n  // https://gist.github.com/actionnick/d184d17e39d1669759204bcb8eaad501\n\n  vec4 MASTER_RANGE = vec4(0.0, 0.0, 1.0, 1.0);\n  vec4 CYAN_RANGE = vec4(0.375, 0.4583, 0.54167, 0.625);\n  vec4 MAGENTA_RANGE = vec4(0.7083, 0.79167, 0.875, 0.9583);\n  vec4 YELLOW_RANGE = vec4(0.04167, 0.125, 0.2083, 0.29167);\n  vec4 RED_RANGE_1 = vec4(0.875, 0.9583, 1.0, 1.0); // Red is a special case because it goes from 315 -> 45 degrees\n  vec4 RED_RANGE_2 = vec4(0.0, 0.0, 0.04167, 0.125);\n  vec4 GREEN_RANGE = vec4(0.2083, 0.29167, 0.375, 0.4583);\n  vec4 BLUE_RANGE = vec4(0.54167, 0.625, 0.7083, 0.79167);\n\n  // Master\n  float master_mix_factor = mix_factor(MASTER_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (hue * master_mix_factor));\n  hsl.y = clamp(hsl.y + (saturation * master_mix_factor), 0.0, 1.0);\n  hsl.z = clamp(mix(hsl.z, 1.0, max(0.0, lightness)), 0.0, 1.0);\n  hsl.z = clamp(mix(hsl.z, 0.0, abs(min(0.0, lightness))), 0.0, 1.0);\n\n  // Cyan\n  float cyans_mix_factor = mix_factor(CYAN_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (cyans_hue * cyans_mix_factor));\n  hsl.y = clamp(hsl.y + (cyans_saturation * cyans_mix_factor), 0.0, 1.0);\n\n  // Magentas\n  float magentas_mix_factor = mix_factor(MAGENTA_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (magentas_hue * magentas_mix_factor));\n  hsl.y = clamp(hsl.y + (magentas_saturation * magentas_mix_factor), 0.0, 1.0);\n\n  // Yellows\n  float yellows_mix_factor = mix_factor(YELLOW_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (yellows_hue * yellows_mix_factor));\n  hsl.y = clamp(hsl.y + (yellows_saturation * yellows_mix_factor), 0.0, 1.0);\n\n  // Reds\n  float reds_mix_factor = max(mix_factor(RED_RANGE_1, hsl), mix_factor(RED_RANGE_2, hsl));\n  hsl.x = clamp_continuous(hsl.x + (reds_hue * reds_mix_factor));\n  hsl.y = clamp(hsl.y + (reds_saturation * reds_mix_factor), 0.0, 1.0);\n\n  // Greens\n  float greens_mix_factor = mix_factor(GREEN_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (greens_hue * greens_mix_factor));\n  hsl.y = clamp(hsl.y + (greens_saturation * greens_mix_factor), 0.0, 1.0);\n\n  // Blues\n  float blues_mix_factor = mix_factor(BLUE_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (blues_hue * blues_mix_factor));\n  hsl.y = clamp(hsl.y + (blues_saturation * blues_mix_factor), 0.0, 1.0);\n\n  color.rgb = HSLtoRGB(hsl);\n\n  ////////////////////////////\n  ////  selective color   ////\n  ////////////////////////////\n\n  vec3 CYAN = vec3(0.0, 1.0, 1.0);\n  vec3 MAGENTA = vec3(1.0, 0.0, 1.0);\n  vec3 YELLOW = vec3(1.0, 1.0, 0.0);\n  vec3 BLACK = vec3(0.0, 0.0, 0.0);\n  vec3 RED = vec3(1.0, 0.0, 0.0);\n  vec3 GREEN = vec3(0.0, 1.0, 0.0);\n  vec3 BLUE = vec3(0.0, 0.0, 1.0);\n  vec3 WHITE = vec3(1.0, 1.0, 1.0);\n  vec3 GRAY = vec3(0.5, 0.5, 0.5);\n  float MAX_DISTANCE = length(vec3(1.0, 1.0, 1.0));\n\n  // cyans\n  color.rgb = mix(color.rgb, (CYAN * color.rgb), cyans_mix_factor * cyans_cyan_shift);\n  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), cyans_mix_factor * cyans_magenta_shift);\n  color.rgb = mix(color.rgb, (YELLOW * color.rgb), cyans_mix_factor * cyans_yellow_shift);\n  color.rgb = mix(color.rgb, (RED * color.rgb), cyans_mix_factor * cyans_red_shift);\n  color.rgb = mix(color.rgb, (GREEN * color.rgb), cyans_mix_factor * cyans_green_shift);\n  color.rgb = mix(color.rgb, (BLUE * color.rgb), cyans_mix_factor * cyans_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, cyans_mix_factor * cyans_white_shift);\n  color.rgb = mix(color.rgb, GRAY, cyans_mix_factor * cyans_gray_shift);\n  color.rgb = mix(color.rgb, BLACK, cyans_mix_factor * cyans_black_shift);\n\n  // magentas\n  color.rgb = mix(color.rgb, (CYAN * color.rgb), magentas_mix_factor * magentas_cyan_shift);\n  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), magentas_mix_factor * magentas_magenta_shift);\n  color.rgb = mix(color.rgb, (YELLOW * color.rgb), magentas_mix_factor * magentas_yellow_shift);\n  color.rgb = mix(color.rgb, (RED * color.rgb), magentas_mix_factor * magentas_red_shift);\n  color.rgb = mix(color.rgb, (GREEN * color.rgb), magentas_mix_factor * magentas_green_shift);\n  color.rgb = mix(color.rgb, (BLUE * color.rgb), magentas_mix_factor * magentas_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, magentas_mix_factor * magentas_white_shift);\n  color.rgb = mix(color.rgb, GRAY, magentas_mix_factor * magentas_gray_shift);\n  color.rgb = mix(color.rgb, BLACK, magentas_mix_factor * magentas_black_shift);\n\n  // yellows\n  color.rgb = mix(color.rgb, (CYAN * color.rgb), yellows_mix_factor * yellows_cyan_shift);\n  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), yellows_mix_factor * yellows_magenta_shift);\n  color.rgb = mix(color.rgb, (YELLOW * color.rgb), yellows_mix_factor * yellows_yellow_shift);\n  color.rgb = mix(color.rgb, (RED * color.rgb), yellows_mix_factor * yellows_red_shift);\n  color.rgb = mix(color.rgb, (GREEN * color.rgb), yellows_mix_factor * yellows_green_shift);\n  color.rgb = mix(color.rgb, (BLUE * color.rgb), yellows_mix_factor * yellows_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, yellows_mix_factor * yellows_white_shift);\n  color.rgb = mix(color.rgb, GRAY, yellows_mix_factor * yellows_gray_shift);\n  color.rgb = mix(color.rgb, BLACK, yellows_mix_factor * yellows_black_shift);\n\n  // reds\n  color.rgb = mix(color.rgb, (CYAN * color.rgb), reds_mix_factor * reds_cyan_shift);\n  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), reds_mix_factor * reds_magenta_shift);\n  color.rgb = mix(color.rgb, (YELLOW * color.rgb), reds_mix_factor * reds_yellow_shift);\n  color.rgb = mix(color.rgb, (RED * color.rgb), reds_mix_factor * reds_red_shift);\n  color.rgb = mix(color.rgb, (GREEN * color.rgb), reds_mix_factor * reds_green_shift);\n  color.rgb = mix(color.rgb, (BLUE * color.rgb), reds_mix_factor * reds_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, reds_mix_factor * reds_white_shift);\n  color.rgb = mix(color.rgb, GRAY, reds_mix_factor * reds_gray_shift);\n  color.rgb = mix(color.rgb, BLACK, reds_mix_factor * reds_black_shift);\n\n  // greens\n  color.rgb = mix(color.rgb, (CYAN * color.rgb), greens_mix_factor * greens_cyan_shift);\n  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), greens_mix_factor * greens_magenta_shift);\n  color.rgb = mix(color.rgb, (YELLOW * color.rgb), greens_mix_factor * greens_yellow_shift);\n  color.rgb = mix(color.rgb, (RED * color.rgb), greens_mix_factor * greens_red_shift);\n  color.rgb = mix(color.rgb, (GREEN * color.rgb), greens_mix_factor * greens_green_shift);\n  color.rgb = mix(color.rgb, (BLUE * color.rgb), greens_mix_factor * greens_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, greens_mix_factor * greens_white_shift);\n  color.rgb = mix(color.rgb, GRAY, greens_mix_factor * greens_gray_shift);\n  color.rgb = mix(color.rgb, BLACK, greens_mix_factor * greens_black_shift);\n\n  // blues\n  color.rgb = mix(color.rgb, (CYAN * color.rgb), blues_mix_factor * blues_cyan_shift);\n  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), blues_mix_factor * blues_magenta_shift);\n  color.rgb = mix(color.rgb, (YELLOW * color.rgb), blues_mix_factor * blues_yellow_shift);\n  color.rgb = mix(color.rgb, (RED * color.rgb), blues_mix_factor * blues_red_shift);\n  color.rgb = mix(color.rgb, (GREEN * color.rgb), blues_mix_factor * blues_green_shift);\n  color.rgb = mix(color.rgb, (BLUE * color.rgb), blues_mix_factor * blues_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, blues_mix_factor * blues_white_shift);\n  color.rgb = mix(color.rgb, GRAY, blues_mix_factor * blues_gray_shift);\n  color.rgb = mix(color.rgb, BLACK, blues_mix_factor * blues_black_shift);\n\n  // blacks\n  float black_distance = length(BLACK - color.rgb);\n  float black_mix_factor = pow(1.0 - (black_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, black_mix_factor * blacks_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, black_mix_factor * blacks_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, black_mix_factor * blacks_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, black_mix_factor * blacks_black_shift);\n  color.rgb = mix(color.rgb, RED, black_mix_factor * blacks_red_shift);\n  color.rgb = mix(color.rgb, GREEN, black_mix_factor * blacks_green_shift);\n  color.rgb = mix(color.rgb, BLUE, black_mix_factor * blacks_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, black_mix_factor * blacks_white_shift);\n  color.rgb = mix(color.rgb, GRAY, black_mix_factor * blacks_gray_shift);\n\n  // grays\n  float gray_distance = length(GRAY - color.rgb);\n  float gray_mix_factor = pow(1.0 - (gray_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, gray_mix_factor * grays_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, gray_mix_factor * grays_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, gray_mix_factor * grays_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, gray_mix_factor * grays_black_shift);\n  color.rgb = mix(color.rgb, RED, gray_mix_factor * grays_red_shift);\n  color.rgb = mix(color.rgb, GREEN, gray_mix_factor * grays_green_shift);\n  color.rgb = mix(color.rgb, BLUE, gray_mix_factor * grays_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, gray_mix_factor * grays_white_shift);\n  color.rgb = mix(color.rgb, GRAY, gray_mix_factor * grays_gray_shift);\n\n  // whites\n  float white_distance = length(WHITE - color.rgb);\n  float white_mix_factor = pow(1.0 - (white_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, white_mix_factor * whites_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, white_mix_factor * whites_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, white_mix_factor * whites_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, white_mix_factor * whites_black_shift);\n  color.rgb = mix(color.rgb, RED, white_mix_factor * whites_red_shift);\n  color.rgb = mix(color.rgb, GREEN, white_mix_factor * whites_green_shift);\n  color.rgb = mix(color.rgb, BLUE, white_mix_factor * whites_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, white_mix_factor * whites_white_shift);\n  color.rgb = mix(color.rgb, GRAY, white_mix_factor * whites_gray_shift);\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n"]));
+    this.shader = glShader(this.gl, "precision mediump float;\n#define GLSLIFY 1\n\nattribute vec2 position;\nvarying vec2 screenPosition;\n\nvoid main() {\n  screenPosition = (position + 1.0) * 0.5;\n  gl_Position = vec4(position, 1.0, 1.0);\n}", "precision mediump float;\n#define GLSLIFY 1\nvarying vec2 screenPosition;\nuniform sampler2D texture;\n\n// controls brightness\n// min - 0\n// max - 2\n// default - 1\nuniform float brightness;\n\n// controls contrast\n// min - 0.0\n// max - 3.0\n// default - 1.0\nuniform float contrast;\n\n// determines which values are raised and which are lowered\n// min - 0.0\n// max - 1.0\n// default - 0.5\nuniform float mid;\n\n// these are all the level settings\n// color settings range from 0.0 to 1.0\n// default min is 0.0\n// default max is 1.0\n// gamma ranges from 0.0 to 9.99, default is 1.0\nuniform float rgb_in_min;\nuniform float rgb_in_max;\nuniform float rgb_out_min;\nuniform float rgb_out_max;\nuniform float rgb_gamma;\n\nuniform float r_in_min;\nuniform float r_in_max;\nuniform float r_out_min;\nuniform float r_out_max;\nuniform float r_gamma;\n\nuniform float g_in_min;\nuniform float g_in_max;\nuniform float g_out_min;\nuniform float g_out_max;\nuniform float g_gamma;\n\nuniform float b_in_min;\nuniform float b_in_max;\nuniform float b_out_min;\nuniform float b_out_max;\nuniform float b_gamma;\n\n// these control the curves settings\n// each texture represents the mapping of color values\nuniform sampler2D rgb_curve_points;\nuniform bool rgb_curve_enabled;\n\nuniform sampler2D r_curve_points;\nuniform bool r_curve_enabled;\n\nuniform sampler2D g_curve_points;\nuniform bool g_curve_enabled;\n\nuniform sampler2D b_curve_points;\nuniform bool b_curve_enabled;\n\n// HSL\nuniform float hue;\nuniform float saturation;\nuniform float lightness;\n\nuniform float cyans_hue;\nuniform float cyans_saturation;\n\nuniform float magentas_hue;\nuniform float magentas_saturation;\n\nuniform float yellows_hue;\nuniform float yellows_saturation;\n\nuniform float reds_hue;\nuniform float reds_saturation;\n\nuniform float greens_hue;\nuniform float greens_saturation;\n\nuniform float blues_hue;\nuniform float blues_saturation;\n\n// selective color controls\nuniform float cyans_cyan_shift;\nuniform float cyans_magenta_shift;\nuniform float cyans_yellow_shift;\nuniform float cyans_black_shift;\nuniform float cyans_red_shift;\nuniform float cyans_green_shift;\nuniform float cyans_blue_shift;\nuniform float cyans_gray_shift;\nuniform float cyans_white_shift;\n\nuniform float magentas_cyan_shift;\nuniform float magentas_magenta_shift;\nuniform float magentas_yellow_shift;\nuniform float magentas_black_shift;\nuniform float magentas_red_shift;\nuniform float magentas_green_shift;\nuniform float magentas_blue_shift;\nuniform float magentas_gray_shift;\nuniform float magentas_white_shift;\n\nuniform float yellows_cyan_shift;\nuniform float yellows_magenta_shift;\nuniform float yellows_yellow_shift;\nuniform float yellows_black_shift;\nuniform float yellows_red_shift;\nuniform float yellows_green_shift;\nuniform float yellows_blue_shift;\nuniform float yellows_gray_shift;\nuniform float yellows_white_shift;\n\nuniform float reds_cyan_shift;\nuniform float reds_magenta_shift;\nuniform float reds_yellow_shift;\nuniform float reds_black_shift;\nuniform float reds_red_shift;\nuniform float reds_green_shift;\nuniform float reds_blue_shift;\nuniform float reds_gray_shift;\nuniform float reds_white_shift;\n\nuniform float greens_cyan_shift;\nuniform float greens_magenta_shift;\nuniform float greens_yellow_shift;\nuniform float greens_black_shift;\nuniform float greens_red_shift;\nuniform float greens_green_shift;\nuniform float greens_blue_shift;\nuniform float greens_gray_shift;\nuniform float greens_white_shift;\n\nuniform float blues_cyan_shift;\nuniform float blues_magenta_shift;\nuniform float blues_yellow_shift;\nuniform float blues_black_shift;\nuniform float blues_red_shift;\nuniform float blues_green_shift;\nuniform float blues_blue_shift;\nuniform float blues_gray_shift;\nuniform float blues_white_shift;\n\nuniform float blacks_cyan_shift;\nuniform float blacks_magenta_shift;\nuniform float blacks_yellow_shift;\nuniform float blacks_black_shift;\nuniform float blacks_red_shift;\nuniform float blacks_green_shift;\nuniform float blacks_blue_shift;\nuniform float blacks_gray_shift;\nuniform float blacks_white_shift;\n\nuniform float grays_cyan_shift;\nuniform float grays_magenta_shift;\nuniform float grays_yellow_shift;\nuniform float grays_black_shift;\nuniform float grays_red_shift;\nuniform float grays_green_shift;\nuniform float grays_blue_shift;\nuniform float grays_gray_shift;\nuniform float grays_white_shift;\n\nuniform float whites_cyan_shift;\nuniform float whites_magenta_shift;\nuniform float whites_yellow_shift;\nuniform float whites_black_shift;\nuniform float whites_red_shift;\nuniform float whites_green_shift;\nuniform float whites_blue_shift;\nuniform float whites_gray_shift;\nuniform float whites_white_shift;\n\nfloat mix_factor(vec4 range, vec3 hsl) {\n  float mix_factor = 0.0;\n\n  if (hsl.x >= range.x && hsl.x <= range.w) {\n    // lower range\n    if (hsl.x >= range.x && hsl.x < range.y) {\n      mix_factor = smoothstep(range.x, range.y, hsl.x);\n    }\n\n    // target range\n    if (hsl.x >= range.y && hsl.x <= range.z) {\n      mix_factor = 1.0;\n    }\n\n    // upper range\n    if (hsl.x > range.z && hsl.x <= range.w) {\n      mix_factor = 1.0 - smoothstep(range.z, range.w, hsl.x);\n    }\n  }\n\n  vec2 lightness_range = vec2(0.0, 0.08333);\n  vec2 saturation_range = vec2(0.0, 0.08333);\n  mix_factor *= smoothstep(saturation_range.x, saturation_range.y, hsl.y);\n  mix_factor *= smoothstep(lightness_range.x, lightness_range.y, hsl.z);\n\n  return mix_factor;\n}\n\n// Returns a number between 0 and 1 as if the number line is circular\n// 1.1 => 0.1\n// -0.1 => 0.9\nfloat clamp_continuous(float value) {\n  float unit = value;\n\n  if (unit > 1.0) {\n    unit = mod(unit, 1.0);\n  } else if (unit < 0.0) {\n    unit = 1.0 + unit;\n  }\n\n  return unit;\n}\n\n// These functions based on http://www.chilliant.com/rgb2hsv.html\nvec3 HUEtoRGB(float h) {\n  float r = abs(h * 6.0 - 3.0) - 1.0;\n  float g = 2.0 - abs(h * 6.0 - 2.0);\n  float b = 2.0 - abs(h * 6.0 - 4.0);\n  return clamp(vec3(r, g, b), 0.0, 1.0);\n}\n\nvec3 RGBtoHCV(vec3 RGB) {\n  float Epsilon = 0.00000000001;\n  // Based on work by Sam Hocevar and Emil Persson\n  vec4 P = (RGB.g < RGB.b) ? vec4(RGB.bg, -1.0, 2.0/3.0) : vec4(RGB.gb, 0.0, -1.0/3.0);\n  vec4 Q = (RGB.r < P.x) ? vec4(P.xyw, RGB.r) : vec4(RGB.r, P.yzx);\n  float C = Q.x - min(Q.w, Q.y);\n  float H = abs((Q.w - Q.y) / (6.0 * C + Epsilon) + Q.z);\n  return vec3(H, C, Q.x);\n}\n\nvec3 RGBtoHSL(vec3 RGB) {\n  float Epsilon = 0.00000000001;\n  vec3 HCV = RGBtoHCV(RGB);\n  float L = HCV.z - HCV.y * 0.5;\n  float S = HCV.y / (1.0 - abs(L * 2.0 - 1.0) + Epsilon);\n  return vec3(HCV.x, S, L);\n}\n\nvec3 HSLtoRGB(vec3 HSL) {\n  vec3 RGB = HUEtoRGB(HSL.x);\n  float C = (1.0 - abs(2.0 * HSL.z - 1.0)) * HSL.y;\n  return (RGB - 0.5) * C + HSL.z;\n}\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(screenPosition.s, screenPosition.t));\n  float alpha = color.a;\n\n  ////////////////////////////\n  /////// brightness /////////\n  ////////////////////////////\n  color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), brightness - 1.0);\n  color.a = 1.0;\n\n  ////////////////////////////\n  //////// contrast //////////\n  ////////////////////////////\n  color.r = ((color.r - mid) * contrast) + mid;\n  color.g = ((color.g - mid) * contrast) + mid;\n  color.b = ((color.b - mid) * contrast) + mid;\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////// levels ///////////\n  ////////////////////////////\n  // First adjust levels based on all channels\n  // Map the color according to the new min and max\n  color = min(max(color - rgb_in_min, 0.0)/(rgb_in_max - rgb_in_min), 1.0);\n  color.a = 1.0;\n\n  // Gamma correction\n  color = pow(color, vec4(1.0 / rgb_gamma));\n  color.a = 1.0;\n\n  // Linear interpolation based on output values\n  // returns min * (1 - color) + max * color\n  color = mix(vec4(rgb_out_min), vec4(rgb_out_max), color);\n  color.a = 1.0;\n\n  // Then adjust channels seperately\n  color.r = min(max(color.r - r_in_min, 0.0)/(r_in_max - r_in_min), 1.0);\n  color.r = pow(color.r, (1.0 / r_gamma));\n  color.r = mix(r_out_min, r_out_max, color.r);\n  color.a = 1.0;\n\n  color.g = min(max(color.g - g_in_min, 0.0)/(g_in_max - g_in_min), 1.0);\n  color.g = pow(color.g, (1.0 / g_gamma));\n  color.g = mix(g_out_min, g_out_max, color.g);\n  color.a = 1.0;\n\n  color.b = min(max(color.b - b_in_min, 0.0)/(b_in_max - b_in_min), 1.0);\n  color.b = pow(color.b, (1.0 / b_gamma));\n  color.b = mix(b_out_min, b_out_max, color.b);\n  color.a = 1.0;\n\n  ////////////////////////////\n  ///////   curves   /////////\n  ////////////////////////////\n\n  // rgb curves\n  if (rgb_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n\n    float out_r = texture2D(rgb_curve_points, vec2(in_r, 0.5)).x;\n    float out_g = texture2D(rgb_curve_points, vec2(in_g, 0.5)).x;\n    float out_b = texture2D(rgb_curve_points, vec2(in_b, 0.5)).x;\n\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  // r curves\n  if (r_curve_enabled) {\n    float in_r = clamp(color.r, 0.0001, 0.9999);\n    float out_r = texture2D(r_curve_points, vec2(in_r, 0.5)).x;\n    color.r = clamp(mix(0.0, 1.0, out_r), 0.0, 1.0);\n  }\n\n  // g curves\n  if (g_curve_enabled) {\n    float in_g = clamp(color.g, 0.0001, 0.9999);\n    float out_g = texture2D(g_curve_points, vec2(in_g, 0.5)).x;\n    color.g = clamp(mix(0.0, 1.0, out_g), 0.0, 1.0);\n  }\n\n  // b curves\n  if (b_curve_enabled) {\n    float in_b = clamp(color.b, 0.0001, 0.9999);\n    float out_b = texture2D(b_curve_points, vec2(in_b, 0.5)).x;\n    color.b = clamp(mix(0.0, 1.0, out_b), 0.0, 1.0);\n  }\n\n  ////////////////////////////\n  ////         HSL        ////\n  ////////////////////////////\n\n  vec3 hsl = RGBtoHSL(color.rgb);\n\n  // Color ranges here\n  // https://gist.github.com/actionnick/d184d17e39d1669759204bcb8eaad501\n\n  vec4 MASTER_RANGE = vec4(0.0, 0.0, 1.0, 1.0);\n  vec4 CYAN_RANGE = vec4(0.375, 0.4583, 0.54167, 0.625);\n  vec4 MAGENTA_RANGE = vec4(0.7083, 0.79167, 0.875, 0.9583);\n  vec4 YELLOW_RANGE = vec4(0.04167, 0.125, 0.2083, 0.29167);\n  vec4 RED_RANGE_1 = vec4(0.875, 0.9583, 1.0, 1.0); // Red is a special case because it goes from 315 -> 45 degrees\n  vec4 RED_RANGE_2 = vec4(0.0, 0.0, 0.04167, 0.125);\n  vec4 GREEN_RANGE = vec4(0.2083, 0.29167, 0.375, 0.4583);\n  vec4 BLUE_RANGE = vec4(0.54167, 0.625, 0.7083, 0.79167);\n\n  // Master\n  float master_mix_factor = mix_factor(MASTER_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (hue * master_mix_factor));\n  hsl.y = clamp(hsl.y + (saturation * master_mix_factor), 0.0, 1.0);\n  hsl.z = clamp(mix(hsl.z, 1.0, max(0.0, lightness)), 0.0, 1.0);\n  hsl.z = clamp(mix(hsl.z, 0.0, abs(min(0.0, lightness))), 0.0, 1.0);\n\n  // Cyan\n  float cyans_mix_factor = mix_factor(CYAN_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (cyans_hue * cyans_mix_factor));\n  hsl.y = clamp(hsl.y + (cyans_saturation * cyans_mix_factor), 0.0, 1.0);\n\n  // Magentas\n  float magentas_mix_factor = mix_factor(MAGENTA_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (magentas_hue * magentas_mix_factor));\n  hsl.y = clamp(hsl.y + (magentas_saturation * magentas_mix_factor), 0.0, 1.0);\n\n  // Yellows\n  float yellows_mix_factor = mix_factor(YELLOW_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (yellows_hue * yellows_mix_factor));\n  hsl.y = clamp(hsl.y + (yellows_saturation * yellows_mix_factor), 0.0, 1.0);\n\n  // Reds\n  float reds_mix_factor = max(mix_factor(RED_RANGE_1, hsl), mix_factor(RED_RANGE_2, hsl));\n  hsl.x = clamp_continuous(hsl.x + (reds_hue * reds_mix_factor));\n  hsl.y = clamp(hsl.y + (reds_saturation * reds_mix_factor), 0.0, 1.0);\n\n  // Greens\n  float greens_mix_factor = mix_factor(GREEN_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (greens_hue * greens_mix_factor));\n  hsl.y = clamp(hsl.y + (greens_saturation * greens_mix_factor), 0.0, 1.0);\n\n  // Blues\n  float blues_mix_factor = mix_factor(BLUE_RANGE, hsl);\n  hsl.x = clamp_continuous(hsl.x + (blues_hue * blues_mix_factor));\n  hsl.y = clamp(hsl.y + (blues_saturation * blues_mix_factor), 0.0, 1.0);\n\n  color.rgb = HSLtoRGB(hsl);\n\n  ////////////////////////////\n  ////  selective color   ////\n  ////////////////////////////\n\n  vec3 CYAN = vec3(0.0, 1.0, 1.0);\n  vec3 MAGENTA = vec3(1.0, 0.0, 1.0);\n  vec3 YELLOW = vec3(1.0, 1.0, 0.0);\n  vec3 BLACK = vec3(0.0, 0.0, 0.0);\n  vec3 RED = vec3(1.0, 0.0, 0.0);\n  vec3 GREEN = vec3(0.0, 1.0, 0.0);\n  vec3 BLUE = vec3(0.0, 0.0, 1.0);\n  vec3 WHITE = vec3(1.0, 1.0, 1.0);\n  vec3 GRAY = vec3(0.5, 0.5, 0.5);\n  float MAX_DISTANCE = length(vec3(1.0, 1.0, 1.0));\n\n  // cyans\n  color.rgb = mix(color.rgb, (CYAN * color.rgb), cyans_mix_factor * cyans_cyan_shift);\n  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), cyans_mix_factor * cyans_magenta_shift);\n  color.rgb = mix(color.rgb, (YELLOW * color.rgb), cyans_mix_factor * cyans_yellow_shift);\n  color.rgb = mix(color.rgb, (RED * color.rgb), cyans_mix_factor * cyans_red_shift);\n  color.rgb = mix(color.rgb, (GREEN * color.rgb), cyans_mix_factor * cyans_green_shift);\n  color.rgb = mix(color.rgb, (BLUE * color.rgb), cyans_mix_factor * cyans_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, cyans_mix_factor * cyans_white_shift);\n  color.rgb = mix(color.rgb, GRAY, cyans_mix_factor * cyans_gray_shift);\n  color.rgb = mix(color.rgb, BLACK, cyans_mix_factor * cyans_black_shift);\n\n  // magentas\n  color.rgb = mix(color.rgb, (CYAN * color.rgb), magentas_mix_factor * magentas_cyan_shift);\n  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), magentas_mix_factor * magentas_magenta_shift);\n  color.rgb = mix(color.rgb, (YELLOW * color.rgb), magentas_mix_factor * magentas_yellow_shift);\n  color.rgb = mix(color.rgb, (RED * color.rgb), magentas_mix_factor * magentas_red_shift);\n  color.rgb = mix(color.rgb, (GREEN * color.rgb), magentas_mix_factor * magentas_green_shift);\n  color.rgb = mix(color.rgb, (BLUE * color.rgb), magentas_mix_factor * magentas_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, magentas_mix_factor * magentas_white_shift);\n  color.rgb = mix(color.rgb, GRAY, magentas_mix_factor * magentas_gray_shift);\n  color.rgb = mix(color.rgb, BLACK, magentas_mix_factor * magentas_black_shift);\n\n  // yellows\n  color.rgb = mix(color.rgb, (CYAN * color.rgb), yellows_mix_factor * yellows_cyan_shift);\n  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), yellows_mix_factor * yellows_magenta_shift);\n  color.rgb = mix(color.rgb, (YELLOW * color.rgb), yellows_mix_factor * yellows_yellow_shift);\n  color.rgb = mix(color.rgb, (RED * color.rgb), yellows_mix_factor * yellows_red_shift);\n  color.rgb = mix(color.rgb, (GREEN * color.rgb), yellows_mix_factor * yellows_green_shift);\n  color.rgb = mix(color.rgb, (BLUE * color.rgb), yellows_mix_factor * yellows_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, yellows_mix_factor * yellows_white_shift);\n  color.rgb = mix(color.rgb, GRAY, yellows_mix_factor * yellows_gray_shift);\n  color.rgb = mix(color.rgb, BLACK, yellows_mix_factor * yellows_black_shift);\n\n  // reds\n  color.rgb = mix(color.rgb, (CYAN * color.rgb), reds_mix_factor * reds_cyan_shift);\n  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), reds_mix_factor * reds_magenta_shift);\n  color.rgb = mix(color.rgb, (YELLOW * color.rgb), reds_mix_factor * reds_yellow_shift);\n  color.rgb = mix(color.rgb, (RED * color.rgb), reds_mix_factor * reds_red_shift);\n  color.rgb = mix(color.rgb, (GREEN * color.rgb), reds_mix_factor * reds_green_shift);\n  color.rgb = mix(color.rgb, (BLUE * color.rgb), reds_mix_factor * reds_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, reds_mix_factor * reds_white_shift);\n  color.rgb = mix(color.rgb, GRAY, reds_mix_factor * reds_gray_shift);\n  color.rgb = mix(color.rgb, BLACK, reds_mix_factor * reds_black_shift);\n\n  // greens\n  color.rgb = mix(color.rgb, (CYAN * color.rgb), greens_mix_factor * greens_cyan_shift);\n  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), greens_mix_factor * greens_magenta_shift);\n  color.rgb = mix(color.rgb, (YELLOW * color.rgb), greens_mix_factor * greens_yellow_shift);\n  color.rgb = mix(color.rgb, (RED * color.rgb), greens_mix_factor * greens_red_shift);\n  color.rgb = mix(color.rgb, (GREEN * color.rgb), greens_mix_factor * greens_green_shift);\n  color.rgb = mix(color.rgb, (BLUE * color.rgb), greens_mix_factor * greens_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, greens_mix_factor * greens_white_shift);\n  color.rgb = mix(color.rgb, GRAY, greens_mix_factor * greens_gray_shift);\n  color.rgb = mix(color.rgb, BLACK, greens_mix_factor * greens_black_shift);\n\n  // blues\n  color.rgb = mix(color.rgb, (CYAN * color.rgb), blues_mix_factor * blues_cyan_shift);\n  color.rgb = mix(color.rgb, (MAGENTA * color.rgb), blues_mix_factor * blues_magenta_shift);\n  color.rgb = mix(color.rgb, (YELLOW * color.rgb), blues_mix_factor * blues_yellow_shift);\n  color.rgb = mix(color.rgb, (RED * color.rgb), blues_mix_factor * blues_red_shift);\n  color.rgb = mix(color.rgb, (GREEN * color.rgb), blues_mix_factor * blues_green_shift);\n  color.rgb = mix(color.rgb, (BLUE * color.rgb), blues_mix_factor * blues_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, blues_mix_factor * blues_white_shift);\n  color.rgb = mix(color.rgb, GRAY, blues_mix_factor * blues_gray_shift);\n  color.rgb = mix(color.rgb, BLACK, blues_mix_factor * blues_black_shift);\n\n  // blacks\n  float black_distance = length(BLACK - color.rgb);\n  float black_mix_factor = pow(1.0 - (black_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, black_mix_factor * blacks_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, black_mix_factor * blacks_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, black_mix_factor * blacks_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, black_mix_factor * blacks_black_shift);\n  color.rgb = mix(color.rgb, RED, black_mix_factor * blacks_red_shift);\n  color.rgb = mix(color.rgb, GREEN, black_mix_factor * blacks_green_shift);\n  color.rgb = mix(color.rgb, BLUE, black_mix_factor * blacks_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, black_mix_factor * blacks_white_shift);\n  color.rgb = mix(color.rgb, GRAY, black_mix_factor * blacks_gray_shift);\n\n  // grays\n  float gray_distance = length(GRAY - color.rgb);\n  float gray_mix_factor = pow(1.0 - (gray_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, gray_mix_factor * grays_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, gray_mix_factor * grays_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, gray_mix_factor * grays_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, gray_mix_factor * grays_black_shift);\n  color.rgb = mix(color.rgb, RED, gray_mix_factor * grays_red_shift);\n  color.rgb = mix(color.rgb, GREEN, gray_mix_factor * grays_green_shift);\n  color.rgb = mix(color.rgb, BLUE, gray_mix_factor * grays_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, gray_mix_factor * grays_white_shift);\n  color.rgb = mix(color.rgb, GRAY, gray_mix_factor * grays_gray_shift);\n\n  // whites\n  float white_distance = length(WHITE - color.rgb);\n  float white_mix_factor = pow(1.0 - (white_distance / MAX_DISTANCE), 5.0);\n\n  color.rgb = mix(color.rgb, CYAN, white_mix_factor * whites_cyan_shift);\n  color.rgb = mix(color.rgb, MAGENTA, white_mix_factor * whites_magenta_shift);\n  color.rgb = mix(color.rgb, YELLOW, white_mix_factor * whites_yellow_shift);\n  color.rgb = mix(color.rgb, BLACK, white_mix_factor * whites_black_shift);\n  color.rgb = mix(color.rgb, RED, white_mix_factor * whites_red_shift);\n  color.rgb = mix(color.rgb, GREEN, white_mix_factor * whites_green_shift);\n  color.rgb = mix(color.rgb, BLUE, white_mix_factor * whites_blue_shift);\n  color.rgb = mix(color.rgb, WHITE, white_mix_factor * whites_white_shift);\n  color.rgb = mix(color.rgb, GRAY, white_mix_factor * whites_gray_shift);\n\n  // always preserve alpha\n  color.a = alpha;\n  gl_FragColor = color;\n}\n");
     this.shader.attributes.position.location = 0;
     this.fbo = glFbo(gl, [gl.drawingBufferWidth, gl.drawingBufferHeight]);
     this.fbo.color[0].minFilter = gl.LINEAR;
@@ -59472,7 +57311,7 @@ var Filter = function () {
 
 module.exports = Filter;
 
-},{"./exposure_settings":364,"a-big-triangle":12,"gl-fbo":55,"gl-shader":81,"glslify":104,"lodash":122}],366:[function(require,module,exports){
+},{"./exposure_settings":341,"a-big-triangle":12,"gl-fbo":55,"gl-shader":81,"glslify":104,"lodash":120}],343:[function(require,module,exports){
 "use strict";
 
 var _createClass = function () {
@@ -59493,13 +57332,12 @@ function _classCallCheck(instance, Constructor) {
 
 var mat4 = require("gl-mat4");
 var glShader = require("gl-shader");
-var glslify = require("glslify");
 var Filter = require("./filter");
-var resizeImage = require("./resize_image");
 var createThumbnail = require("./create_thumbnail");
 var _ = require("lodash");
 var uuid = require("uuid");
 var _download = require("downloadjs");
+var glslify = require("glslify");
 
 var MAX_SIZE = 2500;
 var THUMBNAIL_SIZE = 300;
@@ -59539,7 +57377,7 @@ var Frame = function () {
       this.filter = new Filter(gl, this.json);
 
       // shader for drawing image
-      this.shader = glShader(gl, glslify(["#define GLSLIFY 1\n#define GLSLIFY 1\nattribute vec3 position;\n\nuniform mat4 p_matrix;\nuniform mat4 mv_matrix;\n\nvarying vec2 uv;\n\nvoid main() {\n  gl_Position = p_matrix * mv_matrix * vec4(position, 1.0);\n  uv = position.xy;\n}\n"]), glslify(["precision highp float;\n#define GLSLIFY 1\n#define GLSLIFY 1\nvarying vec2 uv;\n\nuniform sampler2D texture;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(uv.s, uv.t));\n  gl_FragColor = color;\n}\n"]));
+      this.shader = glShader(gl, "#define GLSLIFY 1\nattribute vec3 position;\n\nuniform mat4 p_matrix;\nuniform mat4 mv_matrix;\n\nvarying vec2 uv;\n\nvoid main() {\n  gl_Position = p_matrix * mv_matrix * vec4(position, 1.0);\n  uv = position.xy;\n}\n", "precision highp float;\n#define GLSLIFY 1\nvarying vec2 uv;\n\nuniform sampler2D texture;\n\nvoid main() {\n  vec4 color = texture2D(texture, vec2(uv.s, uv.t));\n  gl_FragColor = color;\n}\n");
 
       // create geometry buffer to draw image on
       this.buffer = gl.createBuffer();
@@ -59622,60 +57460,7 @@ var Frame = function () {
 
 module.exports = Frame;
 
-},{"./create_thumbnail":362,"./filter":365,"./resize_image":367,"downloadjs":25,"gl-mat4":66,"gl-shader":81,"glslify":104,"lodash":122,"uuid":352}],367:[function(require,module,exports){
-"use strict";
-
-var pica = require('pica');
-
-var createCanvas = function createCanvas(width, height) {
-  var canvas = document.createElement("canvas");
-  canvas.width = width;
-  canvas.height = height;
-  return canvas;
-};
-
-/**
- * Takes an img and resizes it so that it's largest size is equal to max size.
- * Calls callback with the new img object.
- */
-var resizeImage = function resizeImage(img, maxSize, callback) {
-  var width = img.width;
-  var height = img.height;
-  if (width <= maxSize && height <= maxSize) {
-    callback(img);
-    return;
-  }
-  var srcCanvas = createCanvas(width, height);
-  var destCanvas, newHeight, newWidth;
-
-  if (width > height) {
-    newWidth = maxSize;
-    newHeight = height / width * maxSize;
-  } else {
-    newWidth = width / height * maxSize;
-    newHeight = maxSize;
-  }
-
-  var ctx = srcCanvas.getContext("2d");
-  ctx.drawImage(img, 0, 0);
-
-  destCanvas = createCanvas(newWidth, newHeight);
-  pica.resizeCanvas(srcCanvas, destCanvas, function (err) {
-    if (err) {
-      throw err;
-    }
-    var imgBlob = destCanvas.toDataURL('image/png');
-    var newImg = document.createElement("img");
-    newImg.onload = function () {
-      callback(newImg);
-    };
-    newImg.src = imgBlob;
-  });
-};
-
-module.exports = resizeImage;
-
-},{"pica":135}],368:[function(require,module,exports){
+},{"./create_thumbnail":339,"./filter":342,"downloadjs":25,"gl-mat4":66,"gl-shader":81,"glslify":104,"lodash":120,"uuid":329}],344:[function(require,module,exports){
 "use strict";
 
 // Creates a [array.length x 1] texture where each pixel is a value in the array.
